@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-28T07:45:44.208Z</updated>
+    <updated>2023-01-28T14:47:41.675Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[晚间小憩]]></title>
+        <id>https://strangepapers.github.io/post/wan-jian-xiao-qi/</id>
+        <link href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
+        </link>
+        <updated>2023-01-28T14:37:15.000Z</updated>
+        <content type="html"><![CDATA[<p>​<audio id="audio" controls="" preload="none"><br>
+<source id="mp3" src="https://m701.music.126.net/20230128230733/5e046f6ade9489bb5ca718d8ae692c6e/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/10351843632/da51/4585/24d2/30ca8551e17e3875d7e997882551984b.m4a"><br>
+</audio></p>
+<p>这篇文章是在熄灯之后写的。<br>
+今天很累啊，但是什么都没有学到。<br>
+为什么？<br>
+看了看自己的手机使用记录，原来如此。<br>
+以后呢？<br>
+我又看了看日历，还有9天开学。<br>
+开学之后，很多东西就不是触手可得的了。<br>
+这九天，还是要准备啊。<br>
+准备一下开学的东西。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[老孙]]></title>
         <id>https://strangepapers.github.io/post/lao-sun/</id>
