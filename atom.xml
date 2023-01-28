@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-28T04:15:02.053Z</updated>
+    <updated>2023-01-28T04:28:56.356Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -64,6 +64,10 @@
 <br>
 苦。
 老孙。
+<br>
+<br>
+<p>本文作者为<font face="黑体">strangepapers</font>。<br>
+本文内容授权方式为<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
 ]]></content>
     </entry>
     <entry>
