@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-28T14:47:41.675Z</updated>
+    <updated>2023-01-29T02:09:51.303Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[人是要整活的]]></title>
+        <id>https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/</id>
+        <link href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/">
+        </link>
+        <updated>2023-01-29T01:46:11.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>人是要整活的——没活了，可不就是死了么？<br>
+--互联网</p>
+</blockquote>
+<p>今天想出去玩。<br>
+阳光不错。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[晚间小憩]]></title>
         <id>https://strangepapers.github.io/post/wan-jian-xiao-qi/</id>
