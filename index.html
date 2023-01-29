@@ -1,1215 +1,456 @@
-<!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="Gridea静态个人博客">
-<meta name="description" content="&lt;p&gt;&lt;font size=&#34;5&#34; color=&#34;white&#34; face=&#34;宋体&#34;&gt;中国青年，自强不息&lt;/font&gt;&lt;/p&gt;">
-<meta name="theme-color" content="#000">
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
 <title>strangepapers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1675003039567">
-<link rel="stylesheet" href="/styles/main.css">
-<link rel="stylesheet" href="/media/css/pisces.css">
+<link rel="shortcut icon" href="https://strangepapers.github.io//favicon.ico?v=1675003330314">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://strangepapers.github.io//styles/main.css" type='text/css' media='all'>
 
-<link rel="stylesheet" href="/media/fonts/font-awesome.css">
-<link
-  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
-  rel="stylesheet" type="text/css">
-
-<link href="/media/hljs/styles/androidstudio.css"
-  rel="stylesheet">
-
-<script src="/media/hljs/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
-
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
 
-</head>
 
-<body>
-  <div class="head-top-line"></div>
-  <div class="header-box">
-    
-<div class="pisces">
-  <header class="header  ">
-    <div class="blog-header box-shadow-wrapper bg-color " id="header">
-      <div class="nav-toggle" id="nav_toggle">
-        <div class="toggle-box">
-          <div class="line line-top"></div>
-          <div class="line line-center"></div>
-          <div class="line line-bottom"></div>
+  </head>
+  <body class="home blog ct-body standard">
+    <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+        <header id="site-header" class="site-header" role="banner">
+    <div class='top-navigation top-navigation-important'>
+        <div class='container'>
+            <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+                <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
+                <div class="menu">
+                    <ul id="menu-secondary-items" class="menu-secondary-items">
+                        
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://strangepapers.github.io/tag/suo-jian/">所见</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://strangepapers.github.io/tag/ri-chang/">日常</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://strangepapers.github.io/tag/1qwAAu6bG/">Gridea</a>
+                        </li>
+                            
+                        
+                    </ul>
+                </div>
+            </div>
+            <ul class="social-media-icons">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
         </div>
-      </div>
-      <div class="site-meta">       
-        <div class="site-title">
-          
-            <a href="/" class="brand">
-              <span>strangepapers</span>
-            </a>  
-          
-        </div>
-        
-          <p class="subtitle">该躺还得躺。</p>
-        
-      </div>
-      <nav class="site-nav" id="site_nav">
-        <ul id="nav_ul">
-          
-            
-            
-              
-            
-            <li class="nav-item nav-item-active">
-              
-              
-                <a href="/" target="_self">
-                  <i class="fa fa-home"></i> 首页
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/archives/" target="_self">
-                  <i class="fa fa-archive"></i> 归档
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/tags/" target="_self">
-                  <i class="fa fa-tags"></i> 标签
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/post/about/" target="_self">
-                  <i class="fa fa-user"></i> 关于
-                </a>
-              
-            </li>
-          
-          
-            
-              <li class="nav-item ">
-                <a href="/friends/" target="_self">
-                  
-                    <i class="fa fa-address-book"></i> 友情链接
-                  
-                </a>
-              </li>
-            
-          
-        </ul>
-      </nav>
     </div>
-  </header>
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="/https://strangepapers.github.io/">  strangepapers </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description"><p><font size="5" color="white" face="宋体">中国青年，自强不息</font></p></p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+        <div id="main" class="main" role="main">
+  <h1 class="screen-reader-text">Posts</h1>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2023-01-29 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://strangepapers.github.io/tag/suo-jian/">所见</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/"> print 还能这么玩 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2023-01-29 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://strangepapers.github.io/tag/ri-chang/">日常</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/"> 人是要整活的 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ts1.cn.mm.bing.net/th/id/R-C.84291087968fbc9e882d32bb4486515f?rik=E7LGR3IVaSRfwA&amp;riu=http%3a%2f%2fwww.33lc.com%2farticle%2fUploadPic%2f2012-8%2f2012849261381266.jpg&amp;ehk=c9FedHL6SnoO61VDA8mKdvoadeswlhaJkULuq9iFgDc%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2023-01-28 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://strangepapers.github.io/tag/ri-chang/">日常</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://strangepapers.github.io/post/wan-jian-xiao-qi/"> 晚间小憩 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://strangepapers.github.io/post/lao-sun/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://tse1-mm.cn.bing.net/th/id/OIP-C.YKl3BNx8hQpBn0tBJQyf-AHaEK?pid=ImgDet&amp;rs=1"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2023-01-28 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://strangepapers.github.io/post/lao-sun/"> 老孙 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ts1.cn.mm.bing.net/th/id/R-C.4d4f550f46961bb3f6cee424a5016f32?rik=o5AwvQVXuYkAlA&amp;riu=http%3a%2f%2fimage.qianye88.com%2fpic%2f863fb09263bcb0f2f97bf7d77e7289a0&amp;ehk=WRbw5YvsSK%2bsIeK%2bcU8ISSFIXl23buJ9nCRcN2hKW8Y%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2023-01-27 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/"> 爱情诚可贵，自由价更高，若为众生故，两者皆可抛。 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://strangepapers.github.io/post/zi-wo-gan-dong/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://img.zcool.cn/community/0144255afb8e64a801207ab475a594.jpg@1280w_1l_2o_100sh.jpg"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2023-01-27 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://strangepapers.github.io/tag/suo-jian/">所见</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://strangepapers.github.io/post/zi-wo-gan-dong/"> 自我感动 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://clubimg.club.vmall.com/data/attachment/forum/201407/05/073133xf33u40x3rb6lxux.jpg"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2023-01-27 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://strangepapers.github.io/tag/1qwAAu6bG/">Gridea</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/"> 我的第一个博客 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>
 
-<script type="text/javascript"> 
- 
-  let showNav = true;
-
-  let navToggle = document.querySelector('#nav_toggle'),
-  siteNav = document.querySelector('#site_nav');
-  
-  function navClick() {
-    let sideBar = document.querySelector('.sidebar');
-    let navUl = document.querySelector('#nav_ul');
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-    if (siteNav.classList.contains('nav-menu-active')) {
-      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
-    } else {
-      siteNav.style = "";
-    }
-  }
-
-  navToggle.addEventListener('click',navClick);  
-</script>
-  </div>
-  <div class="main-continer">
-    
-    <div
-      class="section-layout pisces ">
-      <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name">strangepapers</p>
-    
-    <div class="site-description right-motion">
-      
-      
-      
-        <p>该躺还得躺。</p>
-      
-      
-    </div>
-    
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
+        <nav class="navigation pagination" role="navigation">
+    <h2 class="screen-reader-text">Posts navigation</h2>
+    <div class="nav-links">
         
-        <span class="site-item-stat-count">7</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
+        
     </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">4</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
+</nav>
+
+        <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://strangepapers.github.io/"> strangepapers </a>
+    </h1>
+    <p class="site-description"><p><font size="5" color="white" face="宋体">中国青年，自强不息</font></p></p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
     </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">4</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  
-    
-      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
-      </div>
-    
-  
-  
-
-
-  <div class="sidebar-item">
-    
-  </div>
-
-</div>
-</div>
-<script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
-      }
-    });
-  }
-  </script>
-        <div class="section-box pisces">
-          <section class="section bg-color posts-expand slide-down-in">
+    <ul class="social-media-icons">
+        
             
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/">
-      print 还能这么玩
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2023-01-29</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/suo-jian/">
-        <span>所见</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>49<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
         
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/">
-      人是要整活的
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2023-01-29</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/ri-chang/">
-        <span>日常</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>29<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
-      晚间小憩
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2023-01-28</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/ri-chang/">
-        <span>日常</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>96<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://strangepapers.github.io/post/wan-jian-xiao-qi/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/lao-sun/">
-      老孙
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2023-01-28</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/chuang-zuo/">
-        <span>创作</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>770<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://strangepapers.github.io/post/lao-sun/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/">
-      爱情诚可贵，自由价更高，若为众生故，两者皆可抛。
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2023-01-27</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/chuang-zuo/">
-        <span>创作</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>412<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/zi-wo-gan-dong/">
-      自我感动
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2023-01-27</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/suo-jian/">
-        <span>所见</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>453<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://strangepapers.github.io/post/zi-wo-gan-dong/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/">
-      我的第一个博客
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2023-01-27</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/1qwAAu6bG/">
-        <span>Gridea</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>24<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-        
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-  
             
+        
             
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
-  </ul>
-</div>
-          </section>
-        </div>
-      </div>
-    </div>
-    <div class="footer-box">
-  <footer class="footer">
-    <div class="copyright">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
-    </div>
-    <div class="poweredby">
-      <a href="https://zqr.wikidot.com"><font face="Arial Black">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p><a href="https://zqr.wikidot.com"><font face="Arial Black">
 Author's web page</font></a>
 <br>
-
+</p>
     </div>
-  </footer>
-  
-  
-  <div class="pisces back-to-top" id="back_to_top">
-    <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
-    
-  </div>
-  
-    <div class="bg-img">
-      <img src="https://img.tt98.com/d/2020/2020061018025866/5ee0a1e6cb0c3.jpg" />
-    </div>
-  
-  
-  
-    
-
-  
-</div>
+</footer>
 <script>
-
-  let sideBarOpen = 'sidebar-open';
-  let body = document.body;
-  let back2Top = document.querySelector('#back_to_top'),
-  back2TopText = document.querySelector('#back_to_top_text'),
-  drawerBox = document.querySelector('#drawer_box'),
-  rightSideBar = document.querySelector('.sidebar'),
-  viewport = document.querySelector('body');
-
-  function scrollAnimation(currentY, targetY) {
-   
-    let needScrollTop = targetY - currentY
-    let _currentY = currentY
-    setTimeout(() => {
-      const dist = Math.ceil(needScrollTop / 10)
-      _currentY += dist
-      window.scrollTo(_currentY, currentY)
-      if (needScrollTop > 10 || needScrollTop < -10) {
-        scrollAnimation(_currentY, targetY)
-      } else {
-        window.scrollTo(_currentY, targetY)
-      }
-    }, 1)
-  }
-
-  back2Top.addEventListener("click", function(e) {
-    scrollAnimation(document.scrollingElement.scrollTop, 0);
-    e.stopPropagation();
-    return false;
-  });
-  
-  window.addEventListener('scroll', function(e) {
-    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
-    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
-      back2Top.classList.add('back-top-active');
-    }
-    if (percent == 0) {
-      back2Top.classList.remove('back-top-active');
-    }
-    if (back2TopText) {
-      back2TopText.textContent = Math.floor(percent);
-    }
-  });
-
-  
-  let hasCacu = false;
-  window.onresize = function() {
-    if (window.width > 991) {
-      calcuHeight();
-    } else {
-      hasCacu = false;
-    }
-  }
-
-  function calcuHeight() {
-    // 动态调整站点概览高度
-    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
-      let sideBar = document.querySelector('.sidebar');
-      let navUl = document.querySelector('#site_nav');
-      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
-      hasCacu = true;
-    }
-  }
-  calcuHeight();
-  
-  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
-
-  if (drawerBox) {
-    let rightMotions = document.querySelectorAll('.right-motion');
-    let right = drawerBox.classList.contains('right');
-
-    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
-
-    let openProp, closeProp;
-    if (right) {
-      openProp = {
-        paddingRight: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingRight: '0px'
-      };
-    } else {
-      openProp = {
-        paddingLeft: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingLeft: '0px'
-      };
-    }
-
-    drawerBox.onclick = function() {
-      open = !open;
-      window.Velocity(rightSideBar, 'stop');
-      window.Velocity(viewport, 'stop');
-      window.Velocity(rightMotions, 'stop');
-      if (open) {
-        window.Velocity(rightSideBar, {
-          width: RIGHT_MOVE_DIS
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, transitionDir,{ });
-          }
-        })
-        window.Velocity(viewport, openProp,{
-          duration: MOTION_TIME
-        });
-      } else {
-        window.Velocity(rightSideBar, {
-          width: '0px'
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, {
-              opacity: 0
-            });
-          }
-        })
-        window.Velocity(viewport, closeProp ,{
-          duration: MOTION_TIME
-        });
-      }
-      for (let i = 0; i < drawerBox.children.length; i++) {
-        drawerBox.children[i].classList.toggle('muse-line');
-      }
-      drawerBox.classList.toggle(sideBarOpen);
-    }
-  }
-
-  // 链接跳转
-  let newWindow = 'false'
-  if (newWindow === 'true') {
-    let links = document.querySelectorAll('.post-body a')
-    links.forEach(item => {
-      if (!item.classList.contains('btn')) {
-        item.setAttribute("target","_blank");
-      }
-    })
-  }
-  // 代码高亮
-  hljs.initHighlightingOnLoad();
-
+    hljs.initHighlightingOnLoad()
 </script>
-    <div class="light-box" id="light_box"></div>
-<script>
-  let imgs = document.querySelectorAll('.post-body img');
-  let lightBox = document.querySelector('#light_box');
-  lightBox.addEventListener('mousedown', (e) => {
-    e.preventDefault()
-  })
-  lightBox.addEventListener('mousewheel', (e) => {
-    e.preventDefault()
-  })
-  let width = window.innerWidth * 0.8;
-  lightBox.onclick = () => {
-    let img = lightBox.querySelector('img');
-    lightBox.style = '';
-    img && img.remove();
-  }
-  imgs.forEach(item => {
-    item.onclick = function (e) {
-      let lightImg = document.createElement('img');
-      lightImg.src = this.src;
-      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
-      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
-      lightImg.onclick = function () {
-        lightBox.style = '';
-        this.remove();
-      }
-      lightBox.append(lightImg);
-    }
-  })
-</script>
-  </div>
-</body>
-<input hidden id="copy" />
-<script>
-  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
-  window.Clipboard = (function (window, document, navigator) {
-    var textArea,
-      copy;
-
-    // 判断是不是ios端
-    function isOS() {
-      return navigator.userAgent.match(/ipad|iphone/i);
-    }
-    //创建文本元素
-    function createTextArea(text) {
-      textArea = document.createElement('textArea');
-      textArea.value = text;
-      textArea.style.width = 0;
-      textArea.style.height = 0;
-      textArea.clientHeight = 0;
-      textArea.clientWidth = 0;
-      document.body.appendChild(textArea);
-    }
-    //选择内容
-    function selectText() {
-      var range,
-        selection;
-
-      if (isOS()) {
-        range = document.createRange();
-        range.selectNodeContents(textArea);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        textArea.setSelectionRange(0, 999999);
-      } else {
-        textArea.select();
-      }
-    }
-
-    //复制到剪贴板
-    function copyToClipboard() {
-      try {
-        document.execCommand("Copy")
-      } catch (err) {
-        alert("复制错误！请手动复制！")
-      }
-      document.body.removeChild(textArea);
-    }
-
-    copy = function (text) {
-      createTextArea(text);
-      selectText();
-      copyToClipboard();
-    };
-
-    return {
-      copy: copy
-    };
-  })(window, document, navigator);
-
-  function copyCode(e) {
-    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
-      let code = e.currentTarget.querySelector('code');
-      var text = code.innerText;
-      if (e.srcElement.textContent === '复制成功') {
-        console.log('复制操作频率过高');
-        return;
-      }
-      e.srcElement.textContent = '复制成功';
-      (function (elem) {
-        setTimeout(() => {
-          if (elem.textContent === '复制成功') {
-            elem.textContent = '复制代码'
-          }
-        }, 1000);
-      })(e.srcElement)
-      Clipboard.copy(text);
-    }
-  }
-
-  let pres = document.querySelectorAll('pre');
-  pres.forEach(pre => {
-    let code = pre.querySelector('code');
-    let copyElem = document.createElement('span');
-    copyElem.classList.add('copy-code');
-    copyElem.textContent = '复制代码';
-    pre.appendChild(copyElem);
-    pre.onclick = copyCode
-  })
-</script>
-<script src="/media/js/motion.js"></script>
-
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-<script>
-  var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 500
-  });
-</script>
-
-<!-- <div class="search-mask" id="search_mask">
-  <div class="search-box">
-    <div class="search-title">
-      <i class="fa fa-search"></i>
-      <div class="input-box">
-        <input type="text" placeholder="搜索">
+<script src="https://strangepapers.github.io//media/scripts/lib/jquery.min.js"></script>
+<script src="https://strangepapers.github.io//media/scripts/lib/jquerymigrate.js"></script>
+<script src="https://strangepapers.github.io//media/scripts/lib/production.min.js"></script>
       </div>
-      <i class="fa fa-times-circle"></i>
-    </div>
-    <div class="result">
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/"" data-c="
-          &lt;!-- more --&gt;
-&lt;p&gt;哇，牛的嘞&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import time    ##引入时间
-
-print(&amp;quot;---EXAMPLE ： Loading 效果---&amp;quot;)
-
-print(&amp;quot;Loading&amp;quot;,end = &amp;quot;&amp;quot;)
-for i in range(20):      ##20次循环
-print(&amp;quot;.&amp;quot;,end = &#39;&#39;,flush = True)      ##输出“. . . . ”
-time.sleep(0.5)   ##每0.5秒
-&lt;/code&gt;&lt;/pre&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://strangepapers.github.io//post-images/1674996195212.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-">print 还能这么玩</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/"" data-c="
-          &lt;blockquote&gt;
-&lt;p&gt;人是要整活的——没活了，可不就是死了么？&lt;br&gt;
---互联网&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;今天想出去玩。&lt;br&gt;
-阳光不错。&lt;/p&gt;
-">人是要整活的</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/wan-jian-xiao-qi/"" data-c="
-          &lt;p&gt;​&lt;audio id=&#34;audio&#34; controls=&#34;&#34; preload=&#34;none&#34;&gt;&lt;br&gt;
-&lt;source id=&#34;mp3&#34; src=&#34;http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a&#34;&gt;&lt;br&gt;
-&lt;/audio&gt;&lt;/p&gt;
-&lt;p&gt;这篇文章是在熄灯之后写的。&lt;br&gt;
-今天很累啊，但是什么都没有学到。&lt;br&gt;
-为什么？&lt;br&gt;
-看了看自己的手机使用记录，原来如此。&lt;br&gt;
-以后呢？&lt;br&gt;
-我又看了看日历，还有9天开学。&lt;br&gt;
-开学之后，很多东西就不是触手可得的了。&lt;br&gt;
-这九天，还是要准备啊。&lt;br&gt;
-准备一下开学的东西。&lt;/p&gt;
-">晚间小憩</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/lao-sun/"" data-c="
-          &lt;p&gt;卖完了废品。&lt;br&gt;
-他蹬着三轮车，回到了重归空荡的老房子里。&lt;br&gt;
-自己打开了半导体，钻进被窝，缓缓睡去。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-老齐来了。老齐之前是村里有名的知青，现在也有一个成家立业的儿子。老孙和他关系很好，经常在村里的水库旁抽烟闲聊。&lt;br&gt;
-&amp;quot;嗨，我告诉你，&amp;quot;老齐在屋里跟他说，&amp;quot;我的儿子明年就要结婚了！&amp;quot;老齐神色飞扬，生动的描绘种种。老孙也是高兴，俩人聊了很久。&lt;br&gt;
-&amp;quot;到时候他们结婚，我告诉你，你得跟我坐一桌，咱俩得好好喝一顿！&amp;quot;&lt;br&gt;
-&amp;quot;哈哈哈哈哈哈，咱不醉不归！&amp;quot;&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-雪花悄悄飘落，老孙迷迷糊糊的睁开眼，外面下起了雪。&lt;br&gt;
-他又睡了过去。&lt;br&gt;
-没想到，孙国成回来了。孙国成是老孙的小儿子。老孙又惊又喜，忙招呼进来。&lt;br&gt;
-孙国成阔步走进堂屋，这种感觉让老孙很难受。&lt;br&gt;
-老孙做起了他小时候最爱的九转大肠，满屋喷香。&lt;br&gt;
-孙国成说最近自己的公司又大赚一笔，等今年秋天，接老孙去城里住。&lt;br&gt;
-&amp;quot;我不要。&amp;quot;老孙摇摇头，&amp;quot;这人啊，生在土里，长在土里，死在土里。到城里会住不惯了。&amp;quot;&lt;br&gt;
-&amp;quot;你看看这老屋，还能住人吗？冬不保温，夏不清凉，还漏雨。还不如趁早住在城里给你安详晚年。&amp;quot;&lt;br&gt;
-老孙把菜端上桌，回到屋里躺着去了。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-下的雪花把老孙的被子打潮了，他打了个冷战。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-&amp;quot;青秀？&amp;quot;老孙发现当院有一个熟悉的背影。&lt;br&gt;
-&amp;quot;老孙啊，咋了？&amp;quot;&lt;br&gt;
-&amp;quot;真的是你啊！&amp;quot;&lt;br&gt;
-&amp;quot;啥真的假的，你是睡迷糊了吧！咱园子的麦子该收了。马上就夏至了，你还跟着有的没的。&amp;quot;&lt;br&gt;
-老孙高兴坏了。&amp;quot;好好好，我这就去看看。&amp;quot;&lt;br&gt;
-在地里，两人有一句没一句的聊着，老孙的脸上堆满了笑容。麦子却一直割不完。&lt;br&gt;
-然而，正是热的时候，老孙却不出汗，还感觉有点冷。&lt;br&gt;
-老孙已经完全不管这些了，而是目不转睛的看着青秀。&lt;br&gt;
-&amp;quot;青秀，我爱你。&amp;quot;&lt;br&gt;
-她羞的转过头去，&amp;quot;你说啥啊···&amp;quot;&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-老孙醒了。被子已经被打湿了。&lt;br&gt;
-他望着青秀的照片——三十年前的黑白照片。&lt;br&gt;
-老孙忍不住了，起身，抱着照片大哭了一场。&lt;br&gt;
-天渐渐亮了，老孙擦擦眼泪。来到了村里水库边上，独自抽起了烟。&lt;br&gt;
-之前齐军在世的时候，两人经常一起抽烟，谈天论地。&lt;br&gt;
-老孙一根一根的抽着，一根一根的愁着。&lt;br&gt;
-愁老齐没完成的心愿。&lt;br&gt;
-愁国成三岁时截肢的腿。&lt;br&gt;
-愁青秀还没享福就痴呆走丢的每一天。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-&amp;quot;有用吗？&amp;quot;&lt;br&gt;
-他问向自己。&lt;br&gt;
-烟抽完了，他继续干着工作。&lt;/p&gt;
-&lt;br&gt;
-苦。
-老孙。
-&lt;br&gt;
-&lt;br&gt;
-&lt;p&gt;本文作者为&lt;font face=&#34;黑体&#34;&gt;strangepapers&lt;/font&gt;。&lt;/p&gt;
-">老孙</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/"" data-c="
-          &lt;p&gt;真的，不知什么时候，自己突然有了“喜欢”这种感觉。&lt;br&gt;
-第一次感受到还是初三，现在竟然又一次感受到了？&lt;br&gt;
-不瞒您说，我对此并没有多大的冲动。&lt;br&gt;
-还是这句话：&lt;strong&gt;爱情诚可贵，自由价更高。若为众生故，两者皆可抛&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;看了看日历，距离开学没多少日子了。&lt;br&gt;
-最近这几年，日子啥的过的太快了。自己渐渐的记不住东西了。&lt;br&gt;
-没法，还是写下来吧，存成电子古董。&lt;br&gt;
-说回去，自由价更高。我知道，现在的我完全没有自由。&lt;br&gt;
-为什么这么说？&lt;br&gt;
-因为&lt;/p&gt;
-&lt;h2 id=&#34;我什么都不会&#34;&gt;我什么都不会。&lt;/h2&gt;
-&lt;p&gt;对。&lt;br&gt;
-今天晚上不知道发什么疯，写了这么多，也许是快开学了，有点情绪变化。&lt;br&gt;
-想到什么，就赶紧写下来，生怕自己一转眼就忘了。&lt;br&gt;
-自己想学习一些前端的东西，自学太累了。&lt;br&gt;
-这时我才发现在课堂上我落下了什么，一个strong标签我还要思考一阵。&lt;br&gt;
-于是我从头学起，发现自学是很难的。&lt;br&gt;
-之前，我每天中午都会出去走走，看看这座小城，看看我自己。&lt;br&gt;
-可是繁重的任务，压死我了。&lt;br&gt;
-这不，腊月三十英语老师还在留作业。&lt;br&gt;
-虽然我跟她说了暂时交不了，可是这也足以证明。&lt;br&gt;
-&lt;img src=&#34;https://i.328888.xyz/2023/01/27/jVOEb.png&#34; alt=&#34;jVOEb.png&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-嘿，累死了。&lt;br&gt;
-累死了。&lt;br&gt;
-累死了还会搞爱情吗？&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;p&gt;自己想写点东西。&lt;br&gt;
-主要是不想社交了。&lt;br&gt;
-抖音刷不明白，B站看不明白。&lt;br&gt;
-有点百无聊赖的感觉。&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;p&gt;上文写的有点没逻辑了。&lt;/p&gt;
-">爱情诚可贵，自由价更高，若为众生故，两者皆可抛。</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/zi-wo-gan-dong/"" data-c="
-          &lt;h2 id=&#34;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上获得一种畸形的满足感和安全感&#34;&gt;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。&lt;/h2&gt;
-&lt;p&gt;其实无论是雪夜去对方家楼下站会儿或者是冒着大雨给她送一杯奶茶什么的，自己回想起来往往觉得如乔峰大战聚贤庄、关羽干里走单骑一样壮杯激烈，而对于对方来说，一杯奶茶就是一杯奶茶，无法承载起你想要在上面寄托的山崩地裂的情悴。&lt;br&gt;
-少年的时候，总是迫不及待地将自己的满腔爱意表达出来，而结果往往是陷入表演之中而不自知。所以两个人的记忆オ会出现偏差，那些你觉得刻骨铭心的过去，对方往往没有同样的感觉，甚至茫然不知。成长的标志就是懂得克制自己。&lt;strong&gt;克制自己的情绪，克制自己的表演欲，甚至克制自己的喜欢&lt;/strong&gt;。少年时候，喜欢一个人恨不能把她变成自己身体的一部分，她刚说冷，我这边心里已经结冰了，她说难过，我立马如丧考妣，比她还难过，唯恐无法将自己的爱意表达出来。&lt;br&gt;
-而事实上，谁也无法承担起另一个人的价值寄托，&lt;strong&gt;只有做一个独立、有价值的人，才能真正学会去爱另一个人。&lt;strong&gt;也干万不要尝试改变另一个人，这注定是徒劳的。做自己就好，爱情的真诫在于&lt;/strong&gt;相互的吸引、志趣相投的同行&lt;/strong&gt;，而不是追逐和依附以及自我感动。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2023年1月26日抖音评论&lt;/p&gt;
-&lt;/blockquote&gt;
-">自我感动</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/"" data-c="
-          &lt;p&gt;这是我的第一个博客。&lt;br&gt;
-但是在此之前，我还有一个博客。&lt;br&gt;
-嘿嘿。&lt;/p&gt;
-">我的第一个博客</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/about/"" data-c="
-          &lt;blockquote&gt;
-&lt;p&gt;嗨，别来无恙啊！🤝&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
-&lt;p&gt;基于Gridea制作的博客。&lt;/p&gt;
-&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
-&lt;p&gt;口区纸&lt;/p&gt;
-&lt;h2 id=&#34;联系我&#34;&gt;📬 联系我&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://zqr.wikidot.com&#34;&gt;Author&#39;s web page&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在此处留言 &amp;gt;&lt;/p&gt;
-&lt;iframe src=&#34;https://www3.cbox.ws/box/?boxid=3523946&amp;boxtag=uuWImn&#34; width=&#34;100%&#34; height=&#34;450&#34; allowtransparency=&#34;yes&#34; allow=&#34;autoplay&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34; scrolling=&#34;auto&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.cbox.ws/help?id=42&#34;&gt;获取语法帮助&amp;gt;&lt;/a&gt;&lt;/p&gt;
-">关于</a>
-      </div>
-      
-    </div>
-  </div>
-</div>
-<script>
-  // var escape = "[{&#34;content&#34;:&#34;&lt;!-- more --&gt;\n&lt;p&gt;哇，牛的嘞&lt;/p&gt;\n&lt;pre&gt;&lt;code&gt;import time    ##引入时间\n\nprint(&amp;quot;---EXAMPLE ： Loading 效果---&amp;quot;)\n\nprint(&amp;quot;Loading&amp;quot;,end = &amp;quot;&amp;quot;)\nfor i in range(20):      ##20次循环\nprint(&amp;quot;.&amp;quot;,end = &#39;&#39;,flush = True)      ##输出“. . . . ”\ntime.sleep(0.5)   ##每0.5秒\n&lt;/code&gt;&lt;/pre&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;1\&#34;&gt;&lt;img src=\&#34;https://strangepapers.github.io//post-images/1674996195212.png\&#34; alt=\&#34;\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&#34;,&#34;fileName&#34;:&#34;print-huan-neng-zhe-me-wan&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;print 还能这么玩&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;所见&#34;,&#34;slug&#34;:&#34;suo-jian&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/suo-jian/&#34;}],&#34;date&#34;:&#34;2023-01-29 20:36:23&#34;,&#34;dateFormat&#34;:&#34;2023-01-29&#34;,&#34;feature&#34;:&#34;https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:15000,&#34;words&#34;:49,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n哇，牛的嘞\nimport time    ##引入时间\n\nprint(&amp;quot;---EXAMPLE ： Loading 效果---&amp;quot;)\n\nprint(&amp;quot;Loading&amp;quot;,end = &amp;quot;&amp;quot...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;blockquote&gt;\n&lt;p&gt;人是要整活的——没活了，可不就是死了么？&lt;br&gt;\n--互联网&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;p&gt;今天想出去玩。&lt;br&gt;\n阳光不错。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;ren-shi-yao-zheng-huo-de&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;人是要整活的&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;日常&#34;,&#34;slug&#34;:&#34;ri-chang&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/ri-chang/&#34;}],&#34;date&#34;:&#34;2023-01-29 09:46:11&#34;,&#34;dateFormat&#34;:&#34;2023-01-29&#34;,&#34;feature&#34;:&#34;https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:5000,&#34;words&#34;:29,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n人是要整活的——没活了，可不就是死了么？\n--互联网\n\n今天想出去玩。\n阳光不错。\n&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;​&lt;audio id=\&#34;audio\&#34; controls=\&#34;\&#34; preload=\&#34;none\&#34;&gt;&lt;br&gt;\n&lt;source id=\&#34;mp3\&#34; src=\&#34;http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a\&#34;&gt;&lt;br&gt;\n&lt;/audio&gt;&lt;/p&gt;\n&lt;p&gt;这篇文章是在熄灯之后写的。&lt;br&gt;\n今天很累啊，但是什么都没有学到。&lt;br&gt;\n为什么？&lt;br&gt;\n看了看自己的手机使用记录，原来如此。&lt;br&gt;\n以后呢？&lt;br&gt;\n我又看了看日历，还有9天开学。&lt;br&gt;\n开学之后，很多东西就不是触手可得的了。&lt;br&gt;\n这九天，还是要准备啊。&lt;br&gt;\n准备一下开学的东西。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;wan-jian-xiao-qi&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;晚间小憩&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;日常&#34;,&#34;slug&#34;:&#34;ri-chang&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/ri-chang/&#34;}],&#34;date&#34;:&#34;2023-01-28 22:37:15&#34;,&#34;dateFormat&#34;:&#34;2023-01-28&#34;,&#34;feature&#34;:&#34;https://ts1.cn.mm.bing.net/th/id/R-C.84291087968fbc9e882d32bb4486515f?rik=E7LGR3IVaSRfwA&amp;riu=http%3a%2f%2fwww.33lc.com%2farticle%2fUploadPic%2f2012-8%2f2012849261381266.jpg&amp;ehk=c9FedHL6SnoO61VDA8mKdvoadeswlhaJkULuq9iFgDc%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/wan-jian-xiao-qi/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:19000,&#34;words&#34;:96,&#34;minutes&#34;:1},&#34;description&#34;:&#34;​\n\n\n这篇文章是在熄灯之后写的。\n今天很累啊，但是什么都没有学到。\n为什么？\n看了看自己的手机使用记录，原来如此。\n以后呢？\n我又看了看日历，还有9天开学。\n开学之后，很多东西就不是触手可得的了。\n这九天，还是要准备啊。\n准备一下开学的东...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;卖完了废品。&lt;br&gt;\n他蹬着三轮车，回到了重归空荡的老房子里。&lt;br&gt;\n自己打开了半导体，钻进被窝，缓缓睡去。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n老齐来了。老齐之前是村里有名的知青，现在也有一个成家立业的儿子。老孙和他关系很好，经常在村里的水库旁抽烟闲聊。&lt;br&gt;\n&amp;quot;嗨，我告诉你，&amp;quot;老齐在屋里跟他说，&amp;quot;我的儿子明年就要结婚了！&amp;quot;老齐神色飞扬，生动的描绘种种。老孙也是高兴，俩人聊了很久。&lt;br&gt;\n&amp;quot;到时候他们结婚，我告诉你，你得跟我坐一桌，咱俩得好好喝一顿！&amp;quot;&lt;br&gt;\n&amp;quot;哈哈哈哈哈哈，咱不醉不归！&amp;quot;&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n雪花悄悄飘落，老孙迷迷糊糊的睁开眼，外面下起了雪。&lt;br&gt;\n他又睡了过去。&lt;br&gt;\n没想到，孙国成回来了。孙国成是老孙的小儿子。老孙又惊又喜，忙招呼进来。&lt;br&gt;\n孙国成阔步走进堂屋，这种感觉让老孙很难受。&lt;br&gt;\n老孙做起了他小时候最爱的九转大肠，满屋喷香。&lt;br&gt;\n孙国成说最近自己的公司又大赚一笔，等今年秋天，接老孙去城里住。&lt;br&gt;\n&amp;quot;我不要。&amp;quot;老孙摇摇头，&amp;quot;这人啊，生在土里，长在土里，死在土里。到城里会住不惯了。&amp;quot;&lt;br&gt;\n&amp;quot;你看看这老屋，还能住人吗？冬不保温，夏不清凉，还漏雨。还不如趁早住在城里给你安详晚年。&amp;quot;&lt;br&gt;\n老孙把菜端上桌，回到屋里躺着去了。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n下的雪花把老孙的被子打潮了，他打了个冷战。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n&amp;quot;青秀？&amp;quot;老孙发现当院有一个熟悉的背影。&lt;br&gt;\n&amp;quot;老孙啊，咋了？&amp;quot;&lt;br&gt;\n&amp;quot;真的是你啊！&amp;quot;&lt;br&gt;\n&amp;quot;啥真的假的，你是睡迷糊了吧！咱园子的麦子该收了。马上就夏至了，你还跟着有的没的。&amp;quot;&lt;br&gt;\n老孙高兴坏了。&amp;quot;好好好，我这就去看看。&amp;quot;&lt;br&gt;\n在地里，两人有一句没一句的聊着，老孙的脸上堆满了笑容。麦子却一直割不完。&lt;br&gt;\n然而，正是热的时候，老孙却不出汗，还感觉有点冷。&lt;br&gt;\n老孙已经完全不管这些了，而是目不转睛的看着青秀。&lt;br&gt;\n&amp;quot;青秀，我爱你。&amp;quot;&lt;br&gt;\n她羞的转过头去，&amp;quot;你说啥啊···&amp;quot;&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n老孙醒了。被子已经被打湿了。&lt;br&gt;\n他望着青秀的照片——三十年前的黑白照片。&lt;br&gt;\n老孙忍不住了，起身，抱着照片大哭了一场。&lt;br&gt;\n天渐渐亮了，老孙擦擦眼泪。来到了村里水库边上，独自抽起了烟。&lt;br&gt;\n之前齐军在世的时候，两人经常一起抽烟，谈天论地。&lt;br&gt;\n老孙一根一根的抽着，一根一根的愁着。&lt;br&gt;\n愁老齐没完成的心愿。&lt;br&gt;\n愁国成三岁时截肢的腿。&lt;br&gt;\n愁青秀还没享福就痴呆走丢的每一天。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n&amp;quot;有用吗？&amp;quot;&lt;br&gt;\n他问向自己。&lt;br&gt;\n烟抽完了，他继续干着工作。&lt;/p&gt;\n&lt;br&gt;\n苦。\n老孙。\n&lt;br&gt;\n&lt;br&gt;\n&lt;p&gt;本文作者为&lt;font face=\&#34;黑体\&#34;&gt;strangepapers&lt;/font&gt;。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;lao-sun&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;老孙&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;创作&#34;,&#34;slug&#34;:&#34;chuang-zuo&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/chuang-zuo/&#34;}],&#34;date&#34;:&#34;2023-01-28 10:46:50&#34;,&#34;dateFormat&#34;:&#34;2023-01-28&#34;,&#34;feature&#34;:&#34;https://tse1-mm.cn.bing.net/th/id/OIP-C.YKl3BNx8hQpBn0tBJQyf-AHaEK?pid=ImgDet&amp;rs=1&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/lao-sun/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;3 min read&#34;,&#34;time&#34;:159000,&#34;words&#34;:770,&#34;minutes&#34;:3},&#34;description&#34;:&#34;卖完了废品。\n他蹬着三轮车，回到了重归空荡的老房子里。\n自己打开了半导体，钻进被窝，缓缓睡去。\n\n老齐来了。老齐之前是村里有名的知青，现在也有一个成家立业的儿子。老孙和他关系很好，经常在村里的水库旁抽烟闲聊。\n&amp;quot;嗨，我告诉你，&amp;q...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;真的，不知什么时候，自己突然有了“喜欢”这种感觉。&lt;br&gt;\n第一次感受到还是初三，现在竟然又一次感受到了？&lt;br&gt;\n不瞒您说，我对此并没有多大的冲动。&lt;br&gt;\n还是这句话：&lt;strong&gt;爱情诚可贵，自由价更高。若为众生故，两者皆可抛&lt;/strong&gt;。&lt;/p&gt;\n&lt;p&gt;看了看日历，距离开学没多少日子了。&lt;br&gt;\n最近这几年，日子啥的过的太快了。自己渐渐的记不住东西了。&lt;br&gt;\n没法，还是写下来吧，存成电子古董。&lt;br&gt;\n说回去，自由价更高。我知道，现在的我完全没有自由。&lt;br&gt;\n为什么这么说？&lt;br&gt;\n因为&lt;/p&gt;\n&lt;h2 id=\&#34;我什么都不会\&#34;&gt;我什么都不会。&lt;/h2&gt;\n&lt;p&gt;对。&lt;br&gt;\n今天晚上不知道发什么疯，写了这么多，也许是快开学了，有点情绪变化。&lt;br&gt;\n想到什么，就赶紧写下来，生怕自己一转眼就忘了。&lt;br&gt;\n自己想学习一些前端的东西，自学太累了。&lt;br&gt;\n这时我才发现在课堂上我落下了什么，一个strong标签我还要思考一阵。&lt;br&gt;\n于是我从头学起，发现自学是很难的。&lt;br&gt;\n之前，我每天中午都会出去走走，看看这座小城，看看我自己。&lt;br&gt;\n可是繁重的任务，压死我了。&lt;br&gt;\n这不，腊月三十英语老师还在留作业。&lt;br&gt;\n虽然我跟她说了暂时交不了，可是这也足以证明。&lt;br&gt;\n&lt;img src=\&#34;https://i.328888.xyz/2023/01/27/jVOEb.png\&#34; alt=\&#34;jVOEb.png\&#34; loading=\&#34;lazy\&#34;&gt;&lt;br&gt;\n嘿，累死了。&lt;br&gt;\n累死了。&lt;br&gt;\n累死了还会搞爱情吗？&lt;/p&gt;\n&lt;br&gt;\n&lt;br&gt;\n&lt;br&gt;\n&lt;p&gt;自己想写点东西。&lt;br&gt;\n主要是不想社交了。&lt;br&gt;\n抖音刷不明白，B站看不明白。&lt;br&gt;\n有点百无聊赖的感觉。&lt;/p&gt;\n&lt;br&gt;\n&lt;br&gt;\n&lt;p&gt;上文写的有点没逻辑了。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;爱情诚可贵，自由价更高，若为众生故，两者皆可抛。&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;创作&#34;,&#34;slug&#34;:&#34;chuang-zuo&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/chuang-zuo/&#34;}],&#34;date&#34;:&#34;2023-01-27 20:17:58&#34;,&#34;dateFormat&#34;:&#34;2023-01-27&#34;,&#34;feature&#34;:&#34;https://ts1.cn.mm.bing.net/th/id/R-C.4d4f550f46961bb3f6cee424a5016f32?rik=o5AwvQVXuYkAlA&amp;riu=http%3a%2f%2fimage.qianye88.com%2fpic%2f863fb09263bcb0f2f97bf7d77e7289a0&amp;ehk=WRbw5YvsSK%2bsIeK%2bcU8ISSFIXl23buJ9nCRcN2hKW8Y%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:82000,&#34;words&#34;:412,&#34;minutes&#34;:2},&#34;description&#34;:&#34;真的，不知什么时候，自己突然有了“喜欢”这种感觉。\n第一次感受到还是初三，现在竟然又一次感受到了？\n不瞒您说，我对此并没有多大的冲动。\n还是这句话：爱情诚可贵，自由价更高。若为众生故，两者皆可抛。\n看了看日历，距离开学没多少日子了。\n最近这...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%88%91%E4%BB%80%E4%B9%88%E9%83%BD%E4%B8%8D%E4%BC%9A\&#34;&gt;我什么都不会。&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h2 id=\&#34;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上获得一种畸形的满足感和安全感\&#34;&gt;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。&lt;/h2&gt;\n&lt;p&gt;其实无论是雪夜去对方家楼下站会儿或者是冒着大雨给她送一杯奶茶什么的，自己回想起来往往觉得如乔峰大战聚贤庄、关羽干里走单骑一样壮杯激烈，而对于对方来说，一杯奶茶就是一杯奶茶，无法承载起你想要在上面寄托的山崩地裂的情悴。&lt;br&gt;\n少年的时候，总是迫不及待地将自己的满腔爱意表达出来，而结果往往是陷入表演之中而不自知。所以两个人的记忆オ会出现偏差，那些你觉得刻骨铭心的过去，对方往往没有同样的感觉，甚至茫然不知。成长的标志就是懂得克制自己。&lt;strong&gt;克制自己的情绪，克制自己的表演欲，甚至克制自己的喜欢&lt;/strong&gt;。少年时候，喜欢一个人恨不能把她变成自己身体的一部分，她刚说冷，我这边心里已经结冰了，她说难过，我立马如丧考妣，比她还难过，唯恐无法将自己的爱意表达出来。&lt;br&gt;\n而事实上，谁也无法承担起另一个人的价值寄托，&lt;strong&gt;只有做一个独立、有价值的人，才能真正学会去爱另一个人。&lt;strong&gt;也干万不要尝试改变另一个人，这注定是徒劳的。做自己就好，爱情的真诫在于&lt;/strong&gt;相互的吸引、志趣相投的同行&lt;/strong&gt;，而不是追逐和依附以及自我感动。&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;2023年1月26日抖音评论&lt;/p&gt;\n&lt;/blockquote&gt;\n&#34;,&#34;fileName&#34;:&#34;zi-wo-gan-dong&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;自我感动&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;所见&#34;,&#34;slug&#34;:&#34;suo-jian&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/suo-jian/&#34;}],&#34;date&#34;:&#34;2023-01-27 13:35:08&#34;,&#34;dateFormat&#34;:&#34;2023-01-27&#34;,&#34;feature&#34;:&#34;https://img.zcool.cn/community/0144255afb8e64a801207ab475a594.jpg@1280w_1l_2o_100sh.jpg&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/zi-wo-gan-dong/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:90000,&#34;words&#34;:453,&#34;minutes&#34;:2},&#34;description&#34;:&#34;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。\n其实无论是雪夜去对方家楼下站会儿或者是冒着大雨给她送一杯奶茶什么的，自己回想起来往往觉得如乔峰大战聚贤庄、关羽干里走单骑一样壮...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%88%91%E4%BB%AC%E6%80%BB%E6%98%AF%E5%AE%B9%E6%98%93%E7%94%A8%E4%B8%80%E7%A7%8D%E8%87%AA%E8%99%90%E7%9A%84%E6%96%B9%E5%BC%8F%E5%88%B6%E9%80%A0%E5%87%BA%E4%B8%80%E7%A7%8D%E7%97%B4%E6%83%85%E7%9A%84%E5%81%87%E8%B1%A1%E6%9D%A5%E4%BD%BF%E5%BE%97%E8%87%AA%E5%B7%B1%E7%AB%99%E5%9C%A8%E6%84%9F%E6%83%85%E7%9A%84%E9%81%93%E5%BE%B7%E5%88%B6%E9%AB%98%E7%82%B9%E4%B8%8A%E8%8E%B7%E5%BE%97%E4%B8%80%E7%A7%8D%E7%95%B8%E5%BD%A2%E7%9A%84%E6%BB%A1%E8%B6%B3%E6%84%9F%E5%92%8C%E5%AE%89%E5%85%A8%E6%84%9F\&#34;&gt;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;p&gt;这是我的第一个博客。&lt;br&gt;\n但是在此之前，我还有一个博客。&lt;br&gt;\n嘿嘿。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;wo-de-di-yi-ge-bo-ke&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;我的第一个博客&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;Gridea&#34;,&#34;slug&#34;:&#34;1qwAAu6bG&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/1qwAAu6bG/&#34;}],&#34;date&#34;:&#34;2023-01-27 12:11:43&#34;,&#34;dateFormat&#34;:&#34;2023-01-27&#34;,&#34;feature&#34;:&#34;https://clubimg.club.vmall.com/data/attachment/forum/201407/05/073133xf33u40x3rb6lxux.jpg&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:4000,&#34;words&#34;:24,&#34;minutes&#34;:1},&#34;description&#34;:&#34;这是我的第一个博客。\n但是在此之前，我还有一个博客。\n嘿嘿。\n&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;blockquote&gt;\n&lt;p&gt;嗨，别来无恙啊！🤝&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h2 id=\&#34;关于本站\&#34;&gt;🏠 关于本站&lt;/h2&gt;\n&lt;p&gt;基于Gridea制作的博客。&lt;/p&gt;\n&lt;h2 id=\&#34;博主是谁\&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;\n&lt;p&gt;口区纸&lt;/p&gt;\n&lt;h2 id=\&#34;联系我\&#34;&gt;📬 联系我&lt;/h2&gt;\n&lt;p&gt;&lt;a href=\&#34;https://zqr.wikidot.com\&#34;&gt;Author&#39;s web page&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;在此处留言 &amp;gt;&lt;/p&gt;\n&lt;iframe src=\&#34;https://www3.cbox.ws/box/?boxid=3523946&amp;boxtag=uuWImn\&#34; width=\&#34;100%\&#34; height=\&#34;450\&#34; allowtransparency=\&#34;yes\&#34; allow=\&#34;autoplay\&#34; frameborder=\&#34;0\&#34; marginheight=\&#34;0\&#34; marginwidth=\&#34;0\&#34; scrolling=\&#34;auto\&#34;&gt;&lt;/iframe&gt;\n&lt;p&gt;&lt;a href=\&#34;https://www.cbox.ws/help?id=42\&#34;&gt;获取语法帮助&amp;gt;&lt;/a&gt;&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;about&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;关于&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2019-01-25 19:09:48&#34;,&#34;dateFormat&#34;:&#34;2019-01-25&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/about/&#34;,&#34;hideInList&#34;:true,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:10000,&#34;words&#34;:45,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n嗨，别来无恙啊！🤝\n\n🏠 关于本站\n基于Gridea制作的博客。\n👨‍💻 博主是谁\n口区纸\n📬 联系我\nAuthor&#39;s web page\n在此处留言 &amp;gt;\n\n获取语法帮助&amp;gt;\n...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99\&#34;&gt;🏠 关于本站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81\&#34;&gt;👨‍💻 博主是谁&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%81%94%E7%B3%BB%E6%88%91\&#34;&gt;📬 联系我&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;}]";
-  // var json = escape.substr(1, escape.length - 2);
-  // var datas = json.split(',');
-  // for (let i=0; i < datas.length; i++) {
-  //   let item = datas[i];
-  //   let attrs = item.split('34;:&#34')
-  //   debugger
-  //   console.log(datas[i])
-  // }
-  let escapeMap = new Map();
-  escapeMap.set('&#34;', '"');
-  escapeMap.set('&gt;', '>');
-  escapeMap.set('&#39;', "'");
-  escapeMap.set('&lt;', '<');
-  escapeMap.set('&quot;', '"');
-  escapeMap.set('&amp;', '&');
-</script> -->
-
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-<script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
-
-
-
+  </body>
 </html>
+
