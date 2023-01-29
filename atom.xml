@@ -2,38 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-29T12:45:40.999Z</updated>
+    <updated>2023-01-29T14:30:40.196Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
-    <subtitle>&lt;p&gt;&lt;font size=&quot;5&quot; color=&quot;white&quot; face=&quot;宋体&quot;&gt;中国青年，自强不息&lt;/font&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;div id=&quot;he-plugin-simple&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-WIDGET = {
-  &quot;CONFIG&quot;: {
-    &quot;modules&quot;: &quot;0124&quot;,
-    &quot;background&quot;: &quot;5&quot;,
-    &quot;tmpColor&quot;: &quot;FFFFFF&quot;,
-    &quot;tmpSize&quot;: &quot;30&quot;,
-    &quot;cityColor&quot;: &quot;FFFFFF&quot;,
-    &quot;citySize&quot;: &quot;16&quot;,
-    &quot;aqiColor&quot;: &quot;FFFFFF&quot;,
-    &quot;aqiSize&quot;: &quot;16&quot;,
-    &quot;weatherIconSize&quot;: &quot;24&quot;,
-    &quot;alertIconSize&quot;: &quot;18&quot;,
-    &quot;padding&quot;: &quot;10px 10px 10px 10px&quot;,
-    &quot;shadow&quot;: &quot;0&quot;,
-    &quot;language&quot;: &quot;auto&quot;,
-    &quot;borderRadius&quot;: &quot;7&quot;,
-    &quot;fixed&quot;: &quot;false&quot;,
-    &quot;vertical&quot;: &quot;top&quot;,
-    &quot;horizontal&quot;: &quot;left&quot;,
-    &quot;key&quot;: &quot;37ea488486bb4c848fef4b5e229ddf2d&quot;
-  }
-}
-&lt;/script&gt;
-&lt;script src=&quot;https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0&quot;&gt;&lt;/script&gt;</subtitle>
+    <subtitle>&lt;p&gt;&lt;font size=&quot;5&quot; color=&quot;white&quot; face=&quot;宋体&quot;&gt;中国青年，自强不息&lt;/font&gt;&lt;/p&gt;</subtitle>
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
@@ -43,7 +16,8 @@ WIDGET = {
         <link href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/">
         </link>
         <updated>2023-01-29T12:36:23.000Z</updated>
-        <content type="html"><![CDATA[<p>哇，牛的嘞</p>
+        <content type="html"><![CDATA[<!-- more -->
+<p>哇，牛的嘞</p>
 <pre><code>import time    ##引入时间
 
 print(&quot;---EXAMPLE ： Loading 效果---&quot;)
@@ -146,8 +120,7 @@ time.sleep(0.5)   ##每0.5秒
 老孙。
 <br>
 <br>
-<p>本文作者为<font face="黑体">strangepapers</font>。<br>
-本文内容授权方式为<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+<p>本文作者为<font face="黑体">strangepapers</font>。</p>
 ]]></content>
     </entry>
     <entry>
