@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-29T09:36:42.320Z</updated>
+    <updated>2023-01-29T11:28:02.399Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -12,12 +12,12 @@
 &lt;script&gt;
 WIDGET = {
   &quot;CONFIG&quot;: {
-    &quot;modules&quot;: &quot;01234&quot;,
+    &quot;modules&quot;: &quot;0124&quot;,
     &quot;background&quot;: &quot;5&quot;,
     &quot;tmpColor&quot;: &quot;FFFFFF&quot;,
-    &quot;tmpSize&quot;: &quot;22&quot;,
+    &quot;tmpSize&quot;: &quot;30&quot;,
     &quot;cityColor&quot;: &quot;FFFFFF&quot;,
-    &quot;citySize&quot;: &quot;12&quot;,
+    &quot;citySize&quot;: &quot;16&quot;,
     &quot;aqiColor&quot;: &quot;FFFFFF&quot;,
     &quot;aqiSize&quot;: &quot;16&quot;,
     &quot;weatherIconSize&quot;: &quot;24&quot;,
@@ -25,10 +25,11 @@ WIDGET = {
     &quot;padding&quot;: &quot;10px 10px 10px 10px&quot;,
     &quot;shadow&quot;: &quot;0&quot;,
     &quot;language&quot;: &quot;auto&quot;,
+    &quot;borderRadius&quot;: &quot;7&quot;,
     &quot;fixed&quot;: &quot;false&quot;,
     &quot;vertical&quot;: &quot;top&quot;,
     &quot;horizontal&quot;: &quot;left&quot;,
-    &quot;key&quot;: &quot;83901a3bce6e482486d642b7521632c3&quot;
+    &quot;key&quot;: &quot;37ea488486bb4c848fef4b5e229ddf2d&quot;
   }
 }
 &lt;/script&gt;
