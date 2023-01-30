@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-30T14:54:03.358Z</updated>
+    <updated>2023-01-30T15:06:07.798Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,21 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[上课]]></title>
+        <id>https://strangepapers.github.io/post/shang-ke/</id>
+        <link href="https://strangepapers.github.io/post/shang-ke/">
+        </link>
+        <updated>2023-01-30T14:59:22.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://img.599ku.com/element_pic/93/17/29/84/2c204564e2a4b5a28a16741eb7fe0a47.jpg_w800"></a></p>
+<h1 id="我真服了">我真服了</h1>
+<p>哪家学校快返校了整几天网课？</p>
+<p>牛牛的嘞。</p>
+<p>上这几天课跟能提多少分似的，还不如时间给我们整整薄弱。<br>
+你这一会英语一会数学，</p>
+<p><b>你什么意思</b></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[HTML转盘]]></title>
         <id>https://strangepapers.github.io/post/html-zhuan-pan/</id>
