@@ -1,139 +1,150 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
-
-<title>print 还能这么玩 | strangepapers</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://strangepapers.github.io//favicon.ico?v=1675039405349">
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>strangepapers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="中国青年，自强不息
+"/>
+<meta name="keywords" content="中国青年，自强不息
+"/>
+<link rel="shortcut icon" href="https://strangepapers.github.io//favicon.ico">
 <link rel="stylesheet" href="https://strangepapers.github.io//styles/main.css">
 
 
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- Comment -->
 
 
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
-    <meta name="description" content="
-哇，牛的嘞
-import time    ##引入时间
 
-print(&quot;---EXAMPLE ： Loading 效果---&quot;)
 
-print(&quot;Loading&quot;,end = &quot;&quot..." />
-    <meta name="keywords" content="所见" />
-  </head>
-  <body>
-    <div id="app" class="main">
+</head>
+<body class="post-template">
+<div id="page" class="site">
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://strangepapers.github.io/">
-        <img src="https://strangepapers.github.io//images/avatar.png?v=1675039405349" class="site-logo">
-        <h1 class="site-title">strangepapers</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+    <header class="site-header">
+    <h1 class="site-title"><a href="https://strangepapers.github.io/">strangepapers</a></h1>
+    <a class="sidebar-toggle"><span class="screen-reader-text">Menu</span><span class="icon" aria-hidden="true"></span></a>
+</header>
+
+<aside class="sidebar">
+    <div class="sidebar-scrollable">
+        <div class="inner">
+            <div class="widget-area">
+                <!-- 菜单 -->
+                <nav class="site-navigation">
+                    <h2>strangepapers</h2>
+                    <ul class="menu">
+                        
+                            <li class="menu-item home current-menu-item">
+                                <a href="/"
+                                
+                                >首页</a>
+                            </li>
+                        
+                            <li class="menu-item home current-menu-item">
+                                <a href="/archives"
+                                
+                                >归档</a>
+                            </li>
+                        
+                            <li class="menu-item home current-menu-item">
+                                <a href="/tags"
+                                
+                                >标签</a>
+                            </li>
+                        
+                            <li class="menu-item home current-menu-item">
+                                <a href="/post/about"
+                                
+                                >关于</a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+
+                <section class="widget widget-about">
+                    <h2 class="widget-title">关于</h2>
+                    <p>中国青年，自强不息
+</p>
+                </section>
+
+                <section class="widget widget-tags">
+                    <h2 class="widget-title">标签</h2>
+                    <div class="tagcloud">
+                        
+                            <a href="https://strangepapers.github.io/tag/suo-jian/" class="button">
+                                所见
+                                <span aria-hidden="true"><span class="line left"></span><span class="line top"></span><span class="line right"></span><span class="line bottom"></span></span>
+                            </a>
+                        
+                            <a href="https://strangepapers.github.io/tag/ri-chang/" class="button">
+                                日常
+                                <span aria-hidden="true"><span class="line left"></span><span class="line top"></span><span class="line right"></span><span class="line bottom"></span></span>
+                            </a>
+                        
+                            <a href="https://strangepapers.github.io/tag/chuang-zuo/" class="button">
+                                创作
+                                <span aria-hidden="true"><span class="line left"></span><span class="line top"></span><span class="line right"></span><span class="line bottom"></span></span>
+                            </a>
+                        
+                            <a href="https://strangepapers.github.io/tag/1qwAAu6bG/" class="button">
+                                Gridea
+                                <span aria-hidden="true"><span class="line left"></span><span class="line top"></span><span class="line right"></span><span class="line bottom"></span></span>
+                            </a>
+                        
+                    </div>
+                </section>
+
+            </div>
+            <a class="sidebar-toggle"><span class="screen-reader-text">Close</span><span class="icon" aria-hidden="true"></span></a>
+        </div>
     </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      <p><font size="5" color="white" face="宋体">中国青年，自强不息</font></p>
-<br>
-<div id="he-plugin-simple"></div>
-<script>
-WIDGET = {
-  "CONFIG": {
-    "modules": "0124",
-    "background": "5",
-    "tmpColor": "FFFFFF",
-    "tmpSize": "22",
-    "cityColor": "FFFFFF",
-    "citySize": "12",
-    "aqiColor": "FFFFFF",
-    "aqiSize": "16",
-    "weatherIconSize": "24",
-    "alertIconSize": "18",
-    "padding": "10px 10px 10px 10px",
-    "shadow": "0",
-    "language": "auto",
-    "borderRadius": "5",
-    "fixed": "false",
-    "vertical": "top",
-    "horizontal": "left",
-    "key": null
-  }
-}
-</script>
-<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
-    </div>
-    <div class="site-footer">
-      <a href="https://zqr.wikidot.com"><font face="Arial Black">
-Author's web page</font></a>
-<br>
- | <a class="rss" href="https://strangepapers.github.io//atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
+</aside>
 
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">print 还能这么玩</h2>
-            <div class="post-date">2023-01-29</div>
-            
-              <div class="feature-container" style="background-image: url('https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1')">
-              </div>
-            
-            <div class="post-content" v-pre>
-              <!-- more -->
+    <main class="site-main">
+        <div class="site-content">
+            <article class="post tag-getting-started">
+                <header class="cover post-header">
+                    <div class="cover-bg" >
+
+                        
+                            <img srcset="https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1 300w, https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1 600w, https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1 800w, https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1 1600w, https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1 2000w"
+                                 sizes="100vw" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1" alt="print 还能这么玩"/>
+                        
+
+                    </div>
+                    <div class="cover-content">
+                        <div class="inner">
+                            <div class="post-tags">
+                                
+                                    
+                                        <a href="https://strangepapers.github.io/tag/suo-jian/">所见&nbsp;&nbsp;</a>
+                                    
+                                
+                            </div>
+                            <h1 class="post-title">print 还能这么玩</h1>
+                            <div class="post-meta">
+                                <span class="post-meta-wrap">
+                                    <img class="author-avatar"
+                                         srcset="https://strangepapers.github.io//media/images/avatar.png, https://strangepapers.github.io//media/images/avatar.png 2x"
+                                         src="https://strangepapers.github.io//media/images/avatar.png" alt=""/>
+                                    <span class="post-author">49字</span>
+                                    <time class="published" datetime="2023-01-29">2023-01-29</time>
+                                </span>
+                                <div>1 min read</div>
+                            </div>
+                            <a href="#post-content" class="arrow-down" data-scroll><span class="screen-reader-text">Scroll Down</span></a>
+                        </div>
+                    </div>
+                </header>
+                <div class="inner">
+
+                    <div id="post-content" class="post-content">
+                        <!-- more -->
 <p>哇，牛的嘞</p>
 <pre><code>import time    ##引入时间
 
@@ -146,58 +157,90 @@ time.sleep(0.5)   ##每0.5秒
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://strangepapers.github.io//post-images/1674996195212.png" alt="" loading="lazy"></figure>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://strangepapers.github.io/tag/suo-jian/" class="tag">
-                    所见
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/">
-                  <h3 class="post-title">
-                    人是要整活的
-                  </h3>
-                </a>
-              </div>
-            
+                    </div>
+
+                </div>
+            </article>
+
+            <section class="comments-area">
+    <div class="inner">
+        <h2 class="screen-reader-text">评论</h2>
+        
+    </div>
+</section>
+
 
             
-
-          </div>
+                <nav class="post-navigation">
+                    <h2 class="screen-reader-text">Post navigation</h2>
+                    <div class="nav-links">
+                        <a href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/" class="nav-previous">
+                            <div class="nav-bg" >
+                                
+                                    <img srcset="https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png 300w, https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png 600w, https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png 800w, https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png 1600w, https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png 2000w" sizes="(max-width: 800px) 100vw, 50vw" src="https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png" alt="图裂了"/>
+                                
+                            </div>
+                            <div class="nav-inside">
+                                <span class="nav-before">下一篇</span>
+                                <span class="nav-title">人是要整活的</span>
+                                <span class="nav-date">2023-01-29</span>
+                            </div>
+                        </a>
+                    </div>
+                </nav>
+            
 
         </div>
-      </div>
+    </main>
+
+    <footer class="site-footer">
+    <div class="inner">
+        <!-- 社交 -->
+        <div class="offsite-links">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+
+        <div class="site-info">
+            THEME BY <a href="https://github.com/GalaxySuze/gridea-theme-subtle-galaxy">Subtle Galaxy</a>, REFERENCE FROM <a href="https://subtle.justgoodthemes.com/">Subtle</a><br/>
+            <a href="https://zqr.wikidot.com"><font face="Arial Black">
+Author's web page</font></a>
+<br>
+
+        </div>
+        <a href="#page" class="arrow-up" data-scroll><span class="screen-reader-text">Back to the top</span></a>
     </div>
+</footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+</div>
+
+<script src="https://strangepapers.github.io//media/scripts/_core/plugins.js"></script>
+<script src="https://strangepapers.github.io//media/scripts/_core/custom.js"></script>
+
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+<!-- Md5 Min JS -->
+<script src="https://strangepapers.github.io//media/scripts/_vendors/md5.min.js"></script>
+
 <script type="application/javascript">
-
-AOS.init();
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+    // 代码高亮
+    hljs.initHighlightingOnLoad();
 
 </script>
 
 
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
 
 
 
-
-
-  </body>
+</body>
 </html>

@@ -2,38 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-30T00:44:05.570Z</updated>
+    <updated>2023-01-30T01:39:23.848Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
-    <subtitle>&lt;p&gt;&lt;font size=&quot;5&quot; color=&quot;white&quot; face=&quot;宋体&quot;&gt;中国青年，自强不息&lt;/font&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;div id=&quot;he-plugin-simple&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-WIDGET = {
-  &quot;CONFIG&quot;: {
-    &quot;modules&quot;: &quot;0124&quot;,
-    &quot;background&quot;: &quot;5&quot;,
-    &quot;tmpColor&quot;: &quot;FFFFFF&quot;,
-    &quot;tmpSize&quot;: &quot;22&quot;,
-    &quot;cityColor&quot;: &quot;FFFFFF&quot;,
-    &quot;citySize&quot;: &quot;12&quot;,
-    &quot;aqiColor&quot;: &quot;FFFFFF&quot;,
-    &quot;aqiSize&quot;: &quot;16&quot;,
-    &quot;weatherIconSize&quot;: &quot;24&quot;,
-    &quot;alertIconSize&quot;: &quot;18&quot;,
-    &quot;padding&quot;: &quot;10px 10px 10px 10px&quot;,
-    &quot;shadow&quot;: &quot;0&quot;,
-    &quot;language&quot;: &quot;auto&quot;,
-    &quot;borderRadius&quot;: &quot;5&quot;,
-    &quot;fixed&quot;: &quot;false&quot;,
-    &quot;vertical&quot;: &quot;top&quot;,
-    &quot;horizontal&quot;: &quot;left&quot;,
-    &quot;key&quot;: null
-  }
-}
-&lt;/script&gt;
-&lt;script src=&quot;https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0&quot;&gt;&lt;/script&gt;</subtitle>
+    <subtitle>中国青年，自强不息
+</subtitle>
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
