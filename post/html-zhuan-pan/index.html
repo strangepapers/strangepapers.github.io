@@ -9,7 +9,7 @@
 <meta name="description" content="中国青年，自强不息
 ">
 <meta name="theme-color" content="#000">
-<title>strangepapers</title>
+<title>HTML转盘 | strangepapers</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1675076568937">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -30,6 +30,8 @@
 
 
 
+  <meta name="description" content="HTML转盘" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -168,10 +170,25 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  gemini">
+      class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -246,97 +263,457 @@
   </div>
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
       }
-    });
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          创作
-          <small>标签</small>
-        </h2>
-      </div>
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://strangepapers.github.io/post/html-zhuan-pan/">
+      HTML转盘
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2023-01-30</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>8分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1266<span class="pc-show">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/post/html-zhuan-pan/" data-flag-title="HTML转盘" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span>浏览量：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <!-- more -->
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;抽奖&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: &quot;Microsoft YaHei&quot;,微软雅黑;
+        }
+        .box{
+            width:600px;
+            height:600px;
+            background-color: #ff9615;
+            padding: 20px;
+            border-radius: 50%;
+            border:2px solid #ffd50e;
+            position:relative;
+            margin: 100px auto;
+        }
+        .turntable{
+            width:600px;
+            height:600px;
+            background-color: red;
+            border-radius: 50%;
+            position:relative;
+            box-shadow: 0 0 10px #000;
+            line-height:95px;
+        }
+        .little-circle{
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            border:1px solid black;
+            position:absolute;
+            left:50%;
+            margin-left: -5px;
+            margin-top: 5px;
+ 
+        }
+        .little-circle:nth-child(even) {
+            background-color: #f1c96c;
+        }
+        .little-circle:nth-child(odd) {
+            background-color: #fff6db;
+        }
+        .prize-zone{
+            width:556px;
+            height: 556px;
+            border-radius:50%;
+            position:absolute;
+ 
+            left: 50%;
+            margin-left: -278px;
+            top:50%;
+            margin-top: -278px;
+            overflow: hidden;
+        }
+        .prize{
+            width:278px;
+            height:278px;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .prize:nth-child(odd) {
+            background-color: #f1c96c;
+        }
+        .prize:nth-child(even) {
+            background-color: #fff6db;
+        }
+        .btn{
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            position:absolute;
+            left:50%;
+            margin-left:-50px;
+            top:50%;
+            margin-top:-50px;
+            background-color: #ff7609;
+            color:white;
+            font-size: 30px;
+            font-weight: bolder;
+            text-align: center;
+            vertical-align: middle;
+            cursor:pointer;
+        }
+        .pointer{
+            width:0;
+            height:0;
+            position: absolute;
+            left:50%;
+            margin-left: -25px;
+            top:50%;
+            margin-top: -100px;
+            border-bottom: 100px solid #ff9615;
+            border-left:25px solid transparent;
+            border-right:25px solid transparent;
+        }
+        .content{
+            width:200px;
+            height:250px;
+            position:absolute;
+            right:0;
+            bottom:0;
+            text-align: center;
+        }
+        .content .thanks{
+            width:34px;
+            height: 150px;
+            font-size:30px;
+            font-weight: bolder;
+            color: #ff6e37;
+            margin:0 auto;
+            line-height: 34px;
+            padding-top:20px;
+        }
+        .content .img{
+            width:10px;
+            height:10px;
+            position: absolute;
+            left:50%;
+            margin-left:-40px;
+            top:5%;
+        }
+        .content img{
+            width:80px;
+            height:100px;
+            position: absolute;
+        }
+        .txt{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 32px;
+            margin: 0 auto;
+            padding-top:120px;
+            color: #ff6e37;
+            font-weight: bolder;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;turntable&quot;&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
+ 
+        &lt;div class=&quot;prize-zone&quot;&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;img&quot;&gt;
+                        &lt;img src=&quot;prize/router.jpg&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;txt&quot;&gt;
+                        &lt;p&gt;四等奖&lt;/p&gt;
+                        &lt;p&gt;路由器&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;img&quot;&gt;
+                        &lt;img src=&quot;prize/bicycle.jpg&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;txt&quot;&gt;
+                        &lt;p&gt;一等奖&lt;/p&gt;
+                        &lt;p&gt;自行车&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;img&quot;&gt;
+                        &lt;img src=&quot;prize/glass.jpg&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;txt&quot;&gt;
+                        &lt;p&gt;二等奖&lt;/p&gt;
+                        &lt;p&gt;3D眼睛&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;prize&quot;&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;div class=&quot;img&quot;&gt;
+                        &lt;img src=&quot;prize/kindle.jpg&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;txt&quot;&gt;
+                        &lt;p&gt;三等奖&lt;/p&gt;
+                        &lt;p&gt;kindle&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pointer&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;btn&quot; class=&quot;btn&quot;&gt;抽奖&lt;/div&gt;
+    &lt;/div&gt;
+ 
+&lt;/div&gt;
+&lt;script&gt;
+    // 小圆圈的旋转变换
+    let circleList = document.querySelectorAll('.little-circle');
+    let len = circleList.length;
+    let rotateStep = 360/len;
+    let halfOfRotateStep = rotateStep/2;
+    circleList.forEach(function(item,index){
+        let deg = rotateStep*index+halfOfRotateStep;
+        item.style.transform=&quot;rotate(&quot;+deg+&quot;deg)&quot;;
+        item.style.transformOrigin=&quot;5px 295px&quot;;
+    });
+    // 每一个奖品的变换
+    let prizeList = document.querySelectorAll('.prize');
+    let pLen = prizeList.length;
+    let pRotateStep = 360/pLen;
+    let halfOfPRotateStep = pRotateStep/2;
+    prizeList.forEach(function(item,index){
+        item.style.transform=&quot;rotate(&quot;+(pRotateStep*index)+&quot;deg&quot;+&quot;) skewY(&quot;+pRotateStep+&quot;deg)&quot;;
+        item.style.transformOrigin=&quot;right bottom&quot;;
+    });
+    // 奖品的内容变换
+    let contentList = document.querySelectorAll('.content');
+    contentList.forEach(function(item){
+        // 反向变换，用于抵消div.prize的变形 这里的translate值，其实可以用三角函数算出来，但是太复杂，我就用肉眼观测取了7px 100px这么个值
+        item.style.transform = &quot;skewY(-&quot;+pRotateStep+&quot;deg) rotate(-&quot;+halfOfPRotateStep+&quot;deg) translate(7px, 100px)&quot;;
+        item.style.transformOrigin = &quot;center center&quot;;
+    });
+    let retry = false;
+    // 抽奖按钮的点击事件
+    document.querySelector('#btn').onclick=function(){
+        if(retry){
+            retry=false;
+            clear();
+            document.querySelector('#btn').innerText=&quot;抽奖&quot;;
+            return;
+        }
+        // 计算一个随机的度数，转起来，先转上十圈然后再转一圈内的随机度数
+        document.querySelector('#btn').style.cursor=&quot;wait&quot;;
+ 
+        let deg1=360*10;
+        let deg2 = (Math.floor(Math.random()*8)+1)*45+22.5;
+        let deg=deg1+deg2;
+        console.log(deg);
+        let truntable = document.querySelector('.prize-zone');
+        truntable.style.transition=&quot;all 10s ease&quot;;
+        truntable.style.transform=&quot;rotate(&quot;+deg+&quot;deg)&quot;;
+    };
+    // 监听动画完成事件
+    document.querySelector('.prize-zone').addEventListener('transitionend',function(){
+        document.querySelector('#btn').style.cursor=&quot;pointer&quot;;
+        retry=true;
+        document.querySelector('#btn').innerText=&quot;重置&quot;;
+    });
+    function clear(){
+        let truntable = document.querySelector('.prize-zone');
+        truntable.style.transition=&quot;none&quot;;
+        truntable.style.transform=&quot;none&quot;;
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.328888.xyz/2023/01/30/8t3zc.png" alt="8t3zc.png" loading="lazy"></figure>
+
+            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      strangepapers
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://strangepapers.github.io/post/html-zhuan-pan/" title="HTML转盘">https://strangepapers.github.io/post/html-zhuan-pan/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
+    </div>
+    <div class="nav-next">
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://strangepapers.github.io/post/lao-sun/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              01-28
-              <small>老孙</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      <a href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              01-27
-              <small>爱情诚可贵，自由价更高，若为众生故，两者皆可抛。</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+        <a class="nav-pc-next" title="送礼潜规则" href="https://strangepapers.github.io/post/song-li-qian-gui-ze/">送礼潜规则</a>
+        <a class="nav-mobile-next" title="送礼潜规则" href="https://strangepapers.github.io/post/song-li-qian-gui-ze/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -516,6 +893,36 @@ Author's web page</font></a>
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
 </script>
   </div>
 </body>
@@ -1203,7 +1610,6 @@ time.sleep(0.5)   ##每0.5秒
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 <script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
-
 
 
 </html>
