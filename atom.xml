@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-30T15:06:07.798Z</updated>
+    <updated>2023-01-31T14:57:04.706Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,77 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[翻身]]></title>
+        <id>https://strangepapers.github.io/post/fan-shen/</id>
+        <link href="https://strangepapers.github.io/post/fan-shen/">
+        </link>
+        <updated>2023-01-31T14:51:01.000Z</updated>
+        <content type="html"><![CDATA[<p>在note.ms闲逛，发现有人用脚本刷CCF来捣乱。<br>
+<strong>这不能忍</strong></p>
+<blockquote>
+<p>CCF，以推动计算技术领域学术，技术，教育，应用和产业的发展，助力计算技术领域专业人士能力提升为使命，目前拥有超过10万名付费个人会员。</p>
+</blockquote>
+<blockquote>
+<p>CCF，下设城市会员活动中心，学生分会，YOCSEF城市论坛，以及大数据，自然语言处理，和高性能计算等专业委员会。共近两百个会员服务机构，每年举办近千场专业活动，服务网络遍布全国。</p>
+</blockquote>
+<blockquote>
+<p>CNCC，年度计算技术盛会，每年数千人参会，已举办17届。</p>
+</blockquote>
+<p>等等。</p>
+<p>于是，我用最和平的方式结束了这场坚持4个小时的战役。<br>
+和平且富有礼貌。</p>
+<blockquote>
+<p>临时留言<br>
+您好。<br>
+发r的谁<br>
+我。有问题？</p>
+</blockquote>
+<blockquote>
+<p>你手动还是脚本？？？？？我暂时挂一个200ms的脚本</p>
+</blockquote>
+<blockquote>
+<p>您是谁？</p>
+</blockquote>
+<blockquote>
+<p>宣传CCF，拜月教</p>
+</blockquote>
+<blockquote>
+<p>您为什么要在这里宣传？<br>
+我们存在的意义是为大家创造一个稳定的交流空间。您的行为也许不利于发展。<br>
+或许我们可以好好谈一谈。</p>
+</blockquote>
+<blockquote>
+<p>你是Dentist Pamphlet</p>
+</blockquote>
+<blockquote>
+<p>是。<br>
+我很欣赏您的能力，您有意加入我们吗？<br>
+相信您的才华与能力要比我见识的多</p>
+</blockquote>
+<blockquote>
+<p>我是OIer，现在没时间了</p>
+</blockquote>
+<blockquote>
+<p>哈哈，您有时间宣传，怎么会没时间？您真会开玩笑。<br>
+我们不需要您太多的时间和精力。</p>
+</blockquote>
+<blockquote>
+<p>脚本我是挂在我自己服务器上的，偶尔看一下，不需要怎么手动操控。</p>
+</blockquote>
+<blockquote>
+<p>那很好。我还是诚挚的邀请你加入，不过您不加入也没有关系。<br>
+宣传嘛，您可以选择换一个地方，您说怎么样？</p>
+</blockquote>
+<blockquote>
+<p>/chat以后可以不维护了，但是我不会加入的。我现在要停止颓废了，就说这么多。</p>
+</blockquote>
+<blockquote>
+<p>好的。与您交流真是胜读十年书。我们尊重您的意见，再见。</p>
+</blockquote>
+<p>真是文明的我。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[上课]]></title>
         <id>https://strangepapers.github.io/post/shang-ke/</id>
@@ -555,17 +626,6 @@ time.sleep(0.5)   ##每0.5秒
 <blockquote>
 <p>2023年1月26日抖音评论</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[我的第一个博客]]></title>
-        <id>https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/</id>
-        <link href="https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/">
-        </link>
-        <updated>2023-01-27T04:11:43.000Z</updated>
-        <content type="html"><![CDATA[<p>这是我的第一个博客。<br>
-但是在此之前，我还有一个博客。<br>
-嘿嘿。</p>
 ]]></content>
     </entry>
 </feed>
