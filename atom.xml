@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-01-31T15:05:32.750Z</updated>
+    <updated>2023-02-01T01:22:10.525Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,22 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[加载缓慢的问题]]></title>
+        <id>https://strangepapers.github.io/post/jia-zai-huan-man-de-wen-ti/</id>
+        <link href="https://strangepapers.github.io/post/jia-zai-huan-man-de-wen-ti/">
+        </link>
+        <updated>2023-02-01T01:18:33.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="在访问的时候加载总是很慢为什么">在访问的时候，加载总是很慢，为什么？</h1>
+<p>1  github<br>
+github的网页加载的确很慢，这并没有办法。<br>
+以后会考虑换址。</p>
+<p>2 字体文件<br>
+在此页面，我配置了字体文件。<br>
+很美观，但加载时间会出奇的慢。<br>
+字体文件是放在最后传输的，您也可以在配置未完成的时候进行浏览。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[翻身]]></title>
         <id>https://strangepapers.github.io/post/fan-shen/</id>
@@ -611,21 +627,6 @@ time.sleep(0.5)   ##每0.5秒
 <br>
 <br>
 <p>上文写的有点没逻辑了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[自我感动]]></title>
-        <id>https://strangepapers.github.io/post/zi-wo-gan-dong/</id>
-        <link href="https://strangepapers.github.io/post/zi-wo-gan-dong/">
-        </link>
-        <updated>2023-01-27T05:35:08.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上获得一种畸形的满足感和安全感">我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。</h2>
-<p>其实无论是雪夜去对方家楼下站会儿或者是冒着大雨给她送一杯奶茶什么的，自己回想起来往往觉得如乔峰大战聚贤庄、关羽干里走单骑一样壮杯激烈，而对于对方来说，一杯奶茶就是一杯奶茶，无法承载起你想要在上面寄托的山崩地裂的情悴。<br>
-少年的时候，总是迫不及待地将自己的满腔爱意表达出来，而结果往往是陷入表演之中而不自知。所以两个人的记忆オ会出现偏差，那些你觉得刻骨铭心的过去，对方往往没有同样的感觉，甚至茫然不知。成长的标志就是懂得克制自己。<strong>克制自己的情绪，克制自己的表演欲，甚至克制自己的喜欢</strong>。少年时候，喜欢一个人恨不能把她变成自己身体的一部分，她刚说冷，我这边心里已经结冰了，她说难过，我立马如丧考妣，比她还难过，唯恐无法将自己的爱意表达出来。<br>
-而事实上，谁也无法承担起另一个人的价值寄托，<strong>只有做一个独立、有价值的人，才能真正学会去爱另一个人。<strong>也干万不要尝试改变另一个人，这注定是徒劳的。做自己就好，爱情的真诫在于</strong>相互的吸引、志趣相投的同行</strong>，而不是追逐和依附以及自我感动。</p>
-<blockquote>
-<p>2023年1月26日抖音评论</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>
