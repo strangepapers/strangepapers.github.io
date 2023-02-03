@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-02-01T05:37:52.334Z</updated>
+    <updated>2023-02-03T14:46:05.991Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,27 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[出征]]></title>
+        <id>https://strangepapers.github.io/post/chu-zheng/</id>
+        <link href="https://strangepapers.github.io/post/chu-zheng/">
+        </link>
+        <updated>2023-02-03T14:33:22.000Z</updated>
+        <content type="html"><![CDATA[<p>2月6日，就要出发去衡水。<br>
+东西已经收拾好了，我抬头看看窗外，才知道，<br>
+<strong>放假第一天的傍晚和快开学的傍晚完全不一样。</strong><br>
+并不是讨厌开学，相反，我还有点期待开学。期待学校里发生的事，期待下晚自习走在大道上的那种感觉。<br>
+我舍不得我的家乡，舍不得那座小城。<br>
+在这个寒假里，我基本把这座小城走了一遍。<br>
+寒假里，也学到了不少东西，不光有网课，把html规范学完了。<br>
+<strong>但是html5真难学</strong><br>
+还有python，js等等等等。<br>
+交到了许多朋友。<br>
+一起跨年，一起聊天······<br>
+寒假结束，按照学校的尿性，下次回家就是6月份，即使没有疫情。<br>
+好了，行李收拾的差不多了，该出征了。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[加载缓慢的问题]]></title>
         <id>https://strangepapers.github.io/post/jia-zai-huan-man-de-wen-ti/</id>
@@ -585,49 +606,6 @@ time.sleep(0.5)   ##每0.5秒
 <br>
 <br>
 <p>本文作者为<font face="黑体">strangepapers</font>。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[爱情诚可贵，自由价更高，若为众生故，两者皆可抛。]]></title>
-        <id>https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/</id>
-        <link href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/">
-        </link>
-        <updated>2023-01-27T12:17:58.000Z</updated>
-        <content type="html"><![CDATA[<p>真的，不知什么时候，自己突然有了“喜欢”这种感觉。<br>
-第一次感受到还是初三，现在竟然又一次感受到了？<br>
-不瞒您说，我对此并没有多大的冲动。<br>
-还是这句话：<strong>爱情诚可贵，自由价更高。若为众生故，两者皆可抛</strong>。</p>
-<p>看了看日历，距离开学没多少日子了。<br>
-最近这几年，日子啥的过的太快了。自己渐渐的记不住东西了。<br>
-没法，还是写下来吧，存成电子古董。<br>
-说回去，自由价更高。我知道，现在的我完全没有自由。<br>
-为什么这么说？<br>
-因为</p>
-<h2 id="我什么都不会">我什么都不会。</h2>
-<p>对。<br>
-今天晚上不知道发什么疯，写了这么多，也许是快开学了，有点情绪变化。<br>
-想到什么，就赶紧写下来，生怕自己一转眼就忘了。<br>
-自己想学习一些前端的东西，自学太累了。<br>
-这时我才发现在课堂上我落下了什么，一个strong标签我还要思考一阵。<br>
-于是我从头学起，发现自学是很难的。<br>
-之前，我每天中午都会出去走走，看看这座小城，看看我自己。<br>
-可是繁重的任务，压死我了。<br>
-这不，腊月三十英语老师还在留作业。<br>
-虽然我跟她说了暂时交不了，可是这也足以证明。<br>
-<img src="https://i.328888.xyz/2023/01/27/jVOEb.png" alt="jVOEb.png" loading="lazy"><br>
-嘿，累死了。<br>
-累死了。<br>
-累死了还会搞爱情吗？</p>
-<br>
-<br>
-<br>
-<p>自己想写点东西。<br>
-主要是不想社交了。<br>
-抖音刷不明白，B站看不明白。<br>
-有点百无聊赖的感觉。</p>
-<br>
-<br>
-<p>上文写的有点没逻辑了。</p>
 ]]></content>
     </entry>
 </feed>
