@@ -9,7 +9,7 @@
 <meta name="description" content="中国青年，自强不息
 ">
 <meta name="theme-color" content="#000">
-<title>晚间小憩 | strangepapers</title>
+<title>校记事 | strangepapers</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1682854094893">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -30,8 +30,8 @@
 
 
 
-  <meta name="description" content="晚间小憩" />
-  <meta name="keywords" content="日常" />
+  <meta name="description" content="校记事" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -188,7 +188,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -244,6 +245,194 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%A4%A7%E4%BA%8B">大事</a></li>
+<li><a href="#%E5%A4%A7%E4%BA%8B2">大事2</a></li>
+<li><a href="#%E5%B0%8F%E4%BA%8B">小事</a></li>
+<li><a href="#%E7%99%BE%E8%8A%B1%E9%BD%90%E6%94%BE">百花齐放</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -331,8 +520,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
-      晚间小憩
+    <a class="post-title-link" href="https://strangepapers.github.io/post/xiao-ji-shi/">
+      校记事
     </a>
   </h1>
   <div class="post-meta">
@@ -340,22 +529,9 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2023-01-28</span>
+      <span>2023-04-30</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show">分类于</span>
-      
-      
-      <a href="https://strangepapers.github.io/tag/ri-chang/">
-        <span>日常</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
@@ -364,12 +540,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>96<span class="pc-show">字数</span></span>
+      <span>175<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/post/wan-jian-xiao-qi/" data-flag-title="晚间小憩" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/xiao-ji-shi/" data-flag-title="校记事" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -378,18 +554,30 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>​<audio id="audio" controls="" preload="none"><br>
-<source id="mp3" src="http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a"><br>
-</audio></p>
-<p>这篇文章是在熄灯之后写的。<br>
-今天很累啊，但是什么都没有学到。<br>
-为什么？<br>
-看了看自己的手机使用记录，原来如此。<br>
-以后呢？<br>
-我又看了看日历，还有9天开学。<br>
-开学之后，很多东西就不是触手可得的了。<br>
-这九天，还是要准备啊。<br>
-准备一下开学的东西。</p>
+              <h1 id="大事">大事</h1>
+<p>结束了？似乎没有，但却是是结束了。<br>
+我在自习课上一直在想，我是不是越界了？<br>
+我以为我们的关系很好，原来我一直是丑陋的。</p>
+<blockquote>
+<p>我试着我这她的手<br>
+却还是一样寂寞<br>
+从没想过<br>
+原来自己那么丑陋<br>
+好吧，也许我并不优秀，并不适合她。</p>
+</blockquote>
+<h1 id="大事2">大事2</h1>
+<p>又退步了。<br>
+成绩掉到了我未曾设想的名次。<br>
+好好学英语和数学。</p>
+<h1 id="小事">小事</h1>
+<p>家长会。<br>
+幸运的是，我的表现还可以。</p>
+<h1 id="百花齐放">百花齐放</h1>
+<p>班里出现了很多搞对象的<br>
+可是我也想<br>
+但是我不够优秀<br>
+详见“<strong>大事</strong>”</p>
+<p>寫作於 Gridea ＆ 维尊薄</p>
 
             </div>
             <div class="post-footer">
@@ -400,7 +588,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://strangepapers.github.io/post/wan-jian-xiao-qi/" title="晚间小憩">https://strangepapers.github.io/post/wan-jian-xiao-qi/</a>
+      <a href="https://strangepapers.github.io/post/xiao-ji-shi/" title="校记事">https://strangepapers.github.io/post/xiao-ji-shi/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -409,21 +597,15 @@
   </ul>
   <div class="tags">
     
-      <a href="https://strangepapers.github.io/tag/ri-chang/"># 日常</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="人是要整活的" href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/">人是要整活的</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="人是要整活的" href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="老孙" href="https://strangepapers.github.io/post/lao-sun/">老孙</a>
-        <a class="nav-mobile-next" title="老孙" href="https://strangepapers.github.io/post/lao-sun/">下一篇</a>
+        <a class="nav-pc-next" title="出征" href="https://strangepapers.github.io/post/chu-zheng/">出征</a>
+        <a class="nav-mobile-next" title="出征" href="https://strangepapers.github.io/post/chu-zheng/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
