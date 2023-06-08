@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-04-30T13:11:49.641Z</updated>
+    <updated>2023-06-08T10:47:40.883Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -98,6 +98,7 @@
         </link>
         <updated>2023-02-03T14:33:22.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
+<!-- more -->
 <p>2月6日，就要出发去衡水。<br>
 东西已经收拾好了，我抬头看看窗外，才知道，<br>
 <strong>放假第一天的傍晚和快开学的傍晚完全不一样。</strong><br>
@@ -135,6 +136,20 @@ github的网页加载的确很慢，这并没有办法。<br>
         <link href="https://strangepapers.github.io/post/fan-shen/">
         </link>
         <updated>2023-01-31T14:51:01.000Z</updated>
+        <summary type="html"><![CDATA[<p>在note.ms闲逛，发现有人用脚本刷CCF来捣乱。<br>
+<strong>这不能忍</strong></p>
+<blockquote>
+<p>CCF，以推动计算技术领域学术，技术，教育，应用和产业的发展，助力计算技术领域专业人士能力提升为使命，目前拥有超过10万名付费个人会员。</p>
+</blockquote>
+<blockquote>
+<p>CCF，下设城市会员活动中心，学生分会，YOCSEF城市论坛，以及大数据，自然语言处理，和高性能计算等专业委员会。共近两百个会员服务机构，每年举办近千场专业活动，服务网络遍布全国。</p>
+</blockquote>
+<blockquote>
+<p>CNCC，年度计算技术盛会，每年数千人参会，已举办17届。</p>
+</blockquote>
+<p>等等。</p>
+<p>于是，我用最和平的方式结束了这场坚持4个小时的战役。</p>
+]]></summary>
         <content type="html"><![CDATA[<p>在note.ms闲逛，发现有人用脚本刷CCF来捣乱。<br>
 <strong>这不能忍</strong></p>
 <blockquote>
@@ -147,8 +162,9 @@ github的网页加载的确很慢，这并没有办法。<br>
 <p>CNCC，年度计算技术盛会，每年数千人参会，已举办17届。</p>
 </blockquote>
 <p>等等。</p>
-<p>于是，我用最和平的方式结束了这场坚持4个小时的战役。<br>
-和平且富有礼貌。</p>
+<p>于是，我用最和平的方式结束了这场坚持4个小时的战役。</p>
+<!-- more -->
+<p>和平且富有礼貌。</p>
 <blockquote>
 <p>临时留言<br>
 您好。<br>
@@ -198,21 +214,6 @@ github的网页加载的确很慢，这并没有办法。<br>
 <p>好的。与您交流真是胜读十年书。我们尊重您的意见，再见。</p>
 </blockquote>
 <p>真是文明的我。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[上课]]></title>
-        <id>https://strangepapers.github.io/post/shang-ke/</id>
-        <link href="https://strangepapers.github.io/post/shang-ke/">
-        </link>
-        <updated>2023-01-30T14:59:22.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://img.599ku.com/element_pic/93/17/29/84/2c204564e2a4b5a28a16741eb7fe0a47.jpg_w800"></a></p>
-<h1 id="我真服了">我真服了</h1>
-<p>哪家学校快返校了整几天网课？</p>
-<p>牛牛的嘞。</p>
-<p>上这几天课跟能提多少分似的，还不如时间给我们整整薄弱。<br>
-你这一会英语一会数学，</p>
-<p><b>你什么意思</b></p>
 ]]></content>
     </entry>
     <entry>
@@ -602,12 +603,34 @@ time.sleep(0.5)   ##每0.5秒
         <link href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/">
         </link>
         <updated>2023-01-29T01:46:11.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
+        <content type="html"><![CDATA[<!-- more -->
+<!-- more -->
+<blockquote>
 <p>人是要整活的——没活了，可不就是死了么？<br>
 --互联网</p>
 </blockquote>
 <p>今天想出去玩。<br>
 阳光不错。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[晚间小憩]]></title>
+        <id>https://strangepapers.github.io/post/wan-jian-xiao-qi/</id>
+        <link href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
+        </link>
+        <updated>2023-01-28T14:37:15.000Z</updated>
+        <content type="html"><![CDATA[<p>​<audio id="audio" controls="" preload="none"><br>
+<source id="mp3" src="http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a"><br>
+</audio></p>
+<p>这篇文章是在熄灯之后写的。<br>
+今天很累啊，但是什么都没有学到。<br>
+为什么？<br>
+看了看自己的手机使用记录，原来如此。<br>
+以后呢？<br>
+我又看了看日历，还有9天开学。<br>
+开学之后，很多东西就不是触手可得的了。<br>
+这九天，还是要准备啊。<br>
+准备一下开学的东西。</p>
 ]]></content>
     </entry>
 </feed>

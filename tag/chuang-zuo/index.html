@@ -1,1412 +1,212 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" >
 
-<head>
-  <meta charset="UTF-8" />
+<title>创作 | strangepapers</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="Gridea静态个人博客">
-<meta name="description" content="中国青年，自强不息
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://strangepapers.github.io//favicon.ico?v=1686221258009">
+<link rel="stylesheet" href="https://strangepapers.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="中国青年，自强不息
 ">
-<meta name="theme-color" content="#000">
-<title>strangepapers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1682857232719">
-<link rel="stylesheet" href="/styles/main.css">
-<link rel="stylesheet" href="/media/css/gemini.css">
+  </head>
+  <body>
+    <div id="app" class="main">
 
-<link rel="stylesheet" href="/media/fonts/font-awesome.css">
-<link
-  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
-  rel="stylesheet" type="text/css">
-
-<link href="/media/hljs/styles/androidstudio.css"
-  rel="stylesheet">
-
-<script src="/media/hljs/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
-
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-
-
-</head>
-
-<body>
-  <div class="head-top-line"></div>
-  <div class="header-box">
-    
-<div class="gemini">
-  <header class="header  ">
-    <div class="blog-header box-shadow-wrapper bg-color " id="header">
-      <div class="nav-toggle" id="nav_toggle">
-        <div class="toggle-box">
-          <div class="line line-top"></div>
-          <div class="line line-center"></div>
-          <div class="line line-bottom"></div>
-        </div>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://strangepapers.github.io/">
+        <img src="https://strangepapers.github.io//images/avatar.png?v=1686221258009" class="site-logo">
+        <h1 class="site-title">strangepapers</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
-      <div class="site-meta">       
-        <div class="site-title">
-          
-            <a href="/" class="brand">
-              <span>strangepapers</span>
-            </a>  
-          
-        </div>
+    </div>
+    <div>
+      
         
-          <p class="subtitle">逝者如斯，不舍昼夜。</p>
+          <a href="/" class="site-nav">
+            首页
+          </a>
         
-      </div>
-      <nav class="site-nav" id="site_nav">
-        <ul id="nav_ul">
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/" target="_self">
-                  <i class="fa fa-home"></i> 首页
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/post/about/" target="_self">
-                  <i class="fa fa-user"></i> 关于
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/archives/" target="_self">
-                  <i class="fa fa-archive"></i> 归档
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/tags/" target="_self">
-                  <i class="fa fa-tags"></i> 标签
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="/post/geng-duo/" target="_self">
-                  <i class="fa fa-globe"></i> 更多
-                </a>
-              
-            </li>
-          
-          
-            
-              <li class="nav-item ">
-                <a href="/friends/" target="_self">
-                  
-                    <i class="fa fa-address-book"></i> 友情链接
-                  
-                </a>
-              </li>
-            
-          
-        </ul>
-      </nav>
-    </div>
-  </header>
-</div>
-
-<script type="text/javascript"> 
- 
-  let showNav = true;
-
-  let navToggle = document.querySelector('#nav_toggle'),
-  siteNav = document.querySelector('#site_nav');
-  
-  function navClick() {
-    let sideBar = document.querySelector('.sidebar');
-    let navUl = document.querySelector('#nav_ul');
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-    if (siteNav.classList.contains('nav-menu-active')) {
-      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
-    } else {
-      siteNav.style = "";
-    }
-  }
-
-  navToggle.addEventListener('click',navClick);  
-</script>
-  </div>
-  <div class="main-continer">
-    
-    <div
-      class="section-layout  gemini">
-      <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name">strangepapers</p>
-    
-    <div class="site-description right-motion">
       
-      
-      
-        <p>该躺还得躺。</p>
-      
-      
-    </div>
-    
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
         
-        <span class="site-item-stat-count">15</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">4</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">4</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  
-    
-      <div class="sidebar-item">
-        <span class="site-item-rss">
-            <i class="fa fa-rss"></i>
-            <a href="https://strangepapers.github.io//atom.xml" target="_blank">RSS</a>
-        </span>
-      </div>
-    
-  
-  
-
-
-  <div class="sidebar-item">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=65 src="//music.163.com/outchain/player?type=0&id=8112236856&auto=0&height=32"></iframe>
-<iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=3&t=1&v=0&d=3&bd=0&k=&f=&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=180&h=36&align=center"></iframe>
-  </div>
-
-</div>
-</div>
-<script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
-      }
-    });
-  }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          创作
-          <small>标签</small>
-        </h2>
-      </div>
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://strangepapers.github.io/post/fan-shen/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              01-31
-              <small>翻身</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://strangepapers.github.io/post/lao-sun/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              01-28
-              <small>老孙</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      <a href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              01-27
-              <small>爱情诚可贵，自由价更高，若为众生故，两者皆可抛。</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+        
+          <a href="/post/geng-duo" class="site-nav">
+            更多
+          </a>
+        
       
     </div>
   </div>
-</div>
-          </section>
-        </div>
-      </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     </div>
-    <div class="footer-box">
-  <footer class="footer">
-    <div class="copyright">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    <div class="site-description">
+      中国青年，自强不息
+
     </div>
-    <div class="poweredby">
+    <div class="site-footer">
       <a href="https://zqr.wikidot.com"><font face="Arial Black">
 Author's web page</font></a>
 <br>
-
-    </div>
-  </footer>
-  
-  
-  <div class="gemini back-to-top" id="back_to_top">
-    <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
-    
-  </div>
-  
-    <div class="bg-img">
-      <img src="https://img.tt98.com/d/2020/2020061018025866/5ee0a1e6cb0c3.jpg" />
-    </div>
-  
-  
-  
-    
-
-  
-</div>
-<script>
-
-  let sideBarOpen = 'sidebar-open';
-  let body = document.body;
-  let back2Top = document.querySelector('#back_to_top'),
-  back2TopText = document.querySelector('#back_to_top_text'),
-  drawerBox = document.querySelector('#drawer_box'),
-  rightSideBar = document.querySelector('.sidebar'),
-  viewport = document.querySelector('body');
-
-  function scrollAnimation(currentY, targetY) {
-   
-    let needScrollTop = targetY - currentY
-    let _currentY = currentY
-    setTimeout(() => {
-      const dist = Math.ceil(needScrollTop / 10)
-      _currentY += dist
-      window.scrollTo(_currentY, currentY)
-      if (needScrollTop > 10 || needScrollTop < -10) {
-        scrollAnimation(_currentY, targetY)
-      } else {
-        window.scrollTo(_currentY, targetY)
-      }
-    }, 1)
-  }
-
-  back2Top.addEventListener("click", function(e) {
-    scrollAnimation(document.scrollingElement.scrollTop, 0);
-    e.stopPropagation();
-    return false;
-  });
-  
-  window.addEventListener('scroll', function(e) {
-    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
-    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
-      back2Top.classList.add('back-top-active');
-    }
-    if (percent == 0) {
-      back2Top.classList.remove('back-top-active');
-    }
-    if (back2TopText) {
-      back2TopText.textContent = Math.floor(percent);
-    }
-  });
-
-  
-  let hasCacu = false;
-  window.onresize = function() {
-    if (window.width > 991) {
-      calcuHeight();
-    } else {
-      hasCacu = false;
-    }
-  }
-
-  function calcuHeight() {
-    // 动态调整站点概览高度
-    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
-      let sideBar = document.querySelector('.sidebar');
-      let navUl = document.querySelector('#site_nav');
-      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
-      hasCacu = true;
-    }
-  }
-  calcuHeight();
-  
-  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
-
-  if (drawerBox) {
-    let rightMotions = document.querySelectorAll('.right-motion');
-    let right = drawerBox.classList.contains('right');
-
-    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
-
-    let openProp, closeProp;
-    if (right) {
-      openProp = {
-        paddingRight: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingRight: '0px'
-      };
-    } else {
-      openProp = {
-        paddingLeft: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingLeft: '0px'
-      };
-    }
-
-    drawerBox.onclick = function() {
-      open = !open;
-      window.Velocity(rightSideBar, 'stop');
-      window.Velocity(viewport, 'stop');
-      window.Velocity(rightMotions, 'stop');
-      if (open) {
-        window.Velocity(rightSideBar, {
-          width: RIGHT_MOVE_DIS
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, transitionDir,{ });
-          }
-        })
-        window.Velocity(viewport, openProp,{
-          duration: MOTION_TIME
-        });
-      } else {
-        window.Velocity(rightSideBar, {
-          width: '0px'
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, {
-              opacity: 0
-            });
-          }
-        })
-        window.Velocity(viewport, closeProp ,{
-          duration: MOTION_TIME
-        });
-      }
-      for (let i = 0; i < drawerBox.children.length; i++) {
-        drawerBox.children[i].classList.toggle('muse-line');
-      }
-      drawerBox.classList.toggle(sideBarOpen);
-    }
-  }
-
-  // 链接跳转
-  let newWindow = 'false'
-  if (newWindow === 'true') {
-    let links = document.querySelectorAll('.post-body a')
-    links.forEach(item => {
-      if (!item.classList.contains('btn')) {
-        item.setAttribute("target","_blank");
-      }
-    })
-  }
-  // 代码高亮
-  hljs.initHighlightingOnLoad();
-
-</script>
-  </div>
-</body>
-<input hidden id="copy" />
-<script>
-  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
-  window.Clipboard = (function (window, document, navigator) {
-    var textArea,
-      copy;
-
-    // 判断是不是ios端
-    function isOS() {
-      return navigator.userAgent.match(/ipad|iphone/i);
-    }
-    //创建文本元素
-    function createTextArea(text) {
-      textArea = document.createElement('textArea');
-      textArea.value = text;
-      textArea.style.width = 0;
-      textArea.style.height = 0;
-      textArea.clientHeight = 0;
-      textArea.clientWidth = 0;
-      document.body.appendChild(textArea);
-    }
-    //选择内容
-    function selectText() {
-      var range,
-        selection;
-
-      if (isOS()) {
-        range = document.createRange();
-        range.selectNodeContents(textArea);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        textArea.setSelectionRange(0, 999999);
-      } else {
-        textArea.select();
-      }
-    }
-
-    //复制到剪贴板
-    function copyToClipboard() {
-      try {
-        document.execCommand("Copy")
-      } catch (err) {
-        alert("复制错误！请手动复制！")
-      }
-      document.body.removeChild(textArea);
-    }
-
-    copy = function (text) {
-      createTextArea(text);
-      selectText();
-      copyToClipboard();
-    };
-
-    return {
-      copy: copy
-    };
-  })(window, document, navigator);
-
-  function copyCode(e) {
-    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
-      let code = e.currentTarget.querySelector('code');
-      var text = code.innerText;
-      if (e.srcElement.textContent === '复制成功') {
-        console.log('复制操作频率过高');
-        return;
-      }
-      e.srcElement.textContent = '复制成功';
-      (function (elem) {
-        setTimeout(() => {
-          if (elem.textContent === '复制成功') {
-            elem.textContent = '复制代码'
-          }
-        }, 1000);
-      })(e.srcElement)
-      Clipboard.copy(text);
-    }
-  }
-
-  let pres = document.querySelectorAll('pre');
-  pres.forEach(pre => {
-    let code = pre.querySelector('code');
-    let copyElem = document.createElement('span');
-    copyElem.classList.add('copy-code');
-    copyElem.textContent = '复制代码';
-    pre.appendChild(copyElem);
-    pre.onclick = copyCode
-  })
-</script>
-<script src="/media/js/motion.js"></script>
-
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-<script>
-  var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 500
-  });
-</script>
-
-<!-- <div class="search-mask" id="search_mask">
-  <div class="search-box">
-    <div class="search-title">
-      <i class="fa fa-search"></i>
-      <div class="input-box">
-        <input type="text" placeholder="搜索">
-      </div>
-      <i class="fa fa-times-circle"></i>
-    </div>
-    <div class="result">
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/2DA412xAJ/"" data-c="
-          &lt;p&gt;#家长会喽&lt;/p&gt;
-&lt;h2 id=&#34;排练&#34;&gt;排练&lt;/h2&gt;
-&lt;p&gt;提前3天排练，有一次晚上下雨，天色压抑，空中的鸟无头乱飞，下面的小虫子乱飞。&lt;br&gt;
-不一会，就下起了大雨，不得不跑回去。&lt;/p&gt;
-&lt;h2 id=&#34;效果不错&#34;&gt;效果不错&lt;/h2&gt;
-&lt;p&gt;嗯，效果不错。&lt;br&gt;
-😘&lt;br&gt;
-我爹娘写的期盼信比我写的感恩信写的好。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;成人礼给孩子的一封信
-
-起睿同学：
-十八岁了，对于十八岁来说它不只是一个年轮的变换，而是你从少年迈入青年的起点，是你从幼稚走向成熟的开端，是你青春美好岁月展开的初始，之前的天真烂漫和无忧无虑，逐渐会被责任和担当代替，做为父母朋友的我们在今天要给你说：
-
-人生有很多路，无论选择哪一条，都不会一帆风顺，自己的未来，自己的路，希望你能在选择的时候慎重，并希望你踏踏实实的，带着智慧，真知，自信和持之以恒的信念，不会轻言放弃，人但有恒，事无不成，当你的目标始终如一时，坎坷与困难就只是过程，然而当你质疑自己的选择而犹豫不前时，哪怕是一粒沙，也会化作高山来阻止你。希望你一路披荆斩棘，鼓足勇气去追求生活，去创造自己的世界！
-
-成年了要更多的担起责任，为自己负责，成为顶天立地的人，接下来的慢慢人生路，还需要你慢慢体会，你就要逐渐进入了自己独立的生活旅程，作为一个男子汉，我们希望你好好安排自己的生活与学习，有强健的身体，有良好的生活学习习惯，有坚强的意志，有严格的自律能力，有善良的心地，有宽阔的胸怀，有阳光的心态，有不断增长的德行、聪明与智慧，勇于承担自己的义务与责任。你现在的学习阶段，将是你人生中最重要的挑战，拼尽全力学习就是你的责任，坚持坚持再坚持，更多的想想办法逼自己学习，纵使你有时会感到疲惫、焦虑、惶恐、紧张，不要怕，调整好心态，勇往直前，你所有的努力都会让你离优秀更近一步，会离成功更近一层。青春与欢乐齐飞，志向与奋斗同在。青春的风华正茂是人生的一个里程，就此你应担起更大责任，不断的成熟起来。
-
-鸟不高飞，不知蓝天之阔；人不远行，不知世界之大。青春之亮丽，如诗如梦，风光无限。你以后要更多的走向社会，走向远方；更多的勇于实践，笃行不怠。十八岁，人生初绽芳华；十八岁，青春岁月无悔，敢拼敢闯，未来可期。
-
-后面望你在以后的时间一定要谨记： 
-
-感恩与回报是做人的基本准则，“滴水之恩当涌泉相报”
-助人与善良是做人的基本道德，“送人玫瑰，手有余香“
-宽容与理解是做人的基本素质，“为宽可以容人，为厚可以载物“
-谦虚与真诚是做人的美德，“三人行必有我师” “诚者，天之道也
-谨言与慎为是处事的哲学，“君子三缄其口” “人三思而后行“
-坚强与执着是成功的秘诀，“立志在坚不在锐，成功在久不在速”
-
-愿你不负青春，不负韶华，不负时代，用自己的拼搏和汗水朝着理想的彼岸乘风破浪、扬帆远航！，将来做一个睿智、宽容、快乐、有爱的人，谨记诚实诚信才是成功的钥匙。
-
-话说回来，成年了担负的多了，会更多的心累身累，这时也要记得知足与放弃也是做事良方。凡事不可走极端，有收获则知足，未可得不强求。真心品味“得到是福，舍得是福，知足才是最幸福“的真正含义。永远记得当你累了的时候你有一个温馨的港湾，你有两个坚定的支持者。小憩一下，再上征程！
-
-离高考的日子屈指可数了，我们希望你能静心、安心、细心、专心，给你自己苦读15载追寻学习梦想的历程画上一个完美的句号，无悔的走完这一段精彩的路程。
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&#34;多媒体&#34;&gt;多媒体&lt;/h1&gt;
-&lt;p&gt;到现在我也不会更改多媒体上的系统时间，导致我们班不能像他们班一样看b站。&lt;br&gt;
-5555&lt;/p&gt;
-&lt;h1 id=&#34;感&#34;&gt;感&lt;/h1&gt;
-&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=349981&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
-">有感</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/xiao-ji-shi/"" data-c="
-          &lt;h1 id=&#34;大事&#34;&gt;大事&lt;/h1&gt;
-&lt;p&gt;结束了？似乎没有，但却是是结束了。&lt;br&gt;
-我在自习课上一直在想，我是不是越界了？&lt;br&gt;
-我以为我们的关系很好，原来我一直是丑陋的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我试着我这她的手&lt;br&gt;
-却还是一样寂寞&lt;br&gt;
-从没想过&lt;br&gt;
-原来自己那么丑陋&lt;br&gt;
-好吧，也许我并不优秀，并不适合她。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;大事2&#34;&gt;大事2&lt;/h1&gt;
-&lt;p&gt;又退步了。&lt;br&gt;
-成绩掉到了我未曾设想的名次。&lt;br&gt;
-好好学英语和数学。&lt;/p&gt;
-&lt;h1 id=&#34;小事&#34;&gt;小事&lt;/h1&gt;
-&lt;p&gt;家长会。&lt;br&gt;
-幸运的是，我的表现还可以。&lt;/p&gt;
-&lt;h1 id=&#34;百花齐放&#34;&gt;百花齐放&lt;/h1&gt;
-&lt;p&gt;班里出现了很多搞对象的&lt;br&gt;
-可是我也想&lt;br&gt;
-但是我不够优秀&lt;br&gt;
-详见“&lt;strong&gt;大事&lt;/strong&gt;”&lt;/p&gt;
-&lt;p&gt;寫作於 Gridea ＆ 维尊薄&lt;/p&gt;
-">校记事</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/chu-zheng/"" data-c="
-          &lt;!-- more --&gt;
-&lt;p&gt;2月6日，就要出发去衡水。&lt;br&gt;
-东西已经收拾好了，我抬头看看窗外，才知道，&lt;br&gt;
-&lt;strong&gt;放假第一天的傍晚和快开学的傍晚完全不一样。&lt;/strong&gt;&lt;br&gt;
-并不是讨厌开学，相反，我还有点期待开学。期待学校里发生的事，期待下晚自习走在大道上的那种感觉。&lt;br&gt;
-我舍不得我的家乡，舍不得那座小城。&lt;br&gt;
-在这个寒假里，我基本把这座小城走了一遍。&lt;br&gt;
-寒假里，也学到了不少东西，不光有网课，把html规范学完了。&lt;br&gt;
-&lt;strong&gt;但是html5真难学&lt;/strong&gt;&lt;br&gt;
-还有python，js等等等等。&lt;br&gt;
-交到了许多朋友。&lt;br&gt;
-一起跨年，一起聊天······&lt;br&gt;
-寒假结束，按照学校的尿性，下次回家就是6月份，即使没有疫情。&lt;br&gt;
-好了，行李收拾的差不多了，该出征了。&lt;/p&gt;
-">出征</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/jia-zai-huan-man-de-wen-ti/"" data-c="
-          &lt;h1 id=&#34;在访问的时候加载总是很慢为什么&#34;&gt;在访问的时候，加载总是很慢，为什么？&lt;/h1&gt;
-&lt;p&gt;1  github&lt;br&gt;
-github的网页加载的确很慢，这并没有办法。&lt;br&gt;
-以后会考虑换址。&lt;/p&gt;
-&lt;p&gt;2 字体文件&lt;br&gt;
-在此页面，我配置了字体文件。&lt;br&gt;
-很美观，但加载时间会出奇的慢。&lt;br&gt;
-字体文件是放在最后传输的，您也可以在配置未完成的时候进行浏览。&lt;/p&gt;
-">加载缓慢的问题</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/fan-shen/"" data-c="
-          &lt;p&gt;在note.ms闲逛，发现有人用脚本刷CCF来捣乱。&lt;br&gt;
-&lt;strong&gt;这不能忍&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;CCF，以推动计算技术领域学术，技术，教育，应用和产业的发展，助力计算技术领域专业人士能力提升为使命，目前拥有超过10万名付费个人会员。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;CCF，下设城市会员活动中心，学生分会，YOCSEF城市论坛，以及大数据，自然语言处理，和高性能计算等专业委员会。共近两百个会员服务机构，每年举办近千场专业活动，服务网络遍布全国。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;CNCC，年度计算技术盛会，每年数千人参会，已举办17届。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;等等。&lt;/p&gt;
-&lt;p&gt;于是，我用最和平的方式结束了这场坚持4个小时的战役。&lt;br&gt;
-和平且富有礼貌。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;临时留言&lt;br&gt;
-您好。&lt;br&gt;
-发r的谁&lt;br&gt;
-我。有问题？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;你手动还是脚本？？？？？我暂时挂一个200ms的脚本&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;您是谁？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;宣传CCF，拜月教&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;您为什么要在这里宣传？&lt;br&gt;
-我们存在的意义是为大家创造一个稳定的交流空间。您的行为也许不利于发展。&lt;br&gt;
-或许我们可以好好谈一谈。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;你是Dentist Pamphlet&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;是。&lt;br&gt;
-我很欣赏您的能力，您有意加入我们吗？&lt;br&gt;
-相信您的才华与能力要比我见识的多&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我是OIer，现在没时间了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;哈哈，您有时间宣传，怎么会没时间？您真会开玩笑。&lt;br&gt;
-我们不需要您太多的时间和精力。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;脚本我是挂在我自己服务器上的，偶尔看一下，不需要怎么手动操控。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;那很好。我还是诚挚的邀请你加入，不过您不加入也没有关系。&lt;br&gt;
-宣传嘛，您可以选择换一个地方，您说怎么样？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/chat以后可以不维护了，但是我不会加入的。我现在要停止颓废了，就说这么多。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;好的。与您交流真是胜读十年书。我们尊重您的意见，再见。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;真是文明的我。&lt;/p&gt;
-">翻身</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/shang-ke/"" data-c="
-          &lt;p&gt;&lt;a href=&#34;https://img.599ku.com/element_pic/93/17/29/84/2c204564e2a4b5a28a16741eb7fe0a47.jpg_w800&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;我真服了&#34;&gt;我真服了&lt;/h1&gt;
-&lt;p&gt;哪家学校快返校了整几天网课？&lt;/p&gt;
-&lt;p&gt;牛牛的嘞。&lt;/p&gt;
-&lt;p&gt;上这几天课跟能提多少分似的，还不如时间给我们整整薄弱。&lt;br&gt;
-你这一会英语一会数学，&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;你什么意思&lt;/b&gt;&lt;/p&gt;
-">上课</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/html-zhuan-pan/"" data-c="
-          &lt;p&gt;在csdn看到的&lt;br&gt;
-回头整个低配版拼多多哈哈哈哈哈&lt;/p&gt;
-&lt;!-- more --&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
-&amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;抽奖&amp;lt;/title&amp;gt;
-    &amp;lt;style&amp;gt;
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: &amp;quot;Microsoft YaHei&amp;quot;,微软雅黑;
-        }
-        .box{
-            width:600px;
-            height:600px;
-            background-color: #ff9615;
-            padding: 20px;
-            border-radius: 50%;
-            border:2px solid #ffd50e;
-            position:relative;
-            margin: 100px auto;
-        }
-        .turntable{
-            width:600px;
-            height:600px;
-            background-color: red;
-            border-radius: 50%;
-            position:relative;
-            box-shadow: 0 0 10px #000;
-            line-height:95px;
-        }
-        .little-circle{
-            width:10px;
-            height:10px;
-            border-radius:50%;
-            border:1px solid black;
-            position:absolute;
-            left:50%;
-            margin-left: -5px;
-            margin-top: 5px;
- 
-        }
-        .little-circle:nth-child(even) {
-            background-color: #f1c96c;
-        }
-        .little-circle:nth-child(odd) {
-            background-color: #fff6db;
-        }
-        .prize-zone{
-            width:556px;
-            height: 556px;
-            border-radius:50%;
-            position:absolute;
- 
-            left: 50%;
-            margin-left: -278px;
-            top:50%;
-            margin-top: -278px;
-            overflow: hidden;
-        }
-        .prize{
-            width:278px;
-            height:278px;
-            position:absolute;
-            left:0;
-            top:0;
-        }
-        .prize:nth-child(odd) {
-            background-color: #f1c96c;
-        }
-        .prize:nth-child(even) {
-            background-color: #fff6db;
-        }
-        .btn{
-            width:100px;
-            height:100px;
-            border-radius:50%;
-            position:absolute;
-            left:50%;
-            margin-left:-50px;
-            top:50%;
-            margin-top:-50px;
-            background-color: #ff7609;
-            color:white;
-            font-size: 30px;
-            font-weight: bolder;
-            text-align: center;
-            vertical-align: middle;
-            cursor:pointer;
-        }
-        .pointer{
-            width:0;
-            height:0;
-            position: absolute;
-            left:50%;
-            margin-left: -25px;
-            top:50%;
-            margin-top: -100px;
-            border-bottom: 100px solid #ff9615;
-            border-left:25px solid transparent;
-            border-right:25px solid transparent;
-        }
-        .content{
-            width:200px;
-            height:250px;
-            position:absolute;
-            right:0;
-            bottom:0;
-            text-align: center;
-        }
-        .content .thanks{
-            width:34px;
-            height: 150px;
-            font-size:30px;
-            font-weight: bolder;
-            color: #ff6e37;
-            margin:0 auto;
-            line-height: 34px;
-            padding-top:20px;
-        }
-        .content .img{
-            width:10px;
-            height:10px;
-            position: absolute;
-            left:50%;
-            margin-left:-40px;
-            top:5%;
-        }
-        .content img{
-            width:80px;
-            height:100px;
-            position: absolute;
-        }
-        .txt{
-            width: 100px;
-            height: 50px;
-            font-size: 20px;
-            line-height: 32px;
-            margin: 0 auto;
-            padding-top:120px;
-            color: #ff6e37;
-            font-weight: bolder;
-        }
-    &amp;lt;/style&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;
-    &amp;lt;div class=&amp;quot;turntable&amp;quot;&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
- 
-        &amp;lt;div class=&amp;quot;prize-zone&amp;quot;&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;
-                        &amp;lt;img src=&amp;quot;prize/router.jpg&amp;quot; /&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;
-                        &amp;lt;p&amp;gt;四等奖&amp;lt;/p&amp;gt;
-                        &amp;lt;p&amp;gt;路由器&amp;lt;/p&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;
-                        &amp;lt;img src=&amp;quot;prize/bicycle.jpg&amp;quot; /&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;
-                        &amp;lt;p&amp;gt;一等奖&amp;lt;/p&amp;gt;
-                        &amp;lt;p&amp;gt;自行车&amp;lt;/p&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;
-                        &amp;lt;img src=&amp;quot;prize/glass.jpg&amp;quot; /&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;
-                        &amp;lt;p&amp;gt;二等奖&amp;lt;/p&amp;gt;
-                        &amp;lt;p&amp;gt;3D眼睛&amp;lt;/p&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;
-                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
-                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;
-                        &amp;lt;img src=&amp;quot;prize/kindle.jpg&amp;quot; /&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;
-                        &amp;lt;p&amp;gt;三等奖&amp;lt;/p&amp;gt;
-                        &amp;lt;p&amp;gt;kindle&amp;lt;/p&amp;gt;
-                    &amp;lt;/div&amp;gt;
-                &amp;lt;/div&amp;gt;
-            &amp;lt;/div&amp;gt;
-        &amp;lt;/div&amp;gt;
-        &amp;lt;div class=&amp;quot;pointer&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div id=&amp;quot;btn&amp;quot; class=&amp;quot;btn&amp;quot;&amp;gt;抽奖&amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
- 
-&amp;lt;/div&amp;gt;
-&amp;lt;script&amp;gt;
-    // 小圆圈的旋转变换
-    let circleList = document.querySelectorAll(&#39;.little-circle&#39;);
-    let len = circleList.length;
-    let rotateStep = 360/len;
-    let halfOfRotateStep = rotateStep/2;
-    circleList.forEach(function(item,index){
-        let deg = rotateStep*index+halfOfRotateStep;
-        item.style.transform=&amp;quot;rotate(&amp;quot;+deg+&amp;quot;deg)&amp;quot;;
-        item.style.transformOrigin=&amp;quot;5px 295px&amp;quot;;
-    });
-    // 每一个奖品的变换
-    let prizeList = document.querySelectorAll(&#39;.prize&#39;);
-    let pLen = prizeList.length;
-    let pRotateStep = 360/pLen;
-    let halfOfPRotateStep = pRotateStep/2;
-    prizeList.forEach(function(item,index){
-        item.style.transform=&amp;quot;rotate(&amp;quot;+(pRotateStep*index)+&amp;quot;deg&amp;quot;+&amp;quot;) skewY(&amp;quot;+pRotateStep+&amp;quot;deg)&amp;quot;;
-        item.style.transformOrigin=&amp;quot;right bottom&amp;quot;;
-    });
-    // 奖品的内容变换
-    let contentList = document.querySelectorAll(&#39;.content&#39;);
-    contentList.forEach(function(item){
-        // 反向变换，用于抵消div.prize的变形 这里的translate值，其实可以用三角函数算出来，但是太复杂，我就用肉眼观测取了7px 100px这么个值
-        item.style.transform = &amp;quot;skewY(-&amp;quot;+pRotateStep+&amp;quot;deg) rotate(-&amp;quot;+halfOfPRotateStep+&amp;quot;deg) translate(7px, 100px)&amp;quot;;
-        item.style.transformOrigin = &amp;quot;center center&amp;quot;;
-    });
-    let retry = false;
-    // 抽奖按钮的点击事件
-    document.querySelector(&#39;#btn&#39;).onclick=function(){
-        if(retry){
-            retry=false;
-            clear();
-            document.querySelector(&#39;#btn&#39;).innerText=&amp;quot;抽奖&amp;quot;;
-            return;
-        }
-        // 计算一个随机的度数，转起来，先转上十圈然后再转一圈内的随机度数
-        document.querySelector(&#39;#btn&#39;).style.cursor=&amp;quot;wait&amp;quot;;
- 
-        let deg1=360*10;
-        let deg2 = (Math.floor(Math.random()*8)+1)*45+22.5;
-        let deg=deg1+deg2;
-        console.log(deg);
-        let truntable = document.querySelector(&#39;.prize-zone&#39;);
-        truntable.style.transition=&amp;quot;all 10s ease&amp;quot;;
-        truntable.style.transform=&amp;quot;rotate(&amp;quot;+deg+&amp;quot;deg)&amp;quot;;
-    };
-    // 监听动画完成事件
-    document.querySelector(&#39;.prize-zone&#39;).addEventListener(&#39;transitionend&#39;,function(){
-        document.querySelector(&#39;#btn&#39;).style.cursor=&amp;quot;pointer&amp;quot;;
-        retry=true;
-        document.querySelector(&#39;#btn&#39;).innerText=&amp;quot;重置&amp;quot;;
-    });
-    function clear(){
-        let truntable = document.querySelector(&#39;.prize-zone&#39;);
-        truntable.style.transition=&amp;quot;none&amp;quot;;
-        truntable.style.transform=&amp;quot;none&amp;quot;;
-    }
-&amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;取自CSDN&lt;br&gt;
-&lt;img src=&#34;https://i.328888.xyz/2023/01/30/8t3zc.png&#34; alt=&#34;8t3zc.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-">HTML转盘</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/geng-duo/"" data-c="
-          &lt;h3 id=&#34;今日&#34;&gt;今日&lt;/h3&gt;
-&lt;div id=&#34;he-plugin-standard&#34;&gt;&lt;/div&gt;
-&lt;script&gt;
-WIDGET = {
-  &#34;CONFIG&#34;: {
-    &#34;layout&#34;: &#34;1&#34;,
-    &#34;width&#34;: &#34;310&#34;,
-    &#34;height&#34;: &#34;150&#34;,
-    &#34;background&#34;: &#34;2&#34;,
-    &#34;dataColor&#34;: &#34;000000&#34;,
-    &#34;borderRadius&#34;: &#34;10&#34;,
-    &#34;key&#34;: &#34;d1e957d214684e3481121ef1ab198163&#34;
-  }
-}
-&lt;/script&gt;
-&lt;script src=&#34;https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0&#34;&gt;&lt;/script&gt;
-&lt;h3 id=&#34;在此处留言&#34;&gt;在此处留言&lt;/h3&gt;
-&lt;iframe src=&#34;https://www3.cbox.ws/box/?boxid=3523946&amp;boxtag=uuWImn&#34; width=&#34;100%&#34; height=&#34;450&#34; allowtransparency=&#34;yes&#34; allow=&#34;autoplay&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34; scrolling=&#34;auto&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.cbox.ws/help?id=42&#34;&gt;获取语法帮助&amp;gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;strangepapers的歌单&#34;&gt;strangepapers的歌单&lt;/h3&gt;
-&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=310 height=450 src=&#34;//music.163.com/outchain/player?type=0&amp;id=8112236856&amp;auto=1&amp;height=430&#34;&gt;&lt;/iframe&gt;
-">更多</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/song-li-qian-gui-ze/"" data-c="
-          &lt;h1 id=&#34;说实话其实就是越贵越好&#34;&gt;说实话，其实就是越贵越好。&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://ts1.cn.mm.bing.net/th/id/R-C.7c6d93b96cf53e830a62640600477016?rik=3TuprOlGi%2bN2cQ&amp;amp;riu=http%3a%2f%2ftu.52guzhuang.com%2fd%2ffile%2fp%2f2015-05-21%2fsbrzjsk33bt1370.jpg&amp;amp;ehk=9NWVAfKZ9B%2bEvYu%2fFSDFwUVuNO1Wbv6NnTUhreIchhk%3d&amp;amp;risl=&amp;amp;pid=ImgRaw&amp;amp;r=0&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1、送穷亲戚，好不好的不重要，重点是要贵，要送价值明显的、他们觉得贵平时舍不得买的。比如进口的水果、包装豪华而又昂贵的点心等等。&lt;br&gt;
-2、送富亲戚，要送性价比比较低的，越不划算的东西越好，比如送2000多块的意大利手工伞、1000多块的羊角梳子等。&lt;br&gt;
-3、送领导，要送有钱也不一定能买到的好东西，比如自己老家亲戚种的有机大米，百年老店的手工制品等等，重点不在于价格有多昂贵，而在于稀缺性。&lt;br&gt;
-4、去朋友家吃饭送什么，送当季比较贵的菜，不仅花小钱办大事，更能拉近和朋友的关系。&lt;br&gt;
-5、对工作上有业务往来的伙伴送什么，男性你就送他女性用品，比如化妆品；女性有小孩的你就送她儿童用品，没小孩的你就送她老年用品，准没错。&lt;br&gt;
-6、新入职想要和同事打好关系，送什么？最好的答案就是下午茶，今天请喝奶茶，明天请吃鸭脖，后天请吃水果，很快你就能和同事打成一片。&lt;br&gt;
-7、送礼送不出去的原因无非有2个，一个是你礼品没到位，一个是人家不想帮你办。&lt;br&gt;
-8、真正有事时才送礼往往不灵，关键还是在于平时的点滴铺垫。&lt;br&gt;
-9、要送对方真正感兴趣的东西，而不是自己觉得贵重的东西。&lt;br&gt;
-10、送礼的关键在于让对方感受到你的态度，而不是礼品有多好。&lt;br&gt;
-11、礼物送出去之后切记不要再提，尤其是在有第三者在的场合。&lt;br&gt;
-12、你给别人送东西办事，知道的人越少越好。&lt;br&gt;
-13、送礼的过程要自然，不要搞得太隆重、太正式，让对方太有心理压力。&lt;br&gt;
-14、如果和别人不熟，最好不要一上来就送礼，这样只会让别人心生警惕。&lt;br&gt;
-15、别人收了你的礼，不要就觉得对方一定要帮你办成这件事。&lt;br&gt;
-16、送礼千万不要跟风，没有任何新意，送出去的礼物也得不到对方的重视。还不如踏踏实实了解一下人家的需求，送点实用的东西！&lt;br&gt;
-17、送礼送到最后，往往都是送钱，在任何地方都通用。&lt;br&gt;
-18、送烟酒的奥妙在于烟酒即使对方不用，也能拿去变现，其实就是变相的送钱。&lt;br&gt;
-19、送礼不要太频繁，太频繁了，对方也就习惯了、麻木了。&lt;br&gt;
-20、送礼不要扎堆，选择人少的时候送。&lt;br&gt;
-21、初次见面一定不要送大礼，对方会觉得你别有用心，反而不落好。&lt;br&gt;
-22、送礼之前要先打好感情基础，让对方觉得自己可靠、安全。&lt;br&gt;
-23、求人办事，送礼切记不要越级送礼。&lt;br&gt;
-24、领导的亲戚卖什么，咱就买什么，这是最简单自然而又高明的送礼。&lt;br&gt;
-25、求人办事时，送礼代表的是你愿意付出什么代价，意味着自己必须吃点亏，要不然就成了道德绑架。&lt;br&gt;
-26、送礼的时候不能试探性动作太多，老想着事办不成怎么办，亏了怎么办？&lt;br&gt;
-27、蹭同事的车，习惯性的给同事买盒烟，简单又实用。&lt;br&gt;
-28、求人办事要讲究礼先到，不要老想着事成之后再送礼。&lt;br&gt;
-29、平时出门习惯性的给门卫递根烟，往往就能减少很多麻烦。&lt;br&gt;
-30、学习送礼可以从见人分烟、请人吃饭、给人小恩小惠开始。&lt;br&gt;
-31、跟别人说一百句谢谢也不如给别人发个红包来的实在。&lt;br&gt;
-32、送礼不能心急，尤其是刚认识的人，搞关系是长期日积月累的事。&lt;br&gt;
-33、给缺钱的人送礼，要想办法满足他的物质需求；给不缺钱的人送礼，要想办法满足他的精神需求。&lt;br&gt;
-34、送礼一定要送对人，谁能帮你就送谁。&lt;br&gt;
-35、车的后备箱要随时备一些烟酒，以备不时之需。&lt;br&gt;
-36、送礼之前多说感恩的话，说的多了，礼自然而然就送出去了。&lt;br&gt;
-37、每天收入的三分之一，拿出去请客吃饭洗脚按摩，你的路就会越走越宽。&lt;br&gt;
-38、送礼一定要有耐心，第一次送礼人家不收也不要慌，刘备请诸葛亮还三顾茅庐呢！&lt;br&gt;
-39、在大领导面前不要生硬的送物质，在他面前表忠诚、立决心比送什么都管用。&lt;br&gt;
-40、送礼的时候，把别人托高一点，把自己放低一点，再配合物质表示，事情往往就成了。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;啧真麻烦&#34;&gt;啧，真麻烦。&lt;/h2&gt;
-&lt;h2 id=&#34;有研究这玩意的一半精力用在技术研发上也不至于现在被漂亮国人卡脖子&#34;&gt;有研究这玩意的一半精力用在技术研发上，也不至于现在被漂亮国人卡脖子&lt;/h2&gt;
-">送礼潜规则</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/"" data-c="
-          &lt;!-- more --&gt;
-&lt;p&gt;哇，牛的嘞&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import time    ##引入时间
-
-print(&amp;quot;---EXAMPLE ： Loading 效果---&amp;quot;)
-
-print(&amp;quot;Loading&amp;quot;,end = &amp;quot;&amp;quot;)
-for i in range(20):      ##20次循环
-print(&amp;quot;.&amp;quot;,end = &#39;&#39;,flush = True)      ##输出“. . . . ”
-time.sleep(0.5)   ##每0.5秒
-&lt;/code&gt;&lt;/pre&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://strangepapers.github.io//post-images/1674996195212.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-">print 还能这么玩</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/"" data-c="
-          &lt;blockquote&gt;
-&lt;p&gt;人是要整活的——没活了，可不就是死了么？&lt;br&gt;
---互联网&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;今天想出去玩。&lt;br&gt;
-阳光不错。&lt;/p&gt;
-">人是要整活的</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/wan-jian-xiao-qi/"" data-c="
-          &lt;p&gt;​&lt;audio id=&#34;audio&#34; controls=&#34;&#34; preload=&#34;none&#34;&gt;&lt;br&gt;
-&lt;source id=&#34;mp3&#34; src=&#34;http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a&#34;&gt;&lt;br&gt;
-&lt;/audio&gt;&lt;/p&gt;
-&lt;p&gt;这篇文章是在熄灯之后写的。&lt;br&gt;
-今天很累啊，但是什么都没有学到。&lt;br&gt;
-为什么？&lt;br&gt;
-看了看自己的手机使用记录，原来如此。&lt;br&gt;
-以后呢？&lt;br&gt;
-我又看了看日历，还有9天开学。&lt;br&gt;
-开学之后，很多东西就不是触手可得的了。&lt;br&gt;
-这九天，还是要准备啊。&lt;br&gt;
-准备一下开学的东西。&lt;/p&gt;
-">晚间小憩</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/lao-sun/"" data-c="
-          &lt;p&gt;卖完了废品。&lt;br&gt;
-他蹬着三轮车，回到了重归空荡的老房子里。&lt;br&gt;
-自己打开了半导体，钻进被窝，缓缓睡去。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-老齐来了。老齐之前是村里有名的知青，现在也有一个成家立业的儿子。老孙和他关系很好，经常在村里的水库旁抽烟闲聊。&lt;br&gt;
-&amp;quot;嗨，我告诉你，&amp;quot;老齐在屋里跟他说，&amp;quot;我的儿子明年就要结婚了！&amp;quot;老齐神色飞扬，生动的描绘种种。老孙也是高兴，俩人聊了很久。&lt;br&gt;
-&amp;quot;到时候他们结婚，我告诉你，你得跟我坐一桌，咱俩得好好喝一顿！&amp;quot;&lt;br&gt;
-&amp;quot;哈哈哈哈哈哈，咱不醉不归！&amp;quot;&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-雪花悄悄飘落，老孙迷迷糊糊的睁开眼，外面下起了雪。&lt;br&gt;
-他又睡了过去。&lt;br&gt;
-没想到，孙国成回来了。孙国成是老孙的小儿子。老孙又惊又喜，忙招呼进来。&lt;br&gt;
-孙国成阔步走进堂屋，这种感觉让老孙很难受。&lt;br&gt;
-老孙做起了他小时候最爱的九转大肠，满屋喷香。&lt;br&gt;
-孙国成说最近自己的公司又大赚一笔，等今年秋天，接老孙去城里住。&lt;br&gt;
-&amp;quot;我不要。&amp;quot;老孙摇摇头，&amp;quot;这人啊，生在土里，长在土里，死在土里。到城里会住不惯了。&amp;quot;&lt;br&gt;
-&amp;quot;你看看这老屋，还能住人吗？冬不保温，夏不清凉，还漏雨。还不如趁早住在城里给你安详晚年。&amp;quot;&lt;br&gt;
-老孙把菜端上桌，回到屋里躺着去了。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-下的雪花把老孙的被子打潮了，他打了个冷战。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-&amp;quot;青秀？&amp;quot;老孙发现当院有一个熟悉的背影。&lt;br&gt;
-&amp;quot;老孙啊，咋了？&amp;quot;&lt;br&gt;
-&amp;quot;真的是你啊！&amp;quot;&lt;br&gt;
-&amp;quot;啥真的假的，你是睡迷糊了吧！咱园子的麦子该收了。马上就夏至了，你还跟着有的没的。&amp;quot;&lt;br&gt;
-老孙高兴坏了。&amp;quot;好好好，我这就去看看。&amp;quot;&lt;br&gt;
-在地里，两人有一句没一句的聊着，老孙的脸上堆满了笑容。麦子却一直割不完。&lt;br&gt;
-然而，正是热的时候，老孙却不出汗，还感觉有点冷。&lt;br&gt;
-老孙已经完全不管这些了，而是目不转睛的看着青秀。&lt;br&gt;
-&amp;quot;青秀，我爱你。&amp;quot;&lt;br&gt;
-她羞的转过头去，&amp;quot;你说啥啊···&amp;quot;&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-老孙醒了。被子已经被打湿了。&lt;br&gt;
-他望着青秀的照片——三十年前的黑白照片。&lt;br&gt;
-老孙忍不住了，起身，抱着照片大哭了一场。&lt;br&gt;
-天渐渐亮了，老孙擦擦眼泪。来到了村里水库边上，独自抽起了烟。&lt;br&gt;
-之前齐军在世的时候，两人经常一起抽烟，谈天论地。&lt;br&gt;
-老孙一根一根的抽着，一根一根的愁着。&lt;br&gt;
-愁老齐没完成的心愿。&lt;br&gt;
-愁国成三岁时截肢的腿。&lt;br&gt;
-愁青秀还没享福就痴呆走丢的每一天。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-&amp;quot;有用吗？&amp;quot;&lt;br&gt;
-他问向自己。&lt;br&gt;
-烟抽完了，他继续干着工作。&lt;/p&gt;
-&lt;br&gt;
-苦。
-老孙。
-&lt;br&gt;
-&lt;br&gt;
-&lt;p&gt;本文作者为&lt;font face=&#34;黑体&#34;&gt;strangepapers&lt;/font&gt;。&lt;/p&gt;
-">老孙</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/"" data-c="
-          &lt;p&gt;真的，不知什么时候，自己突然有了“喜欢”这种感觉。&lt;br&gt;
-第一次感受到还是初三，现在竟然又一次感受到了？&lt;br&gt;
-不瞒您说，我对此并没有多大的冲动。&lt;br&gt;
-还是这句话：&lt;strong&gt;爱情诚可贵，自由价更高。若为众生故，两者皆可抛&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;看了看日历，距离开学没多少日子了。&lt;br&gt;
-最近这几年，日子啥的过的太快了。自己渐渐的记不住东西了。&lt;br&gt;
-没法，还是写下来吧，存成电子古董。&lt;br&gt;
-说回去，自由价更高。我知道，现在的我完全没有自由。&lt;br&gt;
-为什么这么说？&lt;br&gt;
-因为&lt;/p&gt;
-&lt;h2 id=&#34;我什么都不会&#34;&gt;我什么都不会。&lt;/h2&gt;
-&lt;p&gt;对。&lt;br&gt;
-今天晚上不知道发什么疯，写了这么多，也许是快开学了，有点情绪变化。&lt;br&gt;
-想到什么，就赶紧写下来，生怕自己一转眼就忘了。&lt;br&gt;
-自己想学习一些前端的东西，自学太累了。&lt;br&gt;
-这时我才发现在课堂上我落下了什么，一个strong标签我还要思考一阵。&lt;br&gt;
-于是我从头学起，发现自学是很难的。&lt;br&gt;
-之前，我每天中午都会出去走走，看看这座小城，看看我自己。&lt;br&gt;
-可是繁重的任务，压死我了。&lt;br&gt;
-这不，腊月三十英语老师还在留作业。&lt;br&gt;
-虽然我跟她说了暂时交不了，可是这也足以证明。&lt;br&gt;
-&lt;img src=&#34;https://i.328888.xyz/2023/01/27/jVOEb.png&#34; alt=&#34;jVOEb.png&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-嘿，累死了。&lt;br&gt;
-累死了。&lt;br&gt;
-累死了还会搞爱情吗？&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;p&gt;自己想写点东西。&lt;br&gt;
-主要是不想社交了。&lt;br&gt;
-抖音刷不明白，B站看不明白。&lt;br&gt;
-有点百无聊赖的感觉。&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;p&gt;上文写的有点没逻辑了。&lt;/p&gt;
-">爱情诚可贵，自由价更高，若为众生故，两者皆可抛。</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/zi-wo-gan-dong/"" data-c="
-          &lt;h2 id=&#34;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上获得一种畸形的满足感和安全感&#34;&gt;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。&lt;/h2&gt;
-&lt;p&gt;其实无论是雪夜去对方家楼下站会儿或者是冒着大雨给她送一杯奶茶什么的，自己回想起来往往觉得如乔峰大战聚贤庄、关羽干里走单骑一样壮杯激烈，而对于对方来说，一杯奶茶就是一杯奶茶，无法承载起你想要在上面寄托的山崩地裂的情悴。&lt;br&gt;
-少年的时候，总是迫不及待地将自己的满腔爱意表达出来，而结果往往是陷入表演之中而不自知。所以两个人的记忆オ会出现偏差，那些你觉得刻骨铭心的过去，对方往往没有同样的感觉，甚至茫然不知。成长的标志就是懂得克制自己。&lt;strong&gt;克制自己的情绪，克制自己的表演欲，甚至克制自己的喜欢&lt;/strong&gt;。少年时候，喜欢一个人恨不能把她变成自己身体的一部分，她刚说冷，我这边心里已经结冰了，她说难过，我立马如丧考妣，比她还难过，唯恐无法将自己的爱意表达出来。&lt;br&gt;
-而事实上，谁也无法承担起另一个人的价值寄托，&lt;strong&gt;只有做一个独立、有价值的人，才能真正学会去爱另一个人。&lt;strong&gt;也干万不要尝试改变另一个人，这注定是徒劳的。做自己就好，爱情的真诫在于&lt;/strong&gt;相互的吸引、志趣相投的同行&lt;/strong&gt;，而不是追逐和依附以及自我感动。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2023年1月26日抖音评论&lt;/p&gt;
-&lt;/blockquote&gt;
-">自我感动</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/"" data-c="
-          &lt;p&gt;这是我的第一个博客。&lt;br&gt;
-但是在此之前，我还有一个博客。&lt;br&gt;
-嘿嘿。&lt;/p&gt;
-">我的第一个博客</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://strangepapers.github.io/post/about/"" data-c="
-          &lt;blockquote&gt;
-&lt;p&gt;嗨，别来无恙啊！🤝&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
-&lt;p&gt;基于Gridea制作的博客。&lt;/p&gt;
-&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
-&lt;p&gt;口区纸&lt;/p&gt;
-&lt;h2 id=&#34;联系我&#34;&gt;📬 联系我&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://zqr.wikidot.com&#34;&gt;Author&#39;s web page&lt;/a&gt;&lt;/p&gt;
-">关于</a>
-      </div>
-      
+ | <a class="rss" href="https://strangepapers.github.io//atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
-<script>
-  // var escape = "[{&#34;content&#34;:&#34;&lt;p&gt;#家长会喽&lt;/p&gt;\n&lt;h2 id=\&#34;排练\&#34;&gt;排练&lt;/h2&gt;\n&lt;p&gt;提前3天排练，有一次晚上下雨，天色压抑，空中的鸟无头乱飞，下面的小虫子乱飞。&lt;br&gt;\n不一会，就下起了大雨，不得不跑回去。&lt;/p&gt;\n&lt;h2 id=\&#34;效果不错\&#34;&gt;效果不错&lt;/h2&gt;\n&lt;p&gt;嗯，效果不错。&lt;br&gt;\n😘&lt;br&gt;\n我爹娘写的期盼信比我写的感恩信写的好。&lt;/p&gt;\n&lt;pre&gt;&lt;code&gt;成人礼给孩子的一封信\n\n起睿同学：\n十八岁了，对于十八岁来说它不只是一个年轮的变换，而是你从少年迈入青年的起点，是你从幼稚走向成熟的开端，是你青春美好岁月展开的初始，之前的天真烂漫和无忧无虑，逐渐会被责任和担当代替，做为父母朋友的我们在今天要给你说：\n\n人生有很多路，无论选择哪一条，都不会一帆风顺，自己的未来，自己的路，希望你能在选择的时候慎重，并希望你踏踏实实的，带着智慧，真知，自信和持之以恒的信念，不会轻言放弃，人但有恒，事无不成，当你的目标始终如一时，坎坷与困难就只是过程，然而当你质疑自己的选择而犹豫不前时，哪怕是一粒沙，也会化作高山来阻止你。希望你一路披荆斩棘，鼓足勇气去追求生活，去创造自己的世界！\n\n成年了要更多的担起责任，为自己负责，成为顶天立地的人，接下来的慢慢人生路，还需要你慢慢体会，你就要逐渐进入了自己独立的生活旅程，作为一个男子汉，我们希望你好好安排自己的生活与学习，有强健的身体，有良好的生活学习习惯，有坚强的意志，有严格的自律能力，有善良的心地，有宽阔的胸怀，有阳光的心态，有不断增长的德行、聪明与智慧，勇于承担自己的义务与责任。你现在的学习阶段，将是你人生中最重要的挑战，拼尽全力学习就是你的责任，坚持坚持再坚持，更多的想想办法逼自己学习，纵使你有时会感到疲惫、焦虑、惶恐、紧张，不要怕，调整好心态，勇往直前，你所有的努力都会让你离优秀更近一步，会离成功更近一层。青春与欢乐齐飞，志向与奋斗同在。青春的风华正茂是人生的一个里程，就此你应担起更大责任，不断的成熟起来。\n\n鸟不高飞，不知蓝天之阔；人不远行，不知世界之大。青春之亮丽，如诗如梦，风光无限。你以后要更多的走向社会，走向远方；更多的勇于实践，笃行不怠。十八岁，人生初绽芳华；十八岁，青春岁月无悔，敢拼敢闯，未来可期。\n\n后面望你在以后的时间一定要谨记： \n\n感恩与回报是做人的基本准则，“滴水之恩当涌泉相报”\n助人与善良是做人的基本道德，“送人玫瑰，手有余香“\n宽容与理解是做人的基本素质，“为宽可以容人，为厚可以载物“\n谦虚与真诚是做人的美德，“三人行必有我师” “诚者，天之道也\n谨言与慎为是处事的哲学，“君子三缄其口” “人三思而后行“\n坚强与执着是成功的秘诀，“立志在坚不在锐，成功在久不在速”\n\n愿你不负青春，不负韶华，不负时代，用自己的拼搏和汗水朝着理想的彼岸乘风破浪、扬帆远航！，将来做一个睿智、宽容、快乐、有爱的人，谨记诚实诚信才是成功的钥匙。\n\n话说回来，成年了担负的多了，会更多的心累身累，这时也要记得知足与放弃也是做事良方。凡事不可走极端，有收获则知足，未可得不强求。真心品味“得到是福，舍得是福，知足才是最幸福“的真正含义。永远记得当你累了的时候你有一个温馨的港湾，你有两个坚定的支持者。小憩一下，再上征程！\n\n离高考的日子屈指可数了，我们希望你能静心、安心、细心、专心，给你自己苦读15载追寻学习梦想的历程画上一个完美的句号，无悔的走完这一段精彩的路程。\n\n&lt;/code&gt;&lt;/pre&gt;\n&lt;h1 id=\&#34;多媒体\&#34;&gt;多媒体&lt;/h1&gt;\n&lt;p&gt;到现在我也不会更改多媒体上的系统时间，导致我们班不能像他们班一样看b站。&lt;br&gt;\n5555&lt;/p&gt;\n&lt;h1 id=\&#34;感\&#34;&gt;感&lt;/h1&gt;\n&lt;iframe frameborder=\&#34;no\&#34; border=\&#34;0\&#34; marginwidth=\&#34;0\&#34; marginheight=\&#34;0\&#34; width=330 height=86 src=\&#34;//music.163.com/outchain/player?type=2&amp;id=349981&amp;auto=0&amp;height=66\&#34;&gt;&lt;/iframe&gt;\n&#34;,&#34;fileName&#34;:&#34;2DA412xAJ&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;有感&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2023-04-30 20:04:40&#34;,&#34;dateFormat&#34;:&#34;2023-04-30&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/2DA412xAJ/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;4 min read&#34;,&#34;time&#34;:237000,&#34;words&#34;:1185,&#34;minutes&#34;:4},&#34;description&#34;:&#34;#家长会喽\n排练\n提前3天排练，有一次晚上下雨，天色压抑，空中的鸟无头乱飞，下面的小虫子乱飞。\n不一会，就下起了大雨，不得不跑回去。\n效果不错\n嗯，效果不错。\n😘\n我爹娘写的期盼信比我写的感恩信写的好。\n成人礼给孩子的一封信\n\n起睿同学：...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%8E%92%E7%BB%83\&#34;&gt;排练&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%95%88%E6%9E%9C%E4%B8%8D%E9%94%99\&#34;&gt;效果不错&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%A4%9A%E5%AA%92%E4%BD%93\&#34;&gt;多媒体&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%84%9F\&#34;&gt;感&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h1 id=\&#34;大事\&#34;&gt;大事&lt;/h1&gt;\n&lt;p&gt;结束了？似乎没有，但却是是结束了。&lt;br&gt;\n我在自习课上一直在想，我是不是越界了？&lt;br&gt;\n我以为我们的关系很好，原来我一直是丑陋的。&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;我试着我这她的手&lt;br&gt;\n却还是一样寂寞&lt;br&gt;\n从没想过&lt;br&gt;\n原来自己那么丑陋&lt;br&gt;\n好吧，也许我并不优秀，并不适合她。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h1 id=\&#34;大事2\&#34;&gt;大事2&lt;/h1&gt;\n&lt;p&gt;又退步了。&lt;br&gt;\n成绩掉到了我未曾设想的名次。&lt;br&gt;\n好好学英语和数学。&lt;/p&gt;\n&lt;h1 id=\&#34;小事\&#34;&gt;小事&lt;/h1&gt;\n&lt;p&gt;家长会。&lt;br&gt;\n幸运的是，我的表现还可以。&lt;/p&gt;\n&lt;h1 id=\&#34;百花齐放\&#34;&gt;百花齐放&lt;/h1&gt;\n&lt;p&gt;班里出现了很多搞对象的&lt;br&gt;\n可是我也想&lt;br&gt;\n但是我不够优秀&lt;br&gt;\n详见“&lt;strong&gt;大事&lt;/strong&gt;”&lt;/p&gt;\n&lt;p&gt;寫作於 Gridea ＆ 维尊薄&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;xiao-ji-shi&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;校记事&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2023-04-30 19:15:38&#34;,&#34;dateFormat&#34;:&#34;2023-04-30&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/xiao-ji-shi/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:35000,&#34;words&#34;:175,&#34;minutes&#34;:1},&#34;description&#34;:&#34;大事\n结束了？似乎没有，但却是是结束了。\n我在自习课上一直在想，我是不是越界了？\n我以为我们的关系很好，原来我一直是丑陋的。\n\n我试着我这她的手\n却还是一样寂寞\n从没想过\n原来自己那么丑陋\n好吧，也许我并不优秀，并不适合她。\n\n大事2\n又退...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%A4%A7%E4%BA%8B\&#34;&gt;大事&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%A4%A7%E4%BA%8B2\&#34;&gt;大事2&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%B0%8F%E4%BA%8B\&#34;&gt;小事&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%99%BE%E8%8A%B1%E9%BD%90%E6%94%BE\&#34;&gt;百花齐放&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;!-- more --&gt;\n&lt;p&gt;2月6日，就要出发去衡水。&lt;br&gt;\n东西已经收拾好了，我抬头看看窗外，才知道，&lt;br&gt;\n&lt;strong&gt;放假第一天的傍晚和快开学的傍晚完全不一样。&lt;/strong&gt;&lt;br&gt;\n并不是讨厌开学，相反，我还有点期待开学。期待学校里发生的事，期待下晚自习走在大道上的那种感觉。&lt;br&gt;\n我舍不得我的家乡，舍不得那座小城。&lt;br&gt;\n在这个寒假里，我基本把这座小城走了一遍。&lt;br&gt;\n寒假里，也学到了不少东西，不光有网课，把html规范学完了。&lt;br&gt;\n&lt;strong&gt;但是html5真难学&lt;/strong&gt;&lt;br&gt;\n还有python，js等等等等。&lt;br&gt;\n交到了许多朋友。&lt;br&gt;\n一起跨年，一起聊天······&lt;br&gt;\n寒假结束，按照学校的尿性，下次回家就是6月份，即使没有疫情。&lt;br&gt;\n好了，行李收拾的差不多了，该出征了。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;chu-zheng&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;出征&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;日常&#34;,&#34;slug&#34;:&#34;ri-chang&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/ri-chang/&#34;}],&#34;date&#34;:&#34;2023-02-03 22:33:22&#34;,&#34;dateFormat&#34;:&#34;2023-02-03&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/chu-zheng/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:44000,&#34;words&#34;:216,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n2月6日，就要出发去衡水。\n东西已经收拾好了，我抬头看看窗外，才知道，\n放假第一天的傍晚和快开学的傍晚完全不一样。\n并不是讨厌开学，相反，我还有点期待开学。期待学校里发生的事，期待下晚自习走在大道上的那种感觉。\n我舍不得我的家乡，舍不得那...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;h1 id=\&#34;在访问的时候加载总是很慢为什么\&#34;&gt;在访问的时候，加载总是很慢，为什么？&lt;/h1&gt;\n&lt;p&gt;1  github&lt;br&gt;\ngithub的网页加载的确很慢，这并没有办法。&lt;br&gt;\n以后会考虑换址。&lt;/p&gt;\n&lt;p&gt;2 字体文件&lt;br&gt;\n在此页面，我配置了字体文件。&lt;br&gt;\n很美观，但加载时间会出奇的慢。&lt;br&gt;\n字体文件是放在最后传输的，您也可以在配置未完成的时候进行浏览。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;jia-zai-huan-man-de-wen-ti&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;加载缓慢的问题&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2023-02-01 09:18:33&#34;,&#34;dateFormat&#34;:&#34;2023-02-01&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/jia-zai-huan-man-de-wen-ti/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:true,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:20000,&#34;words&#34;:99,&#34;minutes&#34;:1},&#34;description&#34;:&#34;在访问的时候，加载总是很慢，为什么？\n1  github\ngithub的网页加载的确很慢，这并没有办法。\n以后会考虑换址。\n2 字体文件\n在此页面，我配置了字体文件。\n很美观，但加载时间会出奇的慢。\n字体文件是放在最后传输的，您也可以在配置...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%9C%A8%E8%AE%BF%E9%97%AE%E7%9A%84%E6%97%B6%E5%80%99%E5%8A%A0%E8%BD%BD%E6%80%BB%E6%98%AF%E5%BE%88%E6%85%A2%E4%B8%BA%E4%BB%80%E4%B9%88\&#34;&gt;在访问的时候，加载总是很慢，为什么？&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;p&gt;在note.ms闲逛，发现有人用脚本刷CCF来捣乱。&lt;br&gt;\n&lt;strong&gt;这不能忍&lt;/strong&gt;&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;CCF，以推动计算技术领域学术，技术，教育，应用和产业的发展，助力计算技术领域专业人士能力提升为使命，目前拥有超过10万名付费个人会员。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;CCF，下设城市会员活动中心，学生分会，YOCSEF城市论坛，以及大数据，自然语言处理，和高性能计算等专业委员会。共近两百个会员服务机构，每年举办近千场专业活动，服务网络遍布全国。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;CNCC，年度计算技术盛会，每年数千人参会，已举办17届。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;p&gt;等等。&lt;/p&gt;\n&lt;p&gt;于是，我用最和平的方式结束了这场坚持4个小时的战役。&lt;br&gt;\n和平且富有礼貌。&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;临时留言&lt;br&gt;\n您好。&lt;br&gt;\n发r的谁&lt;br&gt;\n我。有问题？&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;你手动还是脚本？？？？？我暂时挂一个200ms的脚本&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;您是谁？&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;宣传CCF，拜月教&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;您为什么要在这里宣传？&lt;br&gt;\n我们存在的意义是为大家创造一个稳定的交流空间。您的行为也许不利于发展。&lt;br&gt;\n或许我们可以好好谈一谈。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;你是Dentist Pamphlet&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;是。&lt;br&gt;\n我很欣赏您的能力，您有意加入我们吗？&lt;br&gt;\n相信您的才华与能力要比我见识的多&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;我是OIer，现在没时间了&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;哈哈，您有时间宣传，怎么会没时间？您真会开玩笑。&lt;br&gt;\n我们不需要您太多的时间和精力。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;脚本我是挂在我自己服务器上的，偶尔看一下，不需要怎么手动操控。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;那很好。我还是诚挚的邀请你加入，不过您不加入也没有关系。&lt;br&gt;\n宣传嘛，您可以选择换一个地方，您说怎么样？&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;/chat以后可以不维护了，但是我不会加入的。我现在要停止颓废了，就说这么多。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;blockquote&gt;\n&lt;p&gt;好的。与您交流真是胜读十年书。我们尊重您的意见，再见。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;p&gt;真是文明的我。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;fan-shen&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;翻身&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;日常&#34;,&#34;slug&#34;:&#34;ri-chang&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/ri-chang/&#34;},{&#34;index&#34;:-1,&#34;name&#34;:&#34;创作&#34;,&#34;slug&#34;:&#34;chuang-zuo&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/chuang-zuo/&#34;}],&#34;date&#34;:&#34;2023-01-31 22:51:01&#34;,&#34;dateFormat&#34;:&#34;2023-01-31&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/fan-shen/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:105000,&#34;words&#34;:511,&#34;minutes&#34;:2},&#34;description&#34;:&#34;在note.ms闲逛，发现有人用脚本刷CCF来捣乱。\n这不能忍\n\nCCF，以推动计算技术领域学术，技术，教育，应用和产业的发展，助力计算技术领域专业人士能力提升为使命，目前拥有超过10万名付费个人会员。\n\n\nCCF，下设城市会员活动中心，学...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;&lt;a href=\&#34;https://img.599ku.com/element_pic/93/17/29/84/2c204564e2a4b5a28a16741eb7fe0a47.jpg_w800\&#34;&gt;&lt;/a&gt;&lt;/p&gt;\n&lt;h1 id=\&#34;我真服了\&#34;&gt;我真服了&lt;/h1&gt;\n&lt;p&gt;哪家学校快返校了整几天网课？&lt;/p&gt;\n&lt;p&gt;牛牛的嘞。&lt;/p&gt;\n&lt;p&gt;上这几天课跟能提多少分似的，还不如时间给我们整整薄弱。&lt;br&gt;\n你这一会英语一会数学，&lt;/p&gt;\n&lt;p&gt;&lt;b&gt;你什么意思&lt;/b&gt;&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;shang-ke&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;上课&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;日常&#34;,&#34;slug&#34;:&#34;ri-chang&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/ri-chang/&#34;}],&#34;date&#34;:&#34;2023-01-30 22:59:22&#34;,&#34;dateFormat&#34;:&#34;2023-01-30&#34;,&#34;feature&#34;:&#34;https://img.599ku.com/element_pic/93/17/29/84/2c204564e2a4b5a28a16741eb7fe0a47.jpg_w800&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/shang-ke/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:12000,&#34;words&#34;:61,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n我真服了\n哪家学校快返校了整几天网课？\n牛牛的嘞。\n上这几天课跟能提多少分似的，还不如时间给我们整整薄弱。\n你这一会英语一会数学，\n你什么意思\n...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%88%91%E7%9C%9F%E6%9C%8D%E4%BA%86\&#34;&gt;我真服了&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;p&gt;在csdn看到的&lt;br&gt;\n回头整个低配版拼多多哈哈哈哈哈&lt;/p&gt;\n&lt;!-- more --&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;\n&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;\n&amp;lt;head&amp;gt;\n    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;\n    &amp;lt;title&amp;gt;抽奖&amp;lt;/title&amp;gt;\n    &amp;lt;style&amp;gt;\n        * {\n            margin: 0;\n            padding: 0;\n        }\n        body {\n            font-family: &amp;quot;Microsoft YaHei&amp;quot;,微软雅黑;\n        }\n        .box{\n            width:600px;\n            height:600px;\n            background-color: #ff9615;\n            padding: 20px;\n            border-radius: 50%;\n            border:2px solid #ffd50e;\n            position:relative;\n            margin: 100px auto;\n        }\n        .turntable{\n            width:600px;\n            height:600px;\n            background-color: red;\n            border-radius: 50%;\n            position:relative;\n            box-shadow: 0 0 10px #000;\n            line-height:95px;\n        }\n        .little-circle{\n            width:10px;\n            height:10px;\n            border-radius:50%;\n            border:1px solid black;\n            position:absolute;\n            left:50%;\n            margin-left: -5px;\n            margin-top: 5px;\n \n        }\n        .little-circle:nth-child(even) {\n            background-color: #f1c96c;\n        }\n        .little-circle:nth-child(odd) {\n            background-color: #fff6db;\n        }\n        .prize-zone{\n            width:556px;\n            height: 556px;\n            border-radius:50%;\n            position:absolute;\n \n            left: 50%;\n            margin-left: -278px;\n            top:50%;\n            margin-top: -278px;\n            overflow: hidden;\n        }\n        .prize{\n            width:278px;\n            height:278px;\n            position:absolute;\n            left:0;\n            top:0;\n        }\n        .prize:nth-child(odd) {\n            background-color: #f1c96c;\n        }\n        .prize:nth-child(even) {\n            background-color: #fff6db;\n        }\n        .btn{\n            width:100px;\n            height:100px;\n            border-radius:50%;\n            position:absolute;\n            left:50%;\n            margin-left:-50px;\n            top:50%;\n            margin-top:-50px;\n            background-color: #ff7609;\n            color:white;\n            font-size: 30px;\n            font-weight: bolder;\n            text-align: center;\n            vertical-align: middle;\n            cursor:pointer;\n        }\n        .pointer{\n            width:0;\n            height:0;\n            position: absolute;\n            left:50%;\n            margin-left: -25px;\n            top:50%;\n            margin-top: -100px;\n            border-bottom: 100px solid #ff9615;\n            border-left:25px solid transparent;\n            border-right:25px solid transparent;\n        }\n        .content{\n            width:200px;\n            height:250px;\n            position:absolute;\n            right:0;\n            bottom:0;\n            text-align: center;\n        }\n        .content .thanks{\n            width:34px;\n            height: 150px;\n            font-size:30px;\n            font-weight: bolder;\n            color: #ff6e37;\n            margin:0 auto;\n            line-height: 34px;\n            padding-top:20px;\n        }\n        .content .img{\n            width:10px;\n            height:10px;\n            position: absolute;\n            left:50%;\n            margin-left:-40px;\n            top:5%;\n        }\n        .content img{\n            width:80px;\n            height:100px;\n            position: absolute;\n        }\n        .txt{\n            width: 100px;\n            height: 50px;\n            font-size: 20px;\n            line-height: 32px;\n            margin: 0 auto;\n            padding-top:120px;\n            color: #ff6e37;\n            font-weight: bolder;\n        }\n    &amp;lt;/style&amp;gt;\n&amp;lt;/head&amp;gt;\n&amp;lt;body&amp;gt;\n&amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;\n    &amp;lt;div class=&amp;quot;turntable&amp;quot;&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;little-circle&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n \n        &amp;lt;div class=&amp;quot;prize-zone&amp;quot;&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;\n                        &amp;lt;img src=&amp;quot;prize/router.jpg&amp;quot; /&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;\n                        &amp;lt;p&amp;gt;四等奖&amp;lt;/p&amp;gt;\n                        &amp;lt;p&amp;gt;路由器&amp;lt;/p&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;\n                        &amp;lt;img src=&amp;quot;prize/bicycle.jpg&amp;quot; /&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;\n                        &amp;lt;p&amp;gt;一等奖&amp;lt;/p&amp;gt;\n                        &amp;lt;p&amp;gt;自行车&amp;lt;/p&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;\n                        &amp;lt;img src=&amp;quot;prize/glass.jpg&amp;quot; /&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;\n                        &amp;lt;p&amp;gt;二等奖&amp;lt;/p&amp;gt;\n                        &amp;lt;p&amp;gt;3D眼睛&amp;lt;/p&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;thanks&amp;quot;&amp;gt;谢谢参与&amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n            &amp;lt;div class=&amp;quot;prize&amp;quot;&amp;gt;\n                &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;\n                    &amp;lt;div class=&amp;quot;img&amp;quot;&amp;gt;\n                        &amp;lt;img src=&amp;quot;prize/kindle.jpg&amp;quot; /&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                    &amp;lt;div class=&amp;quot;txt&amp;quot;&amp;gt;\n                        &amp;lt;p&amp;gt;三等奖&amp;lt;/p&amp;gt;\n                        &amp;lt;p&amp;gt;kindle&amp;lt;/p&amp;gt;\n                    &amp;lt;/div&amp;gt;\n                &amp;lt;/div&amp;gt;\n            &amp;lt;/div&amp;gt;\n        &amp;lt;/div&amp;gt;\n        &amp;lt;div class=&amp;quot;pointer&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;\n        &amp;lt;div id=&amp;quot;btn&amp;quot; class=&amp;quot;btn&amp;quot;&amp;gt;抽奖&amp;lt;/div&amp;gt;\n    &amp;lt;/div&amp;gt;\n \n&amp;lt;/div&amp;gt;\n&amp;lt;script&amp;gt;\n    // 小圆圈的旋转变换\n    let circleList = document.querySelectorAll(&#39;.little-circle&#39;);\n    let len = circleList.length;\n    let rotateStep = 360/len;\n    let halfOfRotateStep = rotateStep/2;\n    circleList.forEach(function(item,index){\n        let deg = rotateStep*index+halfOfRotateStep;\n        item.style.transform=&amp;quot;rotate(&amp;quot;+deg+&amp;quot;deg)&amp;quot;;\n        item.style.transformOrigin=&amp;quot;5px 295px&amp;quot;;\n    });\n    // 每一个奖品的变换\n    let prizeList = document.querySelectorAll(&#39;.prize&#39;);\n    let pLen = prizeList.length;\n    let pRotateStep = 360/pLen;\n    let halfOfPRotateStep = pRotateStep/2;\n    prizeList.forEach(function(item,index){\n        item.style.transform=&amp;quot;rotate(&amp;quot;+(pRotateStep*index)+&amp;quot;deg&amp;quot;+&amp;quot;) skewY(&amp;quot;+pRotateStep+&amp;quot;deg)&amp;quot;;\n        item.style.transformOrigin=&amp;quot;right bottom&amp;quot;;\n    });\n    // 奖品的内容变换\n    let contentList = document.querySelectorAll(&#39;.content&#39;);\n    contentList.forEach(function(item){\n        // 反向变换，用于抵消div.prize的变形 这里的translate值，其实可以用三角函数算出来，但是太复杂，我就用肉眼观测取了7px 100px这么个值\n        item.style.transform = &amp;quot;skewY(-&amp;quot;+pRotateStep+&amp;quot;deg) rotate(-&amp;quot;+halfOfPRotateStep+&amp;quot;deg) translate(7px, 100px)&amp;quot;;\n        item.style.transformOrigin = &amp;quot;center center&amp;quot;;\n    });\n    let retry = false;\n    // 抽奖按钮的点击事件\n    document.querySelector(&#39;#btn&#39;).onclick=function(){\n        if(retry){\n            retry=false;\n            clear();\n            document.querySelector(&#39;#btn&#39;).innerText=&amp;quot;抽奖&amp;quot;;\n            return;\n        }\n        // 计算一个随机的度数，转起来，先转上十圈然后再转一圈内的随机度数\n        document.querySelector(&#39;#btn&#39;).style.cursor=&amp;quot;wait&amp;quot;;\n \n        let deg1=360*10;\n        let deg2 = (Math.floor(Math.random()*8)+1)*45+22.5;\n        let deg=deg1+deg2;\n        console.log(deg);\n        let truntable = document.querySelector(&#39;.prize-zone&#39;);\n        truntable.style.transition=&amp;quot;all 10s ease&amp;quot;;\n        truntable.style.transform=&amp;quot;rotate(&amp;quot;+deg+&amp;quot;deg)&amp;quot;;\n    };\n    // 监听动画完成事件\n    document.querySelector(&#39;.prize-zone&#39;).addEventListener(&#39;transitionend&#39;,function(){\n        document.querySelector(&#39;#btn&#39;).style.cursor=&amp;quot;pointer&amp;quot;;\n        retry=true;\n        document.querySelector(&#39;#btn&#39;).innerText=&amp;quot;重置&amp;quot;;\n    });\n    function clear(){\n        let truntable = document.querySelector(&#39;.prize-zone&#39;);\n        truntable.style.transition=&amp;quot;none&amp;quot;;\n        truntable.style.transform=&amp;quot;none&amp;quot;;\n    }\n&amp;lt;/script&amp;gt;\n&amp;lt;/body&amp;gt;\n&amp;lt;/html&amp;gt;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;p&gt;取自CSDN&lt;br&gt;\n&lt;img src=\&#34;https://i.328888.xyz/2023/01/30/8t3zc.png\&#34; alt=\&#34;8t3zc.png\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;html-zhuan-pan&#34;,&#34;abstract&#34;:&#34;&lt;p&gt;在csdn看到的&lt;br&gt;\n回头整个低配版拼多多哈哈哈哈哈&lt;/p&gt;\n&#34;,&#34;title&#34;:&#34;HTML转盘&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;所见&#34;,&#34;slug&#34;:&#34;suo-jian&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/suo-jian/&#34;}],&#34;date&#34;:&#34;2023-01-30 18:59:31&#34;,&#34;dateFormat&#34;:&#34;2023-01-30&#34;,&#34;feature&#34;:&#34;https://i.328888.xyz/2023/01/30/8t3zc.png&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/html-zhuan-pan/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;8 min read&#34;,&#34;time&#34;:451000,&#34;words&#34;:1289,&#34;minutes&#34;:8},&#34;description&#34;:&#34;在csdn看到的\n回头整个低配版拼多多哈哈哈哈哈\n\n&amp;lt;!DOCTYPE html&amp;gt;\n&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;\n&amp;lt;head&amp;gt;\n    &amp;lt;meta charset=&amp;quot...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;h3 id=\&#34;今日\&#34;&gt;今日&lt;/h3&gt;\n&lt;div id=\&#34;he-plugin-standard\&#34;&gt;&lt;/div&gt;\n&lt;script&gt;\nWIDGET = {\n  \&#34;CONFIG\&#34;: {\n    \&#34;layout\&#34;: \&#34;1\&#34;,\n    \&#34;width\&#34;: \&#34;310\&#34;,\n    \&#34;height\&#34;: \&#34;150\&#34;,\n    \&#34;background\&#34;: \&#34;2\&#34;,\n    \&#34;dataColor\&#34;: \&#34;000000\&#34;,\n    \&#34;borderRadius\&#34;: \&#34;10\&#34;,\n    \&#34;key\&#34;: \&#34;d1e957d214684e3481121ef1ab198163\&#34;\n  }\n}\n&lt;/script&gt;\n&lt;script src=\&#34;https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0\&#34;&gt;&lt;/script&gt;\n&lt;h3 id=\&#34;在此处留言\&#34;&gt;在此处留言&lt;/h3&gt;\n&lt;iframe src=\&#34;https://www3.cbox.ws/box/?boxid=3523946&amp;boxtag=uuWImn\&#34; width=\&#34;100%\&#34; height=\&#34;450\&#34; allowtransparency=\&#34;yes\&#34; allow=\&#34;autoplay\&#34; frameborder=\&#34;0\&#34; marginheight=\&#34;0\&#34; marginwidth=\&#34;0\&#34; scrolling=\&#34;auto\&#34;&gt;&lt;/iframe&gt;\n&lt;p&gt;&lt;a href=\&#34;https://www.cbox.ws/help?id=42\&#34;&gt;获取语法帮助&amp;gt;&lt;/a&gt;&lt;/p&gt;\n&lt;h3 id=\&#34;strangepapers的歌单\&#34;&gt;strangepapers的歌单&lt;/h3&gt;\n&lt;iframe frameborder=\&#34;no\&#34; border=\&#34;0\&#34; marginwidth=\&#34;0\&#34; marginheight=\&#34;0\&#34; width=310 height=450 src=\&#34;//music.163.com/outchain/player?type=0&amp;id=8112236856&amp;auto=1&amp;height=430\&#34;&gt;&lt;/iframe&gt;\n&#34;,&#34;fileName&#34;:&#34;geng-duo&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;更多&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2023-01-30 17:02:35&#34;,&#34;dateFormat&#34;:&#34;2023-01-30&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/geng-duo/&#34;,&#34;hideInList&#34;:true,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:9000,&#34;words&#34;:34,&#34;minutes&#34;:1},&#34;description&#34;:&#34;今日\n\n\nWIDGET = {\n  \&#34;CONFIG\&#34;: {\n    \&#34;layout\&#34;: \&#34;1\&#34;,\n    \&#34;width\&#34;: \&#34;310\&#34;,\n    \&#34;height\&#34;: \&#34;150\&#34;,\n    \&#34;background\&#34;: \&#34;2\&#34;,\n    \&#34;da...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%BB%8A%E6%97%A5\&#34;&gt;今日&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%9C%A8%E6%AD%A4%E5%A4%84%E7%95%99%E8%A8%80\&#34;&gt;在此处留言&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#strangepapers%E7%9A%84%E6%AD%8C%E5%8D%95\&#34;&gt;strangepapers的歌单&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h1 id=\&#34;说实话其实就是越贵越好\&#34;&gt;说实话，其实就是越贵越好。&lt;/h1&gt;\n&lt;p&gt;&lt;a href=\&#34;https://ts1.cn.mm.bing.net/th/id/R-C.7c6d93b96cf53e830a62640600477016?rik=3TuprOlGi%2bN2cQ&amp;amp;riu=http%3a%2f%2ftu.52guzhuang.com%2fd%2ffile%2fp%2f2015-05-21%2fsbrzjsk33bt1370.jpg&amp;amp;ehk=9NWVAfKZ9B%2bEvYu%2fFSDFwUVuNO1Wbv6NnTUhreIchhk%3d&amp;amp;risl=&amp;amp;pid=ImgRaw&amp;amp;r=0\&#34;&gt;&lt;/a&gt;&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;1、送穷亲戚，好不好的不重要，重点是要贵，要送价值明显的、他们觉得贵平时舍不得买的。比如进口的水果、包装豪华而又昂贵的点心等等。&lt;br&gt;\n2、送富亲戚，要送性价比比较低的，越不划算的东西越好，比如送2000多块的意大利手工伞、1000多块的羊角梳子等。&lt;br&gt;\n3、送领导，要送有钱也不一定能买到的好东西，比如自己老家亲戚种的有机大米，百年老店的手工制品等等，重点不在于价格有多昂贵，而在于稀缺性。&lt;br&gt;\n4、去朋友家吃饭送什么，送当季比较贵的菜，不仅花小钱办大事，更能拉近和朋友的关系。&lt;br&gt;\n5、对工作上有业务往来的伙伴送什么，男性你就送他女性用品，比如化妆品；女性有小孩的你就送她儿童用品，没小孩的你就送她老年用品，准没错。&lt;br&gt;\n6、新入职想要和同事打好关系，送什么？最好的答案就是下午茶，今天请喝奶茶，明天请吃鸭脖，后天请吃水果，很快你就能和同事打成一片。&lt;br&gt;\n7、送礼送不出去的原因无非有2个，一个是你礼品没到位，一个是人家不想帮你办。&lt;br&gt;\n8、真正有事时才送礼往往不灵，关键还是在于平时的点滴铺垫。&lt;br&gt;\n9、要送对方真正感兴趣的东西，而不是自己觉得贵重的东西。&lt;br&gt;\n10、送礼的关键在于让对方感受到你的态度，而不是礼品有多好。&lt;br&gt;\n11、礼物送出去之后切记不要再提，尤其是在有第三者在的场合。&lt;br&gt;\n12、你给别人送东西办事，知道的人越少越好。&lt;br&gt;\n13、送礼的过程要自然，不要搞得太隆重、太正式，让对方太有心理压力。&lt;br&gt;\n14、如果和别人不熟，最好不要一上来就送礼，这样只会让别人心生警惕。&lt;br&gt;\n15、别人收了你的礼，不要就觉得对方一定要帮你办成这件事。&lt;br&gt;\n16、送礼千万不要跟风，没有任何新意，送出去的礼物也得不到对方的重视。还不如踏踏实实了解一下人家的需求，送点实用的东西！&lt;br&gt;\n17、送礼送到最后，往往都是送钱，在任何地方都通用。&lt;br&gt;\n18、送烟酒的奥妙在于烟酒即使对方不用，也能拿去变现，其实就是变相的送钱。&lt;br&gt;\n19、送礼不要太频繁，太频繁了，对方也就习惯了、麻木了。&lt;br&gt;\n20、送礼不要扎堆，选择人少的时候送。&lt;br&gt;\n21、初次见面一定不要送大礼，对方会觉得你别有用心，反而不落好。&lt;br&gt;\n22、送礼之前要先打好感情基础，让对方觉得自己可靠、安全。&lt;br&gt;\n23、求人办事，送礼切记不要越级送礼。&lt;br&gt;\n24、领导的亲戚卖什么，咱就买什么，这是最简单自然而又高明的送礼。&lt;br&gt;\n25、求人办事时，送礼代表的是你愿意付出什么代价，意味着自己必须吃点亏，要不然就成了道德绑架。&lt;br&gt;\n26、送礼的时候不能试探性动作太多，老想着事办不成怎么办，亏了怎么办？&lt;br&gt;\n27、蹭同事的车，习惯性的给同事买盒烟，简单又实用。&lt;br&gt;\n28、求人办事要讲究礼先到，不要老想着事成之后再送礼。&lt;br&gt;\n29、平时出门习惯性的给门卫递根烟，往往就能减少很多麻烦。&lt;br&gt;\n30、学习送礼可以从见人分烟、请人吃饭、给人小恩小惠开始。&lt;br&gt;\n31、跟别人说一百句谢谢也不如给别人发个红包来的实在。&lt;br&gt;\n32、送礼不能心急，尤其是刚认识的人，搞关系是长期日积月累的事。&lt;br&gt;\n33、给缺钱的人送礼，要想办法满足他的物质需求；给不缺钱的人送礼，要想办法满足他的精神需求。&lt;br&gt;\n34、送礼一定要送对人，谁能帮你就送谁。&lt;br&gt;\n35、车的后备箱要随时备一些烟酒，以备不时之需。&lt;br&gt;\n36、送礼之前多说感恩的话，说的多了，礼自然而然就送出去了。&lt;br&gt;\n37、每天收入的三分之一，拿出去请客吃饭洗脚按摩，你的路就会越走越宽。&lt;br&gt;\n38、送礼一定要有耐心，第一次送礼人家不收也不要慌，刘备请诸葛亮还三顾茅庐呢！&lt;br&gt;\n39、在大领导面前不要生硬的送物质，在他面前表忠诚、立决心比送什么都管用。&lt;br&gt;\n40、送礼的时候，把别人托高一点，把自己放低一点，再配合物质表示，事情往往就成了。&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h2 id=\&#34;啧真麻烦\&#34;&gt;啧，真麻烦。&lt;/h2&gt;\n&lt;h2 id=\&#34;有研究这玩意的一半精力用在技术研发上也不至于现在被漂亮国人卡脖子\&#34;&gt;有研究这玩意的一半精力用在技术研发上，也不至于现在被漂亮国人卡脖子&lt;/h2&gt;\n&#34;,&#34;fileName&#34;:&#34;song-li-qian-gui-ze&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;送礼潜规则&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;所见&#34;,&#34;slug&#34;:&#34;suo-jian&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/suo-jian/&#34;}],&#34;date&#34;:&#34;2023-01-30 16:41:34&#34;,&#34;dateFormat&#34;:&#34;2023-01-30&#34;,&#34;feature&#34;:&#34;https://ts1.cn.mm.bing.net/th/id/R-C.7c6d93b96cf53e830a62640600477016?rik=3TuprOlGi%2bN2cQ&amp;riu=http%3a%2f%2ftu.52guzhuang.com%2fd%2ffile%2fp%2f2015-05-21%2fsbrzjsk33bt1370.jpg&amp;ehk=9NWVAfKZ9B%2bEvYu%2fFSDFwUVuNO1Wbv6NnTUhreIchhk%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/song-li-qian-gui-ze/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;5 min read&#34;,&#34;time&#34;:263000,&#34;words&#34;:1281,&#34;minutes&#34;:5},&#34;description&#34;:&#34;说实话，其实就是越贵越好。\n\n\n1、送穷亲戚，好不好的不重要，重点是要贵，要送价值明显的、他们觉得贵平时舍不得买的。比如进口的水果、包装豪华而又昂贵的点心等等。\n2、送富亲戚，要送性价比比较低的，越不划算的东西越好，比如送2000多块的意大...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%AF%B4%E5%AE%9E%E8%AF%9D%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E8%B6%8A%E8%B4%B5%E8%B6%8A%E5%A5%BD\&#34;&gt;说实话，其实就是越贵越好。&lt;/a&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%95%A7%E7%9C%9F%E9%BA%BB%E7%83%A6\&#34;&gt;啧，真麻烦。&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%9C%89%E7%A0%94%E7%A9%B6%E8%BF%99%E7%8E%A9%E6%84%8F%E7%9A%84%E4%B8%80%E5%8D%8A%E7%B2%BE%E5%8A%9B%E7%94%A8%E5%9C%A8%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91%E4%B8%8A%E4%B9%9F%E4%B8%8D%E8%87%B3%E4%BA%8E%E7%8E%B0%E5%9C%A8%E8%A2%AB%E6%BC%82%E4%BA%AE%E5%9B%BD%E4%BA%BA%E5%8D%A1%E8%84%96%E5%AD%90\&#34;&gt;有研究这玩意的一半精力用在技术研发上，也不至于现在被漂亮国人卡脖子&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;!-- more --&gt;\n&lt;p&gt;哇，牛的嘞&lt;/p&gt;\n&lt;pre&gt;&lt;code&gt;import time    ##引入时间\n\nprint(&amp;quot;---EXAMPLE ： Loading 效果---&amp;quot;)\n\nprint(&amp;quot;Loading&amp;quot;,end = &amp;quot;&amp;quot;)\nfor i in range(20):      ##20次循环\nprint(&amp;quot;.&amp;quot;,end = &#39;&#39;,flush = True)      ##输出“. . . . ”\ntime.sleep(0.5)   ##每0.5秒\n&lt;/code&gt;&lt;/pre&gt;\n&lt;figure data-type=\&#34;image\&#34; tabindex=\&#34;1\&#34;&gt;&lt;img src=\&#34;https://strangepapers.github.io//post-images/1674996195212.png\&#34; alt=\&#34;\&#34; loading=\&#34;lazy\&#34;&gt;&lt;/figure&gt;\n&#34;,&#34;fileName&#34;:&#34;print-huan-neng-zhe-me-wan&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;print 还能这么玩&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;所见&#34;,&#34;slug&#34;:&#34;suo-jian&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/suo-jian/&#34;}],&#34;date&#34;:&#34;2023-01-29 20:36:23&#34;,&#34;dateFormat&#34;:&#34;2023-01-29&#34;,&#34;feature&#34;:&#34;https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:15000,&#34;words&#34;:49,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n哇，牛的嘞\nimport time    ##引入时间\n\nprint(&amp;quot;---EXAMPLE ： Loading 效果---&amp;quot;)\n\nprint(&amp;quot;Loading&amp;quot;,end = &amp;quot;&amp;quot...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;blockquote&gt;\n&lt;p&gt;人是要整活的——没活了，可不就是死了么？&lt;br&gt;\n--互联网&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;p&gt;今天想出去玩。&lt;br&gt;\n阳光不错。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;ren-shi-yao-zheng-huo-de&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;人是要整活的&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;日常&#34;,&#34;slug&#34;:&#34;ri-chang&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/ri-chang/&#34;}],&#34;date&#34;:&#34;2023-01-29 09:46:11&#34;,&#34;dateFormat&#34;:&#34;2023-01-29&#34;,&#34;feature&#34;:&#34;https://strangepapers.github.io//post-images/ren-shi-yao-zheng-huo-de.png&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/ren-shi-yao-zheng-huo-de/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:5000,&#34;words&#34;:29,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n人是要整活的——没活了，可不就是死了么？\n--互联网\n\n今天想出去玩。\n阳光不错。\n&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;​&lt;audio id=\&#34;audio\&#34; controls=\&#34;\&#34; preload=\&#34;none\&#34;&gt;&lt;br&gt;\n&lt;source id=\&#34;mp3\&#34; src=\&#34;http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a\&#34;&gt;&lt;br&gt;\n&lt;/audio&gt;&lt;/p&gt;\n&lt;p&gt;这篇文章是在熄灯之后写的。&lt;br&gt;\n今天很累啊，但是什么都没有学到。&lt;br&gt;\n为什么？&lt;br&gt;\n看了看自己的手机使用记录，原来如此。&lt;br&gt;\n以后呢？&lt;br&gt;\n我又看了看日历，还有9天开学。&lt;br&gt;\n开学之后，很多东西就不是触手可得的了。&lt;br&gt;\n这九天，还是要准备啊。&lt;br&gt;\n准备一下开学的东西。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;wan-jian-xiao-qi&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;晚间小憩&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;日常&#34;,&#34;slug&#34;:&#34;ri-chang&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/ri-chang/&#34;}],&#34;date&#34;:&#34;2023-01-28 22:37:15&#34;,&#34;dateFormat&#34;:&#34;2023-01-28&#34;,&#34;feature&#34;:&#34;https://ts1.cn.mm.bing.net/th/id/R-C.84291087968fbc9e882d32bb4486515f?rik=E7LGR3IVaSRfwA&amp;riu=http%3a%2f%2fwww.33lc.com%2farticle%2fUploadPic%2f2012-8%2f2012849261381266.jpg&amp;ehk=c9FedHL6SnoO61VDA8mKdvoadeswlhaJkULuq9iFgDc%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/wan-jian-xiao-qi/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:19000,&#34;words&#34;:96,&#34;minutes&#34;:1},&#34;description&#34;:&#34;​\n\n\n这篇文章是在熄灯之后写的。\n今天很累啊，但是什么都没有学到。\n为什么？\n看了看自己的手机使用记录，原来如此。\n以后呢？\n我又看了看日历，还有9天开学。\n开学之后，很多东西就不是触手可得的了。\n这九天，还是要准备啊。\n准备一下开学的东...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;卖完了废品。&lt;br&gt;\n他蹬着三轮车，回到了重归空荡的老房子里。&lt;br&gt;\n自己打开了半导体，钻进被窝，缓缓睡去。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n老齐来了。老齐之前是村里有名的知青，现在也有一个成家立业的儿子。老孙和他关系很好，经常在村里的水库旁抽烟闲聊。&lt;br&gt;\n&amp;quot;嗨，我告诉你，&amp;quot;老齐在屋里跟他说，&amp;quot;我的儿子明年就要结婚了！&amp;quot;老齐神色飞扬，生动的描绘种种。老孙也是高兴，俩人聊了很久。&lt;br&gt;\n&amp;quot;到时候他们结婚，我告诉你，你得跟我坐一桌，咱俩得好好喝一顿！&amp;quot;&lt;br&gt;\n&amp;quot;哈哈哈哈哈哈，咱不醉不归！&amp;quot;&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n雪花悄悄飘落，老孙迷迷糊糊的睁开眼，外面下起了雪。&lt;br&gt;\n他又睡了过去。&lt;br&gt;\n没想到，孙国成回来了。孙国成是老孙的小儿子。老孙又惊又喜，忙招呼进来。&lt;br&gt;\n孙国成阔步走进堂屋，这种感觉让老孙很难受。&lt;br&gt;\n老孙做起了他小时候最爱的九转大肠，满屋喷香。&lt;br&gt;\n孙国成说最近自己的公司又大赚一笔，等今年秋天，接老孙去城里住。&lt;br&gt;\n&amp;quot;我不要。&amp;quot;老孙摇摇头，&amp;quot;这人啊，生在土里，长在土里，死在土里。到城里会住不惯了。&amp;quot;&lt;br&gt;\n&amp;quot;你看看这老屋，还能住人吗？冬不保温，夏不清凉，还漏雨。还不如趁早住在城里给你安详晚年。&amp;quot;&lt;br&gt;\n老孙把菜端上桌，回到屋里躺着去了。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n下的雪花把老孙的被子打潮了，他打了个冷战。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n&amp;quot;青秀？&amp;quot;老孙发现当院有一个熟悉的背影。&lt;br&gt;\n&amp;quot;老孙啊，咋了？&amp;quot;&lt;br&gt;\n&amp;quot;真的是你啊！&amp;quot;&lt;br&gt;\n&amp;quot;啥真的假的，你是睡迷糊了吧！咱园子的麦子该收了。马上就夏至了，你还跟着有的没的。&amp;quot;&lt;br&gt;\n老孙高兴坏了。&amp;quot;好好好，我这就去看看。&amp;quot;&lt;br&gt;\n在地里，两人有一句没一句的聊着，老孙的脸上堆满了笑容。麦子却一直割不完。&lt;br&gt;\n然而，正是热的时候，老孙却不出汗，还感觉有点冷。&lt;br&gt;\n老孙已经完全不管这些了，而是目不转睛的看着青秀。&lt;br&gt;\n&amp;quot;青秀，我爱你。&amp;quot;&lt;br&gt;\n她羞的转过头去，&amp;quot;你说啥啊···&amp;quot;&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n老孙醒了。被子已经被打湿了。&lt;br&gt;\n他望着青秀的照片——三十年前的黑白照片。&lt;br&gt;\n老孙忍不住了，起身，抱着照片大哭了一场。&lt;br&gt;\n天渐渐亮了，老孙擦擦眼泪。来到了村里水库边上，独自抽起了烟。&lt;br&gt;\n之前齐军在世的时候，两人经常一起抽烟，谈天论地。&lt;br&gt;\n老孙一根一根的抽着，一根一根的愁着。&lt;br&gt;\n愁老齐没完成的心愿。&lt;br&gt;\n愁国成三岁时截肢的腿。&lt;br&gt;\n愁青秀还没享福就痴呆走丢的每一天。&lt;br&gt;\n&lt;br&gt;&lt;br&gt;\n&amp;quot;有用吗？&amp;quot;&lt;br&gt;\n他问向自己。&lt;br&gt;\n烟抽完了，他继续干着工作。&lt;/p&gt;\n&lt;br&gt;\n苦。\n老孙。\n&lt;br&gt;\n&lt;br&gt;\n&lt;p&gt;本文作者为&lt;font face=\&#34;黑体\&#34;&gt;strangepapers&lt;/font&gt;。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;lao-sun&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;老孙&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;创作&#34;,&#34;slug&#34;:&#34;chuang-zuo&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/chuang-zuo/&#34;}],&#34;date&#34;:&#34;2023-01-28 10:46:50&#34;,&#34;dateFormat&#34;:&#34;2023-01-28&#34;,&#34;feature&#34;:&#34;https://tse1-mm.cn.bing.net/th/id/OIP-C.YKl3BNx8hQpBn0tBJQyf-AHaEK?pid=ImgDet&amp;rs=1&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/lao-sun/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;3 min read&#34;,&#34;time&#34;:159000,&#34;words&#34;:770,&#34;minutes&#34;:3},&#34;description&#34;:&#34;卖完了废品。\n他蹬着三轮车，回到了重归空荡的老房子里。\n自己打开了半导体，钻进被窝，缓缓睡去。\n\n老齐来了。老齐之前是村里有名的知青，现在也有一个成家立业的儿子。老孙和他关系很好，经常在村里的水库旁抽烟闲聊。\n&amp;quot;嗨，我告诉你，&amp;q...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;真的，不知什么时候，自己突然有了“喜欢”这种感觉。&lt;br&gt;\n第一次感受到还是初三，现在竟然又一次感受到了？&lt;br&gt;\n不瞒您说，我对此并没有多大的冲动。&lt;br&gt;\n还是这句话：&lt;strong&gt;爱情诚可贵，自由价更高。若为众生故，两者皆可抛&lt;/strong&gt;。&lt;/p&gt;\n&lt;p&gt;看了看日历，距离开学没多少日子了。&lt;br&gt;\n最近这几年，日子啥的过的太快了。自己渐渐的记不住东西了。&lt;br&gt;\n没法，还是写下来吧，存成电子古董。&lt;br&gt;\n说回去，自由价更高。我知道，现在的我完全没有自由。&lt;br&gt;\n为什么这么说？&lt;br&gt;\n因为&lt;/p&gt;\n&lt;h2 id=\&#34;我什么都不会\&#34;&gt;我什么都不会。&lt;/h2&gt;\n&lt;p&gt;对。&lt;br&gt;\n今天晚上不知道发什么疯，写了这么多，也许是快开学了，有点情绪变化。&lt;br&gt;\n想到什么，就赶紧写下来，生怕自己一转眼就忘了。&lt;br&gt;\n自己想学习一些前端的东西，自学太累了。&lt;br&gt;\n这时我才发现在课堂上我落下了什么，一个strong标签我还要思考一阵。&lt;br&gt;\n于是我从头学起，发现自学是很难的。&lt;br&gt;\n之前，我每天中午都会出去走走，看看这座小城，看看我自己。&lt;br&gt;\n可是繁重的任务，压死我了。&lt;br&gt;\n这不，腊月三十英语老师还在留作业。&lt;br&gt;\n虽然我跟她说了暂时交不了，可是这也足以证明。&lt;br&gt;\n&lt;img src=\&#34;https://i.328888.xyz/2023/01/27/jVOEb.png\&#34; alt=\&#34;jVOEb.png\&#34; loading=\&#34;lazy\&#34;&gt;&lt;br&gt;\n嘿，累死了。&lt;br&gt;\n累死了。&lt;br&gt;\n累死了还会搞爱情吗？&lt;/p&gt;\n&lt;br&gt;\n&lt;br&gt;\n&lt;br&gt;\n&lt;p&gt;自己想写点东西。&lt;br&gt;\n主要是不想社交了。&lt;br&gt;\n抖音刷不明白，B站看不明白。&lt;br&gt;\n有点百无聊赖的感觉。&lt;/p&gt;\n&lt;br&gt;\n&lt;br&gt;\n&lt;p&gt;上文写的有点没逻辑了。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;爱情诚可贵，自由价更高，若为众生故，两者皆可抛。&#34;,&#34;tags&#34;:[{&#34;index&#34;:-1,&#34;name&#34;:&#34;创作&#34;,&#34;slug&#34;:&#34;chuang-zuo&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/chuang-zuo/&#34;}],&#34;date&#34;:&#34;2023-01-27 20:17:58&#34;,&#34;dateFormat&#34;:&#34;2023-01-27&#34;,&#34;feature&#34;:&#34;https://ts1.cn.mm.bing.net/th/id/R-C.4d4f550f46961bb3f6cee424a5016f32?rik=o5AwvQVXuYkAlA&amp;riu=http%3a%2f%2fimage.qianye88.com%2fpic%2f863fb09263bcb0f2f97bf7d77e7289a0&amp;ehk=WRbw5YvsSK%2bsIeK%2bcU8ISSFIXl23buJ9nCRcN2hKW8Y%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:82000,&#34;words&#34;:412,&#34;minutes&#34;:2},&#34;description&#34;:&#34;真的，不知什么时候，自己突然有了“喜欢”这种感觉。\n第一次感受到还是初三，现在竟然又一次感受到了？\n不瞒您说，我对此并没有多大的冲动。\n还是这句话：爱情诚可贵，自由价更高。若为众生故，两者皆可抛。\n看了看日历，距离开学没多少日子了。\n最近这...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%88%91%E4%BB%80%E4%B9%88%E9%83%BD%E4%B8%8D%E4%BC%9A\&#34;&gt;我什么都不会。&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;h2 id=\&#34;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上获得一种畸形的满足感和安全感\&#34;&gt;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。&lt;/h2&gt;\n&lt;p&gt;其实无论是雪夜去对方家楼下站会儿或者是冒着大雨给她送一杯奶茶什么的，自己回想起来往往觉得如乔峰大战聚贤庄、关羽干里走单骑一样壮杯激烈，而对于对方来说，一杯奶茶就是一杯奶茶，无法承载起你想要在上面寄托的山崩地裂的情悴。&lt;br&gt;\n少年的时候，总是迫不及待地将自己的满腔爱意表达出来，而结果往往是陷入表演之中而不自知。所以两个人的记忆オ会出现偏差，那些你觉得刻骨铭心的过去，对方往往没有同样的感觉，甚至茫然不知。成长的标志就是懂得克制自己。&lt;strong&gt;克制自己的情绪，克制自己的表演欲，甚至克制自己的喜欢&lt;/strong&gt;。少年时候，喜欢一个人恨不能把她变成自己身体的一部分，她刚说冷，我这边心里已经结冰了，她说难过，我立马如丧考妣，比她还难过，唯恐无法将自己的爱意表达出来。&lt;br&gt;\n而事实上，谁也无法承担起另一个人的价值寄托，&lt;strong&gt;只有做一个独立、有价值的人，才能真正学会去爱另一个人。&lt;strong&gt;也干万不要尝试改变另一个人，这注定是徒劳的。做自己就好，爱情的真诫在于&lt;/strong&gt;相互的吸引、志趣相投的同行&lt;/strong&gt;，而不是追逐和依附以及自我感动。&lt;/p&gt;\n&lt;blockquote&gt;\n&lt;p&gt;2023年1月26日抖音评论&lt;/p&gt;\n&lt;/blockquote&gt;\n&#34;,&#34;fileName&#34;:&#34;zi-wo-gan-dong&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;自我感动&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;所见&#34;,&#34;slug&#34;:&#34;suo-jian&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/suo-jian/&#34;}],&#34;date&#34;:&#34;2023-01-27 13:35:08&#34;,&#34;dateFormat&#34;:&#34;2023-01-27&#34;,&#34;feature&#34;:&#34;https://img.zcool.cn/community/0144255afb8e64a801207ab475a594.jpg@1280w_1l_2o_100sh.jpg&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/zi-wo-gan-dong/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;2 min read&#34;,&#34;time&#34;:90000,&#34;words&#34;:453,&#34;minutes&#34;:2},&#34;description&#34;:&#34;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。\n其实无论是雪夜去对方家楼下站会儿或者是冒着大雨给她送一杯奶茶什么的，自己回想起来往往觉得如乔峰大战聚贤庄、关羽干里走单骑一样壮...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%88%91%E4%BB%AC%E6%80%BB%E6%98%AF%E5%AE%B9%E6%98%93%E7%94%A8%E4%B8%80%E7%A7%8D%E8%87%AA%E8%99%90%E7%9A%84%E6%96%B9%E5%BC%8F%E5%88%B6%E9%80%A0%E5%87%BA%E4%B8%80%E7%A7%8D%E7%97%B4%E6%83%85%E7%9A%84%E5%81%87%E8%B1%A1%E6%9D%A5%E4%BD%BF%E5%BE%97%E8%87%AA%E5%B7%B1%E7%AB%99%E5%9C%A8%E6%84%9F%E6%83%85%E7%9A%84%E9%81%93%E5%BE%B7%E5%88%B6%E9%AB%98%E7%82%B9%E4%B8%8A%E8%8E%B7%E5%BE%97%E4%B8%80%E7%A7%8D%E7%95%B8%E5%BD%A2%E7%9A%84%E6%BB%A1%E8%B6%B3%E6%84%9F%E5%92%8C%E5%AE%89%E5%85%A8%E6%84%9F\&#34;&gt;我们总是容易用一种自虐的方式制造出一种痴情的假象来使得自己站在感情的道德制高点上，获得一种畸形的满足感和安全感。&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;},{&#34;content&#34;:&#34;&lt;p&gt;这是我的第一个博客。&lt;br&gt;\n但是在此之前，我还有一个博客。&lt;br&gt;\n嘿嘿。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;wo-de-di-yi-ge-bo-ke&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;我的第一个博客&#34;,&#34;tags&#34;:[{&#34;name&#34;:&#34;Gridea&#34;,&#34;slug&#34;:&#34;1qwAAu6bG&#34;,&#34;used&#34;:true,&#34;link&#34;:&#34;https://strangepapers.github.io/tag/1qwAAu6bG/&#34;}],&#34;date&#34;:&#34;2023-01-27 12:11:43&#34;,&#34;dateFormat&#34;:&#34;2023-01-27&#34;,&#34;feature&#34;:&#34;https://clubimg.club.vmall.com/data/attachment/forum/201407/05/073133xf33u40x3rb6lxux.jpg&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/wo-de-di-yi-ge-bo-ke/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:4000,&#34;words&#34;:24,&#34;minutes&#34;:1},&#34;description&#34;:&#34;这是我的第一个博客。\n但是在此之前，我还有一个博客。\n嘿嘿。\n&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;blockquote&gt;\n&lt;p&gt;嗨，别来无恙啊！🤝&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h2 id=\&#34;关于本站\&#34;&gt;🏠 关于本站&lt;/h2&gt;\n&lt;p&gt;基于Gridea制作的博客。&lt;/p&gt;\n&lt;h2 id=\&#34;博主是谁\&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;\n&lt;p&gt;口区纸&lt;/p&gt;\n&lt;h2 id=\&#34;联系我\&#34;&gt;📬 联系我&lt;/h2&gt;\n&lt;p&gt;&lt;a href=\&#34;https://zqr.wikidot.com\&#34;&gt;Author&#39;s web page&lt;/a&gt;&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;about&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;关于&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2019-01-25 19:09:48&#34;,&#34;dateFormat&#34;:&#34;2019-01-25&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://strangepapers.github.io/post/about/&#34;,&#34;hideInList&#34;:true,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:7000,&#34;words&#34;:32,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n嗨，别来无恙啊！🤝\n\n🏠 关于本站\n基于Gridea制作的博客。\n👨‍💻 博主是谁\n口区纸\n📬 联系我\nAuthor&#39;s web page\n...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99\&#34;&gt;🏠 关于本站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81\&#34;&gt;👨‍💻 博主是谁&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%81%94%E7%B3%BB%E6%88%91\&#34;&gt;📬 联系我&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;}]";
-  // var json = escape.substr(1, escape.length - 2);
-  // var datas = json.split(',');
-  // for (let i=0; i < datas.length; i++) {
-  //   let item = datas[i];
-  //   let attrs = item.split('34;:&#34')
-  //   debugger
-  //   console.log(datas[i])
-  // }
-  let escapeMap = new Map();
-  escapeMap.set('&#34;', '"');
-  escapeMap.set('&gt;', '>');
-  escapeMap.set('&#39;', "'");
-  escapeMap.set('&lt;', '<');
-  escapeMap.set('&quot;', '"');
-  escapeMap.set('&amp;', '&');
-</script> -->
-
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-<script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
 
 
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 创作</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/fan-shen/">
+                  <h2 class="post-title">翻身</h2>
+                </a>
+                <div class="post-date">
+                  2023-01-31
+                </div>
+                <div class="post-abstract">
+                  <p>在note.ms闲逛，发现有人用脚本刷CCF来捣乱。<br>
+<strong>这不能忍</strong></p>
+<blockquote>
+<p>CCF，以推动计算技术领域学术，技术，教育，应用和产业的发展，助力计算技术领域专业人士能力提升为使命，目前拥有超过10万名付费个人会员。</p>
+</blockquote>
+<blockquote>
+<p>CCF，下设城市会员活动中心，学生分会，YOCSEF城市论坛，以及大数据，自然语言处理，和高性能计算等专业委员会。共近两百个会员服务机构，每年举办近千场专业活动，服务网络遍布全国。</p>
+</blockquote>
+<blockquote>
+<p>CNCC，年度计算技术盛会，每年数千人参会，已举办17届。</p>
+</blockquote>
+<p>等等。</p>
+<p>于是，我用最和平的方式结束了这场坚持4个小时的战役。</p>
 
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/fan-shen/">
+                  <div class="feature-container" style="background-image: url('https://img1.imgtp.com/2023/06/08/JQbl5MI9.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/lao-sun/">
+                  <h2 class="post-title">老孙</h2>
+                </a>
+                <div class="post-date">
+                  2023-01-28
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/lao-sun/">
+                  <div class="feature-container" style="background-image: url('https://tse1-mm.cn.bing.net/th/id/OIP-C.YKl3BNx8hQpBn0tBJQyf-AHaEK?pid=ImgDet&amp;rs=1')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/">
+                  <h2 class="post-title">爱情诚可贵，自由价更高，若为众生故，两者皆可抛。</h2>
+                </a>
+                <div class="post-date">
+                  2023-01-27
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/ai-qing-cheng-ke-gui-zi-you-jie-geng-gao-ruo-wei-zhong-sheng-gu-liang-zhe-jie-ke-pao/">
+                  <div class="feature-container" style="background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.4d4f550f46961bb3f6cee424a5016f32?rik=o5AwvQVXuYkAlA&amp;riu=http%3a%2f%2fimage.qianye88.com%2fpic%2f863fb09263bcb0f2f97bf7d77e7289a0&amp;ehk=WRbw5YvsSK%2bsIeK%2bcU8ISSFIXl23buJ9nCRcN2hKW8Y%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
 </html>
