@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-06-08T10:57:58.487Z</updated>
+    <updated>2023-07-07T03:55:08.831Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,24 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[web攻防工具收集]]></title>
+        <id>https://strangepapers.github.io/post/EMri5LUJN/</id>
+        <link href="https://strangepapers.github.io/post/EMri5LUJN/">
+        </link>
+        <updated>2023-06-09T07:30:09.000Z</updated>
+        <content type="html"><![CDATA[<p>来自知乎<br>
+作者：网络安全-无涯</p>
+<p>#1、半/全自动化工具<br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/0x727/ShuiZe_0x727">一条龙服务，只需要输入根域名即可全方位收集相关资产，并检测漏洞。也可以输入多个域名、C段IP等，具体案例见下文。</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/lcvvvv/kscan">可针对指定IP段、资产清单、存活网段自动化进行端口扫描以及TCP指纹识别和Banner抓取</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/Bywalks/DarkAngel">DarkAngel 是一款全自动白帽漏洞扫描器，从hackerone、bugcrowd资产监听到漏洞报告生成、企业微信通知。</a></p>
+<h1 id="2-资产发现工具">2、资产发现工具</h1>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/six2dez/reconftw">reconFTW 集成了30个工具的信息收集利器</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/tomnomnom/waybackurls">从第三方平台获取目标网页内容	</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/wgpsec/ENScan_GO">一款基于各大企业信息API的工具</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[有感]]></title>
         <id>https://strangepapers.github.io/post/2DA412xAJ/</id>
@@ -611,26 +629,6 @@ time.sleep(0.5)   ##每0.5秒
 </blockquote>
 <p>今天想出去玩。<br>
 阳光不错。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[晚间小憩]]></title>
-        <id>https://strangepapers.github.io/post/wan-jian-xiao-qi/</id>
-        <link href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
-        </link>
-        <updated>2023-01-28T14:37:15.000Z</updated>
-        <content type="html"><![CDATA[<p>​<audio id="audio" controls="" preload="none"><br>
-<source id="mp3" src="http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a"><br>
-</audio></p>
-<p>这篇文章是在熄灯之后写的。<br>
-今天很累啊，但是什么都没有学到。<br>
-为什么？<br>
-看了看自己的手机使用记录，原来如此。<br>
-以后呢？<br>
-我又看了看日历，还有9天开学。<br>
-开学之后，很多东西就不是触手可得的了。<br>
-这九天，还是要准备啊。<br>
-准备一下开学的东西。</p>
 ]]></content>
     </entry>
 </feed>
