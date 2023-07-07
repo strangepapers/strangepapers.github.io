@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-07-07T03:55:08.831Z</updated>
+    <updated>2023-07-07T03:59:39.608Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -75,61 +75,6 @@
 5555</p>
 <h1 id="感">感</h1>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=349981&auto=0&height=66"></iframe>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[校记事]]></title>
-        <id>https://strangepapers.github.io/post/xiao-ji-shi/</id>
-        <link href="https://strangepapers.github.io/post/xiao-ji-shi/">
-        </link>
-        <updated>2023-04-30T11:15:38.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="大事">大事</h1>
-<p>结束了？似乎没有，但却是是结束了。<br>
-我在自习课上一直在想，我是不是越界了？<br>
-我以为我们的关系很好，原来我一直是丑陋的。</p>
-<blockquote>
-<p>我试着我这她的手<br>
-却还是一样寂寞<br>
-从没想过<br>
-原来自己那么丑陋<br>
-好吧，也许我并不优秀，并不适合她。</p>
-</blockquote>
-<h1 id="大事2">大事2</h1>
-<p>又退步了。<br>
-成绩掉到了我未曾设想的名次。<br>
-好好学英语和数学。</p>
-<h1 id="小事">小事</h1>
-<p>家长会。<br>
-幸运的是，我的表现还可以。</p>
-<h1 id="百花齐放">百花齐放</h1>
-<p>班里出现了很多搞对象的<br>
-可是我也想<br>
-但是我不够优秀<br>
-详见“<strong>大事</strong>”</p>
-<p>寫作於 Gridea ＆ 维尊薄</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[出征]]></title>
-        <id>https://strangepapers.github.io/post/chu-zheng/</id>
-        <link href="https://strangepapers.github.io/post/chu-zheng/">
-        </link>
-        <updated>2023-02-03T14:33:22.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<!-- more -->
-<p>2月6日，就要出发去衡水。<br>
-东西已经收拾好了，我抬头看看窗外，才知道，<br>
-<strong>放假第一天的傍晚和快开学的傍晚完全不一样。</strong><br>
-并不是讨厌开学，相反，我还有点期待开学。期待学校里发生的事，期待下晚自习走在大道上的那种感觉。<br>
-我舍不得我的家乡，舍不得那座小城。<br>
-在这个寒假里，我基本把这座小城走了一遍。<br>
-寒假里，也学到了不少东西，不光有网课，把html规范学完了。<br>
-<strong>但是html5真难学</strong><br>
-还有python，js等等等等。<br>
-交到了许多朋友。<br>
-一起跨年，一起聊天······<br>
-寒假结束，按照学校的尿性，下次回家就是6月份，即使没有疫情。<br>
-好了，行李收拾的差不多了，该出征了。</p>
 ]]></content>
     </entry>
     <entry>
@@ -629,6 +574,85 @@ time.sleep(0.5)   ##每0.5秒
 </blockquote>
 <p>今天想出去玩。<br>
 阳光不错。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[晚间小憩]]></title>
+        <id>https://strangepapers.github.io/post/wan-jian-xiao-qi/</id>
+        <link href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
+        </link>
+        <updated>2023-01-28T14:37:15.000Z</updated>
+        <content type="html"><![CDATA[<p>​<audio id="audio" controls="" preload="none"><br>
+<source id="mp3" src="http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a"><br>
+</audio></p>
+<p>这篇文章是在熄灯之后写的。<br>
+今天很累啊，但是什么都没有学到。<br>
+为什么？<br>
+看了看自己的手机使用记录，原来如此。<br>
+以后呢？<br>
+我又看了看日历，还有9天开学。<br>
+开学之后，很多东西就不是触手可得的了。<br>
+这九天，还是要准备啊。<br>
+准备一下开学的东西。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[老孙]]></title>
+        <id>https://strangepapers.github.io/post/lao-sun/</id>
+        <link href="https://strangepapers.github.io/post/lao-sun/">
+        </link>
+        <updated>2023-01-28T02:46:50.000Z</updated>
+        <content type="html"><![CDATA[<p>卖完了废品。<br>
+他蹬着三轮车，回到了重归空荡的老房子里。<br>
+自己打开了半导体，钻进被窝，缓缓睡去。<br>
+<br><br>
+老齐来了。老齐之前是村里有名的知青，现在也有一个成家立业的儿子。老孙和他关系很好，经常在村里的水库旁抽烟闲聊。<br>
+&quot;嗨，我告诉你，&quot;老齐在屋里跟他说，&quot;我的儿子明年就要结婚了！&quot;老齐神色飞扬，生动的描绘种种。老孙也是高兴，俩人聊了很久。<br>
+&quot;到时候他们结婚，我告诉你，你得跟我坐一桌，咱俩得好好喝一顿！&quot;<br>
+&quot;哈哈哈哈哈哈，咱不醉不归！&quot;<br>
+<br><br>
+雪花悄悄飘落，老孙迷迷糊糊的睁开眼，外面下起了雪。<br>
+他又睡了过去。<br>
+没想到，孙国成回来了。孙国成是老孙的小儿子。老孙又惊又喜，忙招呼进来。<br>
+孙国成阔步走进堂屋，这种感觉让老孙很难受。<br>
+老孙做起了他小时候最爱的九转大肠，满屋喷香。<br>
+孙国成说最近自己的公司又大赚一笔，等今年秋天，接老孙去城里住。<br>
+&quot;我不要。&quot;老孙摇摇头，&quot;这人啊，生在土里，长在土里，死在土里。到城里会住不惯了。&quot;<br>
+&quot;你看看这老屋，还能住人吗？冬不保温，夏不清凉，还漏雨。还不如趁早住在城里给你安详晚年。&quot;<br>
+老孙把菜端上桌，回到屋里躺着去了。<br>
+<br><br>
+下的雪花把老孙的被子打潮了，他打了个冷战。<br>
+<br><br>
+&quot;青秀？&quot;老孙发现当院有一个熟悉的背影。<br>
+&quot;老孙啊，咋了？&quot;<br>
+&quot;真的是你啊！&quot;<br>
+&quot;啥真的假的，你是睡迷糊了吧！咱园子的麦子该收了。马上就夏至了，你还跟着有的没的。&quot;<br>
+老孙高兴坏了。&quot;好好好，我这就去看看。&quot;<br>
+在地里，两人有一句没一句的聊着，老孙的脸上堆满了笑容。麦子却一直割不完。<br>
+然而，正是热的时候，老孙却不出汗，还感觉有点冷。<br>
+老孙已经完全不管这些了，而是目不转睛的看着青秀。<br>
+&quot;青秀，我爱你。&quot;<br>
+她羞的转过头去，&quot;你说啥啊···&quot;<br>
+<br><br>
+老孙醒了。被子已经被打湿了。<br>
+他望着青秀的照片——三十年前的黑白照片。<br>
+老孙忍不住了，起身，抱着照片大哭了一场。<br>
+天渐渐亮了，老孙擦擦眼泪。来到了村里水库边上，独自抽起了烟。<br>
+之前齐军在世的时候，两人经常一起抽烟，谈天论地。<br>
+老孙一根一根的抽着，一根一根的愁着。<br>
+愁老齐没完成的心愿。<br>
+愁国成三岁时截肢的腿。<br>
+愁青秀还没享福就痴呆走丢的每一天。<br>
+<br><br>
+&quot;有用吗？&quot;<br>
+他问向自己。<br>
+烟抽完了，他继续干着工作。</p>
+<br>
+苦。
+老孙。
+<br>
+<br>
+<p>本文作者为<font face="黑体">strangepapers</font>。</p>
 ]]></content>
     </entry>
 </feed>
