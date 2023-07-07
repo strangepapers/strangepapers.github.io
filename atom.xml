@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-07-07T08:52:07.714Z</updated>
+    <updated>2023-07-07T15:24:50.392Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -18,7 +18,7 @@
         </link>
         <updated>2023-06-27T07:55:21.000Z</updated>
         <content type="html"><![CDATA[<h2 id="如题我们在一起了">如题，我们在一起了。</h2>
-<p>在2023年6月23日下午一，我们的故事正式开始了。<br>
+<p>在2023年6月27日下午一，我们的故事正式开始了。<br>
 其实说实话，我考虑了很多，也想了很多。也许这并不是最好的选择，但这肯定是我人生中最重要的节点之一。</p>
 <h1 id="p1">p1</h1>
 <p>喜欢一个人往往仅仅需要一个不经意的小瞬间，也许仅仅因为衣服上的香味，或许是某一个梦境，亦或许是其他。也不会仅看长相，背景，只看两个人聊得来，便是最好。</p>
@@ -92,6 +92,31 @@ emmmmm···</p>
 <p><a href="https://link.zhihu.com/?target=https%3A//github.com/six2dez/reconftw">reconFTW 集成了30个工具的信息收集利器</a><br>
 <a href="https://link.zhihu.com/?target=https%3A//github.com/tomnomnom/waybackurls">从第三方平台获取目标网页内容	</a><br>
 <a href="https://link.zhihu.com/?target=https%3A//github.com/wgpsec/ENScan_GO">一款基于各大企业信息API的工具</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[古阳]]></title>
+        <id>https://strangepapers.github.io/post/UsAExxChL/</id>
+        <link href="https://strangepapers.github.io/post/UsAExxChL/">
+        </link>
+        <updated>2023-06-08T14:39:33.000Z</updated>
+        <content type="html"><![CDATA[<p>“哈哈哈哈哈哈”<br>
+#第一日<br>
+“宋阿文，你入党申请书写好了吗？”<br>
+阿文坐在窗边，眼睛盯着窗外竹林里的其中一棵。放着申请书的档案袋放在桌子上，<br>
+“写好了，我一会邮出去。”<br>
+阿文生在云南小村，长在云南小村。这小村也不知道叫什么，老人们说这村子叫“流芳”，阿文认为叫“福邦”，因为他的初中老师说过当地有一个村子，都是长寿之人，外面的人都叫这里是宝地。宝地怎么能被流芳呢，按照老人们模糊不清的发音，阿文觉得大差不差就是“福邦”，但一个村子怎么能叫做“邦”呢？<br>
+他也想不明白。<br>
+这里没有学校，阿文上的县城里的小学和初中，在村里他也是一个知识青年了。阿文家里就是普通的家庭，父亲宋埠炒茶叶赚钱，母亲郭仁在家编竹篮，生活虽苦，但他们生活的甜甜蜜蜜。<br>
+阿文拿着文件袋到了邮局，将申请书寄到了县里，入党是阿文梦寐以求的。<br>
+“叔叔，麻烦把这个邮到县里的中学。”<br>
+日落，夕阳穿过竹林，散散的光线扑到地面上。阿文很高兴，</p>
+<blockquote>
+<p>树叶落下来，什么也不用想，多快活！<br>
+鸟在天上飞，什么也不用看，多快活！</p>
+</blockquote>
+<p>当阿文到家时，天已完全黑了。</p>
+<p>To be continued···</p>
 ]]></content>
     </entry>
     <entry>
@@ -613,26 +638,6 @@ time.sleep(0.5)   ##每0.5秒
 </blockquote>
 <p>今天想出去玩。<br>
 阳光不错。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[晚间小憩]]></title>
-        <id>https://strangepapers.github.io/post/wan-jian-xiao-qi/</id>
-        <link href="https://strangepapers.github.io/post/wan-jian-xiao-qi/">
-        </link>
-        <updated>2023-01-28T14:37:15.000Z</updated>
-        <content type="html"><![CDATA[<p>​<audio id="audio" controls="" preload="none"><br>
-<source id="mp3" src="http://zqr.wdfiles.com/local--files/article%3A5/obj_w5rDlsOJwrLDjj7CmsOj_23349959480_26b3_4678_f034_f386b4190f57d3a44656b1cf12a83e8f.m4a"><br>
-</audio></p>
-<p>这篇文章是在熄灯之后写的。<br>
-今天很累啊，但是什么都没有学到。<br>
-为什么？<br>
-看了看自己的手机使用记录，原来如此。<br>
-以后呢？<br>
-我又看了看日历，还有9天开学。<br>
-开学之后，很多东西就不是触手可得的了。<br>
-这九天，还是要准备啊。<br>
-准备一下开学的东西。</p>
 ]]></content>
     </entry>
 </feed>
