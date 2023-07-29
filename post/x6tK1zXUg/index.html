@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | strangepapers</title>
+<title>在线记事本保护程序 | strangepapers</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -19,15 +19,12 @@
 
 
     <meta name="description" content="
-嗨，别来无恙啊！🤝
-
-🏠 关于本站
-基于Gridea制作的博客。
-👨‍💻 博主是谁
-口区纸
-📬 联系我
-Author's web page
-..." />
+此python程序制作于MrZhang365。
+工作代码
+from selenium import webdriver
+from time import sleep as zzz
+targetName = 'Name' 
+driver =..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -109,22 +106,50 @@ Author's web page</font></a>
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">在线记事本保护程序</h2>
+            <div class="post-date">2023-07-29</div>
+            
+              <div class="feature-container" style="background-image: url('https://img1.imgtp.com/2023/07/29/gU34FFuq.jpg')">
+              </div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>嗨，别来无恙啊！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>基于Gridea制作的博客。</p>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<p>口区纸</p>
-<h2 id="联系我">📬 联系我</h2>
-<p><a href="https://zqr.wikidot.com">Author's web page</a></p>
+              <!-- more -->
+<p>此python程序制作于MrZhang365。</p>
+<h1 id="工作代码">工作代码</h1>
+<pre><code class="language-python">from selenium import webdriver
+from time import sleep as zzz
+targetName = 'Name' 
+driver = webdriver.Edge() 
+driver.get('https://note.ms/'+targetName)
+c=driver.find_element('xpath',&quot;/html/body/div[1]/div[1]/div/div/textarea&quot;)
+print('note.ms保护装置即将在5秒后启动！目标剪贴板名称：'+targetName)
+zzz(5)
+print('已启动！')
+while True:
+    zzz(0.5)
+c.send_keys('a')
+zzz(0.5)
+c.send_keys('\b')
+</code></pre>
+<p><strong>注：此程序利用webdriver。</strong></p>
+<h1 id="工作原理">工作原理</h1>
+<p>通过每0.5s向记事本发送一个字符“a“并删除的高频输入删除来达到对记事本的控制。<br>
+可以修改<code>zzz</code>以达到控制输入的频率。<br>
+可以修改<code>c.send_keys</code>的内容以达到更改输入的字符。<br>
+可以修改<code>Name</code>达到对不同记事本页面的更改。<br>
+可以修改<code>driver</code>改变webdriver及浏览器。</p>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://strangepapers.github.io/post/EMri5LUJN/">
+                  <h3 class="post-title">
+                    web攻防工具收集
+                  </h3>
+                </a>
+              </div>
             
 
             
