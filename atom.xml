@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-07-30T03:33:10.356Z</updated>
+    <updated>2023-07-30T03:41:48.130Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -235,39 +235,6 @@ driver.quit()
 <h1 id="其他">其他</h1>
 <p>其他浏览器的webdriver可以在其官网找到并下载。<br>
 各个编程语言对应的安装方式不同，你可以在网上浏览以找到安装方法。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[在线记事本保护程序]]></title>
-        <id>https://strangepapers.github.io/post/x6tK1zXUg/</id>
-        <link href="https://strangepapers.github.io/post/x6tK1zXUg/">
-        </link>
-        <updated>2023-07-29T09:09:38.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<p>此python程序制作于MrZhang365。</p>
-<h1 id="工作代码">工作代码</h1>
-<pre><code class="language-python">from selenium import webdriver
-from time import sleep as zzz
-targetName = 'Name' 
-driver = webdriver.Edge() 
-driver.get('https://note.ms/'+targetName)
-c=driver.find_element('xpath',&quot;/html/body/div[1]/div[1]/div/div/textarea&quot;)
-print('note.ms保护装置即将在5秒后启动！目标剪贴板名称：'+targetName)
-zzz(5)
-print('已启动！')
-while True:
-    zzz(0.5)
-c.send_keys('a')
-zzz(0.5)
-c.send_keys('\b')
-</code></pre>
-<p><strong>注：此程序利用webdriver。</strong></p>
-<h1 id="工作原理">工作原理</h1>
-<p>通过每0.5s向记事本发送一个字符“a“并删除的高频输入删除来达到对记事本的控制。<br>
-可以修改<code>zzz</code>以达到控制输入的频率。<br>
-可以修改<code>c.send_keys</code>的内容以达到更改输入的字符。<br>
-可以修改<code>Name</code>达到对不同记事本页面的更改。<br>
-可以修改<code>driver</code>改变webdriver及浏览器。</p>
 ]]></content>
     </entry>
     <entry>
@@ -829,6 +796,26 @@ github的网页加载的确很慢，这并没有办法。<br>
 </blockquote>
 <h2 id="啧真麻烦">啧，真麻烦。</h2>
 <h2 id="有研究这玩意的一半精力用在技术研发上也不至于现在被漂亮国人卡脖子">有研究这玩意的一半精力用在技术研发上，也不至于现在被漂亮国人卡脖子</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[print 还能这么玩]]></title>
+        <id>https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/</id>
+        <link href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/">
+        </link>
+        <updated>2023-01-29T12:36:23.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<p>哇，牛的嘞</p>
+<pre><code>import time    ##引入时间
+
+print(&quot;---EXAMPLE ： Loading 效果---&quot;)
+
+print(&quot;Loading&quot;,end = &quot;&quot;)
+for i in range(20):      ##20次循环
+print(&quot;.&quot;,end = '',flush = True)      ##输出“. . . . ”
+time.sleep(0.5)   ##每0.5秒
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://strangepapers.github.io//post-images/1674996195212.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
