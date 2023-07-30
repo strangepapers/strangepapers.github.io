@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-07-30T04:38:48.512Z</updated>
+    <updated>2023-07-30T10:57:44.129Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,32 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[WHO care us.]]></title>
+        <id>https://strangepapers.github.io/post/NoftwTtC_/</id>
+        <link href="https://strangepapers.github.io/post/NoftwTtC_/">
+        </link>
+        <updated>2023-07-30T10:43:45.000Z</updated>
+        <content type="html"><![CDATA[<p>别看错，世界卫生组织正在关心我们。</p>
+<h1 id="">🤡</h1>
+<p>我是小丑，是想吃天鹅肉的癞蛤蟆。<br>
+我也是天真，也是我的错。<br>
+真的吗？<br>
+谁都不知道。<br>
+二十来天，也就是把我抬起来，然后使劲砸到沟里。<br>
+疼死了。</p>
+<h1 id="狂人日记">狂人日记</h1>
+<p>在家呆着给我憋成了一个疯子。<br>
+看着朋友圈一个个全是分手的，就连老师都出现了感情危机。<br>
+？<br>
+？<br>
+这个是干什么。</p>
+<h1 id="music">MUSIC</h1>
+<p>音乐是合法的毒品。<br>
+对于这两天，也就只有它了。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1929285360&auto=0&height=66"></iframe>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[python微项目]]></title>
         <id>https://strangepapers.github.io/post/LfrHolf_b/</id>
@@ -796,26 +822,6 @@ github的网页加载的确很慢，这并没有办法。<br>
 </blockquote>
 <h2 id="啧真麻烦">啧，真麻烦。</h2>
 <h2 id="有研究这玩意的一半精力用在技术研发上也不至于现在被漂亮国人卡脖子">有研究这玩意的一半精力用在技术研发上，也不至于现在被漂亮国人卡脖子</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[print 还能这么玩]]></title>
-        <id>https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/</id>
-        <link href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/">
-        </link>
-        <updated>2023-01-29T12:36:23.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<p>哇，牛的嘞</p>
-<pre><code>import time    ##引入时间
-
-print(&quot;---EXAMPLE ： Loading 效果---&quot;)
-
-print(&quot;Loading&quot;,end = &quot;&quot;)
-for i in range(20):      ##20次循环
-print(&quot;.&quot;,end = '',flush = True)      ##输出“. . . . ”
-time.sleep(0.5)   ##每0.5秒
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://strangepapers.github.io//post-images/1674996195212.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
