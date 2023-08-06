@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-08-05T12:31:21.972Z</updated>
+    <updated>2023-08-06T11:16:26.382Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,32 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[通过开发者工具下载网易云歌曲]]></title>
+        <id>https://strangepapers.github.io/post/M1bmidvTr/</id>
+        <link href="https://strangepapers.github.io/post/M1bmidvTr/">
+        </link>
+        <updated>2023-08-06T10:54:40.000Z</updated>
+        <content type="html"><![CDATA[<p><font color="red">需要注意的是，下载的歌曲是网页端可以播放的。为了尊重版权，VIP还是买个会员吧。</font></p>
+<h1 id="准备">准备</h1>
+<p>浏览器（可以打开<b>开发者工具</b>）<br>
+网易云账号</p>
+<h1 id="第一步">第一步</h1>
+<p>将你的账号登入web，找到你想要的歌曲，但不要播放。<br>
+<img src="https://img1.imgtp.com/2023/08/06/cS6JZwYM.png" alt="1691319830293.png" loading="lazy"></p>
+<h1 id="操作">操作</h1>
+<p>F12打开开发者工具，打开<b>网络</b>,在搜索栏输入音频格式&quot;m4a&quot;.<br>
+<img src="https://img1.imgtp.com/2023/08/06/3Coth1XT.png" alt="1691320212731.png" loading="lazy"><br>
+播放你选中的音乐，这时你会抓到若干文件，选择其中最大的一个，右键，在新标签页中打开。<br>
+<img src="https://img1.imgtp.com/2023/08/06/mCkPLNSi.png" alt="1691320284331.png" loading="lazy"><br>
+这时，你就可以进行下载了。<br>
+<img src="https://img1.imgtp.com/2023/08/06/4kjBvMgw.png" alt="1691320334656.png" loading="lazy"></p>
+<h1 id="其他">其他</h1>
+<p>下载完成后，你需要进行重命名。<br>
+且音质是统一的，若追求高保真，还请买个会员。<br>
+😘</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[深入贯彻党中央关于网络强国的重要思想 ]]></title>
         <id>https://strangepapers.github.io/post/aKOrLbseR/</id>
@@ -468,313 +494,6 @@ github的网页加载的确很慢，这并没有办法。<br>
 <p>好的。与您交流真是胜读十年书。我们尊重您的意见，再见。</p>
 </blockquote>
 <p>真是文明的我。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[HTML转盘]]></title>
-        <id>https://strangepapers.github.io/post/html-zhuan-pan/</id>
-        <link href="https://strangepapers.github.io/post/html-zhuan-pan/">
-        </link>
-        <updated>2023-01-30T10:59:31.000Z</updated>
-        <summary type="html"><![CDATA[<p>在csdn看到的<br>
-回头整个低配版拼多多哈哈哈哈哈</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>在csdn看到的<br>
-回头整个低配版拼多多哈哈哈哈哈</p>
-<!-- more -->
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;抽奖&lt;/title&gt;
-    &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: &quot;Microsoft YaHei&quot;,微软雅黑;
-        }
-        .box{
-            width:600px;
-            height:600px;
-            background-color: #ff9615;
-            padding: 20px;
-            border-radius: 50%;
-            border:2px solid #ffd50e;
-            position:relative;
-            margin: 100px auto;
-        }
-        .turntable{
-            width:600px;
-            height:600px;
-            background-color: red;
-            border-radius: 50%;
-            position:relative;
-            box-shadow: 0 0 10px #000;
-            line-height:95px;
-        }
-        .little-circle{
-            width:10px;
-            height:10px;
-            border-radius:50%;
-            border:1px solid black;
-            position:absolute;
-            left:50%;
-            margin-left: -5px;
-            margin-top: 5px;
- 
-        }
-        .little-circle:nth-child(even) {
-            background-color: #f1c96c;
-        }
-        .little-circle:nth-child(odd) {
-            background-color: #fff6db;
-        }
-        .prize-zone{
-            width:556px;
-            height: 556px;
-            border-radius:50%;
-            position:absolute;
- 
-            left: 50%;
-            margin-left: -278px;
-            top:50%;
-            margin-top: -278px;
-            overflow: hidden;
-        }
-        .prize{
-            width:278px;
-            height:278px;
-            position:absolute;
-            left:0;
-            top:0;
-        }
-        .prize:nth-child(odd) {
-            background-color: #f1c96c;
-        }
-        .prize:nth-child(even) {
-            background-color: #fff6db;
-        }
-        .btn{
-            width:100px;
-            height:100px;
-            border-radius:50%;
-            position:absolute;
-            left:50%;
-            margin-left:-50px;
-            top:50%;
-            margin-top:-50px;
-            background-color: #ff7609;
-            color:white;
-            font-size: 30px;
-            font-weight: bolder;
-            text-align: center;
-            vertical-align: middle;
-            cursor:pointer;
-        }
-        .pointer{
-            width:0;
-            height:0;
-            position: absolute;
-            left:50%;
-            margin-left: -25px;
-            top:50%;
-            margin-top: -100px;
-            border-bottom: 100px solid #ff9615;
-            border-left:25px solid transparent;
-            border-right:25px solid transparent;
-        }
-        .content{
-            width:200px;
-            height:250px;
-            position:absolute;
-            right:0;
-            bottom:0;
-            text-align: center;
-        }
-        .content .thanks{
-            width:34px;
-            height: 150px;
-            font-size:30px;
-            font-weight: bolder;
-            color: #ff6e37;
-            margin:0 auto;
-            line-height: 34px;
-            padding-top:20px;
-        }
-        .content .img{
-            width:10px;
-            height:10px;
-            position: absolute;
-            left:50%;
-            margin-left:-40px;
-            top:5%;
-        }
-        .content img{
-            width:80px;
-            height:100px;
-            position: absolute;
-        }
-        .txt{
-            width: 100px;
-            height: 50px;
-            font-size: 20px;
-            line-height: 32px;
-            margin: 0 auto;
-            padding-top:120px;
-            color: #ff6e37;
-            font-weight: bolder;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;box&quot;&gt;
-    &lt;div class=&quot;turntable&quot;&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;little-circle&quot;&gt;&lt;/div&gt;
- 
-        &lt;div class=&quot;prize-zone&quot;&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;img&quot;&gt;
-                        &lt;img src=&quot;prize/router.jpg&quot; /&gt;
-                    &lt;/div&gt;
-                    &lt;div class=&quot;txt&quot;&gt;
-                        &lt;p&gt;四等奖&lt;/p&gt;
-                        &lt;p&gt;路由器&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;img&quot;&gt;
-                        &lt;img src=&quot;prize/bicycle.jpg&quot; /&gt;
-                    &lt;/div&gt;
-                    &lt;div class=&quot;txt&quot;&gt;
-                        &lt;p&gt;一等奖&lt;/p&gt;
-                        &lt;p&gt;自行车&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;img&quot;&gt;
-                        &lt;img src=&quot;prize/glass.jpg&quot; /&gt;
-                    &lt;/div&gt;
-                    &lt;div class=&quot;txt&quot;&gt;
-                        &lt;p&gt;二等奖&lt;/p&gt;
-                        &lt;p&gt;3D眼睛&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;thanks&quot;&gt;谢谢参与&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;prize&quot;&gt;
-                &lt;div class=&quot;content&quot;&gt;
-                    &lt;div class=&quot;img&quot;&gt;
-                        &lt;img src=&quot;prize/kindle.jpg&quot; /&gt;
-                    &lt;/div&gt;
-                    &lt;div class=&quot;txt&quot;&gt;
-                        &lt;p&gt;三等奖&lt;/p&gt;
-                        &lt;p&gt;kindle&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;pointer&quot;&gt;&lt;/div&gt;
-        &lt;div id=&quot;btn&quot; class=&quot;btn&quot;&gt;抽奖&lt;/div&gt;
-    &lt;/div&gt;
- 
-&lt;/div&gt;
-&lt;script&gt;
-    // 小圆圈的旋转变换
-    let circleList = document.querySelectorAll('.little-circle');
-    let len = circleList.length;
-    let rotateStep = 360/len;
-    let halfOfRotateStep = rotateStep/2;
-    circleList.forEach(function(item,index){
-        let deg = rotateStep*index+halfOfRotateStep;
-        item.style.transform=&quot;rotate(&quot;+deg+&quot;deg)&quot;;
-        item.style.transformOrigin=&quot;5px 295px&quot;;
-    });
-    // 每一个奖品的变换
-    let prizeList = document.querySelectorAll('.prize');
-    let pLen = prizeList.length;
-    let pRotateStep = 360/pLen;
-    let halfOfPRotateStep = pRotateStep/2;
-    prizeList.forEach(function(item,index){
-        item.style.transform=&quot;rotate(&quot;+(pRotateStep*index)+&quot;deg&quot;+&quot;) skewY(&quot;+pRotateStep+&quot;deg)&quot;;
-        item.style.transformOrigin=&quot;right bottom&quot;;
-    });
-    // 奖品的内容变换
-    let contentList = document.querySelectorAll('.content');
-    contentList.forEach(function(item){
-        // 反向变换，用于抵消div.prize的变形 这里的translate值，其实可以用三角函数算出来，但是太复杂，我就用肉眼观测取了7px 100px这么个值
-        item.style.transform = &quot;skewY(-&quot;+pRotateStep+&quot;deg) rotate(-&quot;+halfOfPRotateStep+&quot;deg) translate(7px, 100px)&quot;;
-        item.style.transformOrigin = &quot;center center&quot;;
-    });
-    let retry = false;
-    // 抽奖按钮的点击事件
-    document.querySelector('#btn').onclick=function(){
-        if(retry){
-            retry=false;
-            clear();
-            document.querySelector('#btn').innerText=&quot;抽奖&quot;;
-            return;
-        }
-        // 计算一个随机的度数，转起来，先转上十圈然后再转一圈内的随机度数
-        document.querySelector('#btn').style.cursor=&quot;wait&quot;;
- 
-        let deg1=360*10;
-        let deg2 = (Math.floor(Math.random()*8)+1)*45+22.5;
-        let deg=deg1+deg2;
-        console.log(deg);
-        let truntable = document.querySelector('.prize-zone');
-        truntable.style.transition=&quot;all 10s ease&quot;;
-        truntable.style.transform=&quot;rotate(&quot;+deg+&quot;deg)&quot;;
-    };
-    // 监听动画完成事件
-    document.querySelector('.prize-zone').addEventListener('transitionend',function(){
-        document.querySelector('#btn').style.cursor=&quot;pointer&quot;;
-        retry=true;
-        document.querySelector('#btn').innerText=&quot;重置&quot;;
-    });
-    function clear(){
-        let truntable = document.querySelector('.prize-zone');
-        truntable.style.transition=&quot;none&quot;;
-        truntable.style.transform=&quot;none&quot;;
-    }
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>取自CSDN<br>
-<img src="https://i.328888.xyz/2023/01/30/8t3zc.png" alt="8t3zc.png" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
