@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-08-26T02:37:32.629Z</updated>
+    <updated>2023-08-26T08:02:18.968Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,20 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[社会工程学]]></title>
+        <id>https://strangepapers.github.io/post/4L-APtfVN/</id>
+        <link href="https://strangepapers.github.io/post/4L-APtfVN/">
+        </link>
+        <updated>2023-08-26T07:30:17.000Z</updated>
+        <content type="html"><![CDATA[<p>社会工程学的人才无论在哪都是珍贵的。</p>
+<p>社会工程学  :凯文·米特尼克在《反欺骗的艺术》中曾提到，人为因素才是安全的软肋。很多企业、公司在信息安全上投入大量的资金，最终导致数据泄露的原因，往往却是发生在人本身。你们可能永远都想象不到，对于黑客们来说，通过一个用户名、一串数字、一串英文代码，社会工程师就可以通过这么几条的线索，通过社工攻击手段，加以筛选、整理，就能把你的所有个人情况信息、家庭状况、兴趣爱好、婚姻状况、你在网上留下的一切痕迹等个人信息全部掌握得一清二楚。虽然这个可能是最不起眼，而且还是最麻烦的方法。一种无需依托任何黑客软件，更注重研究人性弱点的黑客手法正在兴起，这就是社会工程学黑客技术。</p>
+<p>类似的还有社会心理学，它是是研究个体和群体在社会相互作用中的心理和行为发生及变化规律的学问领域。</p>
+<p>在信息世界，社会工程学要比技术高超的黑客有用的多。社会工程学可以轻易的获取一些无法通过攻击而获得的信息。注意，社会工程学获得的是信息，无法运用到主要的攻击上。</p>
+<p>无论是钓鱼网站还是诈骗邮件，都体现着想让你跳下去，一些无辜的或贪婪的人们便会跳下去，成为他们的目标人物。</p>
+<p>学好社会工程学，也是防骗之根本。知道了他们的套路，便会游刃有余。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[WLAN和wifi]]></title>
         <id>https://strangepapers.github.io/post/-JN4yaZU_/</id>
@@ -394,28 +408,6 @@ driver.quit()
 <p><a href="https://link.zhihu.com/?target=https%3A//github.com/six2dez/reconftw">reconFTW 集成了30个工具的信息收集利器</a><br>
 <a href="https://link.zhihu.com/?target=https%3A//github.com/tomnomnom/waybackurls">从第三方平台获取目标网页内容	</a><br>
 <a href="https://link.zhihu.com/?target=https%3A//github.com/wgpsec/ENScan_GO">一款基于各大企业信息API的工具</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[有感]]></title>
-        <id>https://strangepapers.github.io/post/2DA412xAJ/</id>
-        <link href="https://strangepapers.github.io/post/2DA412xAJ/">
-        </link>
-        <updated>2023-04-30T12:04:40.000Z</updated>
-        <content type="html"><![CDATA[<p>#家长会喽</p>
-<h2 id="排练">排练</h2>
-<p>提前3天排练，有一次晚上下雨，天色压抑，空中的鸟无头乱飞，下面的小虫子乱飞。<br>
-不一会，就下起了大雨，不得不跑回去。<br>
-那是我从高一记得起下的最大的一场雨。</p>
-<h2 id="效果不错">效果不错</h2>
-<p>嗯，效果不错。<br>
-😘<br>
-我爹娘写的期盼信比我写的感恩信写的好。</p>
-<h1 id="多媒体">多媒体</h1>
-<p>到现在我也不会更改多媒体上的系统时间，导致我们班不能像他们班一样看b站。<br>
-5555</p>
-<h1 id="感">感</h1>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=349981&auto=0&height=66"></iframe>
 ]]></content>
     </entry>
 </feed>
