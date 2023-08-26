@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-08-13T05:15:21.761Z</updated>
+    <updated>2023-08-26T02:37:32.629Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,19 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[WLAN和wifi]]></title>
+        <id>https://strangepapers.github.io/post/-JN4yaZU_/</id>
+        <link href="https://strangepapers.github.io/post/-JN4yaZU_/">
+        </link>
+        <updated>2023-08-26T02:28:30.000Z</updated>
+        <content type="html"><![CDATA[<p>人们常说“家里的wifi···”，而手机上却是不认识的WLAN，两者有什么不一样呢？</p>
+<p>WiFi是“Wireless Fidelity”的缩写，是一种基于IEEE 802.11b标准的无线局域网；WLAN是“Wireless LAN”的缩写，中文含义为“无线局域网”。<br>
+WLAN的含义范围就广了一些，实际上wifi是WLAN的其中一个协议。著名的一些其实除了Wi-Fi以外，还包含HyperLAN（欧盟），HiSWAN（日本）。也就是一小块区域内多台设备的网络，可以在一小块区域内的互联，很局限。</p>
+<p>还有LAN，只不过WLAN是无线，LAN是有线。<br>
+<img src="https://img1.imgtp.com/2023/08/26/2LYgNlkI.png" alt="1693017370070.png" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[命令提示符]]></title>
         <id>https://strangepapers.github.io/post/TT1NXqo2P/</id>
@@ -381,64 +394,6 @@ driver.quit()
 <p><a href="https://link.zhihu.com/?target=https%3A//github.com/six2dez/reconftw">reconFTW 集成了30个工具的信息收集利器</a><br>
 <a href="https://link.zhihu.com/?target=https%3A//github.com/tomnomnom/waybackurls">从第三方平台获取目标网页内容	</a><br>
 <a href="https://link.zhihu.com/?target=https%3A//github.com/wgpsec/ENScan_GO">一款基于各大企业信息API的工具</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[古阳]]></title>
-        <id>https://strangepapers.github.io/post/UsAExxChL/</id>
-        <link href="https://strangepapers.github.io/post/UsAExxChL/">
-        </link>
-        <updated>2023-06-08T14:39:33.000Z</updated>
-        <content type="html"><![CDATA[<p>“哈哈哈哈哈哈”</p>
-<h1 id="第一日">第一日</h1>
-<p>“宋阿文，你入党申请书写好了吗？”<br>
-阿文坐在窗边，眼睛盯着窗外竹林里的其中一棵。放着申请书的档案袋放在桌子上，<br>
-“写好了，我一会邮出去。”<br>
-阿文生在云南小村，长在云南小村。这小村也不知道叫什么，老人们说这村子叫“流芳”，阿文认为叫“福邦”，因为他的初中老师说过当地有一个村子，都是长寿之人，外面的人都叫这里是宝地。宝地怎么能被流芳呢，按照老人们模糊不清的发音，阿文觉得大差不差就是“福邦”，但一个村子怎么能叫做“邦”呢？<br>
-他也想不明白。<br>
-这里没有学校，阿文上的县城里的小学和初中，在村里他也是一个知识青年了。阿文家里就是普通的家庭，父亲宋埠炒茶叶赚钱，母亲郭仁在家编竹篮，生活虽苦，但他们生活的甜甜蜜蜜。<br>
-阿文拿着文件袋到了邮局，将申请书寄到了县里，入党是阿文梦寐以求的。<br>
-“叔叔，麻烦把这个邮到县里的中学。”<br>
-日落，夕阳穿过竹林，散散的光线扑到地面上。阿文很高兴，</p>
-<blockquote>
-<p>树叶落下来，什么也不用想，多快活！<br>
-鸟在天上飞，什么也不用看，多快活！</p>
-</blockquote>
-<p>当阿文到家时，天已完全黑了。</p>
-<h1 id="第二日">第二日</h1>
-<p>太阳升起来了，还是那么安静，悄悄地升起来，只告诉那些早起的人们和一些公鸡。<br>
-阿文还在赖床，即使他很想起床。他今天心情很高兴，也许是今天不用去学校，还没有家庭作业吧。<br>
-好一会儿，他穿上衣服，走到屋后的小河边，用清冽的河水洗了洗脸。<br>
-他想写点东西。<br>
-宋阿文极具文学天赋，他的诗歌在校文学刊有很多美名，但阿文没有跟任何人提过诗歌的作者就是阿文，留的署名是阿文自己想的人名<br>
-<strong>角马</strong><br>
-现在，他坐在写作台前，纸笔已经放好。<br>
-他还在想，想昨天去邮局，想回来时空气中的竹子味。<br>
-他写</p>
-<blockquote>
-<p>下雨了<br>
-雨里的人是我<br>
-人们都不希望下雨<br>
-因为雨会让人们的衣裳淋透<br>
-雨停了<br>
-我还是我<br>
-人们倒开始希望下雨<br>
-因为雨会让人们种的东西生长<br>
-奇怪！奇怪！<br>
-人们可真奇怪！<br>
-但转念一想<br>
-我也很奇怪<br>
-下雨了却不去避雨<br>
-干旱了却不去浇水<br>
-我可真奇怪<br>
-那到底什么不奇怪呢</p>
-</blockquote>
-<p>他看了一遍，觉得不好。刚要改动，阿妈郭仁招呼阿文吃早饭。<br>
-“阿妈等一下再去吃。”<br>
-郭仁很着急，因为吃完早饭要带阿文去赶集。<br>
-今天是村里一月一度的大集，村里大部分人都会在街上转上一圈，并且街上会有很多的商贩，邻村的小贩也会来这里凑凑热闹。<br>
-阿文喜欢跟着阿妈一起赶集，况且昨天刚下完雨，阿文喜欢闻雨的味道。</p>
-<p>To be continued···</p>
 ]]></content>
     </entry>
     <entry>
