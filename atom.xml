@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-10-28T05:54:57.381Z</updated>
+    <updated>2023-10-28T14:12:42.676Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,29 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[读书]]></title>
+        <id>https://strangepapers.github.io/post/KsnXe6jJ_/</id>
+        <link href="https://strangepapers.github.io/post/KsnXe6jJ_/">
+        </link>
+        <updated>2023-10-28T05:52:50.000Z</updated>
+        <content type="html"><![CDATA[<p>在班里，我认识这么一位同学，他无时无刻不在学习，下课的时候别人都在嬉笑打闹，他却在读书；回了家，没有休息，只有学习。<br>
+或是我，早已被折磨不堪，但是我看他还是好好的，好好的起床，好好的吃饭，好好的读书。</p>
+<p>为什么？<br>
+我走在街上，夜幕降临，风从衣领钻进我的衣服，我不禁打了个冷战。<br>
+越来越有冬天的味道了。<br>
+我很庆幸我没有成为这种人。我有自己喜欢的生活方式，有自己喜欢的曲风，有自己的爱好，有自己的特长，有一群好朋友陪着我，我感觉很幸福，<br>
+吗？<br>
+我没有像他们一样无时无刻不在读书，我的成绩很差。<br>
+他们的成绩似乎比我还差。<br>
+为什么？他们不是一直在学习吗？</p>
+<p>我认为，学习跟读书是两码事。学习是学习，人无时无刻不在学习。读书只是学习的一种。<br>
+可我不能放弃读书，因为读书会让我改变以后的学习的东西。<br>
+至少我这辈，读书还是必需品。</p>
+<p>我不应该为他们悲哀。他们也会有自己喜欢的东西，他们只是习惯了那样生活，<br>
+而已。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[选一个好点儿的图床]]></title>
         <id>https://strangepapers.github.io/post/rwPQaUqYe/</id>
@@ -344,63 +367,6 @@ password_result_label.pack()
 root.mainloop()
 </code></pre>
 <figure data-type="image" tabindex="3"><img src="https://img1.imgtp.com/2023/07/30/IPTG9YGg.png" alt="1690672799351.png" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[webdriver的下载与安装]]></title>
-        <id>https://strangepapers.github.io/post/pwzMS8B1O/</id>
-        <link href="https://strangepapers.github.io/post/pwzMS8B1O/">
-        </link>
-        <updated>2023-07-29T09:20:04.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="webdriver可以干神马">webdriver可以干神马</h1>
-<p>webdriver，顾名思义，可以代替人工来在浏览器上执行一些命令或程序。<br>
-不同的浏览器会有不同的webdriver，版本不同，webdriver也会不同。</p>
-<h1 id="webdriver的下载">webdriver的下载</h1>
-<p>以EDGE为例，Microsoft Edge拥有官方webdriver下载地址，但下载之前，你要转到浏览器设置，查看你浏览器的版本。<br>
-<img src="https://img1.imgtp.com/2023/07/29/AOxRNUqx.png" alt="屏幕截图 2023-07-29 172514.png" loading="lazy"><br>
-记住你的浏览器版本号，转到https://developer.microsoft.com/zh-cn/microsoft-edge/tools/webdriver/，下载适配你的浏览器的webdriver。<br>
-你会下载到一个压缩包，请你解压，并提取里面的exe程序。<br>
-<img src="https://img1.imgtp.com/2023/07/29/VjXBbwMw.png" alt="1690622964748.png" loading="lazy"><br>
-运行应用程序你会看到“webdriver已成功运行。”<br>
-<img src="https://img1.imgtp.com/2023/07/29/Iw7sXrid.png" alt="1690623050039.png" loading="lazy"></p>
-<h1 id="webdriver的安装">webdriver的安装</h1>
-<p>以PYTHON为例，python需要Selenium的附加。</p>
-<h2 id="安装selenium">安装Selenium</h2>
-<p>在命令提示符下输入</p>
-<pre><code>pip install selenium 
-</code></pre>
-<p>即可安装。<br>
-通过在python中运行</p>
-<pre><code>import selenium
-help(selenium)
-</code></pre>
-<p>检查安装是否成功。</p>
-<h2 id="安装webdriver">安装webdriver</h2>
-<p>我们只需将下载好的webdriver的exe应用程序复制到python的目录下即可。</p>
-<h1 id="测试与报错">测试与报错</h1>
-<p>自此我们已经成功安装webdriver。</p>
-<pre><code class="language-python">from selenium import webdriver
-from selenium.webdriver.common.by import By
-import time
-
-driver = webdriver.Edge()
-
-driver.get('https://bing.com')
-
-element = driver.find_element(By.ID, 'sb_form_q')
-element.send_keys('WebDriver')
-element.submit()
-
-time.sleep(5)
-driver.quit()
-</code></pre>
-<p>通过这份python程序可以测试webdriver是否安装成功。</p>
-<h2 id="报错">报错</h2>
-<p>为什么webdriver用着用着就会报错？<br>
-浏览器的更新会使webdriver不可用，你需重新下载以更新webdriver</p>
-<h1 id="其他">其他</h1>
-<p>其他浏览器的webdriver可以在其官网找到并下载。<br>
-各个编程语言对应的安装方式不同，你可以在网上浏览以找到安装方法。</p>
 ]]></content>
     </entry>
 </feed>
