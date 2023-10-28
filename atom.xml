@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-08-26T08:15:44.792Z</updated>
+    <updated>2023-10-28T05:54:57.381Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,17 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[选一个好点儿的图床]]></title>
+        <id>https://strangepapers.github.io/post/rwPQaUqYe/</id>
+        <link href="https://strangepapers.github.io/post/rwPQaUqYe/">
+        </link>
+        <updated>2023-10-25T12:28:52.000Z</updated>
+        <content type="html"><![CDATA[<p>emmmm，img图床（我正在使用的图床）因为成本问题不能用了。<br>
+好多封面图失效，很烦。</p>
+<p>以后得找<font color="red" size="6">靠谱</font>的图床。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[社会工程学]]></title>
         <id>https://strangepapers.github.io/post/4L-APtfVN/</id>
@@ -390,24 +401,6 @@ driver.quit()
 <h1 id="其他">其他</h1>
 <p>其他浏览器的webdriver可以在其官网找到并下载。<br>
 各个编程语言对应的安装方式不同，你可以在网上浏览以找到安装方法。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[web攻防工具收集]]></title>
-        <id>https://strangepapers.github.io/post/EMri5LUJN/</id>
-        <link href="https://strangepapers.github.io/post/EMri5LUJN/">
-        </link>
-        <updated>2023-06-09T07:30:09.000Z</updated>
-        <content type="html"><![CDATA[<p>来自知乎<br>
-作者：网络安全-无涯</p>
-<p>#1、半/全自动化工具<br>
-<a href="https://link.zhihu.com/?target=https%3A//github.com/0x727/ShuiZe_0x727">一条龙服务，只需要输入根域名即可全方位收集相关资产，并检测漏洞。也可以输入多个域名、C段IP等，具体案例见下文。</a><br>
-<a href="https://link.zhihu.com/?target=https%3A//github.com/lcvvvv/kscan">可针对指定IP段、资产清单、存活网段自动化进行端口扫描以及TCP指纹识别和Banner抓取</a><br>
-<a href="https://link.zhihu.com/?target=https%3A//github.com/Bywalks/DarkAngel">DarkAngel 是一款全自动白帽漏洞扫描器，从hackerone、bugcrowd资产监听到漏洞报告生成、企业微信通知。</a></p>
-<h1 id="2-资产发现工具">2、资产发现工具</h1>
-<p><a href="https://link.zhihu.com/?target=https%3A//github.com/six2dez/reconftw">reconFTW 集成了30个工具的信息收集利器</a><br>
-<a href="https://link.zhihu.com/?target=https%3A//github.com/tomnomnom/waybackurls">从第三方平台获取目标网页内容	</a><br>
-<a href="https://link.zhihu.com/?target=https%3A//github.com/wgpsec/ENScan_GO">一款基于各大企业信息API的工具</a></p>
 ]]></content>
     </entry>
 </feed>
