@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-10-28T14:12:42.676Z</updated>
+    <updated>2023-10-28T14:24:43.787Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -32,6 +32,38 @@
 至少我这辈，读书还是必需品。</p>
 <p>我不应该为他们悲哀。他们也会有自己喜欢的东西，他们只是习惯了那样生活，<br>
 而已。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[下载电子版课本]]></title>
+        <id>https://strangepapers.github.io/post/aCkvC7l8I/</id>
+        <link href="https://strangepapers.github.io/post/aCkvC7l8I/">
+        </link>
+        <updated>2023-10-25T12:32:31.000Z</updated>
+        <content type="html"><![CDATA[<p>各位学生或家长们总会有下载电子教材的需求，去各种乱七八糟的公众号下载，水印多先不说，这个号哪个号，<br>
+<font size="6">太烦心</font></p>
+<p>明明国家中小学智慧教育平台就有免费的无水印的电子教材，小学初高中的都有。</p>
+<p>但是好像没有下载按钮，咋办？</p>
+<p>下面，这篇文档将告诉你如何在平台上下载电子版课本。</p>
+<h1 id="第一步">第一步</h1>
+<p>打开<a href="https://basic.smartedu.cn/">国家中小学智慧教育平台</a>。<br>
+<a href="https://imgse.com/i/piVDDoV"><img src="https://z1.ax1x.com/2023/10/25/piVDDoV.png" alt="piVDDoV.png" loading="lazy"></a><br>
+打开”教材“<br>
+找到你需要的教材。</p>
+<h1 id="开发者工具">开发者工具</h1>
+<p>在那个页面上打开开发者工具（摁F12）<br>
+<a href="https://imgse.com/i/piVD7WD"><img src="https://z1.ax1x.com/2023/10/25/piVD7WD.png" alt="piVD7WD.png" loading="lazy"></a></p>
+<p>在开发者工具找到”网络“（net 或network）<br>
+【就在最上面”元素“”控制台“······那一栏】</p>
+<p>你会看到好多pdf.pdf在刷新。不要理会，找到其中一个，右键，在新标签页打开。<br>
+<img src="https://s3.bmp.ovh/imgs/2023/10/28/6759494dbfc23f95.png" alt="" loading="lazy"></p>
+<p>此时，你会获得一个401，不要慌张。<br>
+<img src="https://s3.bmp.ovh/imgs/2023/10/28/847971626020f774.png" alt="" loading="lazy"><br>
+学过URL的都知道，只要在网址上动动手脚，你就会获得它的真实样貌。<br>
+你会发现他的URL上有一个“-private”【隐私的意思】，删除“-private”，你就会得到源文件。</p>
+<h1 id="结束">结束</h1>
+<p>我们自此已经完成全部的操作。安全，无水印。<br>
+用到的技术有前端，开发者工具的使用，统一资源定位器等。</p>
 ]]></content>
     </entry>
     <entry>
@@ -198,175 +230,6 @@ net start - 启动远程主机的服务</p>
 <p>音乐是合法的毒品。<br>
 对于这两天，也就只有它了。</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1929285360&auto=0&height=66"></iframe>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python微项目]]></title>
-        <id>https://strangepapers.github.io/post/LfrHolf_b/</id>
-        <link href="https://strangepapers.github.io/post/LfrHolf_b/">
-        </link>
-        <updated>2023-07-29T23:13:24.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<h1 id="简易计算器">简易计算器</h1>
-<p>需要tkinter</p>
-<pre><code class="language-python">import tkinter as tk
-import time
-
-
-def on_click(key):
-    current_text = entry.get()
-
-    if key == &quot;C&quot;:
-        entry.delete(0, tk.END)
-    elif key == &quot;=&quot;:
-        try:
-            result = eval(current_text)
-            entry.delete(0, tk.END)
-            entry.insert(tk.END, str(result))
-        except Exception as e:
-            entry.delete(0, tk.END)
-            entry.insert(tk.END, &quot;Error&quot;)
-    else:
-        entry.insert(tk.END, key)
-
-# 创建主窗口
-root = tk.Tk()
-root.title(&quot;简易计算器&quot;)
-
-# 设置计算器背景色
-root.configure(bg=&quot;#f0f0f0&quot;)
-
-# 设置输入框样式
-entry_style = {
-    &quot;width&quot;: 20,
-    &quot;font&quot;: (&quot;Arial&quot;, 24),
-    &quot;bd&quot;: 10,   # 边框宽度
-    &quot;relief&quot;: tk.SOLID,   # 边框样式
-    &quot;bg&quot;: &quot;#ffffff&quot;,      # 背景色
-}
-
-entry = tk.Entry(root, **entry_style)
-entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10, sticky=&quot;nsew&quot;)
-
-# 设置按钮样式
-button_style = {
-    &quot;font&quot;: (&quot;Arial&quot;, 20),
-    &quot;width&quot;: 5,
-    &quot;height&quot;: 2,
-    &quot;bd&quot;: 5,   # 边框宽度
-    &quot;relief&quot;: tk.RAISED,  # 边框样式
-    &quot;bg&quot;: &quot;#e0e0e0&quot;,      # 背景色
-    &quot;activebackground&quot;: &quot;#d0d0d0&quot;,  # 按下时的背景色
-}
-
-# 定义按钮文本
-buttons = [
-    (&quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;/&quot;),
-    (&quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;*&quot;),
-    (&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;-&quot;),
-    (&quot;0&quot;, &quot;.&quot;, &quot;=&quot;, &quot;+&quot;),
-    (&quot;C&quot;,)
-]
-
-# 创建并放置按钮
-for i in range(len(buttons)):
-    for j in range(len(buttons[i])):
-        btn = tk.Button(root, text=buttons[i][j], **button_style,
-                        command=lambda key=buttons[i][j]: on_click(key))
-        btn.grid(row=i+1, column=j, padx=5, pady=5, sticky=&quot;nsew&quot;)
-
-# 设置网格布局权重，使得按钮可以自动填充窗口大小
-for i in range(5):
-    root.grid_rowconfigure(i+1, weight=1)
-    root.grid_columnconfigure(i, weight=1)
-
-# 运行主循环
-root.mainloop()
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://img1.imgtp.com/2023/07/30/Rm9mu8Yc.png" alt="1690672551158.png" loading="lazy"></figure>
-<h1 id="电子时钟">电子时钟</h1>
-<p>需要tkinter</p>
-<pre><code class="language-python">import tkinter as tk
-import datetime
-
-def update_time():
-    # 获取当前时间（UTC时间）
-    utc_time = datetime.datetime.utcnow()
-
-    # 设置北京时区偏移量
-    beijing_offset = datetime.timedelta(hours=8)
-
-    # 计算北京时间
-    beijing_time = utc_time + beijing_offset
-
-    # 格式化时间为字符串（精确到微秒）
-    utc_time_str = utc_time.strftime(&quot;%Y-%m-%d %H:%M:%S.%f&quot;)[:-3]
-    beijing_time_str = beijing_time.strftime(&quot;%Y-%m-%d %H:%M:%S.%f&quot;)[:-3]
-
-    # 更新标签文本
-    utc_label.config(text=&quot;UTC 时间：\n&quot; + utc_time_str)
-    beijing_label.config(text=&quot;北京时间：\n&quot; + beijing_time_str)
-
-    # 每隔100毫秒更新时间
-    root.after(100, update_time)
-
-# 创建主窗口
-root = tk.Tk()
-root.title(&quot;电子时钟&quot;)
-
-# 创建标签用于显示时间
-utc_label = tk.Label(root, font=(&quot;Helvetica&quot;, 14), justify='left')
-utc_label.pack(side='left', padx=10, pady=10)
-
-beijing_label = tk.Label(root, font=(&quot;Helvetica&quot;, 14), justify='left')
-beijing_label.pack(side='right', padx=10, pady=10)
-
-# 开始更新时间
-update_time()
-
-# 运行主循环
-root.mainloop()
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://img1.imgtp.com/2023/07/30/Uf72Lnpl.png" alt="1690672598189.png" loading="lazy"></figure>
-<h1 id="强密码生成器">强密码生成器</h1>
-<p>需要tkinter</p>
-<pre><code class="language-python">import random
-import string
-import tkinter as tk
-from tkinter import messagebox
-
-def generate_strong_password(length=12):
-    characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters) for _ in range(length))
-    return password
-
-def generate_password_button():
-    password_length = int(length_entry.get())
-    if password_length &lt; 8:
-        messagebox.showerror(&quot;Error&quot;, &quot;密码长度应至少为8位&quot;)
-        return
-
-    strong_password = generate_strong_password(password_length)
-    password_result_label.config(text=&quot;生成的强密码：\n&quot; + strong_password)
-
-# 创建主窗口
-root = tk.Tk()
-root.title(&quot;强密码生成器&quot;)
-
-# 添加控件
-length_label = tk.Label(root, text=&quot;密码长度：&quot;)
-length_label.pack(pady=10)
-length_entry = tk.Entry(root)
-length_entry.pack(pady=5)
-generate_button = tk.Button(root, text=&quot;生成密码&quot;, command=generate_password_button)
-generate_button.pack(pady=10)
-password_result_label = tk.Label(root, text=&quot;&quot;)
-password_result_label.pack()
-
-# 运行主循环
-root.mainloop()
-</code></pre>
-<figure data-type="image" tabindex="3"><img src="https://img1.imgtp.com/2023/07/30/IPTG9YGg.png" alt="1690672799351.png" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
