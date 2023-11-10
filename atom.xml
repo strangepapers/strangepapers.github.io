@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-11-07T00:12:44.394Z</updated>
+    <updated>2023-11-10T09:50:08.115Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -39,6 +39,36 @@ height=600
 width=800> 
 </iframe>
 <figure data-type="image" tabindex="1"><img src="https://pomf2.lain.la/f/qdh0u6rg.jpg" alt="物品" loading="lazy"></figure>
+<iframe
+src="https://pomf2.lain.la/f/pg9z7dei.mp4" 
+scrolling="no" 
+border="0" 
+frameborder="no" 
+framespacing="0" 
+allowfullscreen="true" 
+height=600 
+width=800> 
+</iframe>
+<iframe
+src="https://pomf2.lain.la/f/le1u4in.mp4" 
+scrolling="no" 
+border="0" 
+frameborder="no" 
+framespacing="0" 
+allowfullscreen="true" 
+height=600 
+width=800> 
+</iframe>
+<iframe
+src="https://pomf2.lain.la/f/0o0fpqe.mp4" 
+scrolling="no" 
+border="0" 
+frameborder="no" 
+framespacing="0" 
+allowfullscreen="true" 
+height=600 
+width=800> 
+</iframe>
 ]]></content>
     </entry>
     <entry>
