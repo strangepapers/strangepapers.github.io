@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2023-11-10T09:50:08.115Z</updated>
+    <updated>2023-12-31T04:39:02.212Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,66 +11,6 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, strangepapers</rights>
-    <entry>
-        <title type="html"><![CDATA[Bye，冀中！]]></title>
-        <id>https://strangepapers.github.io/post/OFtJ9lvGX/</id>
-        <link href="https://strangepapers.github.io/post/OFtJ9lvGX/">
-        </link>
-        <updated>2023-11-06T23:52:27.000Z</updated>
-        <content type="html"><![CDATA[<p>结束了两年多的冀中生活。</p>
-<iframe
-src="https://pomf2.lain.la/f/yqrccl9u.mp4" 
-scrolling="no" 
-border="0" 
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-height=600 
-width=800> 
-</iframe>
-<iframe
-src="https://pomf2.lain.la/f/7so95831.mp4" 
-scrolling="no" 
-border="0" 
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-height=600 
-width=800> 
-</iframe>
-<figure data-type="image" tabindex="1"><img src="https://pomf2.lain.la/f/qdh0u6rg.jpg" alt="物品" loading="lazy"></figure>
-<iframe
-src="https://pomf2.lain.la/f/pg9z7dei.mp4" 
-scrolling="no" 
-border="0" 
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-height=600 
-width=800> 
-</iframe>
-<iframe
-src="https://pomf2.lain.la/f/le1u4in.mp4" 
-scrolling="no" 
-border="0" 
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-height=600 
-width=800> 
-</iframe>
-<iframe
-src="https://pomf2.lain.la/f/0o0fpqe.mp4" 
-scrolling="no" 
-border="0" 
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-height=600 
-width=800> 
-</iframe>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[读书]]></title>
         <id>https://strangepapers.github.io/post/KsnXe6jJ_/</id>
@@ -160,8 +100,7 @@ width=800>
         <content type="html"><![CDATA[<p>人们常说“家里的wifi···”，而手机上却是不认识的WLAN，两者有什么不一样呢？</p>
 <p>WiFi是“Wireless Fidelity”的缩写，是一种基于IEEE 802.11b标准的无线局域网；WLAN是“Wireless LAN”的缩写，中文含义为“无线局域网”。<br>
 WLAN的含义范围就广了一些，实际上wifi是WLAN的其中一个协议。著名的一些其实除了Wi-Fi以外，还包含HyperLAN（欧盟），HiSWAN（日本）。也就是一小块区域内多台设备的网络，可以在一小块区域内的互联，很局限。</p>
-<p>还有LAN，只不过WLAN是无线，LAN是有线。<br>
-<img src="https://img1.imgtp.com/2023/08/26/2LYgNlkI.png" alt="1693017370070.png" loading="lazy"></p>
+<figure data-type="image" tabindex="1"><img src="https://img1.imgtp.com/2023/08/26/2LYgNlkI.png" alt="1693017370070.png" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
@@ -275,6 +214,21 @@ net start - 启动远程主机的服务</p>
 <p>在未来，网信事业的重要地位作用<strong>日益凸显</strong>。要以新时代中国特色社会主义思想为指导，全面贯彻落实党的二十大精神，深入贯彻党中央关于网络强国的重要思想，切实肩负起<strong>举旗帜聚民心、防风险保安全、强治理惠民生、增动能促发展、谋合作图共赢</strong>的使命任务，坚持党管互联网，坚持网信为民，坚持走中国特色治网之道，坚持统筹发展和安全，坚持<strong>正能量</strong>是总要求、管得住是硬道理、用得好是真本事，坚持筑牢国家网络安全屏障，坚持发挥信息化驱动引领作用，坚持依法管网、依法办网、依法上网，坚持推动构建网络空间命运共同体，坚持建设<strong>忠诚干净担当</strong>的网信工作队伍，大力推动网信事业高质量发展，以网络强国建设新成效为全面建设社会主义现代化国家、全面推进中华民族伟大复兴作出新贡献。</p>
 <h1 id="关键原则和指导方针">关键原则和指导方针</h1>
 <p>要强调坚持党的领导，为网络空间人民服务，走中国特色道路，平衡发展与安全，弘扬正能量，加强网络安全措施，遵循法治，构建网络空间命运共同体，培养忠诚廉洁的团队， 推动创新发展。这些指导方针是引领中国网络空间发展、确保中国网络空间安全繁荣的行动计划。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WHO care us.]]></title>
+        <id>https://strangepapers.github.io/post/NoftwTtC_/</id>
+        <link href="https://strangepapers.github.io/post/NoftwTtC_/">
+        </link>
+        <updated>2023-07-30T10:43:45.000Z</updated>
+        <content type="html"><![CDATA[<p>别看错，世界卫生组织正在关心我们。</p>
+<h1 id="">🤡</h1>
+<p>我是小丑</p>
+<h1 id="music">MUSIC</h1>
+<p>音乐是合法的毒品。<br>
+对于这两天，也就只有它了。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1929285360&auto=0&height=66"></iframe>
 ]]></content>
     </entry>
 </feed>
