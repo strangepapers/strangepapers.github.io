@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2024-04-03T14:18:30.561Z</updated>
+    <updated>2024-04-19T14:56:48.036Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -207,19 +207,19 @@ net start - 启动远程主机的服务</p>
 <p>浏览器（可以打开<b>开发者工具</b>）<br>
 网易云账号</p>
 <h1 id="第一步">第一步</h1>
-<p>将你的账号登入web，找到你想要的歌曲，但不要播放。<br>
-<img src="https://img1.imgtp.com/2023/08/06/cS6JZwYM.png" alt="1691319830293.png" loading="lazy"></p>
-<h1 id="操作">操作</h1>
-<p>F12打开开发者工具，打开<b>网络</b>,在搜索栏输入音频格式&quot;m4a&quot;.<br>
-<img src="https://img1.imgtp.com/2023/08/06/3Coth1XT.png" alt="1691320212731.png" loading="lazy"><br>
-播放你选中的音乐，这时你会抓到若干文件，选择其中最大的一个，右键，在新标签页中打开。<br>
-<img src="https://img1.imgtp.com/2023/08/06/mCkPLNSi.png" alt="1691320284331.png" loading="lazy"><br>
-这时，你就可以进行下载了。<br>
-<img src="https://img1.imgtp.com/2023/08/06/4kjBvMgw.png" alt="1691320334656.png" loading="lazy"></p>
-<h1 id="其他">其他</h1>
-<p>下载完成后，你需要进行重命名。<br>
-且音质是统一的，若追求高保真，还请买个会员。<br>
-😘</p>
+<p>将你的账号登入web，找到你想要的歌曲，但不要播放。</p>
+<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVypZGTJrg29HPmT"></iframe>
+# 操作
+F12打开开发者工具，打开<b>网络</b>,在搜索栏输入音频格式"m4a".
+<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVs6jWyjn_HWn_Pn"></iframe>
+播放你选中的音乐，这时你会抓到若干文件，选择其中最大的一个，右键，在新标签页中打开。
+<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVp85LPqaXjP0E57"></iframe>
+这时，你就可以进行下载了。
+<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVkIAEXIx2b6v4im"></iframe>
+# 其他
+下载完成后，你需要进行重命名。
+且音质是统一的，若追求高保真，还请买个会员。
+😘
 ]]></content>
     </entry>
 </feed>

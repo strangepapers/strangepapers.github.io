@@ -1,418 +1,238 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
+    <meta charset="utf-8" >
+
 <title>strangepapers</title>
-<link rel="shortcut icon" href="https://strangepapers.github.io//favicon.ico?v=1712153908935">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://strangepapers.github.io//styles/main.css" type='text/css' media='all'>
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://strangepapers.github.io//favicon.ico?v=1713538579646">
+<link rel="stylesheet" href="https://strangepapers.github.io//styles/main.css">
 
 
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="&lt;font face=&#34;宋体&#34; size=&#34;5&#34; color=&#34;white&#34;&gt;人间忽晚，山河已秋&lt;/font&gt;
+">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    
   </head>
-  <body class="home blog ct-body standard">
-    <div id="overflow-container" class="overflow-container">
-    <a class="skip-content" href="#main">Skip to content</a>
-        <header id="site-header" class="site-header" role="banner">
-    <div class='top-navigation top-navigation-important'>
-        <div class='container'>
-            <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
-                <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
-                <div class="menu">
-                    <ul id="menu-secondary-items" class="menu-secondary-items">
-                        
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://strangepapers.github.io/tag/ri-chang/">日常</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://strangepapers.github.io/tag/suo-jian/">所见</a>
-                        </li>
-                            
-                        
-                    </ul>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://strangepapers.github.io/">
+        <img src="https://strangepapers.github.io//images/avatar.png?v=1713538579646" class="site-logo">
+        <h1 class="site-title">strangepapers</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/geng-duo" class="site-nav">
+            更多
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <font face="宋体" size="5" color="white">人间忽晚，山河已秋</font>
+
+    </div>
+    <div class="site-footer">
+      <font face="Arial Black">
+单程孤舟，出云入霞，如歌如吟。</font>
+<br>
+ | <a class="rss" href="https://strangepapers.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/M1bmidvTr/">
+                  <h2 class="post-title">通过开发者工具下载网易云歌曲</h2>
+                </a>
+                <div class="post-date">
+                  2023-08-06
                 </div>
-            </div>
-            <ul class="social-media-icons">
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            </ul>
-        </div>
-    </div>
-
-    <div class="container">
-        <div id="title-info" class="title-info">
-            <div id='site-title' class='site-title'>
-                <a href="/https://strangepapers.github.io/">  strangepapers </a>
-            </div>
-        </div>
-        <button id="toggle-navigation" class="toggle-navigation">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
-        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
-            <p class="site-description"><font face="宋体" size="5" color="white">人间忽晚，山河已秋</font>
-</p>
-            <div class="menu">
-                <ul id="menu-primary-items" class="menu-primary-items">
-                     
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/">首页</a>
-                            </li>
-                        
-                    
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/post/about">关于</a>
-                            </li>
-                        
-                    
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/archives">归档</a>
-                            </li>
-                        
-                    
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/tags">标签</a>
-                            </li>
-                        
-                    
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/post/geng-duo">更多</a>
-                            </li>
-                        
-                    
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-</header>
-
-        <div id="main" class="main" role="main">
-  <h1 class="screen-reader-text">Posts</h1>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-      even
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/M1bmidvTr/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/08/06/V3MDYUYD.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-08-06 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/M1bmidvTr/"> 通过开发者工具下载网易云歌曲 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-        odd
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/aKOrLbseR/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/08/05/IEbYEdiz.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-08-05 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/aKOrLbseR/"> 深入贯彻党中央关于网络强国的重要思想  </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+                <a class="right" href="https://strangepapers.github.io/post/M1bmidvTr/">
+                  <div class="feature-container" style="background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.822500dae4f9e0da1db95bb3097fe64f?rik=5xvZ1zmSujv5JA&amp;riu=http%3a%2f%2fe0.ifengimg.com%2f03%2f2019%2f0402%2f3C01F398D3E33872DC8B6F2632A2DF27E14BF93A_size69_w900_h900.png&amp;ehk=Y9acqB3g3O%2fWH3eAfbeSLIN%2fbAd7vujA1cohb%2fyf6N4%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0')">
+                  </div>
+                </a>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-      even
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/NoftwTtC_/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/07/30/N6pLUpn4.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-07-30 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/NoftwTtC_/"> WHO care us. </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/aKOrLbseR/">
+                  <h2 class="post-title">深入贯彻党中央关于网络强国的重要思想 </h2>
+                </a>
+                <div class="post-date">
+                  2023-08-05
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-        odd
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/LfrHolf_b/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/07/30/sVQAdGNA.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-07-30 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
-                </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/LfrHolf_b/"> python微项目 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+                <a class="right" href="https://strangepapers.github.io/post/aKOrLbseR/">
+                  <div class="feature-container" style="background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.9f41424df33d7b899d5b86e1ae878d01?rik=h5IWiYsTDk00qg&amp;riu=http%3a%2f%2fwww.wxrb.com%2fuploadfiles%2f202208%2f30%2f2022083009435055240250.PNG&amp;ehk=boh5k2tJrFoKK7dbSekOLiRfShLuv1vhwwxg5apsyRo%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0')">
+                  </div>
+                </a>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-      even
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/pwzMS8B1O/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/07/29/60m1kQyz.jpg"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-07-29 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
-                </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/pwzMS8B1O/"> webdriver的下载与安装 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/LfrHolf_b/">
+                  <h2 class="post-title">python微项目</h2>
+                </a>
+                <div class="post-date">
+                  2023-07-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-        odd
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/EMri5LUJN/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/07/07/xdNxDtAR.jpg"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-06-09 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/EMri5LUJN/"> web攻防工具收集 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+                <a class="right" href="https://strangepapers.github.io/post/LfrHolf_b/">
+                  <div class="feature-container" style="background-image: url('https://www.python.org/static/community_logos/python-logo-master-v3-TM.png')">
+                  </div>
+                </a>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-      even
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/2DA412xAJ/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/06/08/qCVpn8wg.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-04-30 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/2DA412xAJ/"> 有感 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/pwzMS8B1O/">
+                  <h2 class="post-title">webdriver的下载与安装</h2>
+                </a>
+                <div class="post-date">
+                  2023-07-29
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-        odd
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/fan-shen/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://img1.imgtp.com/2023/06/08/JQbl5MI9.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-01-31 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://strangepapers.github.io/tag/ri-chang/">日常</a>
-                </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://strangepapers.github.io/tag/chuang-zuo/">创作</a>
-                </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/fan-shen/"> 翻身 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
-              <p>在note.ms闲逛，发现有人用脚本刷CCF来捣乱。<br>
+                <a class="right" href="https://strangepapers.github.io/post/pwzMS8B1O/">
+                  <div class="feature-container" style="background-image: url('https://edgestatic.azureedge.net/shared/cms/lrs1c69a1j/section-images/3d9d050b26e74ee999740be749dfd22d.svg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/EMri5LUJN/">
+                  <h2 class="post-title">web攻防工具收集</h2>
+                </a>
+                <div class="post-date">
+                  2023-06-09
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/EMri5LUJN/">
+                  <div class="feature-container" style="background-image: url('https://img1.imgtp.com/2023/07/07/xdNxDtAR.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/2DA412xAJ/">
+                  <h2 class="post-title">有感</h2>
+                </a>
+                <div class="post-date">
+                  2023-04-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/2DA412xAJ/">
+                  <div class="feature-container" style="background-image: url('https://img1.imgtp.com/2023/06/08/qCVpn8wg.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/fan-shen/">
+                  <h2 class="post-title">翻身</h2>
+                </a>
+                <div class="post-date">
+                  2023-01-31
+                </div>
+                <div class="post-abstract">
+                  <p>在note.ms闲逛，发现有人用脚本刷CCF来捣乱。<br>
 <strong>这不能忍</strong></p>
 <blockquote>
 <p>CCF，以推动计算技术领域学术，技术，教育，应用和产业的发展，助力计算技术领域专业人士能力提升为使命，目前拥有超过10万名付费个人会员。</p>
@@ -426,149 +246,115 @@
 <p>等等。</p>
 <p>于是，我用最和平的方式结束了这场坚持4个小时的战役。</p>
 
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-      even
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/html-zhuan-pan/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://i.328888.xyz/2023/01/30/8t3zc.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-01-30 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://strangepapers.github.io/tag/suo-jian/">所见</a>
-                </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/html-zhuan-pan/"> HTML转盘 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
-              <p>在csdn看到的<br>
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/fan-shen/">
+                  <div class="feature-container" style="background-image: url('https://img1.imgtp.com/2023/06/08/JQbl5MI9.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/html-zhuan-pan/">
+                  <h2 class="post-title">HTML转盘</h2>
+                </a>
+                <div class="post-date">
+                  2023-01-30
+                </div>
+                <div class="post-abstract">
+                  <p>在csdn看到的<br>
 回头整个低配版拼多多哈哈哈哈哈</p>
 
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-        odd
-       excerpt">
-      
-      <a class="featured-image-link" href="https://strangepapers.github.io/post/song-li-qian-gui-ze/">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://ts1.cn.mm.bing.net/th/id/R-C.7c6d93b96cf53e830a62640600477016?rik=3TuprOlGi%2bN2cQ&amp;riu=http%3a%2f%2ftu.52guzhuang.com%2fd%2ffile%2fp%2f2015-05-21%2fsbrzjsk33bt1370.jpg&amp;ehk=9NWVAfKZ9B%2bEvYu%2fFSDFwUVuNO1Wbv6NnTUhreIchhk%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2023-01-30 ·</span> <span> / </span>
-          <span class="author">
-              <a href="https://strangepapers.github.io/" title="Posts by  strangepapers" rel="author"> strangepapers</a>
-          </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://strangepapers.github.io/tag/suo-jian/">所见</a>
-                </span>
-            
-
-        </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://strangepapers.github.io/post/song-li-qian-gui-ze/"> 送礼潜规则 </a>
-          </h2>
-        </div>
-        <div class='excerpt-content'>
-          <article>
+                </div>
+              </div>
               
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
+                <a class="right" href="https://strangepapers.github.io/post/html-zhuan-pan/">
+                  <div class="feature-container" style="background-image: url('https://i.328888.xyz/2023/01/30/8t3zc.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/song-li-qian-gui-ze/">
+                  <h2 class="post-title">送礼潜规则</h2>
+                </a>
+                <div class="post-date">
+                  2023-01-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/song-li-qian-gui-ze/">
+                  <div class="feature-container" style="background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.7c6d93b96cf53e830a62640600477016?rik=3TuprOlGi%2bN2cQ&amp;riu=http%3a%2f%2ftu.52guzhuang.com%2fd%2ffile%2fp%2f2015-05-21%2fsbrzjsk33bt1370.jpg&amp;ehk=9NWVAfKZ9B%2bEvYu%2fFSDFwUVuNO1Wbv6NnTUhreIchhk%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/">
+                  <h2 class="post-title">print 还能这么玩</h2>
+                </a>
+                <div class="post-date">
+                  2023-01-29
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://strangepapers.github.io/post/print-huan-neng-zhe-me-wan/">
+                  <div class="feature-container" style="background-image: url('https://tse4-mm.cn.bing.net/th/id/OIP-C.JLNOdn1-bD-PdBBVmBYxpwHaE8?pid=ImgDet&amp;rs=1')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+    <a href="https://strangepapers.github.io/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+    <a href="https://strangepapers.github.io/page/3/" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
   
 </div>
 
-        <nav class="navigation pagination" role="navigation">
-    <h2 class="screen-reader-text">Posts navigation</h2>
-    <div class="nav-links">
-        
-            <a class="page-numbers" href="https://strangepapers.github.io/">上一页</a>
-        
-        
-             <a class="next page-numbers" href="https://strangepapers.github.io/page/3/">下一页</a>
-        
-    </div>
-</nav>
-
-        <footer id="site-footer" class="site-footer" role="contentinfo">
-    <h1>
-        <a href="https://strangepapers.github.io/"> strangepapers </a>
-    </h1>
-    <p class="site-description"><font face="宋体" size="5" color="white">人间忽晚，山河已秋</font>
-</p>
-    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
-        <div class="menu">
-            <ul id="menu-footer-items" class="menu-footer-items">
-            </ul>
         </div>
-    </div>
-    <ul class="social-media-icons">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </ul>
-    <div class="design-credit">
-        <p><font face="Arial Black">
-单程孤舟，出云入霞，如歌如吟。</font>
-<br>
-</p>
-    </div>
-</footer>
-<script>
-    hljs.initHighlightingOnLoad()
-</script>
-<script src="https://strangepapers.github.io//media/scripts/lib/jquery.min.js"></script>
-<script src="https://strangepapers.github.io//media/scripts/lib/jquerymigrate.js"></script>
-<script src="https://strangepapers.github.io//media/scripts/lib/production.min.js"></script>
       </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>
-
