@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://strangepapers.github.io/</id>
     <title>strangepapers</title>
-    <updated>2024-04-19T14:56:48.036Z</updated>
+    <updated>2024-07-16T11:15:05.780Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://strangepapers.github.io/"/>
     <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
@@ -11,6 +11,21 @@
     <logo>https://strangepapers.github.io/images/avatar.png</logo>
     <icon>https://strangepapers.github.io/favicon.ico</icon>
     <rights>All rights reserved 2024, strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[学习记——骑行北京]]></title>
+        <id>https://strangepapers.github.io/post/-4ewrlpzi/</id>
+        <link href="https://strangepapers.github.io/post/-4ewrlpzi/">
+        </link>
+        <updated>2024-07-12T09:29:23.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>这篇文章并不是骑行途中或者骑行结束写的，而是在闲暇之余拼凑而成。但是我还是清晰的记得那天晚上，七个年轻人为了自己的青春做出的疯狂的行动，无论从前看，还是向后看，无疑疯狂；只有在中间，并且正在经历的，才全部都是理所当然。</p>
+<h1 id="备战高考">备战高考</h1>
+<p>距离高考还有6天，我的心情没有想象的那么紧张，更多的是一种憧憬，一种对自己和未来的莫名的憧憬。<br>
+“那我们毕业玩点啥的呢？”<br>
+确实，谁不想毕业之后立马去旅行呢，可是目的地在哪，我们谁也说不清楚。<br>
+去西藏？我一直想去西藏，看到课本上那个庄严的喜马拉雅山和神圣的宗教文化，我在高二就埋下了去西藏的种子，可是路途太远，也没有人愿意与我同行西藏，我也只好。。。（未完）</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[三零五]]></title>
         <id>https://strangepapers.github.io/post/-4tWCz5k2/</id>
@@ -194,32 +209,6 @@ net start - 启动远程主机的服务</p>
 <p><strong>合规监测和处置机制</strong>： APP主办者、网络接入服务提供者、分发平台、智能终端生产企业需要建立健全违法违规信息监测和处置机制。如果发现发布或传输违法信息，需要立即停止传输，采取适当的处置措施，并按要求向电信主管部门报告。</p>
 <h1 id="更多">更多</h1>
 <p>通知中提到网络接入服务提供者和分发平台需要建设备案系统并与部门侧备案系统对接测试。作为用户，我认为这方面的技术支持和系统对接非常关键。备案系统应该稳定、高效，并且提供良好的用户体验，以便开发者能够方便地提交申请和获取备案编号。并且通知强调了合规性、信息安全等方面的要求，这些是开发者和用户应该高度重视的。在应用开发过程中，要确保所收集的用户数据合法合规，防止违法违规信息的传播。建立健全的合规监测和处置机制是确保应用在合法合规范围内运营的重要保障。随着互联网法规和政策的变化，用户和开发者需要保持灵活性，及时适应可能的调整。这可能涉及到备案流程、内容要求等方面的变化。及时了解并遵守最新的法规和规定，有助于避免可能的违规行为。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[通过开发者工具下载网易云歌曲]]></title>
-        <id>https://strangepapers.github.io/post/M1bmidvTr/</id>
-        <link href="https://strangepapers.github.io/post/M1bmidvTr/">
-        </link>
-        <updated>2023-08-06T10:54:40.000Z</updated>
-        <content type="html"><![CDATA[<p><font color="red">需要注意的是，下载的歌曲是网页端可以播放的。为了尊重版权，VIP还是买个会员吧。</font></p>
-<h1 id="准备">准备</h1>
-<p>浏览器（可以打开<b>开发者工具</b>）<br>
-网易云账号</p>
-<h1 id="第一步">第一步</h1>
-<p>将你的账号登入web，找到你想要的歌曲，但不要播放。</p>
-<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVypZGTJrg29HPmT"></iframe>
-# 操作
-F12打开开发者工具，打开<b>网络</b>,在搜索栏输入音频格式"m4a".
-<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVs6jWyjn_HWn_Pn"></iframe>
-播放你选中的音乐，这时你会抓到若干文件，选择其中最大的一个，右键，在新标签页中打开。
-<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVp85LPqaXjP0E57"></iframe>
-这时，你就可以进行下载了。
-<iframe id="1" width="500" height="800" src="https://1drv.ms/i/s!AvMYNFTCCJU6gVkIAEXIx2b6v4im"></iframe>
-# 其他
-下载完成后，你需要进行重命名。
-且音质是统一的，若追求高保真，还请买个会员。
-😘
 ]]></content>
     </entry>
 </feed>
