@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://strangepapers.github.io</id>
+    <title>Strangepapers</title>
+    <updated>2024-12-17T14:49:00.513Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://strangepapers.github.io"/>
+    <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
+    <subtitle>天平山上白云泉，云自无心水自闲</subtitle>
+    <logo>https://strangepapers.github.io/images/avatar.png</logo>
+    <icon>https://strangepapers.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[将多个excel整合在同一份excel的程序的实现]]></title>
+        <id>https://strangepapers.github.io/post/0-EHGStkM1/</id>
+        <link href="https://strangepapers.github.io/post/0-EHGStkM1/">
+        </link>
+        <updated>2024-12-17T13:25:39.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="项目效果">项目效果</h2>
+<p>此程序可以将同一文件夹下的多个excel文件整合在一份excel文件中的同一sheet里。用户点击程序中的“浏览”按钮后，选择需要整合的excel的文件夹，随后等待程序处理后选择文件保存地址，保存后程序结束。<br>
+当程序成功运行后，控制面板会弹出&quot;Merged data saved successfully.&quot;。<br>
+<img src="https://www.helloimg.com/i/2024/12/17/67617db873dcb.png" alt="屏幕截图 2024-12-17 213342.png" loading="lazy"></p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-python">import os
+import tkinter as tk
+from tkinter import filedialog
+import pandas as pd
+
+def merge_excel_files(folder_path):
+    all_data = pd.DataFrame()
+    for file_name in os.listdir(folder_path):
+        if file_name.endswith('.xlsx') or file_name.endswith('.xls'):
+            file_path = os.path.join(folder_path, file_name)
+            data = pd.read_excel(file_path)
+            all_data = pd.concat([all_data, data], ignore_index=True)
+    return all_data
+
+def browse_folder():
+    folder_path = filedialog.askdirectory()
+    if folder_path:
+        merged_data = merge_excel_files(folder_path)
+        save_path = filedialog.asksaveasfilename(defaultextension='.xlsx', filetypes=[('Excel Files', '*.xlsx')])
+        if save_path:
+            merged_data.to_excel(save_path, index=False)
+            print(&quot;Merged data saved successfully.&quot;)
+
+root = tk.Tk()
+root.title(&quot;Merge Excel Files&quot;)
+root.geometry(&quot;400x300&quot;)
+
+label = tk.Label(root, text=&quot;请选择要合并的Excel文件所在的文件夹：&quot;)
+
+label.pack(pady=20)
+
+
+browse_button = tk.Button(root, text=&quot;浏  览&quot;, command=browse_folder)
+browse_button.pack(pady=20)
+
+root.mainloop()
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HTML播放器制作的实现]]></title>
+        <id>https://strangepapers.github.io/post/html-bo-fang-qi-zhi-zuo-de-shi-xian/</id>
+        <link href="https://strangepapers.github.io/post/html-bo-fang-qi-zhi-zuo-de-shi-xian/">
+        </link>
+        <updated>2024-12-13T13:26:54.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="总体设计">总体设计</h2>
+<p>我们通过html css和JavaScript制作了一个播放器，这个播放器可以通过拖入文件来进行播放，同时加入了三个按钮，开始/暂停按钮，音量控制按钮和导入文件夹按钮。并且加入了css动画，使整个页面精美可靠。<br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c60efab33b.png" alt="屏幕截图 2024-12-13 220555.png" loading="lazy"><br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c60ef9af88.png" alt="屏幕截图 2024-12-13 221016.png" loading="lazy"></p>
+<h2 id="设计思路">设计思路</h2>
+<p>我们对此播放器设计了三个功能，</p>
+<h3 id="播放暂停与拖动">播放，暂停与拖动</h3>
+<p>当用户点击play按钮时，播放器处于准备播放阶段，播放器内出现黑色唱片按钮，用户将文件拖入进黑色唱片按钮内，播放器自动播放，用户点击暂停按钮时，播放器自动暂停，并隐藏黑色唱片按钮，所有蓝色功能按钮居中。</p>
+<h3 id="音量调节">音量调节</h3>
+<p>当用户点击音量调节按钮时，出现一个音量条可以让用户明确的调节音量。再次点击音量调节按钮时，自动隐藏音量条。</p>
+<h3 id="浏览文件夹">浏览文件夹</h3>
+<p>点击浏览按钮时，可以让用户浏览计算机内的文件夹，用户选定文件夹后，播放器自动按顺序播放文件夹里的音频文件，但是根据浏览器隐私设定，需要服务器的浏览许可证，和其他任何隐私许可证的许可。</p>
+<h2 id="注意">注意</h2>
+<p>拖动文件时必须拖动黑色唱片按钮内，若拖动在其他区域则可能出现故障。<br>
+如果没有服务器证书的支持，浏览按钮是无效的。</p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;style&gt;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .player-container {
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        .album-art {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 250px; /* Increased size */
+            height: 250px; /* Increased size */
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 34px; /* Increased font size */
+            opacity: 0;
+            transition: opacity 1s, transform 1s;
+        }
+        .album-art img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            z-index: 2; /* Ensure controls are above the drop area */
+            position: relative;
+            transition: transform 1s;
+        }
+        .controls.moved {
+            transform: translateX(200px);
+        }
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 16px; /* Reduced font size */
+            cursor: pointer;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.1s;
+            font-weight: bold; /* Bold font */
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .volume-control {
+            display: none;
+            width: 100%;
+            margin-top: 10px;
+            transition: width 1s;
+        }
+        .volume-control input[type=&quot;range&quot;] {
+            width: 100%;
+        }
+        .folder-selector {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        .folder-selector button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 16px; /* Reduced font size */
+            cursor: pointer;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .folder-selector button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .folder-selector input[type=&quot;file&quot;] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            direction: ltr;
+            cursor: pointer;
+        }
+        .drop-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: all;
+        }
+        .drop-area.highlight {
+            opacity: 0.5;
+            background-color: #19cad4;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;player-container&quot;&gt;
+        &lt;div class=&quot;album-art&quot; id=&quot;album-art&quot;&gt;唱片&lt;/div&gt;
+        &lt;div class=&quot;controls&quot; id=&quot;controls&quot;&gt;
+            &lt;button id=&quot;play-pause-btn&quot;&gt;Play&lt;/button&gt;
+            &lt;button id=&quot;toggle-volume-btn&quot;&gt;声音&lt;/button&gt;
+            &lt;div class=&quot;volume-control&quot; id=&quot;volume-control&quot;&gt;
+                &lt;input type=&quot;range&quot; id=&quot;volume-slider&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;1&quot;&gt;
+            &lt;/div&gt;
+            &lt;label class=&quot;folder-selector&quot;&gt;
+                &lt;button&gt;选择&lt;/button&gt;
+                &lt;input type=&quot;file&quot; id=&quot;folder-input&quot; webkitdirectory directory multiple style=&quot;display:none;&quot;&gt;
+            &lt;/label&gt;
+            &lt;audio id=&quot;audio-player&quot; controls style=&quot;display:none;&quot;&gt;&lt;/audio&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drop-area&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const audioPlayer = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const toggleVolumeBtn = document.getElementById('toggle-volume-btn');
+        const volumeControl = document.getElementById('volume-control');
+        const volumeSlider = document.getElementById('volume-slider');
+        const folderInput = document.getElementById('folder-input');
+        const dropArea = document.querySelector('.drop-area');
+        const albumArt = document.getElementById('album-art');
+        const controls = document.getElementById('controls');
+
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () =&gt; {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = 'Play';
+                albumArt.style.animationPlayState = 'paused';
+                controls.classList.remove('moved');
+                albumArt.style.opacity = '0';
+                volumeControl.style.width = '100%'; // Reset volume control width
+            } else {
+                audioPlayer.play();
+                playPauseBtn.textContent = 'Pause';
+                albumArt.style.animationPlayState = 'running';
+                controls.classList.add('moved');
+                albumArt.style.opacity = '1';
+                volumeControl.style.width = 'calc(100% - 400px)'; // Further shorten volume control width
+            }
+            isPlaying = !isPlaying;
+        });
+
+        toggleVolumeBtn.addEventListener('click', () =&gt; {
+            volumeControl.style.display = volumeControl.style.display === 'none' ? 'block' : 'none';
+        });
+
+        volumeSlider.addEventListener('input', () =&gt; {
+            audioPlayer.volume = volumeSlider.value;
+        });
+
+        folderInput.addEventListener('change', (event) =&gt; {
+            handleFiles(event.target.files);
+        });
+
+        dropArea.addEventListener('dragenter', highlightDropArea, false);
+        dropArea.addEventListener('dragover', highlightDropArea, false);
+        dropArea.addEventListener('dragleave', unhighlightDropArea, false);
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function highlightDropArea(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlightDropArea() {
+            dropArea.classList.remove('highlight');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            unhighlightDropArea();
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            const audioFiles = Array.from(files).filter(file =&gt; file.type.startsWith('audio/'));
+
+            if (audioFiles.length &gt; 0) {
+                const url = URL.createObjectURL(audioFiles[0]);
+                audioPlayer.src = url;
+                audioPlayer.load();
+                audioPlayer.play();
+                isPlaying = true;
+                playPauseBtn.textContent = 'Pause';
+
+                // Update album art if possible
+                const imageFile = files.find(file =&gt; file.type.startsWith('image/'));
+                if (imageFile) {
+                    const imageUrl = URL.createObjectURL(imageFile);
+                    albumArt.innerHTML = ''; // Clear existing text
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = 'Album Art';
+                    albumArt.appendChild(img);
+                } else {
+                    albumArt.innerHTML = '唱片';
+                }
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[学生信息库的制作思路]]></title>
+        <id>https://strangepapers.github.io/post/xue-sheng-xin-xi-ku-de-zhi-zuo-si-lu/</id>
+        <link href="https://strangepapers.github.io/post/xue-sheng-xin-xi-ku-de-zhi-zuo-si-lu/">
+        </link>
+        <updated>2024-12-08T15:50:46.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="总体设计">总体设计</h2>
+<p>我们使用tkinter设计这个程序，使其交互时更可视化。并且添加了保存功能，将所有学生信息储存，无论何时启动程序都可以快速查看学生信息。添加了几个必要的功能，实用性更高。<br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c61624e43b.png" alt="1733674324821.png" loading="lazy"><br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c61626c134.png" alt="1733674311917.png" loading="lazy"></p>
+<h2 id="制作思路">制作思路</h2>
+<p>源码共有这几个功能</p>
+<h3 id="写入学生信息">写入学生信息</h3>
+<p>我们写入的是学生的姓名，学号和联系方式，当你输入所有信息后，点击“Add”将会自动添加。添加成功后会有成功添加的提示。</p>
+<h3 id="移除学生信息">移除学生信息</h3>
+<p>仅填入学生的姓名，点击“remove”，自动移除学生的信息。目前此代码仅提供通过姓名来移除学生信息的方式。移除后会有“移除成功”的提示。</p>
+<h3 id="读取所有信息">读取所有信息</h3>
+<p>点击“view”按钮，在python中控台中会列出我们保存的所有学生信息。</p>
+<h3 id="删除信息列表">删除信息列表</h3>
+<p>点击“clear”按钮，将清除我们保存的所有学生信息，这样的设计也说明我们的源码并不适合大型信息的查找与使用。</p>
+<h3 id="查找">查找</h3>
+<p>输入学生姓名，点击search，将会以弹窗的形式显示出查找学生的信息。一次仅可以查找一个，且不支持模糊查找。</p>
+<h3 id="修改">修改</h3>
+<p>输入学生真实姓名，再写入新的学号和联系方式，点击“modify”按钮，将会更新这个学生的信息。更新成功后会有成功信息。</p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-python">
+from tkinter import *
+from tkinter import messagebox
+import pickle
+
+
+class Student:
+    def __init__(self, name, student_id, contact_information):
+        self.name = name
+        self.student_id = student_id
+        self.contact_information = contact_information
+
+
+class StudentManagementSystem:
+    def __init__(self):
+        self.students = []
+        self.load_data()
+
+    def save_data(self):
+        with open(&quot;students.pkl&quot;, &quot;wb&quot;) as file:
+            pickle.dump(self.students, file)
+
+    def load_data(self):
+        try:
+            with open(&quot;students.pkl&quot;, &quot;rb&quot;) as file:
+                self.students = pickle.load(file)
+        except FileNotFoundError:
+            pass
+
+    def add_student(self, student):
+        self.students.append(student)
+        self.save_data()
+
+    def remove_student(self, student_name):
+        for student in self.students:
+            if student.name == student_name:
+                self.students.remove(student)
+                self.save_data()
+                return True
+        return False
+
+    def view_students(self):
+        for student in self.students:
+            print(f&quot;Name: {student.name}, Student ID: {student.student_id}, Contact Information: {student.contact_information}&quot;)
+
+    def clear_list(self):
+        self.students = []
+        self.save_data()
+
+    def search_student(self, student_name):
+        for student in self.students:
+            if student.name == student_name:
+                return student
+        return None
+
+    def modify_student(self, student_name, new_id, new_contact):
+        for student in self.students:
+            if student.name == student_name:
+                student.student_id = new_id
+                student.contact_information = new_contact
+                self.save_data()
+                return True
+        return False
+
+
+def add_student_entry():
+    name = name_entry.get()
+    student_id = student_id_entry.get()
+    contact_information = contact_information_entry.get()
+
+    if name and student_id and contact_information:
+        student = Student(name, student_id, contact_information)
+        student_management_system.add_student(student)
+        messagebox.showinfo(&quot;Success&quot;, &quot;Student added successfully!&quot;)
+        name_entry.delete(0, END)
+        student_id_entry.delete(0, END)
+        contact_information_entry.delete(0, END)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please fill in all fields!&quot;)
+
+
+def remove_student_entry():
+    name = name_entry.get()
+
+    if name:
+        if student_management_system.remove_student(name):
+            messagebox.showinfo(&quot;Success&quot;, &quot;Student removed successfully!&quot;)
+            name_entry.delete(0, END)
+        else:
+            messagebox.showerror(&quot;Error&quot;, &quot;Student not found!&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please enter a student name!&quot;)
+
+
+def view_student_list():
+    student_management_system.view_students()
+
+
+def clear_student_list():
+    student_management_system.clear_list()
+    messagebox.showinfo(&quot;Success&quot;, &quot;Student list cleared successfully!&quot;)
+
+
+def search_student():
+    student_name = search_entry.get()
+    student = student_management_system.search_student(student_name)
+    if student:
+        messagebox.showinfo(&quot;Student Info&quot;,
+                            f&quot;Name: {student.name}\nStudent ID: {student.student_id}\nContact Information: {student.contact_information}&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, f&quot;Student with name '{student_name}' not found!&quot;)
+
+
+def modify_student():
+    name = name_entry.get()
+    student_id = student_id_entry.get()
+    contact_information = contact_information_entry.get()
+
+    if name and student_id and contact_information:
+        if student_management_system.modify_student(name, student_id, contact_information):
+            messagebox.showinfo(&quot;Success&quot;, &quot;Student information modified successfully!&quot;)
+            name_entry.delete(0, END)
+            student_id_entry.delete(0, END)
+            contact_information_entry.delete(0, END)
+        else:
+            messagebox.showerror(&quot;Error&quot;, &quot;Student not found!&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please fill in all fields!&quot;)
+
+
+root = Tk()
+root.title(&quot;Student Management System&quot;)
+root.geometry(&quot;400x300&quot;)
+
+student_management_system = StudentManagementSystem()
+
+name_label = Label(root, text=&quot;Name:&quot;)
+name_label.pack()
+
+student_id_label = Label(root, text=&quot;Student ID:&quot;)
+student_id_label.pack()
+
+contact_information_label = Label(root, text=&quot;Contact Information:&quot;)
+contact_information_label.pack()
+
+name_entry = Entry(root)
+name_entry.pack()
+
+student_id_entry = Entry(root)
+student_id_entry.pack()
+
+contact_information_entry = Entry(root)
+contact_information_entry.pack()
+
+add_button = Button(root, text=&quot;Add Student&quot;, command=add_student_entry)
+add_button.pack()
+
+remove_button = Button(root, text=&quot;Remove Student&quot;, command=remove_student_entry)
+remove_button.pack()
+
+view_button = Button(root, text=&quot;View Student List&quot;, command=view_student_list)
+view_button.pack()
+
+clear_button = Button(root, text=&quot;Clear Student List&quot;, command=clear_student_list)
+clear_button.pack()
+
+search_label = Label(root, text=&quot;Search Student:&quot;)
+search_label.pack()
+
+search_entry = Entry(root)
+search_entry.pack()
+
+search_button = Button(root, text=&quot;Search&quot;, command=search_student)
+search_button.pack()
+
+modify_label = Label(root, text=&quot;Modify Student:&quot;)
+modify_label.pack()
+
+modify_button = Button(root, text=&quot;Modify&quot;, command=modify_student)
+modify_button.pack()
+
+root.mainloop()
+</code></pre>
+]]></content>
+    </entry>
+</feed>
