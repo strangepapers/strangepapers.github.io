@@ -1,0 +1,250 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>通过流程机器人自动执行流程 | Strangepapers</title>
+<link rel="shortcut icon" href="https://strangepapers.github.io/favicon.ico?v=1736911836906">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://strangepapers.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="通过流程机器人自动执行流程 | Strangepapers - Atom Feed" href="https://strangepapers.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="在计算机里通过流程机器人自动执行工作流程是非常高效的一种处理方式，他允许用户通过创建自动化流程来自动执行重复和枯燥的任务，从而提高工作效率。接下来我们以power automate进行案例示范，来详细讲写如何通过流程机器人自动执行计算机流程..." />
+    <meta name="keywords" content="笔记" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://strangepapers.github.io">
+  <img class="avatar" src="https://strangepapers.github.io/images/avatar.png?v=1736911836906" alt="">
+  </a>
+  <h1 class="site-title">
+    Strangepapers
+  </h1>
+  <p class="site-description">
+    天平山上白云泉，云自无心水自闲
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              通过流程机器人自动执行流程
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-12-28
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://strangepapers.github.io/tag/R4IKmJ4hHA/" class="post-tag">
+                  # 笔记
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>在计算机里通过流程机器人自动执行工作流程是非常高效的一种处理方式，他允许用户通过创建自动化流程来自动执行重复和枯燥的任务，从而提高工作效率。接下来我们以power automate进行案例示范，来详细讲写如何通过流程机器人自动执行计算机流程。<br>
+Power automate是微软公司的一款流程处理应用，Power automate desktop允许用户通过拖拽操作来创建自动化流程，支持开发者和低代码用户处理跨桌面和web的自动化任务。</p>
+<h1 id="名词">名词</h1>
+<p><strong>流（Flow）</strong><br>
+在 PAD 中，一个自动化脚本被称为“流”。流由一系列的动作（Actions）组成，这些动作定义了自动化任务的步骤。</p>
+<p><strong>动作（Actions）</strong><br>
+动作是流的基本构建块，每个动作执行一个特定的任务，如点击按钮、填写表单、读取数据等。</p>
+<p><strong>变量（Variables）</strong><br>
+变量用于存储和操作数据。在流中，你可以创建和使用变量来保存中间结果，以便在流的不同部分使用。</p>
+<p><strong>条件和循环（Conditions and Loops）</strong><br>
+条件允许流根据特定逻辑分支执行不同的动作。循环则允许重复执行一系列动作，直到满足特定条件。</p>
+<p><strong>触发器（Triggers）</strong><br>
+触发器是流的入口点，它可以是一个特定的事件，如定时器、文件创建、HTTP请求等。</p>
+<p><strong>异常处理（Error Handling）</strong><br>
+PAD 提供了异常处理机制，允许你在流中添加错误检查和恢复逻辑，以确保流的健壮性。</p>
+<h1 id="基础操作">基础操作</h1>
+<h2 id="流">流</h2>
+<h3 id="excel流">excel流</h3>
+<p>Power Automate Desktop 提供了对 Excel 文件的自动化处理能力，用户可以自动化处理 Excel 文件。</p>
+<h3 id="桌面流">桌面流</h3>
+<p>用户可以学习如何自动化桌面应用程序的操作，例如通过 UI 自动化操作与 Windows 应用程序及其组件进行交互，并且提供了 UI 自动化操作，允许用户通过鼠标点击和键盘敲击提供输入或提取数据。</p>
+<h3 id="web-自动化">Web 自动化</h3>
+<p>用户可以掌握如何使用 Power Automate Desktop 自动化网页操作，实现数据的自动抓取和处理。</p>
+<h2 id="创建和运行流">创建和运行流</h2>
+<p><strong>创建流程</strong><br>
+想象一下，你有一堆重复的工作要做，比如每天都要打开同一个软件，点击几个按钮，然后输入一些数据。PAD 就是你的私人助手，帮你把这些步骤变成一个“流程”。你只需要在 PAD 里告诉它每一步该怎么做，比如“点击这个按钮”，“输入这些数据”。你把这些步骤一个个拖到 PAD 的工作区，就像搭积木一样，把它们连起来，就创建了一个自动化流程。</p>
+<p><strong>运行流程</strong><br>
+创建好流程后，你只需要点击一个按钮，PAD 就会按照你设定的步骤自动执行。就像你按下了电视遥控器，电视就会自动打开并播放你最喜欢的节目一样。PAD 会帮你打开软件，点击按钮，输入数据，一切都自动完成，你什么都不用做。</p>
+<p><strong>无人模式</strong><br>
+有时候，你可能需要在你不在旁边的时候让 PAD 工作，比如在晚上或者周末。PAD 有一个“无人参与模式”，就像设定了闹钟一样，到了时间它就会自动开始工作，不需要你在旁边操作。</p>
+<p><strong>监控和调整</strong><br>
+当你的 PAD 流程开始运行时，你可以像看监控摄像头一样看到它的工作情况。如果哪里出了问题，你可以停下来看看哪里不对，然后调整一下流程，就像调整遥控器让电视画面更清晰一样。</p>
+<h2 id="调试与优化流">调试与优化流</h2>
+<h3 id="调试桌面流">调试桌面流</h3>
+<p><strong>在流设计器中运行、停止和暂停</strong><br>
+调试时，可以在流设计器中直接运行流，这允许你逐个步骤地执行动作，观察每一步的执行结果。如果需要，你可以在任何动作上设置断点，以便在执行到该动作时暂停流，检查变量和应用程序的状态。</p>
+<p><strong>添加断点</strong><br>
+断点是调试中的重要工具，它们允许你在执行流时暂停，以便检查变量的值和应用程序的状态。你可以在流中的特定动作前设置断点，以便在执行该动作之前检查流程的状态。</p>
+<p><strong>按操作运行桌面流</strong><br>
+你可以逐个执行流中的动作，这有助于你确定问题发生的具体位置。这个功能对于逐步检查和验证每个动作的输出非常有用。</p>
+<p><strong>状态栏</strong><br>
+状态栏提供了流执行过程中的实时反馈，包括每个动作的执行结果和任何错误消息，这对于快速识别问题非常有用。</p>
+<p><strong>从此处运行</strong><br>
+如果你在流的中间部分发现问题，你可以从当前位置开始运行流，而不是从头开始，这有助于快速定位和解决问题。</p>
+<h3 id="优化桌面流">优化桌面流</h3>
+<p><strong>设置延迟</strong><br>
+在某些情况下，应用程序可能需要时间来响应动作，如打开窗口或加载数据。在这些动作之后设置延迟，可以确保流不会在应用程序准备好之前执行下一个动作，从而提高流的稳定性和可靠性。</p>
+<p><strong>错误处理</strong><br>
+通过添加错误处理逻辑，如重试机制或异常捕获，你可以提高流的容错能力。这确保了在遇到错误时，流可以优雅地处理，而不是完全失败。</p>
+<p><strong>性能监控</strong><br>
+监控流的执行时间可以帮助你识别性能瓶颈。通过分析哪些动作耗时最长，你可以优化这些动作，比如通过减少循环次数或优化数据操作来提高效率。</p>
+<p><strong>审查和重构</strong><br>
+定期审查流的设计和代码，以识别可以改进的地方。这可能包括重构复杂的条件逻辑，或者将重复的代码块替换为更高效的循环结构。</p>
+<h1 id="案例通过流程机器人自动执行拨号流程">案例：通过流程机器人自动执行拨号流程</h1>
+<p>打开power automate，新建一个流。<br>
+<img src="https://www.helloimg.com/i/2024/12/28/67701650d3d74.png" alt="1735399060168.png" loading="lazy"><br>
+根据逻辑流程，在左侧操作台选择合适的操作，进行自动执行路径的记录。</p>
+<figure data-type="image" tabindex="1"><img src="https://www.helloimg.com/i/2024/12/28/6770167f2005c.png" alt="1735399107962.png" loading="lazy"></figure>
+<p>流程结束后，点击保存并且运行，这样这份简单的自动流就完成了。<br>
+自动流也可以处理复杂、重复或者大型的问题，需要开发者根据需求来编写。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%90%8D%E8%AF%8D">名词</a></li>
+<li><a href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C">基础操作</a>
+<ul>
+<li><a href="#%E6%B5%81">流</a>
+<ul>
+<li><a href="#excel%E6%B5%81">excel流</a></li>
+<li><a href="#%E6%A1%8C%E9%9D%A2%E6%B5%81">桌面流</a></li>
+<li><a href="#web-%E8%87%AA%E5%8A%A8%E5%8C%96">Web 自动化</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%92%8C%E8%BF%90%E8%A1%8C%E6%B5%81">创建和运行流</a></li>
+<li><a href="#%E8%B0%83%E8%AF%95%E4%B8%8E%E4%BC%98%E5%8C%96%E6%B5%81">调试与优化流</a>
+<ul>
+<li><a href="#%E8%B0%83%E8%AF%95%E6%A1%8C%E9%9D%A2%E6%B5%81">调试桌面流</a></li>
+<li><a href="#%E4%BC%98%E5%8C%96%E6%A1%8C%E9%9D%A2%E6%B5%81">优化桌面流</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%A1%88%E4%BE%8B%E9%80%9A%E8%BF%87%E6%B5%81%E7%A8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C%E6%8B%A8%E5%8F%B7%E6%B5%81%E7%A8%8B">案例：通过流程机器人自动执行拨号流程</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://strangepapers.github.io/post/0-EHGStkM1/">
+              <h3 class="post-title">
+                将多个excel整合在同一份excel的程序的实现
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://strangepapers.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

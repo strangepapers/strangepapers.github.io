@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://strangepapers.github.io</id>
+    <title>Strangepapers</title>
+    <updated>2025-01-15T03:30:39.923Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://strangepapers.github.io"/>
+    <link rel="self" href="https://strangepapers.github.io/atom.xml"/>
+    <subtitle>天平山上白云泉，云自无心水自闲</subtitle>
+    <logo>https://strangepapers.github.io/images/avatar.png</logo>
+    <icon>https://strangepapers.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, Strangepapers</rights>
+    <entry>
+        <title type="html"><![CDATA[基于HTML的背单词程序]]></title>
+        <id>https://strangepapers.github.io/post/xfSokvaplG/</id>
+        <link href="https://strangepapers.github.io/post/xfSokvaplG/">
+        </link>
+        <updated>2025-01-15T03:15:35.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<h1 id="项目效果">项目效果</h1>
+<p><a href="https://imgse.com/i/pEihaK1"><img src="https://s21.ax1x.com/2025/01/15/pEihaK1.png" alt="pEihaK1.png" loading="lazy"></a><br>
+<a href="https://imgse.com/i/pEihRKI"><img src="https://s21.ax1x.com/2025/01/15/pEihRKI.png" alt="pEihRKI.png" loading="lazy"></a><br>
+<a href="https://imgse.com/i/pEihWrt"><img src="https://s21.ax1x.com/2025/01/15/pEihWrt.png" alt="pEihWrt.png" loading="lazy"></a><br>
+<a href="https://imgse.com/i/pEihfqP"><img src="https://s21.ax1x.com/2025/01/15/pEihfqP.png" alt="pEihfqP.png" loading="lazy"></a></p>
+<p>页面干净整洁，运用了白色和绿色来染色页面，激发用户的学习欲望。并且对于采用了科学的背单词流程（识记查），让用户记忆效果更佳。</p>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: green;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+<p>.button1 {<br>
+background-color: green;<br>
+color: black;<br>
+border: 2px solid #04AA6D;<br>
+}</p>
+<p>.button1:hover {<br>
+background-color: #04AA6D;<br>
+color: white;<br>
+}</p>
+</style>
+</head>
+<body>
+<a href="https://strangepapers.github.io/post/lao-sun/word.html">
+<button class="button button1">点击即可在线使用程序</button>
+</a>
+</body>
+</html>
+<h1 id="制作思路">制作思路</h1>
+<p>这个程序是一个简单的背单词网页应用，主要功能包括随机生成单词、显示单词的中英文翻译、用户输入英文单词进行翻译、检查用户输入的正确性、记录错误单词到错题本以及从 Excel 文件导入单词。<br>
+<strong>初始化数据</strong>：程序开始时，定义了一个包含一些单词的数组 words，每个单词包含英文和中文翻译。<br>
+<strong>随机生成单词</strong>：使用 shuffleArray 函数打乱 words 数组的顺序，然后从数组中选取前 7 个单词作为当前要学习的单词，存储在 currentWords 数组中。<br>
+<strong>显示单词</strong>：使用 renderWords 函数将 currentWords 数组中的单词及其翻译显示在页面上。<br>
+<strong>切换翻译显示</strong>：用户点击 &quot;OK&quot; 按钮时，程序会根据点击次数来切换翻译的显示状态。第一次点击隐藏翻译，第二次点击显示输入框让用户输入英文单词，第三次点击检查用户输入的正确性并给出反馈，第四次点击重新生成新的单词。<br>
+<strong>检查输入</strong>：在用户输入英文单词时，程序会实时检查输入的正确性，并在输入框下方显示反馈。<br>
+<strong>记录错题</strong>：如果用户输入的单词不正确，程序会在输入框下方显示正确答案，并提供一个 &quot;记入错题本&quot; 的按钮。点击该按钮会将错误的单词添加到 mistakeBook 数组中，并更新错题本的显示。<br>
+<strong>显示错题本</strong>：用户可以通过点击 &quot;错题本&quot; 按钮来查看错题本中的所有错误单词。<br>
+<strong>导入单词</strong>：程序提供了一个导入功能，用户可以通过点击 &quot;导入&quot; 按钮选择一个 Excel 文件，程序会读取文件中的数据并添加到 words 数组中，然后重新生成单词。<br>
+<strong>更新正确计数</strong>：程序会记录用户回答正确的单词数量，并在页面上显示总正确数。<br>
+<strong>依赖库</strong>：程序使用了 xlsx.full.min.js 库来处理 Excel 文件的导入。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[基于HTML实现的json和excel互换处理]]></title>
+        <id>https://strangepapers.github.io/post/36g1BwnRMa/</id>
+        <link href="https://strangepapers.github.io/post/36g1BwnRMa/">
+        </link>
+        <updated>2025-01-08T12:17:23.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://imgse.com/i/pECnaaq"><img src="https://s21.ax1x.com/2025/01/08/pECnaaq.png" alt="pECnaaq.png" loading="lazy"></a><br>
+项目URL https://strangepapers.github.io/post/lao-sun/change.html</p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: green;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+<p>.button1 {<br>
+background-color: green;<br>
+color: black;<br>
+border: 2px solid #04AA6D;<br>
+}</p>
+<p>.button1:hover {<br>
+background-color: #04AA6D;<br>
+color: white;<br>
+}</p>
+</style>
+</head>
+<body>
+<a href="https://strangepapers.github.io/post/lao-sun/change.html">
+<button class="button button1">点击即可在线使用程序</button>
+</a>
+</body>
+</html>
+<h1 id="总体设计">总体设计</h1>
+<p>我们用html，css和js来实现这个项目的原因是其轻量型的可视化，让项目使用方便，设计精美。<br>
+我们将页面分为四个区：<br>
+<strong>工作区</strong> 左上角的工作区支持拖拽文件，显示当前处理的文件。用户通过工作区来进行文件的操作。<br>
+<strong>储存区</strong> 右上角的储存区来缓存所有打开过的文件。<br>
+<strong>按钮区</strong> 左下角的按钮区有所有操作的按钮，用户点击按钮来进行想要进行的操作。<br>
+<strong>预览区</strong> 右下角的预览区支持预览json文件</p>
+<h1 id="实现思路">实现思路</h1>
+<h2 id="html">html</h2>
+<p><strong>页面布局划分</strong><br>
+通过div元素构建了整体的页面布局，主要分为两大部分：workspace（工作区）和controls-and-preview（控制与预览区）。workspace区域又包含了drop-area（用于拖放文件的区域）和file-list-container（展示已拖放文件列表的容器），使用flex布局来分配空间，使得各部分按比例合理显示，适应不同屏幕宽度。controls-and-preview区域同样基于flex布局，划分为controls（操作按钮所在部分）和preview（用于预览转换后数据的部分），清晰地将操作与展示功能分离。<br>
+<strong>元素设置</strong><br>
+在drop-area设置了ondragover和ondrop事件属性，用于处理文件拖放操作，引导用户将文件拖放到此处进行后续处理。<br>
+file-list-container内的file-list中通过ul和li元素来展示已拖放的文件列表，每个li对应一个文件，设置不同的类名来区分 Excel 文件和 JSON 文件，并添加点击事件，方便用户选择文件进行操作。<br>
+controls部分包含了多个按钮，如convertToJSON（转换为 JSON）、format-json-btn（格式化输出）等，每个按钮绑定对应的onclick事件，以触发相应的功能函数，实现各种操作。preview部分则提供了一个带有滚动条的区域用于展示转换后的 JSON 数据等内容。</p>
+<h2 id="css">css</h2>
+<p><strong>整体页面风格</strong><br>
+为body元素设置了背景色为深灰色、文字颜色为白色，奠定了整体偏暗的页面色调风格，同时设置了flex布局相关属性，让页面各部分能按预期排列展示。<br>
+对页面不同区域通过设置边框、内边距、圆角等样式，增强视觉上的区分度，使页面结构更清晰，例如drop-area设置了虚线边框、圆角以及鼠标悬停时改变边框颜色的过渡效果，直观地提示用户此处可进行拖放操作。<br>
+<strong>元素样式定制</strong><br>
+对于文件列表的li元素，设置了鼠标悬停时改变背景色的效果，提升交互性，同时根据文件类型（Excel 或 JSON）赋予不同的字体颜色、加粗等样式，方便用户快速区分不同类型文件。<br>
+操作按钮部分统一设置了浅灰色背景、适当的内边距、圆角以及鼠标悬停时背景色变化等样式，使其在视觉上整齐美观且易于识别可操作。preview区域中的scrollable-preview设置了固定高度和溢出时显示滚动条等样式，保证在有限空间内展示可能较长的 JSON 数据内容，并通过设置背景色、文字颜色等让数据展示更清晰。</p>
+<h2 id="js">js</h2>
+<p><strong>变量定义与初始化</strong><br>
+定义了files数组用于存储用户拖放的文件，currentFileIndex用于记录当前选中文件的索引，jsonData变量用于存放转换后的 JSON 数据等，为后续的文件操作和数据处理做好准备。<br>
+<strong>文件拖放处理</strong><br>
+首先阻止默认的拖放行为，清除drop-area的高亮样式。然后遍历拖放的文件列表，通过判断文件的type属性或者文件名后缀来确定是否为 Excel 或 JSON 文件，若是则将其添加到files数组中，并调用updateFileList函数更新文件列表展示；若不是则弹出提示告知用户文件类型不符合要求。<br>
+<strong>文件列表更新</strong><br>
+先清空已有的文件列表展示内容，然后遍历files数组，为每个文件创建对应的li元素，设置显示的文件名、点击事件，并根据文件类型添加相应的类名，最后将li元素添加到文件列表中，实现动态更新文件列表展示的功能。<br>
+<strong>文件选择操作</strong><br>
+根据传入的索引更新currentFileIndex，改变drop-area显示已选择的文件名，接着判断所选文件类型，如果是 Excel 文件则调用convertToJSON函数进行转换；如果是 JSON 文件则调用loadJsonFile函数进行加载并展示，从而实现针对不同类型文件的相应处理逻辑。<br>
+<strong>Excel 转 JSON 功能</strong><br>
+先判断是否有选中文件，若没有则弹出提示让用户选择文件。然后通过FileReader读取选中的 Excel 文件内容，利用XLSX库的read方法将文件内容解析为工作簿对象，获取第一个工作表，再通过sheet_to_json方法将工作表数据转换为 JSON 格式数据，将其赋值给jsonData变量，并将转换后的 JSON 数据展示在json-output区域中，最后启用相关的下载和转换等操作按钮，方便用户进一步处理数据。<br>
+<strong>JSON 文件加载</strong><br>
+同样使用FileReader读取 JSON 文件内容，尝试通过JSON.parse方法解析文件内容，若解析成功则将解析后的数据赋值给jsonData变量并展示在json-output区域，同时启用相关操作按钮；若解析出错则弹出提示告知用户解析错误。<br>
+<strong>JSON 格式化功能</strong><br>
+判断是否有可用的 JSON 数据，若有则使用JSON.stringify方法对jsonData进行格式化，并更新json-output区域展示的内容，方便用户查看格式更规范的 JSON 数据。<br>
+<strong>下载字符串功能</strong><br>
+先检查是否存在可用的 JSON 数据，若有则将格式化后的 JSON 数据创建为Blob对象，生成对应的 URL，创建a标签并设置相关属性，模拟点击下载链接，下载转换后的文本格式数据，最后清理相关元素和释放 URL 对象，完成下载字符串的操作流程。<br>
+<strong>下载 JSON 功能</strong><br>
+类似下载字符串功能的思路，将 JSON 数据创建为application/json类型的Blob对象，生成 URL 并通过a标签模拟点击实现下载 JSON 文件，文件名根据原文件名进行相应替换，保证下载的文件符合预期格式。<br>
+<strong>JSON 转 Excel 功能</strong><br>
+首先判断是否有可用的 JSON 数据，若有则利用XLSX库的json_to_sheet和book_append_sheet等方法将 JSON 数据转换为 Excel 工作表并添加到工作簿中，接着通过write方法将工作簿转换为二进制数据，创建相应的Blob对象、生成 URL，通过a标签模拟点击下载转换后的 Excel 文件，实现 JSON 到 Excel 的转换及下载功能。</p>
+<h1 id="源码">源码</h1>
+<pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Excel到JSON转换器&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #333; /* 深灰色背景 */
+            color: #fff; /* 白色文字 */
+        }
+        .workspace {
+            flex: 2;
+            display: flex;
+            border-bottom: 1px solid #555;
+        }
+        .drop-area {
+            flex: 1;
+            border: 2px dashed #555;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #aaa;
+            transition: border-color 0.3s;
+            padding: 20px;
+        }
+        .drop-area.highlight {
+            border-color: #999;
+        }
+        .file-list-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #333; /* 深灰色背景 */
+        }
+        .file-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .file-list li {
+            cursor: pointer;
+            padding: 5px 0;
+            border-bottom: 1px solid #666;
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .file-list li:hover {
+            background-color: #555;
+        }
+        .file-list li.excel-file {
+            font-weight: bold;
+            color: darkgreen;
+            font-family: 'SimHei', sans-serif;
+        }
+        .file-list li.json-file {
+            font-weight: bold;
+            color: darkorange;
+            font-family: 'SimHei', sans-serif;
+        }
+        .controls-and-preview {
+            flex: 1;
+            display: flex;
+        }
+        .controls {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-right: 1px solid #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ccc; /* 浅灰色按钮 */
+            color: #333;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #bbb;
+        }
+        .preview {
+            flex: 2;
+            padding: 20px;
+        }
+        .scrollable-preview {
+            height: 300px; /* 固定高度 */
+            overflow-y: auto;
+            background-color: #000; /* 纯黑色背景 */
+            padding: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            color: #fff; /* 白色文字 */
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap; /* 确保空白字符被保留但长行会换行 */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;workspace&quot;&gt;
+        &lt;div class=&quot;drop-area&quot; ondragover=&quot;event.preventDefault()&quot; ondrop=&quot;handleDrop(event)&quot;&gt;
+            拖放Excel文件到这里
+        &lt;/div&gt;
+        &lt;div class=&quot;file-list-container&quot;&gt;
+            &lt;div class=&quot;file-list&quot;&gt;
+                &lt;ul id=&quot;file-list&quot;&gt;&lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;controls-and-preview&quot;&gt;
+        &lt;div class=&quot;controls&quot;&gt;
+            &lt;button onclick=&quot;convertToJSON()&quot;&gt;转换为JSON&lt;/button&gt;
+            &lt;button id=&quot;format-json-btn&quot; disabled onclick=&quot;formatJson()&quot;&gt;格式化输出&lt;/button&gt;
+            &lt;button id=&quot;download-string-btn&quot; disabled onclick=&quot;downloadString()&quot;&gt;下载字符串&lt;/button&gt;
+            &lt;button id=&quot;download-json-btn&quot; disabled onclick=&quot;downloadJson()&quot;&gt;下载JSON&lt;/button&gt;
+            &lt;button id=&quot;convert-to-excel-btn&quot; disabled onclick=&quot;convertToJsonToExcel()&quot;&gt;转换为Excel&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;preview&quot;&gt;
+            &lt;div class=&quot;scrollable-preview&quot; id=&quot;json-output&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        let files = [];
+        let currentFileIndex = -1;
+        let jsonData;
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const dropArea = document.querySelector('.drop-area');
+            dropArea.classList.remove('highlight');
+
+            for (let i = 0; i &lt; e.dataTransfer.files.length; i++) {
+                const file = e.dataTransfer.files[i];
+                if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                    files.push(file);
+                    updateFileList();
+                } else if (file.name.endsWith('.json')) {
+                    files.push(file);
+                    updateFileList();
+                } else {
+                    alert(`${file.name} 不是一个Excel或JSON文件。`);
+                }
+            }
+        }
+
+        function updateFileList() {
+            const fileListElement = document.getElementById('file-list');
+            fileListElement.innerHTML = '';
+            files.forEach((file, index) =&gt; {
+                const li = document.createElement('li');
+                li.textContent = file.name;
+                li.onclick = () =&gt; selectFile(index);
+                if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                    li.className = 'excel-file';
+                } else if (file.name.endsWith('.json')) {
+                    li.className = 'json-file';
+                }
+                fileListElement.appendChild(li);
+            });
+        }
+
+        function selectFile(index) {
+            currentFileIndex = index;
+            const file = files[currentFileIndex];
+            document.querySelector('.drop-area').textContent = `已选择文件: ${file.name}`;
+            if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                convertToJSON();
+            } else if (file.name.endsWith('.json')) {
+                loadJsonFile(file);
+            }
+        }
+
+        function convertToJSON() {
+            if (currentFileIndex === -1) {
+                alert('请先选择一个文件。');
+                return;
+            }
+
+            const file = files[currentFileIndex];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {type: 'array'});
+                const sheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[sheetName];
+                jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+                const output = document.getElementById('json-output');
+                output.innerHTML = `&lt;pre&gt;${JSON.stringify(jsonData, null, 2)}&lt;/pre&gt;`;
+                
+                // 启用下载按钮
+                document.getElementById('format-json-btn').disabled = false;
+                document.getElementById('download-string-btn').disabled = false;
+                document.getElementById('download-json-btn').disabled = false;
+                document.getElementById('convert-to-excel-btn').disabled = false;
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function loadJsonFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    jsonData = JSON.parse(e.target.result);
+                    const output = document.getElementById('json-output');
+                    output.innerHTML = `&lt;pre&gt;${JSON.stringify(jsonData, null, 2)}&lt;/pre&gt;`;
+                    
+                    // 启用下载按钮
+                    document.getElementById('format-json-btn').disabled = false;
+                    document.getElementById('download-string-btn').disabled = false;
+                    document.getElementById('download-json-btn').disabled = false;
+                    document.getElementById('convert-to-excel-btn').disabled = false;
+                } catch (error) {
+                    alert('解析JSON文件时出错。');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function formatJson() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行格式化。');
+                return;
+            }
+
+            const formattedJson = JSON.stringify(jsonData, null, 2);
+            const output = document.getElementById('json-output');
+            output.innerHTML = `&lt;pre&gt;${formattedJson}&lt;/pre&gt;`;
+        }
+
+        function downloadString() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行下载。');
+                return;
+            }
+
+            const formattedJson = JSON.stringify(jsonData, null, 2);
+            const blob = new Blob([formattedJson], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.xlsx?$/, '.txt');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadJson() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行下载。');
+                return;
+            }
+
+            const blob = new Blob([JSON.stringify(jsonData)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.xlsx?$/, '.json');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function convertToJsonToExcel() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行转换。');
+                return;
+            }
+
+            const worksheet = XLSX.utils.json_to_sheet(jsonData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+            const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+            const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.json$/, '.xlsx');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[通过流程机器人自动执行流程]]></title>
+        <id>https://strangepapers.github.io/post/F08kTPLRwD/</id>
+        <link href="https://strangepapers.github.io/post/F08kTPLRwD/">
+        </link>
+        <updated>2024-12-28T14:01:36.000Z</updated>
+        <content type="html"><![CDATA[<p>在计算机里通过流程机器人自动执行工作流程是非常高效的一种处理方式，他允许用户通过创建自动化流程来自动执行重复和枯燥的任务，从而提高工作效率。接下来我们以power automate进行案例示范，来详细讲写如何通过流程机器人自动执行计算机流程。<br>
+Power automate是微软公司的一款流程处理应用，Power automate desktop允许用户通过拖拽操作来创建自动化流程，支持开发者和低代码用户处理跨桌面和web的自动化任务。</p>
+<h1 id="名词">名词</h1>
+<p><strong>流（Flow）</strong><br>
+在 PAD 中，一个自动化脚本被称为“流”。流由一系列的动作（Actions）组成，这些动作定义了自动化任务的步骤。</p>
+<p><strong>动作（Actions）</strong><br>
+动作是流的基本构建块，每个动作执行一个特定的任务，如点击按钮、填写表单、读取数据等。</p>
+<p><strong>变量（Variables）</strong><br>
+变量用于存储和操作数据。在流中，你可以创建和使用变量来保存中间结果，以便在流的不同部分使用。</p>
+<p><strong>条件和循环（Conditions and Loops）</strong><br>
+条件允许流根据特定逻辑分支执行不同的动作。循环则允许重复执行一系列动作，直到满足特定条件。</p>
+<p><strong>触发器（Triggers）</strong><br>
+触发器是流的入口点，它可以是一个特定的事件，如定时器、文件创建、HTTP请求等。</p>
+<p><strong>异常处理（Error Handling）</strong><br>
+PAD 提供了异常处理机制，允许你在流中添加错误检查和恢复逻辑，以确保流的健壮性。</p>
+<h1 id="基础操作">基础操作</h1>
+<h2 id="流">流</h2>
+<h3 id="excel流">excel流</h3>
+<p>Power Automate Desktop 提供了对 Excel 文件的自动化处理能力，用户可以自动化处理 Excel 文件。</p>
+<h3 id="桌面流">桌面流</h3>
+<p>用户可以学习如何自动化桌面应用程序的操作，例如通过 UI 自动化操作与 Windows 应用程序及其组件进行交互，并且提供了 UI 自动化操作，允许用户通过鼠标点击和键盘敲击提供输入或提取数据。</p>
+<h3 id="web-自动化">Web 自动化</h3>
+<p>用户可以掌握如何使用 Power Automate Desktop 自动化网页操作，实现数据的自动抓取和处理。</p>
+<h2 id="创建和运行流">创建和运行流</h2>
+<p><strong>创建流程</strong><br>
+想象一下，你有一堆重复的工作要做，比如每天都要打开同一个软件，点击几个按钮，然后输入一些数据。PAD 就是你的私人助手，帮你把这些步骤变成一个“流程”。你只需要在 PAD 里告诉它每一步该怎么做，比如“点击这个按钮”，“输入这些数据”。你把这些步骤一个个拖到 PAD 的工作区，就像搭积木一样，把它们连起来，就创建了一个自动化流程。</p>
+<p><strong>运行流程</strong><br>
+创建好流程后，你只需要点击一个按钮，PAD 就会按照你设定的步骤自动执行。就像你按下了电视遥控器，电视就会自动打开并播放你最喜欢的节目一样。PAD 会帮你打开软件，点击按钮，输入数据，一切都自动完成，你什么都不用做。</p>
+<p><strong>无人模式</strong><br>
+有时候，你可能需要在你不在旁边的时候让 PAD 工作，比如在晚上或者周末。PAD 有一个“无人参与模式”，就像设定了闹钟一样，到了时间它就会自动开始工作，不需要你在旁边操作。</p>
+<p><strong>监控和调整</strong><br>
+当你的 PAD 流程开始运行时，你可以像看监控摄像头一样看到它的工作情况。如果哪里出了问题，你可以停下来看看哪里不对，然后调整一下流程，就像调整遥控器让电视画面更清晰一样。</p>
+<h2 id="调试与优化流">调试与优化流</h2>
+<h3 id="调试桌面流">调试桌面流</h3>
+<p><strong>在流设计器中运行、停止和暂停</strong><br>
+调试时，可以在流设计器中直接运行流，这允许你逐个步骤地执行动作，观察每一步的执行结果。如果需要，你可以在任何动作上设置断点，以便在执行到该动作时暂停流，检查变量和应用程序的状态。</p>
+<p><strong>添加断点</strong><br>
+断点是调试中的重要工具，它们允许你在执行流时暂停，以便检查变量的值和应用程序的状态。你可以在流中的特定动作前设置断点，以便在执行该动作之前检查流程的状态。</p>
+<p><strong>按操作运行桌面流</strong><br>
+你可以逐个执行流中的动作，这有助于你确定问题发生的具体位置。这个功能对于逐步检查和验证每个动作的输出非常有用。</p>
+<p><strong>状态栏</strong><br>
+状态栏提供了流执行过程中的实时反馈，包括每个动作的执行结果和任何错误消息，这对于快速识别问题非常有用。</p>
+<p><strong>从此处运行</strong><br>
+如果你在流的中间部分发现问题，你可以从当前位置开始运行流，而不是从头开始，这有助于快速定位和解决问题。</p>
+<h3 id="优化桌面流">优化桌面流</h3>
+<p><strong>设置延迟</strong><br>
+在某些情况下，应用程序可能需要时间来响应动作，如打开窗口或加载数据。在这些动作之后设置延迟，可以确保流不会在应用程序准备好之前执行下一个动作，从而提高流的稳定性和可靠性。</p>
+<p><strong>错误处理</strong><br>
+通过添加错误处理逻辑，如重试机制或异常捕获，你可以提高流的容错能力。这确保了在遇到错误时，流可以优雅地处理，而不是完全失败。</p>
+<p><strong>性能监控</strong><br>
+监控流的执行时间可以帮助你识别性能瓶颈。通过分析哪些动作耗时最长，你可以优化这些动作，比如通过减少循环次数或优化数据操作来提高效率。</p>
+<p><strong>审查和重构</strong><br>
+定期审查流的设计和代码，以识别可以改进的地方。这可能包括重构复杂的条件逻辑，或者将重复的代码块替换为更高效的循环结构。</p>
+<h1 id="案例通过流程机器人自动执行拨号流程">案例：通过流程机器人自动执行拨号流程</h1>
+<p>打开power automate，新建一个流。<br>
+<img src="https://www.helloimg.com/i/2024/12/28/67701650d3d74.png" alt="1735399060168.png" loading="lazy"><br>
+根据逻辑流程，在左侧操作台选择合适的操作，进行自动执行路径的记录。</p>
+<figure data-type="image" tabindex="1"><img src="https://www.helloimg.com/i/2024/12/28/6770167f2005c.png" alt="1735399107962.png" loading="lazy"></figure>
+<p>流程结束后，点击保存并且运行，这样这份简单的自动流就完成了。<br>
+自动流也可以处理复杂、重复或者大型的问题，需要开发者根据需求来编写。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[将多个excel整合在同一份excel的程序的实现]]></title>
+        <id>https://strangepapers.github.io/post/0-EHGStkM1/</id>
+        <link href="https://strangepapers.github.io/post/0-EHGStkM1/">
+        </link>
+        <updated>2024-12-17T13:25:39.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="项目效果">项目效果</h2>
+<p>此程序可以将同一文件夹下的多个excel文件整合在一份excel文件中的同一sheet里。用户点击程序中的“浏览”按钮后，选择需要整合的excel的文件夹，随后等待程序处理后选择文件保存地址，保存后程序结束。<br>
+当程序成功运行后，控制面板会弹出&quot;Merged data saved successfully.&quot;。<br>
+<img src="https://www.helloimg.com/i/2024/12/17/67617db873dcb.png" alt="屏幕截图 2024-12-17 213342.png" loading="lazy"></p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-python">import os
+import tkinter as tk
+from tkinter import filedialog
+import pandas as pd
+
+def merge_excel_files(folder_path):
+    all_data = pd.DataFrame()
+    for file_name in os.listdir(folder_path):
+        if file_name.endswith('.xlsx') or file_name.endswith('.xls'):
+            file_path = os.path.join(folder_path, file_name)
+            data = pd.read_excel(file_path)
+            all_data = pd.concat([all_data, data], ignore_index=True)
+    return all_data
+
+def browse_folder():
+    folder_path = filedialog.askdirectory()
+    if folder_path:
+        merged_data = merge_excel_files(folder_path)
+        save_path = filedialog.asksaveasfilename(defaultextension='.xlsx', filetypes=[('Excel Files', '*.xlsx')])
+        if save_path:
+            merged_data.to_excel(save_path, index=False)
+            print(&quot;Merged data saved successfully.&quot;)
+
+root = tk.Tk()
+root.title(&quot;Merge Excel Files&quot;)
+root.geometry(&quot;400x300&quot;)
+
+label = tk.Label(root, text=&quot;请选择要合并的Excel文件所在的文件夹：&quot;)
+
+label.pack(pady=20)
+
+
+browse_button = tk.Button(root, text=&quot;浏  览&quot;, command=browse_folder)
+browse_button.pack(pady=20)
+
+root.mainloop()
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HTML播放器制作的实现]]></title>
+        <id>https://strangepapers.github.io/post/html-bo-fang-qi-zhi-zuo-de-shi-xian/</id>
+        <link href="https://strangepapers.github.io/post/html-bo-fang-qi-zhi-zuo-de-shi-xian/">
+        </link>
+        <updated>2024-12-13T13:26:54.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="总体设计">总体设计</h2>
+<p>我们通过html css和JavaScript制作了一个播放器，这个播放器可以通过拖入文件来进行播放，同时加入了三个按钮，开始/暂停按钮，音量控制按钮和导入文件夹按钮。并且加入了css动画，使整个页面精美可靠。<br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c60efab33b.png" alt="屏幕截图 2024-12-13 220555.png" loading="lazy"><br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c60ef9af88.png" alt="屏幕截图 2024-12-13 221016.png" loading="lazy"></p>
+<h2 id="设计思路">设计思路</h2>
+<p>我们对此播放器设计了三个功能，</p>
+<h3 id="播放暂停与拖动">播放，暂停与拖动</h3>
+<p>当用户点击play按钮时，播放器处于准备播放阶段，播放器内出现黑色唱片按钮，用户将文件拖入进黑色唱片按钮内，播放器自动播放，用户点击暂停按钮时，播放器自动暂停，并隐藏黑色唱片按钮，所有蓝色功能按钮居中。</p>
+<h3 id="音量调节">音量调节</h3>
+<p>当用户点击音量调节按钮时，出现一个音量条可以让用户明确的调节音量。再次点击音量调节按钮时，自动隐藏音量条。</p>
+<h3 id="浏览文件夹">浏览文件夹</h3>
+<p>点击浏览按钮时，可以让用户浏览计算机内的文件夹，用户选定文件夹后，播放器自动按顺序播放文件夹里的音频文件，但是根据浏览器隐私设定，需要服务器的浏览许可证，和其他任何隐私许可证的许可。</p>
+<h2 id="注意">注意</h2>
+<p>拖动文件时必须拖动黑色唱片按钮内，若拖动在其他区域则可能出现故障。<br>
+如果没有服务器证书的支持，浏览按钮是无效的。</p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;style&gt;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .player-container {
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        .album-art {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 250px; /* Increased size */
+            height: 250px; /* Increased size */
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 34px; /* Increased font size */
+            opacity: 0;
+            transition: opacity 1s, transform 1s;
+        }
+        .album-art img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            z-index: 2; /* Ensure controls are above the drop area */
+            position: relative;
+            transition: transform 1s;
+        }
+        .controls.moved {
+            transform: translateX(200px);
+        }
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 16px; /* Reduced font size */
+            cursor: pointer;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.1s;
+            font-weight: bold; /* Bold font */
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .volume-control {
+            display: none;
+            width: 100%;
+            margin-top: 10px;
+            transition: width 1s;
+        }
+        .volume-control input[type=&quot;range&quot;] {
+            width: 100%;
+        }
+        .folder-selector {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        .folder-selector button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 16px; /* Reduced font size */
+            cursor: pointer;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .folder-selector button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .folder-selector input[type=&quot;file&quot;] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            direction: ltr;
+            cursor: pointer;
+        }
+        .drop-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: all;
+        }
+        .drop-area.highlight {
+            opacity: 0.5;
+            background-color: #19cad4;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;player-container&quot;&gt;
+        &lt;div class=&quot;album-art&quot; id=&quot;album-art&quot;&gt;唱片&lt;/div&gt;
+        &lt;div class=&quot;controls&quot; id=&quot;controls&quot;&gt;
+            &lt;button id=&quot;play-pause-btn&quot;&gt;Play&lt;/button&gt;
+            &lt;button id=&quot;toggle-volume-btn&quot;&gt;声音&lt;/button&gt;
+            &lt;div class=&quot;volume-control&quot; id=&quot;volume-control&quot;&gt;
+                &lt;input type=&quot;range&quot; id=&quot;volume-slider&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;1&quot;&gt;
+            &lt;/div&gt;
+            &lt;label class=&quot;folder-selector&quot;&gt;
+                &lt;button&gt;选择&lt;/button&gt;
+                &lt;input type=&quot;file&quot; id=&quot;folder-input&quot; webkitdirectory directory multiple style=&quot;display:none;&quot;&gt;
+            &lt;/label&gt;
+            &lt;audio id=&quot;audio-player&quot; controls style=&quot;display:none;&quot;&gt;&lt;/audio&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drop-area&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const audioPlayer = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const toggleVolumeBtn = document.getElementById('toggle-volume-btn');
+        const volumeControl = document.getElementById('volume-control');
+        const volumeSlider = document.getElementById('volume-slider');
+        const folderInput = document.getElementById('folder-input');
+        const dropArea = document.querySelector('.drop-area');
+        const albumArt = document.getElementById('album-art');
+        const controls = document.getElementById('controls');
+
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () =&gt; {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = 'Play';
+                albumArt.style.animationPlayState = 'paused';
+                controls.classList.remove('moved');
+                albumArt.style.opacity = '0';
+                volumeControl.style.width = '100%'; // Reset volume control width
+            } else {
+                audioPlayer.play();
+                playPauseBtn.textContent = 'Pause';
+                albumArt.style.animationPlayState = 'running';
+                controls.classList.add('moved');
+                albumArt.style.opacity = '1';
+                volumeControl.style.width = 'calc(100% - 400px)'; // Further shorten volume control width
+            }
+            isPlaying = !isPlaying;
+        });
+
+        toggleVolumeBtn.addEventListener('click', () =&gt; {
+            volumeControl.style.display = volumeControl.style.display === 'none' ? 'block' : 'none';
+        });
+
+        volumeSlider.addEventListener('input', () =&gt; {
+            audioPlayer.volume = volumeSlider.value;
+        });
+
+        folderInput.addEventListener('change', (event) =&gt; {
+            handleFiles(event.target.files);
+        });
+
+        dropArea.addEventListener('dragenter', highlightDropArea, false);
+        dropArea.addEventListener('dragover', highlightDropArea, false);
+        dropArea.addEventListener('dragleave', unhighlightDropArea, false);
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function highlightDropArea(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlightDropArea() {
+            dropArea.classList.remove('highlight');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            unhighlightDropArea();
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            const audioFiles = Array.from(files).filter(file =&gt; file.type.startsWith('audio/'));
+
+            if (audioFiles.length &gt; 0) {
+                const url = URL.createObjectURL(audioFiles[0]);
+                audioPlayer.src = url;
+                audioPlayer.load();
+                audioPlayer.play();
+                isPlaying = true;
+                playPauseBtn.textContent = 'Pause';
+
+                // Update album art if possible
+                const imageFile = files.find(file =&gt; file.type.startsWith('image/'));
+                if (imageFile) {
+                    const imageUrl = URL.createObjectURL(imageFile);
+                    albumArt.innerHTML = ''; // Clear existing text
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = 'Album Art';
+                    albumArt.appendChild(img);
+                } else {
+                    albumArt.innerHTML = '唱片';
+                }
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[学生信息库的制作思路]]></title>
+        <id>https://strangepapers.github.io/post/xue-sheng-xin-xi-ku-de-zhi-zuo-si-lu/</id>
+        <link href="https://strangepapers.github.io/post/xue-sheng-xin-xi-ku-de-zhi-zuo-si-lu/">
+        </link>
+        <updated>2024-12-08T15:50:46.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="总体设计">总体设计</h2>
+<p>我们使用tkinter设计这个程序，使其交互时更可视化。并且添加了保存功能，将所有学生信息储存，无论何时启动程序都可以快速查看学生信息。添加了几个必要的功能，实用性更高。<br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c61624e43b.png" alt="1733674324821.png" loading="lazy"><br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c61626c134.png" alt="1733674311917.png" loading="lazy"></p>
+<h2 id="制作思路">制作思路</h2>
+<p>源码共有这几个功能</p>
+<h3 id="写入学生信息">写入学生信息</h3>
+<p>我们写入的是学生的姓名，学号和联系方式，当你输入所有信息后，点击“Add”将会自动添加。添加成功后会有成功添加的提示。</p>
+<h3 id="移除学生信息">移除学生信息</h3>
+<p>仅填入学生的姓名，点击“remove”，自动移除学生的信息。目前此代码仅提供通过姓名来移除学生信息的方式。移除后会有“移除成功”的提示。</p>
+<h3 id="读取所有信息">读取所有信息</h3>
+<p>点击“view”按钮，在python中控台中会列出我们保存的所有学生信息。</p>
+<h3 id="删除信息列表">删除信息列表</h3>
+<p>点击“clear”按钮，将清除我们保存的所有学生信息，这样的设计也说明我们的源码并不适合大型信息的查找与使用。</p>
+<h3 id="查找">查找</h3>
+<p>输入学生姓名，点击search，将会以弹窗的形式显示出查找学生的信息。一次仅可以查找一个，且不支持模糊查找。</p>
+<h3 id="修改">修改</h3>
+<p>输入学生真实姓名，再写入新的学号和联系方式，点击“modify”按钮，将会更新这个学生的信息。更新成功后会有成功信息。</p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-python">
+from tkinter import *
+from tkinter import messagebox
+import pickle
+
+
+class Student:
+    def __init__(self, name, student_id, contact_information):
+        self.name = name
+        self.student_id = student_id
+        self.contact_information = contact_information
+
+
+class StudentManagementSystem:
+    def __init__(self):
+        self.students = []
+        self.load_data()
+
+    def save_data(self):
+        with open(&quot;students.pkl&quot;, &quot;wb&quot;) as file:
+            pickle.dump(self.students, file)
+
+    def load_data(self):
+        try:
+            with open(&quot;students.pkl&quot;, &quot;rb&quot;) as file:
+                self.students = pickle.load(file)
+        except FileNotFoundError:
+            pass
+
+    def add_student(self, student):
+        self.students.append(student)
+        self.save_data()
+
+    def remove_student(self, student_name):
+        for student in self.students:
+            if student.name == student_name:
+                self.students.remove(student)
+                self.save_data()
+                return True
+        return False
+
+    def view_students(self):
+        for student in self.students:
+            print(f&quot;Name: {student.name}, Student ID: {student.student_id}, Contact Information: {student.contact_information}&quot;)
+
+    def clear_list(self):
+        self.students = []
+        self.save_data()
+
+    def search_student(self, student_name):
+        for student in self.students:
+            if student.name == student_name:
+                return student
+        return None
+
+    def modify_student(self, student_name, new_id, new_contact):
+        for student in self.students:
+            if student.name == student_name:
+                student.student_id = new_id
+                student.contact_information = new_contact
+                self.save_data()
+                return True
+        return False
+
+
+def add_student_entry():
+    name = name_entry.get()
+    student_id = student_id_entry.get()
+    contact_information = contact_information_entry.get()
+
+    if name and student_id and contact_information:
+        student = Student(name, student_id, contact_information)
+        student_management_system.add_student(student)
+        messagebox.showinfo(&quot;Success&quot;, &quot;Student added successfully!&quot;)
+        name_entry.delete(0, END)
+        student_id_entry.delete(0, END)
+        contact_information_entry.delete(0, END)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please fill in all fields!&quot;)
+
+
+def remove_student_entry():
+    name = name_entry.get()
+
+    if name:
+        if student_management_system.remove_student(name):
+            messagebox.showinfo(&quot;Success&quot;, &quot;Student removed successfully!&quot;)
+            name_entry.delete(0, END)
+        else:
+            messagebox.showerror(&quot;Error&quot;, &quot;Student not found!&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please enter a student name!&quot;)
+
+
+def view_student_list():
+    student_management_system.view_students()
+
+
+def clear_student_list():
+    student_management_system.clear_list()
+    messagebox.showinfo(&quot;Success&quot;, &quot;Student list cleared successfully!&quot;)
+
+
+def search_student():
+    student_name = search_entry.get()
+    student = student_management_system.search_student(student_name)
+    if student:
+        messagebox.showinfo(&quot;Student Info&quot;,
+                            f&quot;Name: {student.name}\nStudent ID: {student.student_id}\nContact Information: {student.contact_information}&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, f&quot;Student with name '{student_name}' not found!&quot;)
+
+
+def modify_student():
+    name = name_entry.get()
+    student_id = student_id_entry.get()
+    contact_information = contact_information_entry.get()
+
+    if name and student_id and contact_information:
+        if student_management_system.modify_student(name, student_id, contact_information):
+            messagebox.showinfo(&quot;Success&quot;, &quot;Student information modified successfully!&quot;)
+            name_entry.delete(0, END)
+            student_id_entry.delete(0, END)
+            contact_information_entry.delete(0, END)
+        else:
+            messagebox.showerror(&quot;Error&quot;, &quot;Student not found!&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please fill in all fields!&quot;)
+
+
+root = Tk()
+root.title(&quot;Student Management System&quot;)
+root.geometry(&quot;400x300&quot;)
+
+student_management_system = StudentManagementSystem()
+
+name_label = Label(root, text=&quot;Name:&quot;)
+name_label.pack()
+
+student_id_label = Label(root, text=&quot;Student ID:&quot;)
+student_id_label.pack()
+
+contact_information_label = Label(root, text=&quot;Contact Information:&quot;)
+contact_information_label.pack()
+
+name_entry = Entry(root)
+name_entry.pack()
+
+student_id_entry = Entry(root)
+student_id_entry.pack()
+
+contact_information_entry = Entry(root)
+contact_information_entry.pack()
+
+add_button = Button(root, text=&quot;Add Student&quot;, command=add_student_entry)
+add_button.pack()
+
+remove_button = Button(root, text=&quot;Remove Student&quot;, command=remove_student_entry)
+remove_button.pack()
+
+view_button = Button(root, text=&quot;View Student List&quot;, command=view_student_list)
+view_button.pack()
+
+clear_button = Button(root, text=&quot;Clear Student List&quot;, command=clear_student_list)
+clear_button.pack()
+
+search_label = Label(root, text=&quot;Search Student:&quot;)
+search_label.pack()
+
+search_entry = Entry(root)
+search_entry.pack()
+
+search_button = Button(root, text=&quot;Search&quot;, command=search_student)
+search_button.pack()
+
+modify_label = Label(root, text=&quot;Modify Student:&quot;)
+modify_label.pack()
+
+modify_button = Button(root, text=&quot;Modify&quot;, command=modify_student)
+modify_button.pack()
+
+root.mainloop()
+</code></pre>
+]]></content>
+    </entry>
+</feed>

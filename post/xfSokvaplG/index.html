@@ -1,0 +1,236 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>基于HTML的背单词程序 | Strangepapers</title>
+<link rel="shortcut icon" href="https://strangepapers.github.io/favicon.ico?v=1736911836906">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://strangepapers.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="基于HTML的背单词程序 | Strangepapers - Atom Feed" href="https://strangepapers.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+项目效果
+
+
+
+
+页面干净整洁，运用了白色和绿色来染色页面，激发用户的学习欲望。并且对于采用了科学的背单词流程（识记查），让用户记忆效果更佳。
+
+
+
+.button {
+  border: none;
+  color: green;
+  ..." />
+    <meta name="keywords" content="HTML" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://strangepapers.github.io">
+  <img class="avatar" src="https://strangepapers.github.io/images/avatar.png?v=1736911836906" alt="">
+  </a>
+  <h1 class="site-title">
+    Strangepapers
+  </h1>
+  <p class="site-description">
+    天平山上白云泉，云自无心水自闲
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              基于HTML的背单词程序
+            </h2>
+            <div class="post-info">
+              <span>
+                2025-01-15
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://strangepapers.github.io/tag/5cqGIz4C6c/" class="post-tag">
+                  # HTML
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <!-- more -->
+<h1 id="项目效果">项目效果</h1>
+<p><a href="https://imgse.com/i/pEihaK1"><img src="https://s21.ax1x.com/2025/01/15/pEihaK1.png" alt="pEihaK1.png" loading="lazy"></a><br>
+<a href="https://imgse.com/i/pEihRKI"><img src="https://s21.ax1x.com/2025/01/15/pEihRKI.png" alt="pEihRKI.png" loading="lazy"></a><br>
+<a href="https://imgse.com/i/pEihWrt"><img src="https://s21.ax1x.com/2025/01/15/pEihWrt.png" alt="pEihWrt.png" loading="lazy"></a><br>
+<a href="https://imgse.com/i/pEihfqP"><img src="https://s21.ax1x.com/2025/01/15/pEihfqP.png" alt="pEihfqP.png" loading="lazy"></a></p>
+<p>页面干净整洁，运用了白色和绿色来染色页面，激发用户的学习欲望。并且对于采用了科学的背单词流程（识记查），让用户记忆效果更佳。</p>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: green;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+<p>.button1 {<br>
+background-color: green;<br>
+color: black;<br>
+border: 2px solid #04AA6D;<br>
+}</p>
+<p>.button1:hover {<br>
+background-color: #04AA6D;<br>
+color: white;<br>
+}</p>
+</style>
+</head>
+<body>
+<a href="https://strangepapers.github.io/post/lao-sun/word.html">
+<button class="button button1">点击即可在线使用程序</button>
+</a>
+</body>
+</html>
+<h1 id="制作思路">制作思路</h1>
+<p>这个程序是一个简单的背单词网页应用，主要功能包括随机生成单词、显示单词的中英文翻译、用户输入英文单词进行翻译、检查用户输入的正确性、记录错误单词到错题本以及从 Excel 文件导入单词。<br>
+<strong>初始化数据</strong>：程序开始时，定义了一个包含一些单词的数组 words，每个单词包含英文和中文翻译。<br>
+<strong>随机生成单词</strong>：使用 shuffleArray 函数打乱 words 数组的顺序，然后从数组中选取前 7 个单词作为当前要学习的单词，存储在 currentWords 数组中。<br>
+<strong>显示单词</strong>：使用 renderWords 函数将 currentWords 数组中的单词及其翻译显示在页面上。<br>
+<strong>切换翻译显示</strong>：用户点击 &quot;OK&quot; 按钮时，程序会根据点击次数来切换翻译的显示状态。第一次点击隐藏翻译，第二次点击显示输入框让用户输入英文单词，第三次点击检查用户输入的正确性并给出反馈，第四次点击重新生成新的单词。<br>
+<strong>检查输入</strong>：在用户输入英文单词时，程序会实时检查输入的正确性，并在输入框下方显示反馈。<br>
+<strong>记录错题</strong>：如果用户输入的单词不正确，程序会在输入框下方显示正确答案，并提供一个 &quot;记入错题本&quot; 的按钮。点击该按钮会将错误的单词添加到 mistakeBook 数组中，并更新错题本的显示。<br>
+<strong>显示错题本</strong>：用户可以通过点击 &quot;错题本&quot; 按钮来查看错题本中的所有错误单词。<br>
+<strong>导入单词</strong>：程序提供了一个导入功能，用户可以通过点击 &quot;导入&quot; 按钮选择一个 Excel 文件，程序会读取文件中的数据并添加到 words 数组中，然后重新生成单词。<br>
+<strong>更新正确计数</strong>：程序会记录用户回答正确的单词数量，并在页面上显示总正确数。<br>
+<strong>依赖库</strong>：程序使用了 xlsx.full.min.js 库来处理 Excel 文件的导入。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E9%A1%B9%E7%9B%AE%E6%95%88%E6%9E%9C">项目效果</a></li>
+<li><a href="#%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF">制作思路</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://strangepapers.github.io/post/36g1BwnRMa/">
+              <h3 class="post-title">
+                基于HTML实现的json和excel互换处理
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://strangepapers.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

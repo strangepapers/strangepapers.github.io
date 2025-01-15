@@ -1,0 +1,466 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HTML播放器制作的实现 | Strangepapers</title>
+<link rel="shortcut icon" href="https://strangepapers.github.io/favicon.ico?v=1736911836906">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://strangepapers.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="HTML播放器制作的实现 | Strangepapers - Atom Feed" href="https://strangepapers.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="总体设计
+我们通过html css和JavaScript制作了一个播放器，这个播放器可以通过拖入文件来进行播放，同时加入了三个按钮，开始/暂停按钮，音量控制按钮和导入文件夹按钮。并且加入了css动画，使整个页面精美可靠。
+
+
+设计思路
+我们..." />
+    <meta name="keywords" content="HTML" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://strangepapers.github.io">
+  <img class="avatar" src="https://strangepapers.github.io/images/avatar.png?v=1736911836906" alt="">
+  </a>
+  <h1 class="site-title">
+    Strangepapers
+  </h1>
+  <p class="site-description">
+    天平山上白云泉，云自无心水自闲
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              HTML播放器制作的实现
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-12-13
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+                <a href="https://strangepapers.github.io/tag/5cqGIz4C6c/" class="post-tag">
+                  # HTML
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="总体设计">总体设计</h2>
+<p>我们通过html css和JavaScript制作了一个播放器，这个播放器可以通过拖入文件来进行播放，同时加入了三个按钮，开始/暂停按钮，音量控制按钮和导入文件夹按钮。并且加入了css动画，使整个页面精美可靠。<br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c60efab33b.png" alt="屏幕截图 2024-12-13 220555.png" loading="lazy"><br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c60ef9af88.png" alt="屏幕截图 2024-12-13 221016.png" loading="lazy"></p>
+<h2 id="设计思路">设计思路</h2>
+<p>我们对此播放器设计了三个功能，</p>
+<h3 id="播放暂停与拖动">播放，暂停与拖动</h3>
+<p>当用户点击play按钮时，播放器处于准备播放阶段，播放器内出现黑色唱片按钮，用户将文件拖入进黑色唱片按钮内，播放器自动播放，用户点击暂停按钮时，播放器自动暂停，并隐藏黑色唱片按钮，所有蓝色功能按钮居中。</p>
+<h3 id="音量调节">音量调节</h3>
+<p>当用户点击音量调节按钮时，出现一个音量条可以让用户明确的调节音量。再次点击音量调节按钮时，自动隐藏音量条。</p>
+<h3 id="浏览文件夹">浏览文件夹</h3>
+<p>点击浏览按钮时，可以让用户浏览计算机内的文件夹，用户选定文件夹后，播放器自动按顺序播放文件夹里的音频文件，但是根据浏览器隐私设定，需要服务器的浏览许可证，和其他任何隐私许可证的许可。</p>
+<h2 id="注意">注意</h2>
+<p>拖动文件时必须拖动黑色唱片按钮内，若拖动在其他区域则可能出现故障。<br>
+如果没有服务器证书的支持，浏览按钮是无效的。</p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;style&gt;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .player-container {
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        .album-art {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 250px; /* Increased size */
+            height: 250px; /* Increased size */
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 34px; /* Increased font size */
+            opacity: 0;
+            transition: opacity 1s, transform 1s;
+        }
+        .album-art img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            z-index: 2; /* Ensure controls are above the drop area */
+            position: relative;
+            transition: transform 1s;
+        }
+        .controls.moved {
+            transform: translateX(200px);
+        }
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 16px; /* Reduced font size */
+            cursor: pointer;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.1s;
+            font-weight: bold; /* Bold font */
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .volume-control {
+            display: none;
+            width: 100%;
+            margin-top: 10px;
+            transition: width 1s;
+        }
+        .volume-control input[type=&quot;range&quot;] {
+            width: 100%;
+        }
+        .folder-selector {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        .folder-selector button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 16px; /* Reduced font size */
+            cursor: pointer;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .folder-selector button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .folder-selector input[type=&quot;file&quot;] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            direction: ltr;
+            cursor: pointer;
+        }
+        .drop-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: all;
+        }
+        .drop-area.highlight {
+            opacity: 0.5;
+            background-color: #19cad4;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;player-container&quot;&gt;
+        &lt;div class=&quot;album-art&quot; id=&quot;album-art&quot;&gt;唱片&lt;/div&gt;
+        &lt;div class=&quot;controls&quot; id=&quot;controls&quot;&gt;
+            &lt;button id=&quot;play-pause-btn&quot;&gt;Play&lt;/button&gt;
+            &lt;button id=&quot;toggle-volume-btn&quot;&gt;声音&lt;/button&gt;
+            &lt;div class=&quot;volume-control&quot; id=&quot;volume-control&quot;&gt;
+                &lt;input type=&quot;range&quot; id=&quot;volume-slider&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;1&quot;&gt;
+            &lt;/div&gt;
+            &lt;label class=&quot;folder-selector&quot;&gt;
+                &lt;button&gt;选择&lt;/button&gt;
+                &lt;input type=&quot;file&quot; id=&quot;folder-input&quot; webkitdirectory directory multiple style=&quot;display:none;&quot;&gt;
+            &lt;/label&gt;
+            &lt;audio id=&quot;audio-player&quot; controls style=&quot;display:none;&quot;&gt;&lt;/audio&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drop-area&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const audioPlayer = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const toggleVolumeBtn = document.getElementById('toggle-volume-btn');
+        const volumeControl = document.getElementById('volume-control');
+        const volumeSlider = document.getElementById('volume-slider');
+        const folderInput = document.getElementById('folder-input');
+        const dropArea = document.querySelector('.drop-area');
+        const albumArt = document.getElementById('album-art');
+        const controls = document.getElementById('controls');
+
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () =&gt; {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = 'Play';
+                albumArt.style.animationPlayState = 'paused';
+                controls.classList.remove('moved');
+                albumArt.style.opacity = '0';
+                volumeControl.style.width = '100%'; // Reset volume control width
+            } else {
+                audioPlayer.play();
+                playPauseBtn.textContent = 'Pause';
+                albumArt.style.animationPlayState = 'running';
+                controls.classList.add('moved');
+                albumArt.style.opacity = '1';
+                volumeControl.style.width = 'calc(100% - 400px)'; // Further shorten volume control width
+            }
+            isPlaying = !isPlaying;
+        });
+
+        toggleVolumeBtn.addEventListener('click', () =&gt; {
+            volumeControl.style.display = volumeControl.style.display === 'none' ? 'block' : 'none';
+        });
+
+        volumeSlider.addEventListener('input', () =&gt; {
+            audioPlayer.volume = volumeSlider.value;
+        });
+
+        folderInput.addEventListener('change', (event) =&gt; {
+            handleFiles(event.target.files);
+        });
+
+        dropArea.addEventListener('dragenter', highlightDropArea, false);
+        dropArea.addEventListener('dragover', highlightDropArea, false);
+        dropArea.addEventListener('dragleave', unhighlightDropArea, false);
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function highlightDropArea(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlightDropArea() {
+            dropArea.classList.remove('highlight');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            unhighlightDropArea();
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            const audioFiles = Array.from(files).filter(file =&gt; file.type.startsWith('audio/'));
+
+            if (audioFiles.length &gt; 0) {
+                const url = URL.createObjectURL(audioFiles[0]);
+                audioPlayer.src = url;
+                audioPlayer.load();
+                audioPlayer.play();
+                isPlaying = true;
+                playPauseBtn.textContent = 'Pause';
+
+                // Update album art if possible
+                const imageFile = files.find(file =&gt; file.type.startsWith('image/'));
+                if (imageFile) {
+                    const imageUrl = URL.createObjectURL(imageFile);
+                    albumArt.innerHTML = ''; // Clear existing text
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = 'Album Art';
+                    albumArt.appendChild(img);
+                } else {
+                    albumArt.innerHTML = '唱片';
+                }
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1">总体设计</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF">设计思路</a>
+<ul>
+<li><a href="#%E6%92%AD%E6%94%BE%E6%9A%82%E5%81%9C%E4%B8%8E%E6%8B%96%E5%8A%A8">播放，暂停与拖动</a></li>
+<li><a href="#%E9%9F%B3%E9%87%8F%E8%B0%83%E8%8A%82">音量调节</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E6%96%87%E4%BB%B6%E5%A4%B9">浏览文件夹</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+<li><a href="#%E6%BA%90%E7%A0%81">源码</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://strangepapers.github.io/post/xue-sheng-xin-xi-ku-de-zhi-zuo-si-lu/">
+              <h3 class="post-title">
+                学生信息库的制作思路
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://strangepapers.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

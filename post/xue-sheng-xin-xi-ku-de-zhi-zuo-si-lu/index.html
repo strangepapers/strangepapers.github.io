@@ -1,0 +1,390 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>学生信息库的制作思路 | Strangepapers</title>
+<link rel="shortcut icon" href="https://strangepapers.github.io/favicon.ico?v=1736911836906">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://strangepapers.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="学生信息库的制作思路 | Strangepapers - Atom Feed" href="https://strangepapers.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="总体设计
+我们使用tkinter设计这个程序，使其交互时更可视化。并且添加了保存功能，将所有学生信息储存，无论何时启动程序都可以快速查看学生信息。添加了几个必要的功能，实用性更高。
+
+
+制作思路
+源码共有这几个功能
+写入学生信息
+我们写入的..." />
+    <meta name="keywords" content="python,笔记" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://strangepapers.github.io">
+  <img class="avatar" src="https://strangepapers.github.io/images/avatar.png?v=1736911836906" alt="">
+  </a>
+  <h1 class="site-title">
+    Strangepapers
+  </h1>
+  <p class="site-description">
+    天平山上白云泉，云自无心水自闲
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              学生信息库的制作思路
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-12-08
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://strangepapers.github.io/tag/A0NqcduwKI/" class="post-tag">
+                  # python
+                </a>
+              
+                <a href="https://strangepapers.github.io/tag/R4IKmJ4hHA/" class="post-tag">
+                  # 笔记
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="总体设计">总体设计</h2>
+<p>我们使用tkinter设计这个程序，使其交互时更可视化。并且添加了保存功能，将所有学生信息储存，无论何时启动程序都可以快速查看学生信息。添加了几个必要的功能，实用性更高。<br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c61624e43b.png" alt="1733674324821.png" loading="lazy"><br>
+<img src="https://www.helloimg.com/i/2024/12/14/675c61626c134.png" alt="1733674311917.png" loading="lazy"></p>
+<h2 id="制作思路">制作思路</h2>
+<p>源码共有这几个功能</p>
+<h3 id="写入学生信息">写入学生信息</h3>
+<p>我们写入的是学生的姓名，学号和联系方式，当你输入所有信息后，点击“Add”将会自动添加。添加成功后会有成功添加的提示。</p>
+<h3 id="移除学生信息">移除学生信息</h3>
+<p>仅填入学生的姓名，点击“remove”，自动移除学生的信息。目前此代码仅提供通过姓名来移除学生信息的方式。移除后会有“移除成功”的提示。</p>
+<h3 id="读取所有信息">读取所有信息</h3>
+<p>点击“view”按钮，在python中控台中会列出我们保存的所有学生信息。</p>
+<h3 id="删除信息列表">删除信息列表</h3>
+<p>点击“clear”按钮，将清除我们保存的所有学生信息，这样的设计也说明我们的源码并不适合大型信息的查找与使用。</p>
+<h3 id="查找">查找</h3>
+<p>输入学生姓名，点击search，将会以弹窗的形式显示出查找学生的信息。一次仅可以查找一个，且不支持模糊查找。</p>
+<h3 id="修改">修改</h3>
+<p>输入学生真实姓名，再写入新的学号和联系方式，点击“modify”按钮，将会更新这个学生的信息。更新成功后会有成功信息。</p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-python">
+from tkinter import *
+from tkinter import messagebox
+import pickle
+
+
+class Student:
+    def __init__(self, name, student_id, contact_information):
+        self.name = name
+        self.student_id = student_id
+        self.contact_information = contact_information
+
+
+class StudentManagementSystem:
+    def __init__(self):
+        self.students = []
+        self.load_data()
+
+    def save_data(self):
+        with open(&quot;students.pkl&quot;, &quot;wb&quot;) as file:
+            pickle.dump(self.students, file)
+
+    def load_data(self):
+        try:
+            with open(&quot;students.pkl&quot;, &quot;rb&quot;) as file:
+                self.students = pickle.load(file)
+        except FileNotFoundError:
+            pass
+
+    def add_student(self, student):
+        self.students.append(student)
+        self.save_data()
+
+    def remove_student(self, student_name):
+        for student in self.students:
+            if student.name == student_name:
+                self.students.remove(student)
+                self.save_data()
+                return True
+        return False
+
+    def view_students(self):
+        for student in self.students:
+            print(f&quot;Name: {student.name}, Student ID: {student.student_id}, Contact Information: {student.contact_information}&quot;)
+
+    def clear_list(self):
+        self.students = []
+        self.save_data()
+
+    def search_student(self, student_name):
+        for student in self.students:
+            if student.name == student_name:
+                return student
+        return None
+
+    def modify_student(self, student_name, new_id, new_contact):
+        for student in self.students:
+            if student.name == student_name:
+                student.student_id = new_id
+                student.contact_information = new_contact
+                self.save_data()
+                return True
+        return False
+
+
+def add_student_entry():
+    name = name_entry.get()
+    student_id = student_id_entry.get()
+    contact_information = contact_information_entry.get()
+
+    if name and student_id and contact_information:
+        student = Student(name, student_id, contact_information)
+        student_management_system.add_student(student)
+        messagebox.showinfo(&quot;Success&quot;, &quot;Student added successfully!&quot;)
+        name_entry.delete(0, END)
+        student_id_entry.delete(0, END)
+        contact_information_entry.delete(0, END)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please fill in all fields!&quot;)
+
+
+def remove_student_entry():
+    name = name_entry.get()
+
+    if name:
+        if student_management_system.remove_student(name):
+            messagebox.showinfo(&quot;Success&quot;, &quot;Student removed successfully!&quot;)
+            name_entry.delete(0, END)
+        else:
+            messagebox.showerror(&quot;Error&quot;, &quot;Student not found!&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please enter a student name!&quot;)
+
+
+def view_student_list():
+    student_management_system.view_students()
+
+
+def clear_student_list():
+    student_management_system.clear_list()
+    messagebox.showinfo(&quot;Success&quot;, &quot;Student list cleared successfully!&quot;)
+
+
+def search_student():
+    student_name = search_entry.get()
+    student = student_management_system.search_student(student_name)
+    if student:
+        messagebox.showinfo(&quot;Student Info&quot;,
+                            f&quot;Name: {student.name}\nStudent ID: {student.student_id}\nContact Information: {student.contact_information}&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, f&quot;Student with name '{student_name}' not found!&quot;)
+
+
+def modify_student():
+    name = name_entry.get()
+    student_id = student_id_entry.get()
+    contact_information = contact_information_entry.get()
+
+    if name and student_id and contact_information:
+        if student_management_system.modify_student(name, student_id, contact_information):
+            messagebox.showinfo(&quot;Success&quot;, &quot;Student information modified successfully!&quot;)
+            name_entry.delete(0, END)
+            student_id_entry.delete(0, END)
+            contact_information_entry.delete(0, END)
+        else:
+            messagebox.showerror(&quot;Error&quot;, &quot;Student not found!&quot;)
+    else:
+        messagebox.showerror(&quot;Error&quot;, &quot;Please fill in all fields!&quot;)
+
+
+root = Tk()
+root.title(&quot;Student Management System&quot;)
+root.geometry(&quot;400x300&quot;)
+
+student_management_system = StudentManagementSystem()
+
+name_label = Label(root, text=&quot;Name:&quot;)
+name_label.pack()
+
+student_id_label = Label(root, text=&quot;Student ID:&quot;)
+student_id_label.pack()
+
+contact_information_label = Label(root, text=&quot;Contact Information:&quot;)
+contact_information_label.pack()
+
+name_entry = Entry(root)
+name_entry.pack()
+
+student_id_entry = Entry(root)
+student_id_entry.pack()
+
+contact_information_entry = Entry(root)
+contact_information_entry.pack()
+
+add_button = Button(root, text=&quot;Add Student&quot;, command=add_student_entry)
+add_button.pack()
+
+remove_button = Button(root, text=&quot;Remove Student&quot;, command=remove_student_entry)
+remove_button.pack()
+
+view_button = Button(root, text=&quot;View Student List&quot;, command=view_student_list)
+view_button.pack()
+
+clear_button = Button(root, text=&quot;Clear Student List&quot;, command=clear_student_list)
+clear_button.pack()
+
+search_label = Label(root, text=&quot;Search Student:&quot;)
+search_label.pack()
+
+search_entry = Entry(root)
+search_entry.pack()
+
+search_button = Button(root, text=&quot;Search&quot;, command=search_student)
+search_button.pack()
+
+modify_label = Label(root, text=&quot;Modify Student:&quot;)
+modify_label.pack()
+
+modify_button = Button(root, text=&quot;Modify&quot;, command=modify_student)
+modify_button.pack()
+
+root.mainloop()
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1">总体设计</a></li>
+<li><a href="#%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF">制作思路</a>
+<ul>
+<li><a href="#%E5%86%99%E5%85%A5%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF">写入学生信息</a></li>
+<li><a href="#%E7%A7%BB%E9%99%A4%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF">移除学生信息</a></li>
+<li><a href="#%E8%AF%BB%E5%8F%96%E6%89%80%E6%9C%89%E4%BF%A1%E6%81%AF">读取所有信息</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E4%BF%A1%E6%81%AF%E5%88%97%E8%A1%A8">删除信息列表</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE">查找</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9">修改</a></li>
+</ul>
+</li>
+<li><a href="#%E6%BA%90%E7%A0%81">源码</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://strangepapers.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

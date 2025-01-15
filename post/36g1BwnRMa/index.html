@@ -1,0 +1,576 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>基于HTML实现的json和excel互换处理 | Strangepapers</title>
+<link rel="shortcut icon" href="https://strangepapers.github.io/favicon.ico?v=1736911836906">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://strangepapers.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="基于HTML实现的json和excel互换处理 | Strangepapers - Atom Feed" href="https://strangepapers.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+项目URL https://strangepapers.github.io/post/lao-sun/change.html
+
+
+
+
+.button {
+  border: none;
+  color: green;
+  padding:..." />
+    <meta name="keywords" content="HTML" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://strangepapers.github.io">
+  <img class="avatar" src="https://strangepapers.github.io/images/avatar.png?v=1736911836906" alt="">
+  </a>
+  <h1 class="site-title">
+    Strangepapers
+  </h1>
+  <p class="site-description">
+    天平山上白云泉，云自无心水自闲
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              基于HTML实现的json和excel互换处理
+            </h2>
+            <div class="post-info">
+              <span>
+                2025-01-08
+              </span>
+              <span>
+                15 min read
+              </span>
+              
+                <a href="https://strangepapers.github.io/tag/5cqGIz4C6c/" class="post-tag">
+                  # HTML
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p><a href="https://imgse.com/i/pECnaaq"><img src="https://s21.ax1x.com/2025/01/08/pECnaaq.png" alt="pECnaaq.png" loading="lazy"></a><br>
+项目URL https://strangepapers.github.io/post/lao-sun/change.html</p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: green;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+<p>.button1 {<br>
+background-color: green;<br>
+color: black;<br>
+border: 2px solid #04AA6D;<br>
+}</p>
+<p>.button1:hover {<br>
+background-color: #04AA6D;<br>
+color: white;<br>
+}</p>
+</style>
+</head>
+<body>
+<a href="https://strangepapers.github.io/post/lao-sun/change.html">
+<button class="button button1">点击即可在线使用程序</button>
+</a>
+</body>
+</html>
+<h1 id="总体设计">总体设计</h1>
+<p>我们用html，css和js来实现这个项目的原因是其轻量型的可视化，让项目使用方便，设计精美。<br>
+我们将页面分为四个区：<br>
+<strong>工作区</strong> 左上角的工作区支持拖拽文件，显示当前处理的文件。用户通过工作区来进行文件的操作。<br>
+<strong>储存区</strong> 右上角的储存区来缓存所有打开过的文件。<br>
+<strong>按钮区</strong> 左下角的按钮区有所有操作的按钮，用户点击按钮来进行想要进行的操作。<br>
+<strong>预览区</strong> 右下角的预览区支持预览json文件</p>
+<h1 id="实现思路">实现思路</h1>
+<h2 id="html">html</h2>
+<p><strong>页面布局划分</strong><br>
+通过div元素构建了整体的页面布局，主要分为两大部分：workspace（工作区）和controls-and-preview（控制与预览区）。workspace区域又包含了drop-area（用于拖放文件的区域）和file-list-container（展示已拖放文件列表的容器），使用flex布局来分配空间，使得各部分按比例合理显示，适应不同屏幕宽度。controls-and-preview区域同样基于flex布局，划分为controls（操作按钮所在部分）和preview（用于预览转换后数据的部分），清晰地将操作与展示功能分离。<br>
+<strong>元素设置</strong><br>
+在drop-area设置了ondragover和ondrop事件属性，用于处理文件拖放操作，引导用户将文件拖放到此处进行后续处理。<br>
+file-list-container内的file-list中通过ul和li元素来展示已拖放的文件列表，每个li对应一个文件，设置不同的类名来区分 Excel 文件和 JSON 文件，并添加点击事件，方便用户选择文件进行操作。<br>
+controls部分包含了多个按钮，如convertToJSON（转换为 JSON）、format-json-btn（格式化输出）等，每个按钮绑定对应的onclick事件，以触发相应的功能函数，实现各种操作。preview部分则提供了一个带有滚动条的区域用于展示转换后的 JSON 数据等内容。</p>
+<h2 id="css">css</h2>
+<p><strong>整体页面风格</strong><br>
+为body元素设置了背景色为深灰色、文字颜色为白色，奠定了整体偏暗的页面色调风格，同时设置了flex布局相关属性，让页面各部分能按预期排列展示。<br>
+对页面不同区域通过设置边框、内边距、圆角等样式，增强视觉上的区分度，使页面结构更清晰，例如drop-area设置了虚线边框、圆角以及鼠标悬停时改变边框颜色的过渡效果，直观地提示用户此处可进行拖放操作。<br>
+<strong>元素样式定制</strong><br>
+对于文件列表的li元素，设置了鼠标悬停时改变背景色的效果，提升交互性，同时根据文件类型（Excel 或 JSON）赋予不同的字体颜色、加粗等样式，方便用户快速区分不同类型文件。<br>
+操作按钮部分统一设置了浅灰色背景、适当的内边距、圆角以及鼠标悬停时背景色变化等样式，使其在视觉上整齐美观且易于识别可操作。preview区域中的scrollable-preview设置了固定高度和溢出时显示滚动条等样式，保证在有限空间内展示可能较长的 JSON 数据内容，并通过设置背景色、文字颜色等让数据展示更清晰。</p>
+<h2 id="js">js</h2>
+<p><strong>变量定义与初始化</strong><br>
+定义了files数组用于存储用户拖放的文件，currentFileIndex用于记录当前选中文件的索引，jsonData变量用于存放转换后的 JSON 数据等，为后续的文件操作和数据处理做好准备。<br>
+<strong>文件拖放处理</strong><br>
+首先阻止默认的拖放行为，清除drop-area的高亮样式。然后遍历拖放的文件列表，通过判断文件的type属性或者文件名后缀来确定是否为 Excel 或 JSON 文件，若是则将其添加到files数组中，并调用updateFileList函数更新文件列表展示；若不是则弹出提示告知用户文件类型不符合要求。<br>
+<strong>文件列表更新</strong><br>
+先清空已有的文件列表展示内容，然后遍历files数组，为每个文件创建对应的li元素，设置显示的文件名、点击事件，并根据文件类型添加相应的类名，最后将li元素添加到文件列表中，实现动态更新文件列表展示的功能。<br>
+<strong>文件选择操作</strong><br>
+根据传入的索引更新currentFileIndex，改变drop-area显示已选择的文件名，接着判断所选文件类型，如果是 Excel 文件则调用convertToJSON函数进行转换；如果是 JSON 文件则调用loadJsonFile函数进行加载并展示，从而实现针对不同类型文件的相应处理逻辑。<br>
+<strong>Excel 转 JSON 功能</strong><br>
+先判断是否有选中文件，若没有则弹出提示让用户选择文件。然后通过FileReader读取选中的 Excel 文件内容，利用XLSX库的read方法将文件内容解析为工作簿对象，获取第一个工作表，再通过sheet_to_json方法将工作表数据转换为 JSON 格式数据，将其赋值给jsonData变量，并将转换后的 JSON 数据展示在json-output区域中，最后启用相关的下载和转换等操作按钮，方便用户进一步处理数据。<br>
+<strong>JSON 文件加载</strong><br>
+同样使用FileReader读取 JSON 文件内容，尝试通过JSON.parse方法解析文件内容，若解析成功则将解析后的数据赋值给jsonData变量并展示在json-output区域，同时启用相关操作按钮；若解析出错则弹出提示告知用户解析错误。<br>
+<strong>JSON 格式化功能</strong><br>
+判断是否有可用的 JSON 数据，若有则使用JSON.stringify方法对jsonData进行格式化，并更新json-output区域展示的内容，方便用户查看格式更规范的 JSON 数据。<br>
+<strong>下载字符串功能</strong><br>
+先检查是否存在可用的 JSON 数据，若有则将格式化后的 JSON 数据创建为Blob对象，生成对应的 URL，创建a标签并设置相关属性，模拟点击下载链接，下载转换后的文本格式数据，最后清理相关元素和释放 URL 对象，完成下载字符串的操作流程。<br>
+<strong>下载 JSON 功能</strong><br>
+类似下载字符串功能的思路，将 JSON 数据创建为application/json类型的Blob对象，生成 URL 并通过a标签模拟点击实现下载 JSON 文件，文件名根据原文件名进行相应替换，保证下载的文件符合预期格式。<br>
+<strong>JSON 转 Excel 功能</strong><br>
+首先判断是否有可用的 JSON 数据，若有则利用XLSX库的json_to_sheet和book_append_sheet等方法将 JSON 数据转换为 Excel 工作表并添加到工作簿中，接着通过write方法将工作簿转换为二进制数据，创建相应的Blob对象、生成 URL，通过a标签模拟点击下载转换后的 Excel 文件，实现 JSON 到 Excel 的转换及下载功能。</p>
+<h1 id="源码">源码</h1>
+<pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Excel到JSON转换器&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #333; /* 深灰色背景 */
+            color: #fff; /* 白色文字 */
+        }
+        .workspace {
+            flex: 2;
+            display: flex;
+            border-bottom: 1px solid #555;
+        }
+        .drop-area {
+            flex: 1;
+            border: 2px dashed #555;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #aaa;
+            transition: border-color 0.3s;
+            padding: 20px;
+        }
+        .drop-area.highlight {
+            border-color: #999;
+        }
+        .file-list-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #333; /* 深灰色背景 */
+        }
+        .file-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .file-list li {
+            cursor: pointer;
+            padding: 5px 0;
+            border-bottom: 1px solid #666;
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .file-list li:hover {
+            background-color: #555;
+        }
+        .file-list li.excel-file {
+            font-weight: bold;
+            color: darkgreen;
+            font-family: 'SimHei', sans-serif;
+        }
+        .file-list li.json-file {
+            font-weight: bold;
+            color: darkorange;
+            font-family: 'SimHei', sans-serif;
+        }
+        .controls-and-preview {
+            flex: 1;
+            display: flex;
+        }
+        .controls {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-right: 1px solid #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ccc; /* 浅灰色按钮 */
+            color: #333;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #bbb;
+        }
+        .preview {
+            flex: 2;
+            padding: 20px;
+        }
+        .scrollable-preview {
+            height: 300px; /* 固定高度 */
+            overflow-y: auto;
+            background-color: #000; /* 纯黑色背景 */
+            padding: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            color: #fff; /* 白色文字 */
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap; /* 确保空白字符被保留但长行会换行 */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;workspace&quot;&gt;
+        &lt;div class=&quot;drop-area&quot; ondragover=&quot;event.preventDefault()&quot; ondrop=&quot;handleDrop(event)&quot;&gt;
+            拖放Excel文件到这里
+        &lt;/div&gt;
+        &lt;div class=&quot;file-list-container&quot;&gt;
+            &lt;div class=&quot;file-list&quot;&gt;
+                &lt;ul id=&quot;file-list&quot;&gt;&lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;controls-and-preview&quot;&gt;
+        &lt;div class=&quot;controls&quot;&gt;
+            &lt;button onclick=&quot;convertToJSON()&quot;&gt;转换为JSON&lt;/button&gt;
+            &lt;button id=&quot;format-json-btn&quot; disabled onclick=&quot;formatJson()&quot;&gt;格式化输出&lt;/button&gt;
+            &lt;button id=&quot;download-string-btn&quot; disabled onclick=&quot;downloadString()&quot;&gt;下载字符串&lt;/button&gt;
+            &lt;button id=&quot;download-json-btn&quot; disabled onclick=&quot;downloadJson()&quot;&gt;下载JSON&lt;/button&gt;
+            &lt;button id=&quot;convert-to-excel-btn&quot; disabled onclick=&quot;convertToJsonToExcel()&quot;&gt;转换为Excel&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;preview&quot;&gt;
+            &lt;div class=&quot;scrollable-preview&quot; id=&quot;json-output&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        let files = [];
+        let currentFileIndex = -1;
+        let jsonData;
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const dropArea = document.querySelector('.drop-area');
+            dropArea.classList.remove('highlight');
+
+            for (let i = 0; i &lt; e.dataTransfer.files.length; i++) {
+                const file = e.dataTransfer.files[i];
+                if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                    files.push(file);
+                    updateFileList();
+                } else if (file.name.endsWith('.json')) {
+                    files.push(file);
+                    updateFileList();
+                } else {
+                    alert(`${file.name} 不是一个Excel或JSON文件。`);
+                }
+            }
+        }
+
+        function updateFileList() {
+            const fileListElement = document.getElementById('file-list');
+            fileListElement.innerHTML = '';
+            files.forEach((file, index) =&gt; {
+                const li = document.createElement('li');
+                li.textContent = file.name;
+                li.onclick = () =&gt; selectFile(index);
+                if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                    li.className = 'excel-file';
+                } else if (file.name.endsWith('.json')) {
+                    li.className = 'json-file';
+                }
+                fileListElement.appendChild(li);
+            });
+        }
+
+        function selectFile(index) {
+            currentFileIndex = index;
+            const file = files[currentFileIndex];
+            document.querySelector('.drop-area').textContent = `已选择文件: ${file.name}`;
+            if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                convertToJSON();
+            } else if (file.name.endsWith('.json')) {
+                loadJsonFile(file);
+            }
+        }
+
+        function convertToJSON() {
+            if (currentFileIndex === -1) {
+                alert('请先选择一个文件。');
+                return;
+            }
+
+            const file = files[currentFileIndex];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {type: 'array'});
+                const sheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[sheetName];
+                jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+                const output = document.getElementById('json-output');
+                output.innerHTML = `&lt;pre&gt;${JSON.stringify(jsonData, null, 2)}&lt;/pre&gt;`;
+                
+                // 启用下载按钮
+                document.getElementById('format-json-btn').disabled = false;
+                document.getElementById('download-string-btn').disabled = false;
+                document.getElementById('download-json-btn').disabled = false;
+                document.getElementById('convert-to-excel-btn').disabled = false;
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function loadJsonFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    jsonData = JSON.parse(e.target.result);
+                    const output = document.getElementById('json-output');
+                    output.innerHTML = `&lt;pre&gt;${JSON.stringify(jsonData, null, 2)}&lt;/pre&gt;`;
+                    
+                    // 启用下载按钮
+                    document.getElementById('format-json-btn').disabled = false;
+                    document.getElementById('download-string-btn').disabled = false;
+                    document.getElementById('download-json-btn').disabled = false;
+                    document.getElementById('convert-to-excel-btn').disabled = false;
+                } catch (error) {
+                    alert('解析JSON文件时出错。');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function formatJson() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行格式化。');
+                return;
+            }
+
+            const formattedJson = JSON.stringify(jsonData, null, 2);
+            const output = document.getElementById('json-output');
+            output.innerHTML = `&lt;pre&gt;${formattedJson}&lt;/pre&gt;`;
+        }
+
+        function downloadString() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行下载。');
+                return;
+            }
+
+            const formattedJson = JSON.stringify(jsonData, null, 2);
+            const blob = new Blob([formattedJson], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.xlsx?$/, '.txt');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadJson() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行下载。');
+                return;
+            }
+
+            const blob = new Blob([JSON.stringify(jsonData)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.xlsx?$/, '.json');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function convertToJsonToExcel() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行转换。');
+                return;
+            }
+
+            const worksheet = XLSX.utils.json_to_sheet(jsonData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+            const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+            const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.json$/, '.xlsx');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1">总体设计</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF">实现思路</a>
+<ul>
+<li><a href="#html">html</a></li>
+<li><a href="#css">css</a></li>
+<li><a href="#js">js</a></li>
+</ul>
+</li>
+<li><a href="#%E6%BA%90%E7%A0%81">源码</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://strangepapers.github.io/post/F08kTPLRwD/">
+              <h3 class="post-title">
+                通过流程机器人自动执行流程
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://strangepapers.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
