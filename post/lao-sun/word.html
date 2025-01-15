@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背单词</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            width: 350px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .word-container {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            justify-items: center;
+        }
+        .word-pair {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .english {
+            font-size: 1.1em;
+            color: #333;
+        }
+        .translation {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            margin-top: 5px;
+            font-size: 1em;
+            color: #666;
+        }
+        .hidden {
+            opacity: 0;
+        }
+        input[type="text"] {
+            border: 2px solid #ccc;
+            padding: 8px;
+            width: 80%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1em;
+        }
+        input.correct {
+            border-color: #4caf50;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #ff5722;
+        }
+        .wrong-word-button {
+            margin-top: 5px;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 0.9em;
+        }
+        .wrong-word-button.disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+        .wrong-word-button:hover:not(.disabled) {
+            background-color: #e53935;
+        }
+        .mistake-book-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .mistake-book-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: left;
+            height: 80%;
+            overflow-y: auto;
+        }
+        .mistake-book-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .mistake-book-title {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .back-button {
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: white;
+            font-size: 1em;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+        .mistake-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .mistake-item {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .import-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .import-button:hover {
+            background-color: #007bb5;
+        }
+        .file-input {
+            display: none;
+        }
+        .correct-count {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1em;
+            color: black;
+        }
+        .correct-count strong {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="mistakeBookButton" onclick="showMistakeBook()">错题本</button>
+        <h2>背单词</h2>
+        <div class="word-container" id="wordContainer"></div>
+        <button onclick="toggleTranslation()">OK</button>
+        <div class="feedback" id="feedback"></div>
+        <div class="correct-count" id="correctCount">答对数：<strong>0</strong></div>
+    </div>
+
+    <div class="mistake-book-container" id="mistakeBookContainer">
+        <div class="mistake-book-content">
+            <div class="mistake-book-header">
+                <span class="mistake-book-title">错题本</span>
+                <button class="back-button" onclick="hideMistakeBook()">返回</button>
+            </div>
+            <ul class="mistake-list" id="mistakeList"></ul>
+        </div>
+    </div>
+
+    <button class="import-button" onclick="document.getElementById('fileInput').click()">导入</button>
+    <input type="file" id="fileInput" class="file-input" accept=".xls, .xlsx" onchange="handleFileUpload(event)">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        let words = [
+            { english: "apple", chinese: "苹果" },
+            { english: "banana", chinese: "香蕉" },
+            { english: "cherry", chinese: "樱桃" },
+            { english: "date", chinese: "枣" },
+            { english: "elderberry", chinese: "接骨木莓" },
+            { english: "fig", chinese: "无花果" },
+            { english: "grape", chinese: "葡萄" },
+            { english: "honeydew", chinese: "甜瓜" },
+            { english: "kiwi", chinese: "猕猴桃" },
+            { english: "lemon", chinese: "柠檬" }
+        ];
+
+        let currentWords = [];
+        let showingTranslation = true;
+        let inputMode = false;
+        let clickCount = 0;
+        let mistakeBook = [];
+        let totalCorrectCount = 0;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function generateRandomWords() {
+            shuffleArray(words);
+            currentWords = words.slice(0, 7);
+            renderWords();
+        }
+
+        function renderWords() {
+            const wordContainer = document.getElementById('wordContainer');
+            wordContainer.innerHTML = '';
+            currentWords.forEach(word => {
+                const div = document.createElement('div');
+                div.className = 'word-pair';
+                div.innerHTML = `
+                    <span class="english">${word.english}</span>
+                    <span class="translation">${word.chinese}</span>
+                `;
+                wordContainer.appendChild(div);
+            });
+        }
+
+        function toggleTranslation() {
+            clickCount++;
+            const translations = document.querySelectorAll('.translation');
+            const feedback = document.getElementById('feedback');
+
+            if (clickCount % 4 === 1) {
+                translations.forEach(translation => translation.classList.add('hidden'));
+                showingTranslation = false;
+                feedback.textContent = "";
+            } else if (clickCount % 4 === 2) {
+                translations.forEach((translation, index) => {
+                    const pair = translation.parentElement;
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.addEventListener('input', () => checkInput(input, currentWords[index].english));
+                    pair.replaceChild(input, pair.querySelector('.english'));
+
+                    // Create a new span for the translation and append it below the input
+                    const translationSpan = document.createElement('span');
+                    translationSpan.className = 'translation';
+                    translationSpan.textContent = currentWords[index].chinese;
+                    pair.appendChild(translationSpan);
+                });
+                inputMode = true;
+            } else if (clickCount % 4 === 3) {
+                let correctCount = 0;
+                const inputs = document.querySelectorAll('input[type="text"]');
+                inputs.forEach((input, index) => {
+                    if (input.value === currentWords[index].english) {
+                        correctCount++;
+                        input.classList.add('correct');
+                    } else {
+                        input.placeholder = `答案：${currentWords[index].english}`;
+
+                        // Add wrong word button
+                        const wrongWordButton = document.createElement('button');
+                        wrongWordButton.className = 'wrong-word-button';
+                        wrongWordButton.textContent = '记入错题本';
+                        wrongWordButton.onclick = () => addToMistakeBook(currentWords[index], wrongWordButton);
+                        input.parentNode.appendChild(wrongWordButton);
+                    }
+                });
+
+                totalCorrectCount += correctCount;
+                document.getElementById('correctCount').innerHTML = `答对数：<strong>${totalCorrectCount}</strong>`;
+
+                if (correctCount === currentWords.length) {
+                    feedback.textContent = "所有单词都正确！";
+                    feedback.style.color = "#4caf50";
+                } else {
+                    feedback.textContent = "请检查并修正错误的单词。";
+                    feedback.style.color = "#ff5722";
+                }
+
+                inputMode = false;
+                showingTranslation = true;
+            } else if (clickCount % 4 === 0) {
+                generateRandomWords();
+                feedback.textContent = "";
+            }
+        }
+
+        function checkInput(input, correctWord) {
+            if (input.value === correctWord) {
+                input.classList.add('correct');
+            } else {
+                input.classList.remove('correct');
+            }
+        }
+
+        function addToMistakeBook(word, button) {
+            // Check for duplicates before adding
+            if (!mistakeBook.some(mistake => mistake.english === word.english)) {
+                mistakeBook.push(word);
+            }
+            updateMistakeBook();
+
+            // Disable the button after clicking
+            button.disabled = true;
+            button.classList.add('disabled');
+        }
+
+        function showMistakeBook() {
+            const mistakeBookContainer = document.getElementById('mistakeBookContainer');
+            mistakeBookContainer.style.display = 'flex';
+            updateMistakeBook();
+        }
+
+        function hideMistakeBook() {
+            const mistakeBookContainer = document.getElementById('mistakeBookContainer');
+            mistakeBookContainer.style.display = 'none';
+        }
+
+        function updateMistakeBook() {
+            const mistakeList = document.getElementById('mistakeList');
+            mistakeList.innerHTML = '';
+            mistakeBook.forEach(word => {
+                const li = document.createElement('li');
+                li.className = 'mistake-item';
+                li.textContent = `${word.english} - ${word.chinese}`;
+                mistakeList.appendChild(li);
+            });
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, {type: 'array'});
+                    const firstSheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheetName];
+                    const json = XLSX.utils.sheet_to_json(worksheet, {header: ['english', 'chinese']});
+
+                    words = [...words, ...json];
+                    generateRandomWords();
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        }
+
+        window.onload = generateRandomWords;
+    </script>
+</body>
+</html>
+
+
+

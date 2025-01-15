@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel到JSON转换器</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #333; /* 深灰色背景 */
+            color: #fff; /* 白色文字 */
+        }
+        .workspace {
+            flex: 2;
+            display: flex;
+            border-bottom: 1px solid #555;
+        }
+        .drop-area {
+            flex: 1;
+            border: 2px dashed #555;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #aaa;
+            transition: border-color 0.3s;
+            padding: 20px;
+        }
+        .drop-area.highlight {
+            border-color: #999;
+        }
+        .file-list-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #333; /* 深灰色背景 */
+        }
+        .file-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .file-list li {
+            cursor: pointer;
+            padding: 5px 0;
+            border-bottom: 1px solid #666;
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .file-list li:hover {
+            background-color: #555;
+        }
+        .file-list li.excel-file {
+            font-weight: bold;
+            color: darkgreen;
+            font-family: 'SimHei', sans-serif;
+        }
+        .file-list li.json-file {
+            font-weight: bold;
+            color: darkorange;
+            font-family: 'SimHei', sans-serif;
+        }
+        .controls-and-preview {
+            flex: 1;
+            display: flex;
+        }
+        .controls {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-right: 1px solid #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ccc; /* 浅灰色按钮 */
+            color: #333;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #bbb;
+        }
+        .preview {
+            flex: 2;
+            padding: 20px;
+        }
+        .scrollable-preview {
+            height: 300px; /* 固定高度 */
+            overflow-y: auto;
+            background-color: #000; /* 纯黑色背景 */
+            padding: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            color: #fff; /* 白色文字 */
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap; /* 确保空白字符被保留但长行会换行 */
+        }
+    </style>
+</head>
+<body>
+    <div class="workspace">
+        <div class="drop-area" ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+            拖放文件到这里
+        </div>
+        <div class="file-list-container">
+            <div class="file-list">
+                <ul id="file-list"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="controls-and-preview">
+        <div class="controls">
+            <button onclick="convertToJSON()">转换为JSON</button>
+            <button id="format-json-btn" disabled onclick="formatJson()">格式化输出</button>
+            <button id="download-string-btn" disabled onclick="downloadString()">下载字符串</button>
+            <button id="download-json-btn" disabled onclick="downloadJson()">下载JSON</button>
+            <button id="convert-to-excel-btn" disabled onclick="convertToJsonToExcel()">转换为Excel</button>
+        </div>
+        <div class="preview">
+            <div class="scrollable-preview" id="json-output"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        let files = [];
+        let currentFileIndex = -1;
+        let jsonData;
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const dropArea = document.querySelector('.drop-area');
+            dropArea.classList.remove('highlight');
+
+            for (let i = 0; i < e.dataTransfer.files.length; i++) {
+                const file = e.dataTransfer.files[i];
+                if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                    files.push(file);
+                    updateFileList();
+                } else if (file.name.endsWith('.json')) {
+                    files.push(file);
+                    updateFileList();
+                } else {
+                    alert(`${file.name} 不是一个Excel或JSON文件。`);
+                }
+            }
+        }
+
+        function updateFileList() {
+            const fileListElement = document.getElementById('file-list');
+            fileListElement.innerHTML = '';
+            files.forEach((file, index) => {
+                const li = document.createElement('li');
+                li.textContent = file.name;
+                li.onclick = () => selectFile(index);
+                if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                    li.className = 'excel-file';
+                } else if (file.name.endsWith('.json')) {
+                    li.className = 'json-file';
+                }
+                fileListElement.appendChild(li);
+            });
+        }
+
+        function selectFile(index) {
+            currentFileIndex = index;
+            const file = files[currentFileIndex];
+            document.querySelector('.drop-area').textContent = `已选择文件: ${file.name}`;
+            if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
+                convertToJSON();
+            } else if (file.name.endsWith('.json')) {
+                loadJsonFile(file);
+            }
+        }
+
+        function convertToJSON() {
+            if (currentFileIndex === -1) {
+                alert('请先选择一个文件。');
+                return;
+            }
+
+            const file = files[currentFileIndex];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {type: 'array'});
+                const sheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[sheetName];
+                jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+                const output = document.getElementById('json-output');
+                output.innerHTML = `<pre>${JSON.stringify(jsonData, null, 2)}</pre>`;
+                
+                // 启用下载按钮
+                document.getElementById('format-json-btn').disabled = false;
+                document.getElementById('download-string-btn').disabled = false;
+                document.getElementById('download-json-btn').disabled = false;
+                document.getElementById('convert-to-excel-btn').disabled = false;
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function loadJsonFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    jsonData = JSON.parse(e.target.result);
+                    const output = document.getElementById('json-output');
+                    output.innerHTML = `<pre>${JSON.stringify(jsonData, null, 2)}</pre>`;
+                    
+                    // 启用下载按钮
+                    document.getElementById('format-json-btn').disabled = false;
+                    document.getElementById('download-string-btn').disabled = false;
+                    document.getElementById('download-json-btn').disabled = false;
+                    document.getElementById('convert-to-excel-btn').disabled = false;
+                } catch (error) {
+                    alert('解析JSON文件时出错。');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function formatJson() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行格式化。');
+                return;
+            }
+
+            const formattedJson = JSON.stringify(jsonData, null, 2);
+            const output = document.getElementById('json-output');
+            output.innerHTML = `<pre>${formattedJson}</pre>`;
+        }
+
+        function downloadString() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行下载。');
+                return;
+            }
+
+            const formattedJson = JSON.stringify(jsonData, null, 2);
+            const blob = new Blob([formattedJson], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.xlsx?$/, '.txt');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadJson() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行下载。');
+                return;
+            }
+
+            const blob = new Blob([JSON.stringify(jsonData)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.xlsx?$/, '.json');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function convertToJsonToExcel() {
+            if (!jsonData) {
+                alert('没有可用的JSON数据进行转换。');
+                return;
+            }
+
+            const worksheet = XLSX.utils.json_to_sheet(jsonData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+            const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+            const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = files[currentFileIndex].name.replace(/\.json$/, '.xlsx');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
+
+
+
