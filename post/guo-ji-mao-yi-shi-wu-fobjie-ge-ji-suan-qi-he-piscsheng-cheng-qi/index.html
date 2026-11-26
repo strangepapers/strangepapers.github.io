@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/styles/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+
+<style>:root { --heatmap-color: #39d353; }</style>
+
+
+
+<style>
+  .theme-toggle-sun  { display: flex; }
+  .theme-toggle-moon { display: none; }
+  :root.theme-light .theme-toggle-sun  { display: none; }
+  :root.theme-light .theme-toggle-moon { display: flex; }
+</style>
+
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('flavor-theme');
+      var theme = saved || 'dark';
+      if (theme === 'light') {
+        document.documentElement.classList.add('theme-light');
+      }
+    } catch (e) { }
+  })();
+</script>
+  <meta name="generator" content="Gridea Pro 1.3.0-beta.1">
+  <title>国际贸易实务——FOB价格计算器和PISC生成器 | Gridea Pro</title>
+  
+<meta property="og:title" content="国际贸易实务——FOB价格计算器和PISC生成器" />
+<meta property="og:type" content="article" />
+
+<meta property="og:image" content="/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png" />
+
+
+<meta name="description" content="在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式&amp;hellip;">
+<link rel="canonical" href="https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"国际贸易实务——FOB价格计算器和PISC生成器","url":"https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/","description":"在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式\u0026hellip;","image":"/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png","datePublished":"2026-11-24T06:58:32+08:00","dateModified":"2026-11-26T23:00:31+08:00","author":{"@type":"Person","name":"Gridea Pro"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/images/avatar.png"},"name":"Gridea Pro"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://strangepapers.github.io","name":"Gridea Pro","position":1},{"@type":"ListItem","item":"https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/","name":"国际贸易实务——FOB价格计算器和PISC生成器","position":2}]}</script>
+<meta property="og:title" content="国际贸易实务——FOB价格计算器和PISC生成器">
+<meta property="og:description" content="在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式&amp;hellip;">
+<meta property="og:url" content="https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Gridea Pro">
+<meta property="og:image" content="/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/">
+<meta name="twitter:title" content="国际贸易实务——FOB价格计算器和PISC生成器">
+<meta name="twitter:description" content="在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式&amp;hellip;">
+<meta name="twitter:image" content="/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png">
+</head>
+<body class="flavor-theme">
+
+  <header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <div class="top-bar">
+
+      
+      <div class="top-bar__left">
+        
+        <a href="https://strangepapers.github.io" class="site-avatar-link" aria-label="返回首页">
+          <img class="site-avatar" src="/images/avatar.png" alt="Gridea Pro" />
+        </a>
+        
+        <a href="https://strangepapers.github.io" class="site-name-link">Gridea Pro</a>
+      </div>
+
+      
+      <nav class="top-bar__nav" id="sectionBar">
+        
+        
+        <a class="nav-item" href="/">首页</a>
+        
+        <a class="nav-item" href="/post">博客</a>
+        
+        <a class="nav-item" href="/memos">闪念</a>
+        
+        <a class="nav-item" href="/archives">归档</a>
+        
+        <a class="nav-item" href="/tags">标签</a>
+        
+        <a class="nav-item" href="/links">友链</a>
+        
+        <a class="nav-item" href="/post/about">关于</a>
+        
+        
+      </nav>
+
+      
+      <div class="top-bar__right">
+        <button class="btn-icon btn-search search-btn" id="btnSearch" type="button" aria-label="搜索">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="btn-icon theme-toggle theme-toggle-sun" id="themeToggleSun" type="button"
+          aria-label="切换到浅色模式">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 1C12.5523 1 13 1.44772 13 2V4C13 4.55228 12.5523 5 12 5C11.4477 5 11 4.55228 11 4V2C11 1.44772 11.4477 1 12 1Z"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12ZM12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9Z"></path>
+            <path d="M13 20C13 19.4477 12.5523 19 12 19C11.4477 19 11 19.4477 11 20V22C11 22.5523 11.4477 23 12 23C12.5523 23 13 22.5523 13 22V20Z"></path>
+            <path d="M4.22282 4.22289C4.61335 3.83236 5.24651 3.83236 5.63704 4.22289L7.04704 5.63289C7.43756 6.02341 7.43756 6.65658 7.04704 7.0471C6.65651 7.43762 6.02335 7.43762 5.63283 7.0471L4.22282 5.6371C3.8323 5.24658 3.8323 4.61341 4.22282 4.22289Z"></path>
+            <path d="M18.367 16.9529C17.9765 16.5623 17.3433 16.5623 16.9528 16.9529C16.5623 17.3434 16.5623 17.9766 16.9528 18.3671L18.3628 19.7771C18.7533 20.1676 19.3865 20.1676 19.777 19.7771C20.1675 19.3866 20.1675 18.7534 19.777 18.3629L18.367 16.9529Z"></path>
+            <path d="M1 12C1 11.4477 1.44772 11 2 11H4C4.55228 11 5 11.4477 5 12C5 12.5523 4.55228 13 4 13H2C1.44772 13 1 12.5523 1 12Z"></path>
+            <path d="M20 11C19.4477 11 19 11.4477 19 12C19 12.5523 19.4477 13 20 13H22C22.5523 13 23 12.5523 23 12C23 11.4477 22.5523 11 22 11H20Z"></path>
+            <path d="M7.04704 16.9529C7.43756 17.3434 7.43756 17.9766 7.04704 18.3671L5.63704 19.7771C5.24651 20.1676 4.61335 20.1676 4.22282 19.7771C3.8323 19.3866 3.8323 18.7534 4.22283 18.3629L5.63283 16.9529C6.02335 16.5623 6.65651 16.5623 7.04704 16.9529Z"></path>
+            <path d="M19.777 5.6371C20.1675 5.24657 20.1675 4.61341 19.777 4.22289C19.3865 3.83236 18.7533 3.83236 18.3628 4.22289L16.9528 5.63289C16.5623 6.02341 16.5623 6.65658 16.9528 7.0471C17.3433 7.43762 17.9765 7.43762 18.367 7.0471L19.777 5.6371Z"></path>
+          </svg>
+        </button>
+        <button class="btn-icon theme-toggle theme-toggle-moon" id="themeToggleMoon" type="button"
+          aria-label="切换到深色模式">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 11.5955 21.7564 11.2309 21.3827 11.0761C21.009 10.9213 20.5789 11.0069 20.2929 11.2929C19.287 12.2988 17.9226 12.864 16.5 12.864C15.0774 12.864 13.713 12.2988 12.7071 11.2929C11.7012 10.287 11.136 8.92261 11.136 7.5C11.136 6.07739 11.7012 4.71304 12.7071 3.70711C12.9931 3.42111 13.0787 2.99099 12.9239 2.61732C12.7691 2.24364 12.4045 2 12 2ZM7.55544 5.34824C8.27036 4.87055 9.05353 4.51389 9.87357 4.28778C9.39271 5.27979 9.13604 6.37666 9.13604 7.5C9.13604 9.45304 9.91189 11.3261 11.2929 12.7071C12.6739 14.0881 14.547 14.864 16.5 14.864C17.6233 14.864 18.7202 14.6073 19.7122 14.1264C19.4861 14.9465 19.1295 15.7296 18.6518 16.4446C17.7727 17.7602 16.5233 18.7855 15.0615 19.391C13.5997 19.9965 11.9911 20.155 10.4393 19.8463C8.88743 19.5376 7.46197 18.7757 6.34315 17.6569C5.21447 16.538 4.4624 15.1126 4.15372 13.5607C3.84504 12.0089 4.00347 10.4003 4.60897 8.93853C5.21447 7.47672 6.23985 6.22729 7.55544 5.34824Z"></path>
+            <path d="M19 2C19.5523 2 20 2.44772 20 3V4H21C21.5523 4 22 4.44772 22 5C22 5.55228 21.5523 6 21 6H20V7C20 7.55228 19.5523 8 19 8C18.4477 8 18 7.55228 18 7V6H17C16.4477 6 16 5.55228 16 5C16 4.44772 16.4477 4 17 4H18V3C18 2.44772 18.4477 2 19 2Z"></path>
+          </svg>
+        </button>
+        <button class="btn-icon btn-nav-toggle mobile-only" id="btnNavToggle" type="button" aria-label="切换导航">
+          <div class="hamburger" id="hamburger">
+            <span class="hamburger__line hamburger__line--top"></span>
+            <span class="hamburger__line hamburger__line--bottom"></span>
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<div class="header-spacer"></div>
+
+<script>
+(function(){
+  var btn = document.getElementById('btnNavToggle');
+  var nav = document.getElementById('sectionBar');
+  var hamburger = document.getElementById('hamburger');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){
+      nav.classList.toggle('top-bar__nav--open');
+      if (hamburger) hamburger.classList.toggle('is-active');
+    });
+    nav.querySelectorAll('.nav-item').forEach(function(item){
+      item.addEventListener('click', function(){
+        nav.classList.remove('top-bar__nav--open');
+        if (hamburger) hamburger.classList.remove('is-active');
+      });
+    });
+  }
+
+  var root = document.documentElement;
+  var applyTheme = function(theme, persist){
+    if (theme === 'light') {
+      root.classList.add('theme-light');
+    } else {
+      root.classList.remove('theme-light');
+    }
+    if (persist) {
+      try { localStorage.setItem('flavor-theme', theme); } catch (e) {}
+    }
+  };
+  document.querySelectorAll('.theme-toggle').forEach(function(el){
+    el.addEventListener('click', function(){
+      applyTheme(root.classList.contains('theme-light') ? 'dark' : 'light', true);
+    });
+  });
+})();
+</script>
+
+  <main class="site-main" role="main">
+    
+<article class="article-container">
+  <header class="article-header">
+    <h1 class="article-title">国际贸易实务——FOB价格计算器和PISC生成器</h1>
+    <div class="article-meta">
+      
+      
+      <a href="/category/default/" class="article-meta__category">默认分类</a>
+      
+      
+      <span class="article-meta__sep">·</span>
+      
+      <span class="article-meta__item">2026-11-24</span>
+      
+      <span class="article-meta__sep">·</span>
+      <span class="article-meta__item">12 分钟阅读</span>
+      
+    </div>
+    
+    <div class="article-header__tags">
+      
+      <a href="/tag/gridea/" class="tag-pill tag-pill--sm">Gridea</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <div class="article-feature">
+    <img src="/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png" alt="国际贸易实务——FOB价格计算器和PISC生成器" />
+  </div>
+  
+
+  <div class="article-content">
+    <p><span style="color: #000000">在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式发票（Proforma Invoice，PI）与销售合同（Sales Contract，SC）。工具内置 11 种 Incoterms 2020、覆盖全球 9 大航区 60 余个目的港的整柜海运费数据库，以及增值税、出口退税、利润率、保险加成等完整成本模型，支持中英双语切换、浏览器本地保存与 A4 打印。界面采用「纸张 + 墨色 + 账本数字」的账房风格，左侧为条件输入与报价阶梯，右侧为实时更新的正式单据。</span></p>
+<p><span style="color: #b7791f">### 一、产品定位与用途</span></p>
+<p><span style="color: #000000">这个计算器要解决的是外贸报价中最繁琐、也最易出错的一环：<strong><strong>把商品从工厂成本推到「装运港船上交货（FOB）」或「成本、保险加运费（CIF）」的最终卖价，并形成正式交易文件</strong></strong>。</span></p>
+<p><span style="color: #000000">传统做法是业务员在 Excel 里手搭公式、逐港查运价、反复核对退税与保险，再把数字誊进 Word 单据——环节多、易漏、版本乱。我们设计的工具把「<strong><strong>算价</strong></strong>」和「<strong><strong>出单</strong></strong>」合并自动化。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>谁用</strong>：出口商、外贸业务员、跟单员、报价员。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>什么时候</strong>：收到海外买家询盘后，从报价到签单的整个前置环节。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>怎么用</strong>：选定装货港、目的港、数量、颜色、运输方式、贸易条款和付款方式，即可同时得到单价、总额，并立即得到一份可供买家签回的 PI 或 SC。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>价值</strong>：改一个参数，左侧总价和右侧单据<strong><strong>同步刷新</strong></strong>，完全避免了「表格算、单据写」的不一致；同时把易出错的海运费、退税额、保险加成全部封装进可追溯的公式里。</span></p>
+<p><span style="color: #b7791f">### 二、主要功能</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>报价的计算</strong>：输出 <strong>FOB 单价、CIF 单价、保险费、报价总额</strong> 四项核心数字并实时联动；附带「单价拆解」账本，逐项展示含税采购、退税抵扣、本地费用、包装认证、利润，让客户可见的卖价与内部成本逻辑一一对应。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>贸易条款</strong>：完整支持 <strong>EXW、FCA、CPT、CIP、DAP、DPU、DDP、FAS、FOB、CFR、CIF</strong> 共 11 种 Incoterms 2020。程序按术语的「计费基础」自动判断运费、保险费是否计入单价：EXW 只含货值，FCA/FAS/FOB 按 FOB 口径，CPT/CFR 加运费，CIP/CIF 再加保险，DAP/DPU/DDP 加运费但提示未含目的地费用。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>运输方式、运费换算</strong>：内置深圳/香港出发至全球各港的 40HQ 整柜运费表，默认按「整柜运费 ÷ 每柜装载量（3000 件）」自动折算单件运费；并支持<strong><strong>海运 / 铁路 / 空运</strong></strong>三种模式——铁路默认按海运 ×1.8、空运按海运 ×6 作为初始值，可在后台逐港逐方式修改，且强制校验「海运 ≤ 铁路 ≤ 空运、非负」。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>样本单</strong>：数量低于 MOQ（50 件）时自动切换为样本单计价，采用预设的<strong><strong>样本 FOB 基准单价（现为 280 USD/件）</strong></strong>，付款条款同步改为「出运前付清 100% / 开立 100% 即期信用证」，且数量固定、不适用 ±5% 溢短装。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>成本后台</strong>：集中管理含税采购价、增值税率、出口退税率、本地费用、包装认证、利润率、保险费率、投保加成，以及逐港的海运 / 铁路 / 空运费率。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>买卖双方、银行资料</strong>：卖家/买家的名称、地址、联络方式、PO 编号，以及受益人、开户行、SWIFT、账号，一次填写、两套单据复用。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>单据</strong>：PI 与 SC 两种文档一键切换，含货物描述、HS 编码、装箱资料、贸易/付款/保险/包装条款、金额大写，以及质量索赔、不可抗力、仲裁、违约与责任限制等法律条款；运输方式切换时，单证措辞自动从海运提单（B/L）换为铁路运单或空运提单（AWB）。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>打印</strong>：A4 竖版打印样式，只输出单据、自动隐藏左侧操作面板与选项卡，页眉墨线、表格斑马纹、分页断点均按正式单据排版。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>多语言</strong>：繁体中文 / 英文即时切换，单据遵循「英文在前 + 繁体在后」的双语排版惯例。</span></p>
+<p><span style="color: #b7791f">### 三、核心计算逻辑</span></p>
+<p><span style="color: #000000">以「<strong><strong>单件成本</strong></strong>」为轴，逐层推导：</span></p>
+<p><span style="color: #e88501">```text</span></p>
+<p><span style="color: #000000">出口退税抵扣   = 含税采购价 ÷ (1 + 增值税率) × 退税率</span></p>
+<p><span style="color: #000000">净采购成本     = 含税采购价 − 退税抵扣</span></p>
+<p><span style="color: #000000">单件总成本     = 净采购成本 + 本地费用 + 包装/认证</span></p>
+<p><span style="color: #000000">单件海运费     = 整柜运费 ÷ 每柜装载量（可逐港逐方式覆写）</span></p>
+<p><span style="color: #000000">EXW 单价       = (净采购成本 + 包装/认证) × (1 + 利润率)</span></p>
+<p><span style="color: #000000">FOB 单价       = 单件总成本 × (1 + 利润率)</span></p>
+<p><span style="color: #000000">CIF 单价       = (FOB 单价 + 运费) ÷ (1 − 投保加成 × 保险费率)</span></p>
+<p><span style="color: #000000">保险费         = CIF 单价 × 投保加成 × 保险费率</span></p>
+<p><span style="color: #000000">报价总额       = 对应条款单价 × 数量</span></p>
+<p><span style="color: #999999">```</span></p>
+<p><span style="color: #000000">程序再根据所选 Incoterm 的计费基础（exw / fob / freight / insured / delivery）决定最终采用的单价口径，并判断运费与保险费是否计入报价：</span></p>
+<p><span style="color: #000000">| 计费基础 | 采用口径 | 代表术语 |</span></p>
+<p><span style="color: #000000">| &mdash; | &mdash; | &mdash; |</span></p>
+<p><span style="color: #000000">| exw | EXW 单价 | EXW |</span></p>
+<p><span style="color: #000000">| fob | FOB 单价 | FCA、FAS、FOB |</span></p>
+<p><span style="color: #000000">| freight | FOB + 运费 | CPT、CFR |</span></p>
+<p><span style="color: #000000">| insured | CIF 单价（含保险） | CIP、CIF |</span></p>
+<p><span style="color: #000000">| delivery | FOB + 运费（另提示未含目的地费用） | DAP、DPU、DDP |</span></p>
+<p><span style="color: #000000"><strong>默认值代入</strong>（采购价 118.57、增值税 13%、退税率 13%、本地费用 2.57、包装认证 0.71、利润率 15%、运费 1.20、保险费率 0.3%、投保加成 10%、数量 300 件）：</span></p>
+<p><span style="color: #e88501">```text</span></p>
+<p><span style="color: #000000">退税   = 118.57 ÷ 1.13 × 0.13 ≈ 13.64</span></p>
+<p><span style="color: #000000">净采购 = 118.57 − 13.64     ≈ 104.93</span></p>
+<p><span style="color: #000000">总成本 = 104.93 + 2.57 + 0.71 = 108.21</span></p>
+<p><span style="color: #000000">FOB    = 108.21 × 1.15      ≈ 124.44 USD/件</span></p>
+<p><span style="color: #000000">CIF    = (124.44 + 1.20) ÷ (1 − 1.1 × 0.003) ≈ 126.06 USD/件</span></p>
+<p><span style="color: #000000">总额   = 124.44 × 300       = 37,332.00 USD</span></p>
+<p><span style="color: #999999">```</span></p>
+<p><span style="color: #b7791f">### 四、界面结构</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>顶栏</strong>：ROG 字标、产品标题与副标、语言切换（繁體/EN）、后台设置入口。我们并没有设置修改TITLE的入口，若您需要更改，请打开<strong><strong>开发者模式</strong></strong>。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>左侧栏</strong>：</span></p>
+<p><span style="color: #b7791f">-</span> <code>01 裝運條件</code><span style="color: #000000">：装货港、数量、颜色（黑/白/红）、目的港、运输方式（海/铁/空）、运费读数、贸易条款、付款方式（T/T 或 L/C）。</span></p>
+<p><span style="color: #b7791f">-</span> <code>02 報價</code><span style="color: #000000">：报价总额（大号账本数字）+ FOB / CIF / 保险费阶梯，可展开「单价拆解」查看采购、退税、费用、利润明细，底部为设置入口。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>单据栏</strong>：PI / SC 选项卡（吸顶）、打印按钮，以及实时渲染的正式单据。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>后置弹窗</strong>：成本与利润、运输费率、买卖双方、收款银行四组表单，Esc 关闭并回焦。</span></p>
+<p><span style="color: #b7791f">### 五、技术实现</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>纯前端</strong>：单个 HTML 文件，HTML + CSS + 原生 JavaScript（ES6+），无框架、无外部依赖，双击即可离线使用。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>持久化</strong>：通过</span> <code>localStorage</code> <span style="color: #000000">保存所有成本、双方资料、运费率、所选颜色/条款/运输方式，关闭浏览器后不丢失；并内置货币折算、样本单价 150→280、旧整柜运费模型等三组一次性迁移。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>国际化</strong>：集中式</span> <code>I18N</code> <span style="color: #000000">文案表 + 运行时</span> <code>applyI18n()</code> <span style="color: #000000">替换，术语、单据说明均有中英双语。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>金额大写</strong>：内置</span> <code>numToWords()</code> <span style="color: #000000">算法，将美元金额转为英文正式大写</span><code>SAY TOTAL: US DOLLARS ... ONLY</code><span style="color: #000000">）。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>打印</strong></span><code>@media print</code> <span style="color: #000000">单独定义 A4 版式，隐藏交互元素，控制分页断点。</span></p>
+<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>渲染</strong>：任何输入触发</span> <code>update()</code> <span style="color: #000000">→</span> <code>calc()</code><span style="color: #000000">（内部先</span> <code>freightCalc()</code> <span style="color: #000000">取当前港口与运输方式的运费）→ 更新左侧账本与右侧单据的</span> <code>innerHTML</code><span style="color: #000000">；单据中的缩写（L/C、T/T、B/L、C/O）经后处理包裹为不换行文本，避免窄栏拆行。</span></p>
+<p><span style="color: #000000">本项目已经开源，欢迎提出修改建议。</span></p>
+<p><span style="color: #000000">祝所有程序员和业务员都能快乐工作。</span></p>
+
+  </div>
+
+  
+  <nav class="post-nav">
+    
+    <div class="post-nav-card post-nav-card--empty">
+      <div class="post-nav-card__body">
+        <span class="post-nav-card__label meta-text">上一篇</span>
+        <span class="post-nav-card__empty-text">没有上一篇了~</span>
+      </div>
+    </div>
+    
+    
+    <div class="post-nav-card post-nav-card--empty post-nav-card--next">
+      <div class="post-nav-card__body">
+        <span class="post-nav-card__label meta-text">下一篇</span>
+        <span class="post-nav-card__empty-text">没有下一篇了~</span>
+      </div>
+    </div>
+    
+  </nav>
+
+  
+  
+
+
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+
+    
+    
+    <nav class="footer-nav" aria-label="页脚导航">
+      
+      <a class="footer-nav__link" href="/">首页</a>
+      
+      <a class="footer-nav__link" href="/post">博客</a>
+      
+      <a class="footer-nav__link" href="/memos">闪念</a>
+      
+      <a class="footer-nav__link" href="/archives">归档</a>
+      
+      <a class="footer-nav__link" href="/tags">标签</a>
+      
+      <a class="footer-nav__link" href="/links">友链</a>
+      
+      <a class="footer-nav__link" href="/post/about">关于</a>
+      
+    </nav>
+    
+
+    
+    <div class="footer-social">
+      
+      
+      
+      <a class="footer-social__link" href="/feed.xml" aria-label="RSS">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.18 15.64a2.18 2.18 0 110 4.36 2.18 2.18 0 010-4.36zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zm0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/>
+        </svg>
+      </a>
+    </div>
+
+    
+    <div class="footer-copyright">
+      <p>&copy; 2026 Gridea Pro. All rights reserved.</p>
+    </div>
+
+    
+    
+    <div class="footer-custom">
+      Powered by Gridea Pro
+    </div>
+    
+
+    
+    <div class="footer-powered">
+      <span>Powered by <a href="https://gridea.pro" target="_blank" rel="noopener noreferrer">Gridea Pro</a></span>
+    </div>
+
+  </div>
+</footer>
+
+  
+  <div class="search-overlay" id="searchOverlay" style="display:none;">
+  <div class="search-modal">
+    <div class="search-header">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="搜索文章..." autocomplete="off" />
+      <span class="search-kbd">&#8984;K</span>
+      <button class="search-close" id="searchClose" type="button" aria-label="关闭搜索">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<script src="/scripts/search.js"></script>
+  
+
+  
+
+  
+
+  
+
+<script>console.log("\n%c ✦ Gridea Pro v1.3.0-beta.1 %c · Theme: flavor-theme v1.0.0 · https://gridea.pro %c\n","color:#fadfa3;background:#111111;padding:9px 14px;border-radius:4px 0 0 4px;font-weight:500;font-size:12px","color:#e05c00;background:#fff3ec;padding:9px 14px;border-radius:0 4px 4px 0;font-size:11px","")</script>
+</body>
+</html>
