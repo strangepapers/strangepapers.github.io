@@ -48,7 +48,7 @@
 
 <meta name="description" content="在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式&amp;hellip;">
 <link rel="canonical" href="https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"国际贸易实务——FOB价格计算器和PISC生成器","url":"https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/","description":"在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式\u0026hellip;","image":"/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png","datePublished":"2026-11-24T06:58:32+08:00","dateModified":"2026-11-26T23:00:31+08:00","author":{"@type":"Person","name":"papers·blog"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/images/avatar.png"},"name":"papers·blog"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"国际贸易实务——FOB价格计算器和PISC生成器","url":"https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/","description":"在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式\u0026hellip;","image":"/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png","datePublished":"2026-11-24T06:58:32+08:00","dateModified":"2026-11-27T10:22:55+08:00","author":{"@type":"Person","name":"papers·blog"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/images/avatar.png"},"name":"papers·blog"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://strangepapers.github.io","name":"papers·blog","position":1},{"@type":"ListItem","item":"https://strangepapers.github.io/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/","name":"国际贸易实务——FOB价格计算器和PISC生成器","position":2}]}</script>
 <meta property="og:title" content="国际贸易实务——FOB价格计算器和PISC生成器">
 <meta property="og:description" content="在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式&amp;hellip;">
@@ -197,13 +197,13 @@
       <span class="article-meta__item">2026-11-24</span>
       
       <span class="article-meta__sep">·</span>
-      <span class="article-meta__item">12 分钟阅读</span>
+      <span class="article-meta__item">6 分钟阅读</span>
       
     </div>
     
     <div class="article-header__tags">
       
-      <a href="/tag/gridea/" class="tag-pill tag-pill--sm">Gridea</a>
+      <a href="/tag/tech/" class="tag-pill tag-pill--sm">tech</a>
       
     </div>
     
@@ -217,81 +217,127 @@
 
   <div class="article-content">
     <p><span style="color: #000000">在国际贸易中，业务员常常需要根据各种参数和变量来计算最终价格，费时费力，且常常需要更新形式发票和商业合同。本程序是一个面向出口贸易的单页报价计算工具，以 ROG Falchion Ace 75 HE 磁轴机械键盘为示例商品，帮助出口业务员把采购成本、海运费、保险和贸易条款换算成 FOB / CIF 单价与报价总额，并一键生成可直接打印的形式发票（Proforma Invoice，PI）与销售合同（Sales Contract，SC）。工具内置 11 种 Incoterms 2020、覆盖全球 9 大航区 60 余个目的港的整柜海运费数据库，以及增值税、出口退税、利润率、保险加成等完整成本模型，支持中英双语切换、浏览器本地保存与 A4 打印。界面采用「纸张 + 墨色 + 账本数字」的账房风格，左侧为条件输入与报价阶梯，右侧为实时更新的正式单据。</span></p>
-<p><span style="color: #b7791f">### 一、产品定位与用途</span></p>
-<p><span style="color: #000000">这个计算器要解决的是外贸报价中最繁琐、也最易出错的一环：<strong><strong>把商品从工厂成本推到「装运港船上交货（FOB）」或「成本、保险加运费（CIF）」的最终卖价，并形成正式交易文件</strong></strong>。</span></p>
-<p><span style="color: #000000">传统做法是业务员在 Excel 里手搭公式、逐港查运价、反复核对退税与保险，再把数字誊进 Word 单据——环节多、易漏、版本乱。我们设计的工具把「<strong><strong>算价</strong></strong>」和「<strong><strong>出单</strong></strong>」合并自动化。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>谁用</strong>：出口商、外贸业务员、跟单员、报价员。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>什么时候</strong>：收到海外买家询盘后，从报价到签单的整个前置环节。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>怎么用</strong>：选定装货港、目的港、数量、颜色、运输方式、贸易条款和付款方式，即可同时得到单价、总额，并立即得到一份可供买家签回的 PI 或 SC。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>价值</strong>：改一个参数，左侧总价和右侧单据<strong><strong>同步刷新</strong></strong>，完全避免了「表格算、单据写」的不一致；同时把易出错的海运费、退税额、保险加成全部封装进可追溯的公式里。</span></p>
-<p><span style="color: #b7791f">### 二、主要功能</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>报价的计算</strong>：输出 <strong>FOB 单价、CIF 单价、保险费、报价总额</strong> 四项核心数字并实时联动；附带「单价拆解」账本，逐项展示含税采购、退税抵扣、本地费用、包装认证、利润，让客户可见的卖价与内部成本逻辑一一对应。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>贸易条款</strong>：完整支持 <strong>EXW、FCA、CPT、CIP、DAP、DPU、DDP、FAS、FOB、CFR、CIF</strong> 共 11 种 Incoterms 2020。程序按术语的「计费基础」自动判断运费、保险费是否计入单价：EXW 只含货值，FCA/FAS/FOB 按 FOB 口径，CPT/CFR 加运费，CIP/CIF 再加保险，DAP/DPU/DDP 加运费但提示未含目的地费用。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>运输方式、运费换算</strong>：内置深圳/香港出发至全球各港的 40HQ 整柜运费表，默认按「整柜运费 ÷ 每柜装载量（3000 件）」自动折算单件运费；并支持<strong><strong>海运 / 铁路 / 空运</strong></strong>三种模式——铁路默认按海运 ×1.8、空运按海运 ×6 作为初始值，可在后台逐港逐方式修改，且强制校验「海运 ≤ 铁路 ≤ 空运、非负」。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>样本单</strong>：数量低于 MOQ（50 件）时自动切换为样本单计价，采用预设的<strong><strong>样本 FOB 基准单价（现为 280 USD/件）</strong></strong>，付款条款同步改为「出运前付清 100% / 开立 100% 即期信用证」，且数量固定、不适用 ±5% 溢短装。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>成本后台</strong>：集中管理含税采购价、增值税率、出口退税率、本地费用、包装认证、利润率、保险费率、投保加成，以及逐港的海运 / 铁路 / 空运费率。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>买卖双方、银行资料</strong>：卖家/买家的名称、地址、联络方式、PO 编号，以及受益人、开户行、SWIFT、账号，一次填写、两套单据复用。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>单据</strong>：PI 与 SC 两种文档一键切换，含货物描述、HS 编码、装箱资料、贸易/付款/保险/包装条款、金额大写，以及质量索赔、不可抗力、仲裁、违约与责任限制等法律条款；运输方式切换时，单证措辞自动从海运提单（B/L）换为铁路运单或空运提单（AWB）。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>打印</strong>：A4 竖版打印样式，只输出单据、自动隐藏左侧操作面板与选项卡，页眉墨线、表格斑马纹、分页断点均按正式单据排版。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>多语言</strong>：繁体中文 / 英文即时切换，单据遵循「英文在前 + 繁体在后」的双语排版惯例。</span></p>
-<p><span style="color: #b7791f">### 三、核心计算逻辑</span></p>
-<p><span style="color: #000000">以「<strong><strong>单件成本</strong></strong>」为轴，逐层推导：</span></p>
-<p><span style="color: #e88501">```text</span></p>
-<p><span style="color: #000000">出口退税抵扣   = 含税采购价 ÷ (1 + 增值税率) × 退税率</span></p>
-<p><span style="color: #000000">净采购成本     = 含税采购价 − 退税抵扣</span></p>
-<p><span style="color: #000000">单件总成本     = 净采购成本 + 本地费用 + 包装/认证</span></p>
-<p><span style="color: #000000">单件海运费     = 整柜运费 ÷ 每柜装载量（可逐港逐方式覆写）</span></p>
-<p><span style="color: #000000">EXW 单价       = (净采购成本 + 包装/认证) × (1 + 利润率)</span></p>
-<p><span style="color: #000000">FOB 单价       = 单件总成本 × (1 + 利润率)</span></p>
-<p><span style="color: #000000">CIF 单价       = (FOB 单价 + 运费) ÷ (1 − 投保加成 × 保险费率)</span></p>
-<p><span style="color: #000000">保险费         = CIF 单价 × 投保加成 × 保险费率</span></p>
-<p><span style="color: #000000">报价总额       = 对应条款单价 × 数量</span></p>
-<p><span style="color: #999999">```</span></p>
-<p><span style="color: #000000">程序再根据所选 Incoterm 的计费基础（exw / fob / freight / insured / delivery）决定最终采用的单价口径，并判断运费与保险费是否计入报价：</span></p>
-<p><span style="color: #000000">| 计费基础 | 采用口径 | 代表术语 |</span></p>
-<p><span style="color: #000000">| &mdash; | &mdash; | &mdash; |</span></p>
-<p><span style="color: #000000">| exw | EXW 单价 | EXW |</span></p>
-<p><span style="color: #000000">| fob | FOB 单价 | FCA、FAS、FOB |</span></p>
-<p><span style="color: #000000">| freight | FOB + 运费 | CPT、CFR |</span></p>
-<p><span style="color: #000000">| insured | CIF 单价（含保险） | CIP、CIF |</span></p>
-<p><span style="color: #000000">| delivery | FOB + 运费（另提示未含目的地费用） | DAP、DPU、DDP |</span></p>
-<p><span style="color: #000000"><strong>默认值代入</strong>（采购价 118.57、增值税 13%、退税率 13%、本地费用 2.57、包装认证 0.71、利润率 15%、运费 1.20、保险费率 0.3%、投保加成 10%、数量 300 件）：</span></p>
-<p><span style="color: #e88501">```text</span></p>
-<p><span style="color: #000000">退税   = 118.57 ÷ 1.13 × 0.13 ≈ 13.64</span></p>
-<p><span style="color: #000000">净采购 = 118.57 − 13.64     ≈ 104.93</span></p>
-<p><span style="color: #000000">总成本 = 104.93 + 2.57 + 0.71 = 108.21</span></p>
-<p><span style="color: #000000">FOB    = 108.21 × 1.15      ≈ 124.44 USD/件</span></p>
-<p><span style="color: #000000">CIF    = (124.44 + 1.20) ÷ (1 − 1.1 × 0.003) ≈ 126.06 USD/件</span></p>
-<p><span style="color: #000000">总额   = 124.44 × 300       = 37,332.00 USD</span></p>
-<p><span style="color: #999999">```</span></p>
-<p><span style="color: #b7791f">### 四、界面结构</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>顶栏</strong>：ROG 字标、产品标题与副标、语言切换（繁體/EN）、后台设置入口。我们并没有设置修改TITLE的入口，若您需要更改，请打开<strong><strong>开发者模式</strong></strong>。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>左侧栏</strong>：</span></p>
-<p><span style="color: #b7791f">-</span> <code>01 裝運條件</code><span style="color: #000000">：装货港、数量、颜色（黑/白/红）、目的港、运输方式（海/铁/空）、运费读数、贸易条款、付款方式（T/T 或 L/C）。</span></p>
-<p><span style="color: #b7791f">-</span> <code>02 報價</code><span style="color: #000000">：报价总额（大号账本数字）+ FOB / CIF / 保险费阶梯，可展开「单价拆解」查看采购、退税、费用、利润明细，底部为设置入口。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>单据栏</strong>：PI / SC 选项卡（吸顶）、打印按钮，以及实时渲染的正式单据。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>后置弹窗</strong>：成本与利润、运输费率、买卖双方、收款银行四组表单，Esc 关闭并回焦。</span></p>
-<p><span style="color: #b7791f">### 五、技术实现</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>纯前端</strong>：单个 HTML 文件，HTML + CSS + 原生 JavaScript（ES6+），无框架、无外部依赖，双击即可离线使用。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>持久化</strong>：通过</span> <code>localStorage</code> <span style="color: #000000">保存所有成本、双方资料、运费率、所选颜色/条款/运输方式，关闭浏览器后不丢失；并内置货币折算、样本单价 150→280、旧整柜运费模型等三组一次性迁移。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>国际化</strong>：集中式</span> <code>I18N</code> <span style="color: #000000">文案表 + 运行时</span> <code>applyI18n()</code> <span style="color: #000000">替换，术语、单据说明均有中英双语。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>金额大写</strong>：内置</span> <code>numToWords()</code> <span style="color: #000000">算法，将美元金额转为英文正式大写</span><code>SAY TOTAL: US DOLLARS ... ONLY</code><span style="color: #000000">）。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>打印</strong></span><code>@media print</code> <span style="color: #000000">单独定义 A4 版式，隐藏交互元素，控制分页断点。</span></p>
-<p><span style="color: #b7791f">-</span> <span style="color: #000000"><strong>渲染</strong>：任何输入触发</span> <code>update()</code> <span style="color: #000000">→</span> <code>calc()</code><span style="color: #000000">（内部先</span> <code>freightCalc()</code> <span style="color: #000000">取当前港口与运输方式的运费）→ 更新左侧账本与右侧单据的</span> <code>innerHTML</code><span style="color: #000000">；单据中的缩写（L/C、T/T、B/L、C/O）经后处理包裹为不换行文本，避免窄栏拆行。</span></p>
+<p><strong><span style="color: #b7791f"></span> 一、产品定位与用途</strong></p>
+<p>这个计算器要解决的是外贸报价中最繁琐、也最易出错的一环：<strong>把一件商品从工厂成本推到「装运港船上交货（FOB）」或「成本、保险加运费（CIF）」的最终卖价，并形成正式交易文件</strong>。</p>
+<p>传统做法是业务员在 Excel 里手搭公式、逐港查运价、反复核对退税与保险，再把数字誊进 Word 单据——环节多、易漏、版本乱。这个工具把「<strong>算价</strong>」和「<strong>出单</strong>」合并成一条自动化流水线：</p>
+<ul>
+<li><strong>谁来用</strong>：出口商、外贸业务员、跟单员、报价员。</li>
+<li><strong>什么时候用</strong>：收到海外买家询盘后，从报价到签单的整个前置环节。</li>
+<li><strong>怎么用</strong>：选定装货港、目的港、数量、颜色、运输方式、贸易条款和付款方式，即可同时得到单价、总额，并立即得到一份可供买家签回的 PI 或 SC。</li>
+<li>改一个数字，左侧总价和右侧单据<strong>同步刷新</strong>，避免「表格算一套、单据写一套」的不一致；同时把易出错的海运费、退税额、保险加成全部封装进可追溯的公式里。</li>
+</ul>
+<h3 id="heading"><strong>二、主要功能</strong></h3>
+<ul>
+<li><strong>报价计算</strong>：输出 <strong>FOB 单价、CIF 单价、保险费、报价总额</strong> 四项核心数字并实时联动；附带「单价拆解」账本，逐项展示含税采购、退税抵扣、本地费用、包装认证、利润，让客户可见的卖价与内部成本逻辑一一对应。</li>
+<li><strong>贸易条款</strong>：完整支持 <strong>EXW、FCA、CPT、CIP、DAP、DPU、DDP、FAS、FOB、CFR、CIF</strong> 共 11 种 Incoterms 2020。程序按术语的「计费基础」自动判断运费、保险费是否计入单价：EXW 只含货值，FCA/FAS/FOB 按 FOB 口径，CPT/CFR 加运费，CIP/CIF 再加保险，DAP/DPU/DDP 加运费但提示未含目的地费用。</li>
+<li><strong>运输方式与运费自动换算</strong>：内置深圳/香港出发至全球各港的 40HQ 整柜运费表，默认按「整柜运费 ÷ 每柜装载量（3000 件）」自动折算单件运费；并支持<strong>海运 / 铁路 / 空运</strong>三种模式——铁路默认按海运 ×1.8、空运按海运 ×6 作为初始值，可在后台逐港逐方式修改，且强制校验「海运 ≤ 铁路 ≤ 空运、非负」。</li>
+<li><strong>样本单</strong>：数量低于 MOQ（50 件）时自动切换为样本单计价，采用预设的<strong>样本 FOB 基准单价（现为 280 USD/件）</strong>，付款条款同步改为「出运前付清 100% / 开立 100% 即期信用证」，且数量固定、不适用 ±5% 溢短装。</li>
+<li><strong>成本后台</strong>：集中管理含税采购价、增值税率、出口退税率、本地费用、包装认证、利润率、保险费率、投保加成，以及逐港的海运 / 铁路 / 空运费率。</li>
+<li><strong>买卖双方、银行资料</strong>：卖家/买家的名称、地址、联络方式、PO 编号，以及受益人、开户行、SWIFT、账号，一次填写、两套单据复用。</li>
+<li><strong>单据</strong>：PI 与 SC 两种文档一键切换，含货物描述、HS 编码、装箱资料、贸易/付款/保险/包装条款、金额大写，以及质量索赔、不可抗力、仲裁、违约与责任限制等法律条款；运输方式切换时，单证措辞自动从海运提单（B/L）换为铁路运单或空运提单（AWB）。</li>
+<li><strong>打印</strong>：A4 竖版打印样式，只输出单据、自动隐藏左侧操作面板与选项卡，页眉墨线、表格斑马纹、分页断点均按正式单据排版。</li>
+<li><strong>多语言</strong>：繁体中文 / 英文即时切换，单据遵循「英文在前 + 繁体在后」的双语排版惯例。</li>
+</ul>
+<h3 id="heading-1"><strong>三、核心计算逻辑</strong></h3>
+<p>以「<strong>单件成本</strong>」为轴，逐层推导：</p>
+<p><span style="color: #81858c">代码块</span></p>
+<pre><code>出口退税抵扣   = 含税采购价 ÷ (1 + 增值税率) × 退税率
+净采购成本     = 含税采购价 − 退税抵扣
+单件总成本     = 净采购成本 + 本地费用 + 包装/认证
+单件海运费     = 整柜运费 ÷ 每柜装载量（可逐港逐方式覆写）
+EXW 单价       = (净采购成本 + 包装/认证) × (1 + 利润率)
+FOB 单价       = 单件总成本 × (1 + 利润率)
+CIF 单价       = (FOB 单价 + 运费) ÷ (1 − 投保加成 × 保险费率)
+保险费         = CIF 单价 × 投保加成 × 保险费率
+报价总额       = 对应条款单价 × 数量
+</code></pre>
+<p>程序再根据所选 Incoterm 的计费基础（exw / fob / freight / insured / delivery）决定最终采用的单价口径，并判断运费与保险费是否计入报价：</p>
+<table>
+<thead>
+<tr>
+<th><strong>计费基础</strong></th>
+<th><strong>采用口径</strong></th>
+<th><strong>代表术语</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exw</td>
+<td>EXW 单价</td>
+<td>EXW</td>
+</tr>
+<tr>
+<td>fob</td>
+<td>FOB 单价</td>
+<td>FCA、FAS、FOB</td>
+</tr>
+<tr>
+<td>freight</td>
+<td>FOB + 运费</td>
+<td>CPT、CFR</td>
+</tr>
+<tr>
+<td>insured</td>
+<td>CIF 单价（含保险）</td>
+<td>CIP、CIF</td>
+</tr>
+<tr>
+<td>delivery</td>
+<td>FOB + 运费（另提示未含目的地费用）</td>
+<td>DAP、DPU、DDP</td>
+</tr>
+</tbody>
+</table>
+<p><strong>以默认值代入</strong>（采购价 118.57、增值税 13%、退税率 13%、本地费用 2.57、包装认证 0.71、利润率 15%、运费 1.20、保险费率 0.3%、投保加成 10%、数量 300 件）：</p>
+<p><span style="color: #81858c">代码块</span></p>
+<pre><code>退税   = 118.57 ÷ 1.13 × 0.13 ≈ 13.64
+净采购 = 118.57 − 13.64     ≈ 104.93
+总成本 = 104.93 + 2.57 + 0.71 = 108.21
+FOB    = 108.21 × 1.15      ≈ 124.44 USD/件
+CIF    = (124.44 + 1.20) ÷ (1 − 1.1 × 0.003) ≈ 126.06 USD/件
+总额   = 124.44 × 300       = 37,332.00 USD
+</code></pre>
+<h3 id="heading-2"><strong>四、界面结构</strong></h3>
+<ul>
+<li><strong>顶栏</strong>：ROG 字标、产品标题与副标、语言切换（繁體/EN）、后台设置入口。</li>
+<li><strong>左侧栏</strong>：
+<ul>
+<li><code>01 裝運條件</code>：装货港、数量、颜色（黑/白/红）、目的港、运输方式（海/铁/空）、运费读数、贸易条款、付款方式（T/T 或 L/C）。</li>
+<li><code>02 報價</code>：报价总额（大号账本数字）+ FOB / CIF / 保险费阶梯，可展开「单价拆解」查看采购、退税、费用、利润明细，底部为设置入口。</li>
+</ul>
+</li>
+<li><strong>右侧单据栏</strong>：PI / SC 选项卡（吸顶）、打印按钮，以及实时渲染的正式单据。</li>
+<li><strong>后台设置弹窗</strong>：成本与利润、运输费率、买卖双方、收款银行四组表单，Esc 关闭并回焦。</li>
+</ul>
+<h3 id="heading-3"><strong>五、技术实现</strong></h3>
+<ul>
+<li><strong>前端</strong>：单个 HTML 文件，HTML + CSS + 原生 JavaScript（ES6+），无框架、无外部依赖，双击即可离线使用。</li>
+<li><strong>持久化</strong>：通过 <code>localStorage</code> 保存所有成本、双方资料、运费率、所选颜色/条款/运输方式，关闭浏览器后不丢失；并内置货币折算、样本单价 150→280、旧整柜运费模型等三组一次性迁移。</li>
+<li><strong>国际化</strong>：集中式 <code>I18N</code> 文案表 + 运行时 <code>applyI18n()</code> 替换，术语、单据说明均有中英双语。</li>
+<li><strong>金额大写</strong>：内置 <code>numToWords()</code> 算法，将美元金额转为英文正式大写（<code>SAY TOTAL: US DOLLARS ... ONLY</code>）。</li>
+<li><strong>打印</strong>：<code>@media print</code> 单独定义 A4 版式，隐藏交互元素，控制分页断点。</li>
+<li><strong>渲染</strong>：任何输入触发 <code>update()</code> → <code>calc()</code>（内部先 <code>freightCalc()</code> 取当前港口与运输方式的运费）→ 更新左侧账本与右侧单据的 <code>innerHTML</code>；单据中的缩写（L/C、T/T、B/L、C/O）经后处理包裹为不换行文本，避免窄栏拆行。</li>
+</ul>
 <p><span style="color: #000000">本项目已经开源，欢迎提出修改建议。</span></p>
-<p><span style="color: #000000">祝所有程序员和业务员都能快乐工作。</span></p>
+<p><span style="color: #000000">祝所有程序员和业务员都能快乐工作。</span>:halo:</p>
 
   </div>
 
   
   <nav class="post-nav">
     
-    <div class="post-nav-card post-nav-card--empty">
+    <a href="/post/su-she-nei-tong-guo-pcshe-xiang-tou-de-jian-kong-bao-hu-cheng-xu/" class="post-nav-card post-nav-card--prev">
+      
+      <div class="post-nav-card__img">
+        <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.0Tvgw-jV3p33p_xC4_CNCAHaEK?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" alt="宿舍内通过PC摄像头的监控保护程序" loading="lazy" />
+      </div>
+      
       <div class="post-nav-card__body">
         <span class="post-nav-card__label meta-text">上一篇</span>
-        <span class="post-nav-card__empty-text">没有上一篇了~</span>
+        <span class="post-nav-card__title">宿舍内通过PC摄像头的监控保护程序</span>
       </div>
-    </div>
+      <span class="post-nav-card__arrow">&larr;</span>
+    </a>
     
     
     <div class="post-nav-card post-nav-card--empty post-nav-card--next">

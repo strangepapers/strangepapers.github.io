@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/styles/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+
+<style>:root { --heatmap-color: #39d353; }</style>
+
+
+
+<style>
+  .theme-toggle-sun  { display: flex; }
+  .theme-toggle-moon { display: none; }
+  :root.theme-light .theme-toggle-sun  { display: none; }
+  :root.theme-light .theme-toggle-moon { display: flex; }
+</style>
+
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('flavor-theme');
+      var theme = saved || 'dark';
+      if (theme === 'light') {
+        document.documentElement.classList.add('theme-light');
+      }
+    } catch (e) { }
+  })();
+</script>
+  <meta name="generator" content="Gridea Pro 1.3.0-beta.1">
+  <title>宿舍内通过PC摄像头的监控保护程序 | papers·blog</title>
+  
+<meta property="og:title" content="宿舍内通过PC摄像头的监控保护程序" />
+<meta property="og:type" content="article" />
+
+<meta property="og:image" content="https://ts4.tc.mm.bing.net/th/id/OIP-C.0Tvgw-jV3p33p_xC4_CNCAHaEK?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" />
+
+
+<meta name="description" content="摄像头人脸 / 移动监控程序 —— 项目介绍与说明书 本项目是一个基于 OpenCV 的本地摄像头监控程序。程序通过深度学习人脸检测（YuNet）与帧差法移动检测，在检测到人脸或有人经过/靠近时自动录制视频，并在画面内叠加实时时间戳水印；同时支持同步录音、抓拍人脸截图、触发异常报警、记录事件日志，并可一键生成 Excel 统计报表。程序提供可视化图形面板与命令行两种操&amp;hellip;">
+<link rel="canonical" href="https://strangepapers.github.io/post/su-she-nei-tong-guo-pcshe-xiang-tou-de-jian-kong-bao-hu-cheng-xu/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"宿舍内通过PC摄像头的监控保护程序","url":"https://strangepapers.github.io/post/su-she-nei-tong-guo-pcshe-xiang-tou-de-jian-kong-bao-hu-cheng-xu/","description":"摄像头人脸 / 移动监控程序 —— 项目介绍与说明书 本项目是一个基于 OpenCV 的本地摄像头监控程序。程序通过深度学习人脸检测（YuNet）与帧差法移动检测，在检测到人脸或有人经过/靠近时自动录制视频，并在画面内叠加实时时间戳水印；同时支持同步录音、抓拍人脸截图、触发异常报警、记录事件日志，并可一键生成 Excel 统计报表。程序提供可视化图形面板与命令行两种操\u0026hellip;","image":"https://ts4.tc.mm.bing.net/th/id/OIP-C.0Tvgw-jV3p33p_xC4_CNCAHaEK?r=0\u0026rs=1\u0026pid=ImgDetMain\u0026o=7\u0026rm=3","datePublished":"2026-11-27T10:22:59Z","dateModified":"2026-11-27T10:22:59Z","author":{"@type":"Person","name":"papers·blog"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/images/avatar.png"},"name":"papers·blog"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://strangepapers.github.io","name":"papers·blog","position":1},{"@type":"ListItem","item":"https://strangepapers.github.io/post/su-she-nei-tong-guo-pcshe-xiang-tou-de-jian-kong-bao-hu-cheng-xu/","name":"宿舍内通过PC摄像头的监控保护程序","position":2}]}</script>
+<meta property="og:title" content="宿舍内通过PC摄像头的监控保护程序">
+<meta property="og:description" content="摄像头人脸 / 移动监控程序 —— 项目介绍与说明书 本项目是一个基于 OpenCV 的本地摄像头监控程序。程序通过深度学习人脸检测（YuNet）与帧差法移动检测，在检测到人脸或有人经过/靠近时自动录制视频，并在画面内叠加实时时间戳水印；同时支持同步录音、抓拍人脸截图、触发异常报警、记录事件日志，并可一键生成 Excel 统计报表。程序提供可视化图形面板与命令行两种操&amp;hellip;">
+<meta property="og:url" content="https://strangepapers.github.io/post/su-she-nei-tong-guo-pcshe-xiang-tou-de-jian-kong-bao-hu-cheng-xu/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="papers·blog">
+<meta property="og:image" content="https://ts4.tc.mm.bing.net/th/id/OIP-C.0Tvgw-jV3p33p_xC4_CNCAHaEK?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://strangepapers.github.io/post/su-she-nei-tong-guo-pcshe-xiang-tou-de-jian-kong-bao-hu-cheng-xu/">
+<meta name="twitter:title" content="宿舍内通过PC摄像头的监控保护程序">
+<meta name="twitter:description" content="摄像头人脸 / 移动监控程序 —— 项目介绍与说明书 本项目是一个基于 OpenCV 的本地摄像头监控程序。程序通过深度学习人脸检测（YuNet）与帧差法移动检测，在检测到人脸或有人经过/靠近时自动录制视频，并在画面内叠加实时时间戳水印；同时支持同步录音、抓拍人脸截图、触发异常报警、记录事件日志，并可一键生成 Excel 统计报表。程序提供可视化图形面板与命令行两种操&amp;hellip;">
+<meta name="twitter:image" content="https://ts4.tc.mm.bing.net/th/id/OIP-C.0Tvgw-jV3p33p_xC4_CNCAHaEK?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3">
+</head>
+<body class="flavor-theme">
+
+  <header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <div class="top-bar">
+
+      
+      <div class="top-bar__left">
+        
+        <a href="https://strangepapers.github.io" class="site-avatar-link" aria-label="返回首页">
+          <img class="site-avatar" src="/images/theme/头像.png" alt="papers·blog" />
+        </a>
+        
+        <a href="https://strangepapers.github.io" class="site-name-link">papers·blog</a>
+      </div>
+
+      
+      <nav class="top-bar__nav" id="sectionBar">
+        
+        
+        <a class="nav-item" href="/">首页</a>
+        
+        <a class="nav-item" href="/post">博客</a>
+        
+        <a class="nav-item" href="/memos">闪念</a>
+        
+        <a class="nav-item" href="/archives">归档</a>
+        
+        <a class="nav-item" href="/tags">标签</a>
+        
+        <a class="nav-item" href="/links">友链</a>
+        
+        <a class="nav-item" href="/post/about">关于</a>
+        
+        
+      </nav>
+
+      
+      <div class="top-bar__right">
+        <button class="btn-icon btn-search search-btn" id="btnSearch" type="button" aria-label="搜索">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="btn-icon theme-toggle theme-toggle-sun" id="themeToggleSun" type="button"
+          aria-label="切换到浅色模式">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 1C12.5523 1 13 1.44772 13 2V4C13 4.55228 12.5523 5 12 5C11.4477 5 11 4.55228 11 4V2C11 1.44772 11.4477 1 12 1Z"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12ZM12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9Z"></path>
+            <path d="M13 20C13 19.4477 12.5523 19 12 19C11.4477 19 11 19.4477 11 20V22C11 22.5523 11.4477 23 12 23C12.5523 23 13 22.5523 13 22V20Z"></path>
+            <path d="M4.22282 4.22289C4.61335 3.83236 5.24651 3.83236 5.63704 4.22289L7.04704 5.63289C7.43756 6.02341 7.43756 6.65658 7.04704 7.0471C6.65651 7.43762 6.02335 7.43762 5.63283 7.0471L4.22282 5.6371C3.8323 5.24658 3.8323 4.61341 4.22282 4.22289Z"></path>
+            <path d="M18.367 16.9529C17.9765 16.5623 17.3433 16.5623 16.9528 16.9529C16.5623 17.3434 16.5623 17.9766 16.9528 18.3671L18.3628 19.7771C18.7533 20.1676 19.3865 20.1676 19.777 19.7771C20.1675 19.3866 20.1675 18.7534 19.777 18.3629L18.367 16.9529Z"></path>
+            <path d="M1 12C1 11.4477 1.44772 11 2 11H4C4.55228 11 5 11.4477 5 12C5 12.5523 4.55228 13 4 13H2C1.44772 13 1 12.5523 1 12Z"></path>
+            <path d="M20 11C19.4477 11 19 11.4477 19 12C19 12.5523 19.4477 13 20 13H22C22.5523 13 23 12.5523 23 12C23 11.4477 22.5523 11 22 11H20Z"></path>
+            <path d="M7.04704 16.9529C7.43756 17.3434 7.43756 17.9766 7.04704 18.3671L5.63704 19.7771C5.24651 20.1676 4.61335 20.1676 4.22282 19.7771C3.8323 19.3866 3.8323 18.7534 4.22283 18.3629L5.63283 16.9529C6.02335 16.5623 6.65651 16.5623 7.04704 16.9529Z"></path>
+            <path d="M19.777 5.6371C20.1675 5.24657 20.1675 4.61341 19.777 4.22289C19.3865 3.83236 18.7533 3.83236 18.3628 4.22289L16.9528 5.63289C16.5623 6.02341 16.5623 6.65658 16.9528 7.0471C17.3433 7.43762 17.9765 7.43762 18.367 7.0471L19.777 5.6371Z"></path>
+          </svg>
+        </button>
+        <button class="btn-icon theme-toggle theme-toggle-moon" id="themeToggleMoon" type="button"
+          aria-label="切换到深色模式">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 11.5955 21.7564 11.2309 21.3827 11.0761C21.009 10.9213 20.5789 11.0069 20.2929 11.2929C19.287 12.2988 17.9226 12.864 16.5 12.864C15.0774 12.864 13.713 12.2988 12.7071 11.2929C11.7012 10.287 11.136 8.92261 11.136 7.5C11.136 6.07739 11.7012 4.71304 12.7071 3.70711C12.9931 3.42111 13.0787 2.99099 12.9239 2.61732C12.7691 2.24364 12.4045 2 12 2ZM7.55544 5.34824C8.27036 4.87055 9.05353 4.51389 9.87357 4.28778C9.39271 5.27979 9.13604 6.37666 9.13604 7.5C9.13604 9.45304 9.91189 11.3261 11.2929 12.7071C12.6739 14.0881 14.547 14.864 16.5 14.864C17.6233 14.864 18.7202 14.6073 19.7122 14.1264C19.4861 14.9465 19.1295 15.7296 18.6518 16.4446C17.7727 17.7602 16.5233 18.7855 15.0615 19.391C13.5997 19.9965 11.9911 20.155 10.4393 19.8463C8.88743 19.5376 7.46197 18.7757 6.34315 17.6569C5.21447 16.538 4.4624 15.1126 4.15372 13.5607C3.84504 12.0089 4.00347 10.4003 4.60897 8.93853C5.21447 7.47672 6.23985 6.22729 7.55544 5.34824Z"></path>
+            <path d="M19 2C19.5523 2 20 2.44772 20 3V4H21C21.5523 4 22 4.44772 22 5C22 5.55228 21.5523 6 21 6H20V7C20 7.55228 19.5523 8 19 8C18.4477 8 18 7.55228 18 7V6H17C16.4477 6 16 5.55228 16 5C16 4.44772 16.4477 4 17 4H18V3C18 2.44772 18.4477 2 19 2Z"></path>
+          </svg>
+        </button>
+        <button class="btn-icon btn-nav-toggle mobile-only" id="btnNavToggle" type="button" aria-label="切换导航">
+          <div class="hamburger" id="hamburger">
+            <span class="hamburger__line hamburger__line--top"></span>
+            <span class="hamburger__line hamburger__line--bottom"></span>
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<div class="header-spacer"></div>
+
+<script>
+(function(){
+  var btn = document.getElementById('btnNavToggle');
+  var nav = document.getElementById('sectionBar');
+  var hamburger = document.getElementById('hamburger');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){
+      nav.classList.toggle('top-bar__nav--open');
+      if (hamburger) hamburger.classList.toggle('is-active');
+    });
+    nav.querySelectorAll('.nav-item').forEach(function(item){
+      item.addEventListener('click', function(){
+        nav.classList.remove('top-bar__nav--open');
+        if (hamburger) hamburger.classList.remove('is-active');
+      });
+    });
+  }
+
+  var root = document.documentElement;
+  var applyTheme = function(theme, persist){
+    if (theme === 'light') {
+      root.classList.add('theme-light');
+    } else {
+      root.classList.remove('theme-light');
+    }
+    if (persist) {
+      try { localStorage.setItem('flavor-theme', theme); } catch (e) {}
+    }
+  };
+  document.querySelectorAll('.theme-toggle').forEach(function(el){
+    el.addEventListener('click', function(){
+      applyTheme(root.classList.contains('theme-light') ? 'dark' : 'light', true);
+    });
+  });
+})();
+</script>
+
+  <main class="site-main" role="main">
+    
+<article class="article-container">
+  <header class="article-header">
+    <h1 class="article-title">宿舍内通过PC摄像头的监控保护程序</h1>
+    <div class="article-meta">
+      
+      <span class="article-meta__item">2026-11-27</span>
+      
+      <span class="article-meta__sep">·</span>
+      <span class="article-meta__item">9 分钟阅读</span>
+      
+    </div>
+    
+    <div class="article-header__tags">
+      
+      <a href="/tag/tech/" class="tag-pill tag-pill--sm">tech</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <div class="article-feature">
+    <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.0Tvgw-jV3p33p_xC4_CNCAHaEK?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" alt="宿舍内通过PC摄像头的监控保护程序" />
+  </div>
+  
+
+  <div class="article-content">
+    <h1 id="----">摄像头人脸 / 移动监控程序 —— 项目介绍与说明书</h1>
+<h2 id="heading"></h2>
+<p>本项目是一个基于 OpenCV 的本地摄像头监控程序。程序通过深度学习人脸检测（YuNet）与帧差法移动检测，在检测到人脸或有人经过/靠近时自动录制视频，并在画面内叠加实时时间戳水印；同时支持同步录音、抓拍人脸截图、触发异常报警、记录事件日志，并可一键生成 Excel 统计报表。程序提供<strong>可视化图形面板</strong>与<strong>命令行</strong>两种操作方式，核心依赖已随项目打包（<code>libs/</code> 目录），开箱即用，无需额外配置环境。</p>
+<p>本文档依次说明项目的功能概览、设计思路与技术选型、使用说明与常见问题，供使用者快速上手与二次开发参考。</p>
+<hr />
+<h2 id="heading-1">正文</h2>
+<h3 id="heading-2">一、项目简介</h3>
+<h4 id="11-">1.1 功能概览</h4>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人脸检测</td>
+<td>使用 OpenCV 的 YuNet 深度学习模型实时检测画面中的人脸，精度高、对角度与光照较鲁棒</td>
+</tr>
+<tr>
+<td>移动检测</td>
+<td>用帧差法检测画面变化，判断「有人经过 / 靠近」</td>
+</tr>
+<tr>
+<td>自动录像</td>
+<td>检测到人脸或明显移动即开始录制，画面内叠加实时时间戳水印；事件结束后自动停止</td>
+</tr>
+<tr>
+<td>同步录音</td>
+<td>可选开启，把麦克风声音录成与视频同名的 WAV 文件</td>
+</tr>
+<tr>
+<td>人脸截图</td>
+<td>录制事件开始时抓拍整帧，之后人脸出现期间按间隔抓拍，并单独裁剪人脸特写</td>
+</tr>
+<tr>
+<td>异常报警</td>
+<td>检测到人脸时发出提示音并显示红色报警边框（默认关闭，可开启）</td>
+</tr>
+<tr>
+<td>事件日志</td>
+<td>每次事件写入 <code>events.csv</code>，记录起止时间、时长、触发类型、人脸数等</td>
+</tr>
+<tr>
+<td>Excel 报表</td>
+<td>退出时自动生成 <code>events.xlsx</code>，含「事件明细」与「统计汇总」两个工作表</td>
+</tr>
+<tr>
+<td>图形面板</td>
+<td>提供 Tkinter 可视化面板，实时预览、开始/停止、参数调节、打开输出目录等</td>
+</tr>
+</tbody>
+</table>
+<h4 id="12-">1.2 使用方式</h4>
+<ul>
+<li><strong>可视化面板</strong>：双击 <code>run_gui.bat</code>，无命令行窗口，适合日常使用。</li>
+<li><strong>命令行</strong>：双击 <code>run.bat</code> 或运行 <code>python monitor.py</code>，适合后台静默、脚本化调度等场景。</li>
+</ul>
+<hr />
+<h3 id="heading-3">二、设计思路</h3>
+<h4 id="21-">2.1 总体架构</h4>
+<p>程序采用「单进程 + 单线程主循环」的简洁架构，核心逻辑封装在 <code>monitor.py</code> 的 <code>FaceMotionMonitor</code> 类中：</p>
+<ul>
+<li><strong>摄像头取流</strong> → <strong>每帧处理</strong>（检测 → 触发判定 → 状态机 → 录像/截图/报警 → 叠加水印） → <strong>显示/写盘</strong>。</li>
+<li>图形界面 <code>gui.py</code> 通过调用同一套 <code>process_frame()</code> 方法复用全部核心逻辑，仅替换「显示」与「交互」部分，保证命令行版与 GUI 版行为一致。</li>
+</ul>
+<h4 id="22-">2.2 双触发机制</h4>
+<p>程序采用<strong>人脸检测 + 移动检测</strong>双通道触发，互补覆盖「有人出现」的各种情况：</p>
+<ol>
+<li><strong>人脸检测（YuNet）</strong>：<code>cv2.FaceDetectorYN</code> 加载 ONNX 模型，对每帧做推理，返回人脸框与置信度。置信度高于阈值（默认 0.6）即判定为「有人脸」。选择 YuNet 是因为 OpenCV 5.x 已移除传统的 Haar 级联（<code>CascadeClassifier</code>），而 YuNet 精度更高、现代且持续维护。</li>
+<li><strong>移动检测（帧差法）</strong>：将灰度图缩放到 320×240 以降低算力，做高斯模糊 → 与上一帧 <code>absdiff</code> → 阈值二值化 → 膨胀去噪，统计变化像素占比作为「移动量」。</li>
+<li><strong>触发判定</strong>：默认「人脸 <strong>或</strong> 移动」任一满足即触发录制；开启 <code>--face-only</code> 后，仅人脸触发、忽略纯移动，用于「只录人」的场景。</li>
+</ol>
+<blockquote>
+<p>设计用意：人经过/靠近时可能背对镜头、距离远或只有侧脸，人脸检测不一定命中；移动检测可兜底捕获「有人经过」，而人脸检测负责确认「是人」。两者互补，兼顾灵敏度与特异性。</p>
+</blockquote>
+<h4 id="23-">2.3 录制状态机</h4>
+<p>录制采用「触发—顺延—停止」的三态状态机：</p>
+<ul>
+<li><strong>触发</strong>：检测到触发条件且不在冷却期 → 开始录制，记录事件开始时间与触发类型，写入事件日志。</li>
+<li><strong>顺延</strong>：录制期间再次检测到触发 → 更新「最后触发时刻」，延长录制。</li>
+<li><strong>停止</strong>：无触发且距「最后触发时刻」超过 <code>min-record-seconds</code>（最短录制时长）→ 停止录制、释放资源、写日志。</li>
+</ul>
+<p>冷却期 <code>cooldown</code> 用于把连续动作合并为一次事件，避免事件结束后立刻重复触发产生碎文件。</p>
+<h4 id="24-">2.4 各功能设计要点</h4>
+<ul>
+<li><strong>时间戳水印</strong>：每帧在左上角绘制半透明黑条 + 时间 + 状态文字。由于 OpenCV 内置字体仅支持 ASCII，水印如 <code>Monitoring (STANDBY)</code>、<code>[REC] trigger:face</code>）。</li>
+<li><strong>录音</strong>：使用 <code>sounddevice</code>（自带 PortAudio）后台采集麦克风，保存为与视频同名的独立 <code>.wav</code> 文件，<strong>不与视频合并</strong>。若检测不到麦克风，自动降级为「仅录像」并提示。</li>
+<li><strong>人脸截图</strong>：事件开始时抓拍整帧；录制期间人脸持续出现时按 <code>snapshot-interval</code> 间隔抓拍整帧，并对每张人脸做加边裁剪，单独保存特写。</li>
+<li><strong>异常报警</strong>：检测到人脸时发出蜂鸣提示音并绘制红色边框。蜂鸣在<strong>后台线程</strong>中播放，避免阻塞主循环导致画面卡顿；报警默认关闭，可通过 <code>--alarm</code> 开启。</li>
+<li><strong>日志与报表</strong>：事件以 CSV 记录（UTF-8 with BOM， Excel 打开中文/时间）；<code>report.py</code> 使用 <code>openpyxl</code> 生成带格式的双工作表 Excel（事件明细 + 统计汇总）。</li>
+<li><strong>可视化</strong>：选用标准库 <code>Tkinter</code>，无需额外安装依赖；用 <code>Pillow</code> 把 OpenCV 帧转成 <code>PhotoImage</code> 显示；用 <code>pythonw.exe</code> 启动以隐藏命令行窗口。</li>
+</ul>
+<h4 id="25-">2.5 技术栈与依赖</h4>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>用途</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>运行环境</td>
+<td>3.12</td>
+</tr>
+<tr>
+<td>OpenCV (<code>opencv-python</code>)</td>
+<td>取流、人脸检测、录像、图像处理</td>
+<td>5.1.0</td>
+</tr>
+<tr>
+<td>NumPy</td>
+<td>数值计算</td>
+<td>2.5.5</td>
+</tr>
+<tr>
+<td>sounddevice</td>
+<td>麦克风录音</td>
+<td>0.5.6</td>
+</tr>
+<tr>
+<td>openpyxl</td>
+<td>生成 Excel 报表</td>
+<td>3.1.5</td>
+</tr>
+<tr>
+<td>Pillow</td>
+<td>GUI 帧格式转换</td>
+<td>12.3.0</td>
+</tr>
+<tr>
+<td>Tkinter</td>
+<td>图形界面（标准库）</td>
+<td>8.6</td>
+</tr>
+</tbody>
+</table>
+<p>依赖已安装在工作区 <code>libs/</code> 目录，程序启动时自动将该目录加入模块搜索路径，实现自包含、免配置。</p>
+<hr />
+<h3 id="heading-4">三、使用说明</h3>
+<h4 id="31-">3.1 环境要求</h4>
+<ul>
+<li>Windows 操作系统；</li>
+<li>一个 USB / 内置摄像头（录像、人脸、移动检测必需）；</li>
+<li>麦克风（仅当需要录音功能时必需）；</li>
+<li>依赖无需手动安装（若迁移环境，执行 <code>pip install -r requirements.txt</code>）。</li>
+</ul>
+<h4 id="32-">3.2 目录结构</h4>
+<table>
+<thead>
+<tr>
+<th>文件/目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>monitor.py</code></td>
+<td>主程序（命令行版核心）</td>
+</tr>
+<tr>
+<td><code>gui.py</code></td>
+<td>可视化面板</td>
+</tr>
+<tr>
+<td><code>run_gui.bat</code></td>
+<td>双击启动图形面板（推荐）</td>
+</tr>
+<tr>
+<td><code>run.bat</code></td>
+<td>双击启动命令行版</td>
+</tr>
+<tr>
+<td><code>report.py</code> / <code>report.bat</code></td>
+<td>生成 / 双击生成 Excel 报表</td>
+</tr>
+<tr>
+<td><code>selftest.py</code></td>
+<td>环境自检（无需摄像头）</td>
+</tr>
+<tr>
+<td><code>requirements.txt</code></td>
+<td>依赖清单</td>
+</tr>
+<tr>
+<td><code>libs/</code></td>
+<td>已打包的依赖</td>
+</tr>
+<tr>
+<td><code>models/face_detection_yunet_2023mar.onnx</code></td>
+<td>人脸检测模型</td>
+</tr>
+<tr>
+<td><code>recordings/</code></td>
+<td>视频与录音输出（按日期分文件夹）</td>
+</tr>
+<tr>
+<td><code>snapshots/</code></td>
+<td>人脸截图输出（按日期分文件夹）</td>
+</tr>
+<tr>
+<td><code>events.csv</code></td>
+<td>事件日志</td>
+</tr>
+<tr>
+<td><code>events.xlsx</code></td>
+<td>自动生成的 Excel 报表</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33-">3.3 快速开始</h4>
+<p><strong>方式一：可视化面板（推荐）</strong></p>
+<ol>
+<li>双击 <code>run_gui.bat</code>，弹出图形面板并自动开始监控。</li>
+<li>面板上可直接：开始/停止、勾选「只录人脸 / 录音 / 报警 / 抓拍人脸」、调整阈值、打开录像/截图目录、生成 Excel 报表。</li>
+<li>点「退出」关闭，退出时自动生成 <code>events.xlsx</code>。</li>
+</ol>
+<p><strong>方式二：命令行</strong></p>
+<pre><code class="language-bat">run.bat                 :: 默认参数启动
+run.bat --face-only     :: 只录人脸
+run.bat --audio         :: 开启录音
+run.bat --alarm         :: 开启报警
+run.bat --no-preview    :: 后台静默运行（不显示预览）
+</code></pre>
+<h4 id="34-">3.4 参数参考</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--camera</code></td>
+<td>0</td>
+<td>摄像头设备序号</td>
+</tr>
+<tr>
+<td><code>--face-score</code></td>
+<td>0.6</td>
+<td>人脸置信度阈值（0~1），越小越灵敏</td>
+</tr>
+<tr>
+<td><code>--face-only</code></td>
+<td>关</td>
+<td>只在检测到人脸时录像（忽略纯移动）</td>
+</tr>
+<tr>
+<td><code>--motion-threshold</code></td>
+<td>0.02</td>
+<td>移动触发阈值（变化像素占比），越小越灵敏</td>
+</tr>
+<tr>
+<td><code>--min-record-seconds</code></td>
+<td>10</td>
+<td>每次事件最短录制秒数</td>
+</tr>
+<tr>
+<td><code>--cooldown</code></td>
+<td>5</td>
+<td>事件结束后的冷却秒数</td>
+</tr>
+<tr>
+<td><code>--audio</code></td>
+<td>关</td>
+<td>是否同步录音（存为同名 WAV）</td>
+</tr>
+<tr>
+<td><code>--snapshot</code></td>
+<td>开</td>
+<td>是否抓拍人脸截图</td>
+</tr>
+<tr>
+<td><code>--snapshot-interval</code></td>
+<td>3</td>
+<td>人脸出现期间截图间隔(秒)</td>
+</tr>
+<tr>
+<td><code>--alarm</code></td>
+<td>关</td>
+<td>人脸报警（提示音 + 红框）</td>
+</tr>
+<tr>
+<td><code>--report</code></td>
+<td>开</td>
+<td>退出时自动生成 Excel 报表</td>
+</tr>
+<tr>
+<td><code>--preview</code></td>
+<td>开</td>
+<td>是否显示实时预览窗口</td>
+</tr>
+<tr>
+<td><code>--fps</code></td>
+<td>20</td>
+<td>录制帧率</td>
+</tr>
+<tr>
+<td><code>--codec</code></td>
+<td>mp4v</td>
+<td>视频编码（无法播放时可换 MJPG）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="35-">3.5 输出说明</h4>
+<ul>
+<li><strong>视频</strong>：<code>recordings/YYYYMMDD/YYYYMMDD_HHMMSS_触发类型.mp4</code>，画面左上角带时间戳水印。</li>
+<li><strong>录音</strong>：开启 <code>--audio</code> 后，与视频同名保存为 <code>.wav</code>。</li>
+<li><strong>截图</strong>：<code>snapshots/YYYYMMDD/…_full.jpg</code>（整帧）与 <code>…_face0.jpg</code>（人脸特写）。</li>
+<li><strong>日志</strong>：<code>events.csv</code>，字段为开始/结束时间、时长、触发类型、是否报警、人脸数峰值、移动量峰值、截图数、录音文件名。</li>
+<li><strong>报表</strong>：<code>events.xlsx</code>，含「事件明细」「统计汇总」两个工作表。</li>
+</ul>
+<h4 id="36-">3.6 常见问题</h4>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提示「无法打开摄像头」</td>
+<td>确认摄像头已连接、未被微信/浏览器/会议软件占用；尝试 <code>--camera 1</code></td>
+</tr>
+<tr>
+<td>开启录音但没有声音文件</td>
+<td>确认有麦克风且系统允许应用访问；程序会提示「无法打开麦克风」，视频仍正常录制</td>
+</tr>
+<tr>
+<td>误录太多（宠物/光线/窗帘）</td>
+<td>调高 <code>--motion-threshold</code>（如 0.03），或使用 <code>--face-only</code> 只录人脸</td>
+</tr>
+<tr>
+<td>漏录了人</td>
+<td>调低 <code>--motion-threshold</code>（如 0.005）或调低 <code>--face-score</code>（如 0.5）</td>
+</tr>
+<tr>
+<td>报警声音吵 / 卡顿</td>
+<td>报警默认关闭；开启后蜂鸣在后台线程播放，不会卡画面；可 <code>--no-alarm</code> 关闭</td>
+</tr>
+<tr>
+<td>录出的 mp4 无法播放</td>
+<td>换编码：<code>--codec MJPG</code></td>
+</tr>
+<tr>
+<td>先确认环境是否正常</td>
+<td>运行 <code>python selftest.py</code>，全部 PASS 即环境正常</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="heading-5"></h2>
+<p>本程序以「低门槛、自包含、双通道检测」为设计原则，兼顾日常监控的实用性与可维护性。默认配置即可满足「有人经过/靠近即录像并记录时间」的核心需求，进阶功能（录音、截图、报警、报表、图形面板）均可按需开关，适合家庭、办公室、门店等轻量安防与看护场景。若您拥有USB环形摄像头，我猜这会是一个更好的选择。</p>
+
+  </div>
+
+  
+  <nav class="post-nav">
+    
+    <div class="post-nav-card post-nav-card--empty">
+      <div class="post-nav-card__body">
+        <span class="post-nav-card__label meta-text">上一篇</span>
+        <span class="post-nav-card__empty-text">没有上一篇了~</span>
+      </div>
+    </div>
+    
+    
+    <a href="/post/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi/" class="post-nav-card post-nav-card--next">
+      <div class="post-nav-card__body">
+        <span class="post-nav-card__label meta-text">下一篇</span>
+        <span class="post-nav-card__title">国际贸易实务——FOB价格计算器和PISC生成器</span>
+      </div>
+      
+      <div class="post-nav-card__img">
+        <img src="/post-images/guo-ji-mao-yi-shi-wu-fobjie-ge-ji-suan-qi-he-piscsheng-cheng-qi.png" alt="国际贸易实务——FOB价格计算器和PISC生成器" loading="lazy" />
+      </div>
+      
+      <span class="post-nav-card__arrow">&rarr;</span>
+    </a>
+    
+  </nav>
+
+  
+  
+
+
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+
+    
+    
+    <nav class="footer-nav" aria-label="页脚导航">
+      
+      <a class="footer-nav__link" href="/">首页</a>
+      
+      <a class="footer-nav__link" href="/post">博客</a>
+      
+      <a class="footer-nav__link" href="/memos">闪念</a>
+      
+      <a class="footer-nav__link" href="/archives">归档</a>
+      
+      <a class="footer-nav__link" href="/tags">标签</a>
+      
+      <a class="footer-nav__link" href="/links">友链</a>
+      
+      <a class="footer-nav__link" href="/post/about">关于</a>
+      
+    </nav>
+    
+
+    
+    <div class="footer-social">
+      
+      
+      
+      <a class="footer-social__link" href="/feed.xml" aria-label="RSS">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.18 15.64a2.18 2.18 0 110 4.36 2.18 2.18 0 010-4.36zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zm0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/>
+        </svg>
+      </a>
+    </div>
+
+    
+    <div class="footer-copyright">
+      <p>&copy; 2026 papers·blog. All rights reserved.</p>
+    </div>
+
+    
+    
+
+    
+    <div class="footer-powered">
+      <span>Powered by <a href="https://gridea.pro" target="_blank" rel="noopener noreferrer">Gridea Pro</a></span>
+    </div>
+
+  </div>
+</footer>
+
+  
+  <div class="search-overlay" id="searchOverlay" style="display:none;">
+  <div class="search-modal">
+    <div class="search-header">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="搜索文章..." autocomplete="off" />
+      <span class="search-kbd">&#8984;K</span>
+      <button class="search-close" id="searchClose" type="button" aria-label="关闭搜索">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<script src="/scripts/search.js"></script>
+  
+
+  
+
+  
+
+  
+
+<script>console.log("\n%c ✦ Gridea Pro v1.3.0-beta.1 %c · Theme: flavor-theme v1.0.0 · https://gridea.pro %c\n","color:#fadfa3;background:#111111;padding:9px 14px;border-radius:4px 0 0 4px;font-weight:500;font-size:12px","color:#e05c00;background:#fff3ec;padding:9px 14px;border-radius:0 4px 4px 0;font-size:11px","")</script>
+</body>
+</html>
